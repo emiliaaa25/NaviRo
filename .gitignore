@@ -1,0 +1,54 @@
+# --- General / OS ---
+.DS_Store
+Thumbs.db
+*.swp
+*.log
+.env
+.venv/
+env/
+venv/
+node_modules/
+
+# --- Rasa (The Bot) ---
+bot/.rasa/
+bot/models/
+bot/results/
+bot/graph.html
+bot/events.db
+bot/.python-version
+# Don't ignore training data, but ignore specific local cache
+bot/actions/__pycache__/
+bot/tests/results/
+
+# --- Frontend (React / Next.js) ---
+frontend/build/
+frontend/dist/
+frontend/.next/
+frontend/out/
+frontend/.pnp/
+frontend/.pnp.js
+frontend/coverage/
+frontend/*.tsbuildinfo
+
+# --- Python / Custom Actions ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# --- Database & Docker ---
+# Important: Never commit actual database data
+postgres_data/
+docker_volumes/
+*.db-journal
+
+# --- Azure & AI Speech ---
+# If you store temporary audio files for testing
+*.wav
+*.mp3
+*.pcm
+
+# --- Project Specifics ---
+# User-uploaded PDFs for testing the Buro-Simplifier
+bot/actions/temp_uploads/
