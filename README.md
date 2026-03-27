@@ -87,7 +87,9 @@ This starts:
 
 Leave this terminal running.
 
-## 6. Start Frontend (Second Terminal)
+### 2. Start frontend
+
+Open a second terminal:
 
 ```bash
 cd frontend
