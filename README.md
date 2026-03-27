@@ -1,25 +1,79 @@
 # NaviRo
 
-NaviRo is a Rasa-based chatbot project with a React frontend.
+NaviRo is a Rasa chatbot project with a React frontend.
 
-The stack is split into:
+The repository has 2 major parts:
 
-- `bot`: Rasa assistant, training data, and custom actions
-- `frontend`: React + Vite UI
-- `docker-compose.yml`: local backend stack (PostgreSQL, Rasa server, action server)
+- `bot/`: Rasa assistant, NLU/stories/domain files, and custom actions
+- `frontend/`: React + Vite chat UI
 
-## Prerequisites
+Local backend services run with Docker Compose:
 
-Install these tools before running the project:
+- PostgreSQL
+- Rasa action server
+- Rasa server (REST + Socket.IO)
 
-- Docker Desktop (with Docker Compose)
+## 1. Prerequisites
+
+Install these before running the project:
+
+- Docker Desktop (with `docker compose`)
 - Node.js 18+ and npm
+- Git
 
-## Quick Start (Recommended)
+Optional but useful:
 
-### 1. Start backend services with Docker
+- `curl` for health checks
 
-From the repository root:
+## 2. Clone And Enter Project
+
+```bash
+git clone <your-repo-url>
+cd NaviRo
+```
+
+## 3. Environment Configuration (`.env`)
+
+Copy the example file:
+
+```bash
+cp .env.example .env
+```
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Current example keys:
+
+- `AZURE_SPEECH_KEY`
+- `DEEPSEEK_API_KEY`
+- `DB_PASSWORD`
+
+Important:
+
+- The current compose and Rasa config use hardcoded PostgreSQL values (`postgres`) in `docker-compose.yml` and `bot/endpoints.yml`.
+- If you change `DB_PASSWORD` in `.env`, also update it in:
+  - `docker-compose.yml` -> `services.db.environment.POSTGRES_PASSWORD`
+  - `bot/endpoints.yml` -> `tracker_store.password`
+
+Keep `.env` local and do not commit secrets.
+
+## 4. Install Frontend Dependencies
+
+From project root:
+
+```bash
+cd frontend
+npm install
+cd ..
+```
+
+## 5. Start Backend (Docker)
+
+From project root:
 
 ```bash
 docker compose up --build
@@ -27,91 +81,136 @@ docker compose up --build
 
 This starts:
 
-- PostgreSQL on `localhost:5432`
-- Rasa action server on `localhost:5055`
-- Rasa server API + Socket.IO on `localhost:5005`
+- Postgres on `localhost:5432`
+- Action server on `localhost:5055`
+- Rasa server on `localhost:5005`
 
-Keep this terminal running.
+Leave this terminal running.
 
-### 2. Start frontend
-
-Open a second terminal:
+## 6. Start Frontend (Second Terminal)
 
 ```bash
 cd frontend
-npm install
 npm run dev
 ```
 
-Vite will print the frontend URL (usually `http://localhost:5173`).
+Open the URL shown by Vite (usually `http://localhost:5173`).
 
-### 3. Use the app
+## 7. Verify Everything Is Up
 
-Open the frontend URL in your browser and chat with the assistant.
-
-## Verify Services
-
-You can quickly check if Rasa is up:
+Check Rasa status:
 
 ```bash
 curl http://localhost:5005/status
 ```
 
-You should get a JSON response.
+Expected result: JSON response with server details.
 
-## Train a New Rasa Model (Optional)
+You can also verify containers:
 
-If you change NLU/stories/domain data, train a new model:
+```bash
+docker compose ps
+```
+
+## 8. Train A New Rasa Model
+
+If you change files in `bot/domain.yml`, `bot/data/nlu.yml`, or `bot/data/stories.yml`:
 
 ```bash
 docker compose run --rm rasa_server train
 ```
 
-The generated model file is saved in `bot/models`.
+Generated models are saved under `bot/models`.
 
-## Stop the Project
+## 9. Stop Services
 
-From repository root:
+Stop and keep data:
 
 ```bash
 docker compose down
 ```
 
-To also remove volumes (including database data):
+Stop and remove volumes (including database data):
 
 ```bash
 docker compose down -v
 ```
 
-## Common Issues
+## 10. Common Operations
 
-1. Port already in use (`5005`, `5055`, `5432`, or `5173`)
+Rebuild only action server after action code changes:
 
-- Stop the conflicting process or change ports.
+```bash
+docker compose up --build action_server
+```
+
+Restart backend stack:
+
+```bash
+docker compose restart
+```
+
+View backend logs:
+
+```bash
+docker compose logs -f rasa_server
+docker compose logs -f action_server
+```
+
+## 11. Troubleshooting
+
+1. Port already in use (`5005`, `5055`, `5432`, `5173`)
+
+- Stop conflicting process/container, or change mapped ports.
 
 2. Frontend connects but no bot response
 
-- Confirm Docker services are running.
-- Confirm Rasa socket endpoint is reachable on `http://localhost:5005`.
+- Check backend containers are healthy: `docker compose ps`.
+- Confirm Rasa endpoint returns status on `http://localhost:5005/status`.
+- Confirm Socket.IO events in `bot/credentials.yml` match frontend expectations.
 
-3. `npm install` fails
+3. Database connection errors
 
-- Make sure Node.js is version 18 or newer.
+- Ensure password matches in all three places: `.env`, `docker-compose.yml`, `bot/endpoints.yml`.
+- Recreate stack after changes: `docker compose down -v` then `docker compose up --build`.
 
-## Project Structure
+4. Frontend dependency or build errors
+
+- Check Node version (`node -v`) is 18+.
+- Remove and reinstall dependencies in `frontend/`:
+
+```bash
+rm -rf node_modules package-lock.json
+npm install
+```
+
+On Windows PowerShell:
+
+```powershell
+Remove-Item -Recurse -Force node_modules
+Remove-Item package-lock.json
+npm install
+```
+
+## 12. Project Structure
 
 ```text
 NaviRo/
+  .env.example
+  docker-compose.yml
   bot/
-    actions/
-    data/
-    models/
     config.yml
     credentials.yml
     domain.yml
     endpoints.yml
+    actions/
+      actions.py
+      requirements.txt
+    data/
+      nlu.yml
+      stories.yml
+    models/
   frontend/
-    src/
     package.json
-  docker-compose.yml
+    src/
 ```
