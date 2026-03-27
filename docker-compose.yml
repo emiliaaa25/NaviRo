@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: iasi_quest_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d iasi_quest_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  action_server:
+    build:
+      context: ./bot/actions
+    volumes:
+      - ./bot/actions:/app/actions
+    ports:
+      - "5055:5055"
+    depends_on:
+      - db
+
+  rasa_server:
+    image: rasa/rasa:3.6.15-full
+    user: root 
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./bot:/app
+    command: run --enable-api --cors "*" --debug --credentials credentials.yml
+    depends_on:
+      db:
+        condition: service_healthy
+      action_server:
+        condition: service_started

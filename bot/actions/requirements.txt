@@ -1,0 +1,2 @@
+rasa-sdk>=3.6.0
+psycopg2-binary

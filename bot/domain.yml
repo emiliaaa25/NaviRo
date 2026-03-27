@@ -1,0 +1,28 @@
+version: "3.1"
+
+intents:
+  - greet
+  - inform_origin
+  - start_medical_quest
+
+slots:
+  user_origin:
+    type: categorical
+    values:
+      - EU
+      - Non-EU
+      - Treaty_NZ_UAE
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: country
+
+  quest_step:
+    type: float
+    initial_value: 1.0
+    mappings:
+      - type: custom # Updated via Custom Actions as they finish tasks
+
+responses:
+  utter_greet:
+    - text: "Welcome to Iași-Quest! To map your journey, are you joining us from the EU or outside the EU?"
