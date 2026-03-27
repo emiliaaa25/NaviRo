@@ -33,9 +33,9 @@ This starts:
 
 Keep this terminal running.
 
-### 2. Start frontend
+### 2. Start frontend in VSCode 
 
-Open a second terminal:
+Open a terminal:
 
 ```bash
 cd frontend
