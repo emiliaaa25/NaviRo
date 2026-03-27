@@ -2,7 +2,7 @@
 
 NaviRo is a Rasa chatbot project with a React frontend.
 
-The repository has 2 major parts:
+The repository has two major parts:
 
 - `bot/`: Rasa assistant, NLU/stories/domain files, and custom actions
 - `frontend/`: React + Vite chat UI
@@ -25,7 +25,7 @@ Optional but useful:
 
 - `curl` for health checks
 
-## 2. Clone And Enter Project
+## 2. Clone and Enter the Project
 
 ```bash
 git clone <your-repo-url>
@@ -46,6 +46,8 @@ On Windows PowerShell:
 Copy-Item .env.example .env
 ```
 
+If `.env` already exists, update it instead of overwriting it.
+
 Current example keys:
 
 - `AZURE_SPEECH_KEY`
@@ -55,13 +57,14 @@ Current example keys:
 Important:
 
 - The current compose and Rasa config use hardcoded PostgreSQL values (`postgres`) in `docker-compose.yml` and `bot/endpoints.yml`.
-- If you change `DB_PASSWORD` in `.env`, also update it in:
-  - `docker-compose.yml` -> `services.db.environment.POSTGRES_PASSWORD`
-  - `bot/endpoints.yml` -> `tracker_store.password`
+- If you change `DB_PASSWORD` in `.env`, also update:
+
+1. `docker-compose.yml` -> `services.db.environment.POSTGRES_PASSWORD`
+2. `bot/endpoints.yml` -> `tracker_store.password`
 
 Keep `.env` local and do not commit secrets.
 
-## 4. Install Frontend Dependencies
+## 4. Install Frontend Dependencies (One-Time)
 
 From project root:
 
@@ -81,13 +84,13 @@ docker compose up --build
 
 This starts:
 
-- Postgres on `localhost:5432`
+- PostgreSQL on `localhost:5432`
 - Action server on `localhost:5055`
 - Rasa server on `localhost:5005`
 
 Leave this terminal running.
 
-### 2. Start frontend
+## 6. Run Frontend Dev Server
 
 Open a second terminal:
 
@@ -114,7 +117,7 @@ You can also verify containers:
 docker compose ps
 ```
 
-## 8. Train A New Rasa Model
+## 8. Train a New Rasa Model
 
 If you change files in `bot/domain.yml`, `bot/data/nlu.yml`, or `bot/data/stories.yml`:
 
