@@ -13,6 +13,27 @@ services:
       timeout: 5s
       retries: 5
 
+  api_server:
+    build:
+      context: ./bot/actions
+      dockerfile: Dockerfile.api
+    environment:
+      DB_HOST: db
+      DB_NAME: iasi_quest_db
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_PORT: 5432
+      FLASK_HOST: 0.0.0.0
+      FLASK_PORT: 5056
+      SECRET_KEY: your-secret-key-change-in-production
+    volumes:
+      - ./bot/actions:/app/actions
+    ports:
+      - "5056:5056"
+    depends_on:
+      db:
+        condition: service_healthy
+
   action_server:
     build:
       context: ./bot/actions
@@ -25,7 +46,7 @@ services:
 
   rasa_server:
     image: rasa/rasa:3.6.15-full
-    user: root 
+    user: root
     ports:
       - "5005:5005"
     volumes:

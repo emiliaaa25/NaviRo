@@ -12,12 +12,24 @@ const milestones = [
   { id: 4, label: "Iași Arrival", description: "Housing & Local Registration" },
 ];
 
-const QuestMap = ({ currentStep = 1 }) => {
+const QuestMap = ({
+  currentStep = 1,
+  questToken = null,
+  userTag = null,
+  questStatusLabel = "Quest not started",
+}) => {
   return (
     <div className="p-6 bg-slate-50 rounded-xl shadow-md border border-slate-200 w-80">
       <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
         <MapPin className="text-blue-600" /> Your Iași Quest
       </h2>
+
+      {userTag && (
+        <div className="mb-4 p-2 bg-white border border-slate-200 rounded-lg text-xs text-slate-600">
+          <strong className="text-slate-800">Profile:</strong> {userTag}
+          <p className="mt-1">{questStatusLabel}</p>
+        </div>
+      )}
 
       <div className="space-y-8">
         {milestones.map((step) => {
@@ -63,10 +75,16 @@ const QuestMap = ({ currentStep = 1 }) => {
         })}
       </div>
 
-      <div className="mt-8 p-3 bg-blue-100 rounded-lg text-xs text-blue-800 border border-blue-200">
-        <strong>Quest Token:</strong> IQ-7829-NZ-2026
-        <p className="mt-1">Save this to resume your journey anytime.</p>
-      </div>
+      {questToken ? (
+        <div className="mt-8 p-3 bg-blue-100 rounded-lg text-xs text-blue-800 border border-blue-200">
+          <strong>Quest Token:</strong> {questToken}
+          <p className="mt-1">Save this to resume your journey anytime.</p>
+        </div>
+      ) : (
+        <div className="mt-8 p-3 bg-slate-100 rounded-lg text-xs text-slate-700 border border-slate-200">
+          Start your quest from Profile to generate a Quest Token.
+        </div>
+      )}
     </div>
   );
 };
