@@ -1,2 +1,10 @@
 rasa-sdk>=3.6.0
 psycopg2-binary
+openai
+flask   
+requests
+urllib3
+flask-socketio
+eventlet
+PyPDF2
+bs4
