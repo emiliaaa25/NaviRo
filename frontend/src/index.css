@@ -751,6 +751,54 @@ body {
   font-weight: 700;
 }
 
+.nv-chat-citations {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(122, 158, 142, 0.18);
+}
+
+.nv-chat-citations-label {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.nv-chat-citations-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.nv-chat-citation-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  border: 1px solid var(--cream-dark);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--dark);
+  text-decoration: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nv-chat-citation-link:hover {
+  border-color: var(--sage-light);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.nv-chat-citation-link span {
+  font-size: 12px;
+  color: var(--text-light);
+  word-break: break-word;
+}
 .nv-quick-chips {
   display: flex;
   flex-wrap: wrap;

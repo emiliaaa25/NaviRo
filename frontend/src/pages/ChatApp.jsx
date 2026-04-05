@@ -377,6 +377,50 @@ function ChatApp() {
     return blocks.length > 0 ? blocks : text;
   };
 
+  const renderCitationLinks = (citations, keyPrefix = "citations") => {
+    const uniqueCitations = Array.from(
+      new Set(
+        (Array.isArray(citations) ? citations : []).filter(
+          (citation) => typeof citation === "string" && citation.trim(),
+        ),
+      ),
+    );
+
+    if (uniqueCitations.length === 0) {
+      return null;
+    }
+
+    return (
+      <div className="nv-chat-citations">
+        <div className="nv-chat-citations-label">More info</div>
+        <div className="nv-chat-citations-list">
+          {uniqueCitations.map((citation, idx) => {
+            let hostLabel = citation;
+
+            try {
+              hostLabel = new URL(citation).hostname.replace(/^www\./, "");
+            } catch {
+              hostLabel = citation;
+            }
+
+            return (
+              <a
+                key={`${keyPrefix}-${idx}`}
+                href={citation}
+                target="_blank"
+                rel="noreferrer"
+                className="nv-chat-citation-link"
+              >
+                Source {idx + 1}
+                <span>{hostLabel}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="nv-app">
       <aside className="nv-sidebar">
@@ -507,7 +551,14 @@ function ChatApp() {
                 <div
                   className={`nv-chat-bubble${msg.sender === "user" ? " nv-user" : " nv-bot"}`}
                 >
-                  {msg.sender === "bot" ? renderBotText(msg.text) : msg.text}
+                  {msg.sender === "bot" ? (
+                    <>
+                      {renderBotText(msg.text)}
+                      {renderCitationLinks(msg.citations, `msg-${i}`)}
+                    </>
+                  ) : (
+                    msg.text
+                  )}
                 </div>
               </div>
             ))}
