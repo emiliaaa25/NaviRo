@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import {
   LogOut,
@@ -9,6 +9,7 @@ import {
   MapPin,
   Zap,
   Download,
+  MessageCircle,
 } from "lucide-react";
 
 export default function UserProfile() {
@@ -37,6 +38,7 @@ export default function UserProfile() {
   const [activeTab, setActiveTab] = useState("profile"); // "profile" or "quest"
 
   const [editFormData, setEditFormData] = useState({
+    username: "",
     full_name: "",
     academic_year: "",
     faculty: "",
@@ -73,6 +75,7 @@ export default function UserProfile() {
     if (profileData) {
       setProfile(profileData);
       setEditFormData({
+        username: profileData.username ?? user?.username ?? "",
         full_name: profileData.full_name || "",
         academic_year: profileData.academic_year || "",
         faculty: profileData.faculty || "",
@@ -174,20 +177,18 @@ export default function UserProfile() {
     switch (status) {
       case "Complete":
         return (
-          <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white">
-            ✓
-          </div>
+          <div className="nv-milestone-icon nv-milestone-icon-complete">✓</div>
         );
       case "In Progress":
         return (
-          <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
-            <Zap size={16} className="text-white" />
+          <div className="nv-milestone-icon nv-milestone-icon-progress">
+            <Zap size={16} aria-hidden />
           </div>
         );
       default:
         return (
-          <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-            <MapPin size={16} className="text-gray-600" />
+          <div className="nv-milestone-icon nv-milestone-icon-locked">
+            <MapPin size={16} aria-hidden />
           </div>
         );
     }
@@ -195,72 +196,92 @@ export default function UserProfile() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
-          <p className="mt-4 text-gray-600">Loading profile...</p>
-        </div>
+      <div className="nv-loading">
+        <div className="nv-spinner" aria-hidden />
+        <p style={{ color: "var(--text-light)", fontSize: 14 }}>
+          Loading profile...
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
-      <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
-            IAȘI-Quest Navigator
-          </h1>
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition"
+    <div className="nv-page">
+      <div className="nv-page-inner">
+        <div className="nv-page-header">
+          <div>
+            <h1 className="nv-page-title">NaviRo</h1>
+            <p
+              style={{
+                margin: "6px 0 0",
+                fontSize: 13,
+                color: "var(--text-light)",
+              }}
+            >
+              Profile &amp; IAȘI-Quest
+            </p>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              flexWrap: "wrap",
+            }}
           >
-            <LogOut size={20} />
-            Logout
-          </button>
+            <Link
+              to="/chat"
+              className="nv-btn-secondary"
+              style={{
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+              }}
+            >
+              <MessageCircle size={18} aria-hidden />
+              Back to chat
+            </Link>
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="nv-btn-logout"
+            >
+              <LogOut size={18} />
+              Log out
+            </button>
+          </div>
         </div>
 
-        {/* Error/Success Messages */}
         {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
-            <AlertCircle
-              size={20}
-              className="text-red-600 flex-shrink-0 mt-0.5"
-            />
-            <span className="text-red-700">{error}</span>
+          <div className="nv-alert nv-alert-error" style={{ marginBottom: 24 }}>
+            <AlertCircle size={18} className="flex-shrink-0" />
+            <span>{error}</span>
           </div>
         )}
 
         {success && (
-          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
-            <CheckCircle
-              size={20}
-              className="text-green-600 flex-shrink-0 mt-0.5"
-            />
-            <span className="text-green-700">{success}</span>
+          <div
+            className="nv-alert nv-alert-success"
+            style={{ marginBottom: 24 }}
+          >
+            <CheckCircle size={18} className="flex-shrink-0" />
+            <span>{success}</span>
           </div>
         )}
 
-        {/* Tabs */}
-        <div className="flex gap-4 mb-8 border-b border-gray-200">
+        <div className="nv-profile-tabs">
           <button
+            type="button"
             onClick={() => setActiveTab("profile")}
-            className={`px-6 py-3 font-semibold transition ${
-              activeTab === "profile"
-                ? "text-indigo-600 border-b-2 border-indigo-600"
-                : "text-gray-600 hover:text-gray-900"
-            }`}
+            className={`nv-profile-tab${activeTab === "profile" ? " nv-active" : ""}`}
           >
             Student Profile
           </button>
           <button
+            type="button"
             onClick={() => setActiveTab("quest")}
-            className={`px-6 py-3 font-semibold transition ${
-              activeTab === "quest"
-                ? "text-indigo-600 border-b-2 border-indigo-600"
-                : "text-gray-600 hover:text-gray-900"
-            }`}
+            className={`nv-profile-tab${activeTab === "quest" ? " nv-active" : ""}`}
           >
             Quest Map ({questProgress ? "Active" : "Inactive"})
           </button>
@@ -269,139 +290,224 @@ export default function UserProfile() {
         {/* Profile Tab */}
         {activeTab === "profile" && (
           <>
-            {/* Student Profile Card */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
-              <div className="bg-gradient-to-r from-indigo-600 to-indigo-700 p-6 text-white">
-                <h2 className="text-2xl font-bold">
-                  {profile?.full_name || "Student"}
-                </h2>
-                <p className="text-indigo-100">@{user?.username}</p>
-                <p className="text-indigo-100">{profile?.email}</p>
+            <div className="nv-card" style={{ marginBottom: 24 }}>
+              <div className="nv-card-header-sage">
+                <h2>{profile?.full_name || "Student"}</h2>
+                <p>@{profile?.username ?? user?.username}</p>
+                <p>{profile?.email}</p>
               </div>
 
-              <div className="p-6">
+              <div className="nv-card-body">
                 {!isEditingProfile ? (
                   <>
-                    <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="nv-form-grid" style={{ marginBottom: 24 }}>
                       <div>
-                        <p className="text-sm text-gray-600">Academic Year</p>
-                        <p className="text-lg font-semibold text-gray-900">
+                        <span className="nv-label">Username</span>
+                        <p
+                          style={{
+                            fontSize: 16,
+                            fontWeight: 600,
+                            color: "var(--dark)",
+                            margin: 0,
+                          }}
+                        >
+                          {profile?.username ?? user?.username}
+                        </p>
+                      </div>
+                      <div>
+                        <span className="nv-label">Academic Year</span>
+                        <p
+                          style={{
+                            fontSize: 16,
+                            fontWeight: 600,
+                            color: "var(--dark)",
+                            margin: 0,
+                          }}
+                        >
                           {profile?.academic_year || "Not set"}
                         </p>
                       </div>
                       <div>
-                        <p className="text-sm text-gray-600">Faculty</p>
-                        <p className="text-lg font-semibold text-gray-900">
+                        <span className="nv-label">Faculty</span>
+                        <p
+                          style={{
+                            fontSize: 16,
+                            fontWeight: 600,
+                            color: "var(--dark)",
+                            margin: 0,
+                          }}
+                        >
                           {profile?.faculty || "Not set"}
                         </p>
                       </div>
                       <div>
-                        <p className="text-sm text-gray-600">Specialization</p>
-                        <p className="text-lg font-semibold text-gray-900">
+                        <span className="nv-label">Specialization</span>
+                        <p
+                          style={{
+                            fontSize: 16,
+                            fontWeight: 600,
+                            color: "var(--dark)",
+                            margin: 0,
+                          }}
+                        >
                           {profile?.specialization || "Not set"}
                         </p>
                       </div>
                     </div>
 
                     {profile?.bio && (
-                      <div className="mb-6">
-                        <p className="text-sm text-gray-600">Bio</p>
-                        <p className="text-gray-900">{profile.bio}</p>
+                      <div style={{ marginBottom: 24 }}>
+                        <span className="nv-label">Bio</span>
+                        <p
+                          style={{
+                            margin: "6px 0 0",
+                            color: "var(--text)",
+                            lineHeight: 1.55,
+                          }}
+                        >
+                          {profile.bio}
+                        </p>
                       </div>
                     )}
 
                     <button
-                      onClick={() => setIsEditingProfile(true)}
-                      className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition"
+                      type="button"
+                      onClick={() => {
+                        setEditFormData({
+                          username: profile?.username ?? user?.username ?? "",
+                          full_name: profile?.full_name || "",
+                          academic_year: profile?.academic_year || "",
+                          faculty: profile?.faculty || "",
+                          specialization: profile?.specialization || "",
+                          bio: profile?.bio || "",
+                        });
+                        setIsEditingProfile(true);
+                      }}
+                      className="nv-btn-edit"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 8,
+                      }}
                     >
                       <Edit2 size={18} />
                       Edit Profile
                     </button>
                   </>
                 ) : (
-                  <form onSubmit={handleUpdateProfile} className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <form onSubmit={handleUpdateProfile}>
+                    <div style={{ marginBottom: 16 }}>
+                      <label className="nv-label" htmlFor="username">
+                        Username
+                      </label>
+                      <input
+                        id="username"
+                        type="text"
+                        name="username"
+                        value={editFormData.username}
+                        onChange={handleEditProfileChange}
+                        className="nv-input"
+                        autoComplete="username"
+                      />
+                    </div>
+
+                    <div style={{ marginBottom: 16 }}>
+                      <label className="nv-label" htmlFor="full_name">
                         Full Name
                       </label>
                       <input
+                        id="full_name"
                         type="text"
                         name="full_name"
                         value={editFormData.full_name}
                         onChange={handleEditProfileChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+                        className="nv-input"
                       />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="nv-form-grid" style={{ marginBottom: 16 }}>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="nv-label" htmlFor="academic_year">
                           Academic Year
                         </label>
                         <input
+                          id="academic_year"
                           type="number"
                           name="academic_year"
                           value={editFormData.academic_year}
                           onChange={handleEditProfileChange}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+                          className="nv-input"
                           placeholder="e.g., 2"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="nv-label" htmlFor="faculty">
                           Faculty
                         </label>
                         <input
+                          id="faculty"
                           type="text"
                           name="faculty"
                           value={editFormData.faculty}
                           onChange={handleEditProfileChange}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+                          className="nv-input"
                           placeholder="Your faculty"
                         />
                       </div>
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <div style={{ marginBottom: 16 }}>
+                      <label className="nv-label" htmlFor="specialization">
                         Specialization
                       </label>
                       <input
+                        id="specialization"
                         type="text"
                         name="specialization"
                         value={editFormData.specialization}
                         onChange={handleEditProfileChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+                        className="nv-input"
                         placeholder="Your specialization"
                       />
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <div style={{ marginBottom: 16 }}>
+                      <label className="nv-label" htmlFor="bio">
                         Bio
                       </label>
                       <textarea
+                        id="bio"
                         name="bio"
                         value={editFormData.bio}
                         onChange={handleEditProfileChange}
-                        rows="4"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+                        rows={4}
+                        className="nv-input nv-textarea"
                         placeholder="Tell us about yourself"
                       />
                     </div>
 
-                    <div className="flex gap-3">
-                      <button
-                        type="submit"
-                        className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition"
-                      >
+                    <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                      <button type="submit" className="nv-btn-edit">
                         Save Changes
                       </button>
                       <button
                         type="button"
-                        onClick={() => setIsEditingProfile(false)}
-                        className="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg transition"
+                        onClick={() => {
+                          setIsEditingProfile(false);
+                          if (profile) {
+                            setEditFormData({
+                              username:
+                                profile.username ?? user?.username ?? "",
+                              full_name: profile.full_name || "",
+                              academic_year: profile.academic_year || "",
+                              faculty: profile.faculty || "",
+                              specialization: profile.specialization || "",
+                              bio: profile.bio || "",
+                            });
+                          }
+                        }}
+                        className="nv-btn-secondary"
                       >
                         Cancel
                       </button>
@@ -411,83 +517,74 @@ export default function UserProfile() {
               </div>
             </div>
 
-            {/* Student Toolkit */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="bg-indigo-600 p-6 text-white">
-                <h3 className="text-xl font-bold">Student Toolkit for Iași</h3>
-                <p className="text-indigo-100 text-sm mt-1">
+            <div className="nv-card">
+              <div className="nv-card-header-sage">
+                <h3>Student Toolkit for Iași</h3>
+                <p>
                   Quick access to verified resources relevant for admission,
                   visa, integration and city life.
                 </p>
               </div>
 
-              <div className="p-6 grid md:grid-cols-2 gap-4">
-                <a
-                  href="https://eviza.mae.ro"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block p-4 border border-gray-200 rounded-lg hover:shadow-md transition"
-                >
-                  <p className="font-semibold text-gray-900">Romanian eVisa</p>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Official visa application portal (MAE).
-                  </p>
-                </a>
+              <div className="nv-card-body">
+                <div className="nv-toolkit-grid">
+                  <a
+                    href="https://eviza.mae.ro"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="nv-toolkit-link"
+                  >
+                    <strong>Romanian eVisa</strong>
+                    <span>Official visa application portal (MAE).</span>
+                  </a>
 
-                <a
-                  href="https://igi.mai.gov.ro"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block p-4 border border-gray-200 rounded-lg hover:shadow-md transition"
-                >
-                  <p className="font-semibold text-gray-900">
-                    IGI Residence Info
-                  </p>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Residence permit and immigration procedures.
-                  </p>
-                </a>
+                  <a
+                    href="https://igi.mai.gov.ro"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="nv-toolkit-link"
+                  >
+                    <strong>IGI Residence Info</strong>
+                    <span>Residence permit and immigration procedures.</span>
+                  </a>
 
-                <a
-                  href="https://www.iasi.esn.ro/buddy-system"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block p-4 border border-gray-200 rounded-lg hover:shadow-md transition"
-                >
-                  <p className="font-semibold text-gray-900">
-                    ESN Buddy System
-                  </p>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Find student volunteers for local integration.
-                  </p>
-                </a>
+                  <a
+                    href="https://www.iasi.esn.ro/buddy-system"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="nv-toolkit-link"
+                  >
+                    <strong>ESN Buddy System</strong>
+                    <span>Find student volunteers for local integration.</span>
+                  </a>
 
-                <a
-                  href="https://www.uaic.ro/en/international/student-mobility-for-studies/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block p-4 border border-gray-200 rounded-lg hover:shadow-md transition"
-                >
-                  <p className="font-semibold text-gray-900">
-                    UAIC Student Mobility
-                  </p>
-                  <p className="text-sm text-gray-600 mt-1">
-                    International office information and procedures.
-                  </p>
-                </a>
-              </div>
+                  <a
+                    href="https://www.uaic.ro/en/international/student-mobility-for-studies/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="nv-toolkit-link"
+                  >
+                    <strong>UAIC Student Mobility</strong>
+                    <span>
+                      International office information and procedures.
+                    </span>
+                  </a>
+                </div>
 
-              <div className="px-6 pb-6">
-                <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
-                  <p className="text-sm font-semibold text-gray-900 mb-1">
+                <div className="nv-callout" style={{ marginTop: 20 }}>
+                  <strong
+                    style={{
+                      display: "block",
+                      marginBottom: 6,
+                      color: "var(--dark)",
+                    }}
+                  >
                     First Week Companion
-                  </p>
-                  <p className="text-sm text-gray-700">
-                    After arrival in Iași, complete your first actions in this
-                    order: check-in at university international office, update
-                    residence paperwork, then activate local transport and
-                    health guidance links from your Quest tab.
-                  </p>
+                  </strong>
+                  After arrival in Iași, complete your first actions in this
+                  order: check-in at university international office, update
+                  residence paperwork, then activate local transport and health
+                  guidance links from your Quest tab.
                 </div>
               </div>
             </div>
@@ -498,45 +595,44 @@ export default function UserProfile() {
         {activeTab === "quest" && (
           <>
             {!questProgress ? (
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6 text-white">
-                  <h2 className="text-2xl font-bold mb-2">Begin Your Quest!</h2>
-                  <p className="text-purple-100">
+              <div className="nv-card">
+                <div className="nv-card-header-sage">
+                  <h2>Begin your quest</h2>
+                  <p>
                     Create your relocation profile to start your IAȘI-Quest
-                    journey
+                    journey.
                   </p>
                 </div>
 
-                <div className="p-6">
+                <div className="nv-card-body">
                   {isAddingRelocationProfile ? (
-                    <form
-                      onSubmit={handleCreateRelocationProfile}
-                      className="space-y-4"
-                    >
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <form onSubmit={handleCreateRelocationProfile}>
+                      <div style={{ marginBottom: 16 }}>
+                        <label className="nv-label" htmlFor="country_of_origin">
                           Country of Origin *
                         </label>
                         <input
+                          id="country_of_origin"
                           type="text"
                           name="country_of_origin"
                           value={relocationData.country_of_origin}
                           onChange={handleRelocationChange}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
+                          className="nv-input"
                           placeholder="e.g., France, Canada, Japan"
                           required
                         />
                       </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <div style={{ marginBottom: 16 }}>
+                        <label className="nv-label" htmlFor="citizenship_type">
                           Citizenship Type *
                         </label>
                         <select
+                          id="citizenship_type"
                           name="citizenship_type"
                           value={relocationData.citizenship_type}
                           onChange={handleRelocationChange}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
+                          className="nv-input"
                           required
                         >
                           <option value="EU">EU Citizen</option>
@@ -551,83 +647,104 @@ export default function UserProfile() {
                         </select>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-4">
+                      <div
+                        className="nv-form-grid"
+                        style={{ marginBottom: 16 }}
+                      >
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                          <label className="nv-label" htmlFor="study_program">
                             Study Program
                           </label>
                           <input
+                            id="study_program"
                             type="text"
                             name="study_program"
                             value={relocationData.study_program}
                             onChange={handleRelocationChange}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
+                            className="nv-input"
                             placeholder="e.g., Medicine, Engineering"
                           />
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                          <label
+                            className="nv-label"
+                            htmlFor="target_university"
+                          >
                             Target University
                           </label>
                           <input
+                            id="target_university"
                             type="text"
                             name="target_university"
                             value={relocationData.target_university}
                             onChange={handleRelocationChange}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
+                            className="nv-input"
                             placeholder="e.g., UAIC, UMF"
                           />
                         </div>
                       </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <div style={{ marginBottom: 16 }}>
+                        <label className="nv-label" htmlFor="target_faculty">
                           Target Faculty
                         </label>
                         <input
+                          id="target_faculty"
                           type="text"
                           name="target_faculty"
                           value={relocationData.target_faculty}
                           onChange={handleRelocationChange}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
+                          className="nv-input"
                           placeholder="Your faculty"
                         />
                       </div>
 
-                      <div className="grid grid-cols-2 gap-4">
+                      <div
+                        className="nv-form-grid"
+                        style={{ marginBottom: 16 }}
+                      >
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                          <label className="nv-label" htmlFor="birth_date">
                             Birth Date
                           </label>
                           <input
+                            id="birth_date"
                             type="date"
                             name="birth_date"
                             value={relocationData.birth_date}
                             onChange={handleRelocationChange}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
+                            className="nv-input"
                           />
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                          <label className="nv-label" htmlFor="phone">
                             Phone Number
                           </label>
                           <input
+                            id="phone"
                             type="tel"
                             name="phone"
                             value={relocationData.phone}
                             onChange={handleRelocationChange}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none"
+                            className="nv-input"
                             placeholder="+40..."
                           />
                         </div>
                       </div>
 
-                      <div className="flex gap-3">
+                      <div
+                        style={{ display: "flex", gap: 12, flexWrap: "wrap" }}
+                      >
                         <button
                           type="submit"
-                          className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition flex items-center gap-2"
+                          className="nv-btn-edit"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 8,
+                          }}
                         >
                           <Zap size={18} />
                           Start Quest
@@ -635,7 +752,7 @@ export default function UserProfile() {
                         <button
                           type="button"
                           onClick={() => setIsAddingRelocationProfile(false)}
-                          className="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg transition"
+                          className="nv-btn-secondary"
                         >
                           Cancel
                         </button>
@@ -643,158 +760,287 @@ export default function UserProfile() {
                     </form>
                   ) : (
                     <button
+                      type="button"
                       onClick={() => setIsAddingRelocationProfile(true)}
-                      className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition flex items-center gap-2 font-semibold"
+                      className="nv-btn-edit"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 8,
+                      }}
                     >
                       <Zap size={20} />
-                      Create Relocation Profile & Start Quest
+                      Create Relocation Profile &amp; Start Quest
                     </button>
                   )}
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6 text-white">
-                  <h2 className="text-2xl font-bold mb-2">Your Quest Map</h2>
-                  <p className="text-purple-100">
+              <div className="nv-card">
+                <div className="nv-card-header-sage">
+                  <h2>Your Quest Map</h2>
+                  <p>
                     {questProgress.country_of_origin} •{" "}
                     {questProgress.citizenship_type} •{" "}
                     {questProgress.study_program}
                   </p>
                 </div>
 
-                <div className="p-6">
-                  {/* Relocation Info */}
-                  <div className="mb-8 p-4 bg-purple-50 rounded-lg border border-purple-200">
-                    <h3 className="font-semibold text-gray-900 mb-3">
+                <div className="nv-card-body">
+                  <div className="nv-callout" style={{ marginBottom: 28 }}>
+                    <strong
+                      style={{
+                        display: "block",
+                        marginBottom: 10,
+                        color: "var(--dark)",
+                      }}
+                    >
                       Your Relocation Info
-                    </h3>
-                    <div className="grid grid-cols-2 gap-4 text-sm">
+                    </strong>
+                    <div className="nv-form-grid">
                       <div>
-                        <p className="text-gray-600">Country of Origin</p>
-                        <p className="font-medium text-gray-900">
+                        <span className="nv-label">Country of Origin</span>
+                        <p
+                          style={{
+                            margin: "4px 0 0",
+                            fontWeight: 600,
+                            color: "var(--dark)",
+                          }}
+                        >
                           {questProgress.country_of_origin}
                         </p>
                       </div>
                       <div>
-                        <p className="text-gray-600">Citizenship Type</p>
-                        <p className="font-medium text-gray-900">
+                        <span className="nv-label">Citizenship Type</span>
+                        <p
+                          style={{
+                            margin: "4px 0 0",
+                            fontWeight: 600,
+                            color: "var(--dark)",
+                          }}
+                        >
                           {questProgress.citizenship_type}
                         </p>
                       </div>
                       <div>
-                        <p className="text-gray-600">Study Program</p>
-                        <p className="font-medium text-gray-900">
+                        <span className="nv-label">Study Program</span>
+                        <p
+                          style={{
+                            margin: "4px 0 0",
+                            fontWeight: 600,
+                            color: "var(--dark)",
+                          }}
+                        >
                           {questProgress.study_program || "Not specified"}
                         </p>
                       </div>
                       <div>
-                        <p className="text-gray-600">Target University</p>
-                        <p className="font-medium text-gray-900">
+                        <span className="nv-label">Target University</span>
+                        <p
+                          style={{
+                            margin: "4px 0 0",
+                            fontWeight: 600,
+                            color: "var(--dark)",
+                          }}
+                        >
                           {questProgress.target_university || "Not specified"}
                         </p>
                       </div>
                       <div>
-                        <p className="text-gray-600">Visa Status</p>
-                        <p className="font-medium text-gray-900">
+                        <span className="nv-label">Visa Status</span>
+                        <p
+                          style={{
+                            margin: "4px 0 0",
+                            fontWeight: 600,
+                            color: "var(--dark)",
+                          }}
+                        >
                           {questProgress.visa_status}
                         </p>
                       </div>
                       <div>
-                        <p className="text-gray-600">Housing Status</p>
-                        <p className="font-medium text-gray-900">
+                        <span className="nv-label">Housing Status</span>
+                        <p
+                          style={{
+                            margin: "4px 0 0",
+                            fontWeight: 600,
+                            color: "var(--dark)",
+                          }}
+                        >
                           {questProgress.housing_status}
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Milestones */}
-                  <h3 className="font-semibold text-gray-900 mb-4">
+                  <h3
+                    style={{
+                      fontSize: 15,
+                      fontWeight: 600,
+                      color: "var(--dark)",
+                      margin: "0 0 16px",
+                    }}
+                  >
                     Relocation Milestones
                   </h3>
-                  <div className="space-y-4">
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 16,
+                    }}
+                  >
                     {questProgress.milestones &&
                       questProgress.milestones.map((milestone, index) => (
-                        <div key={index} className="relative">
-                          <div className="flex items-start gap-4">
-                            <div className="pt-2">
+                        <div key={index}>
+                          <div className="nv-milestone-row">
+                            <div style={{ paddingTop: 6 }}>
                               {getMilestoneIcon(milestone.status)}
                             </div>
 
-                            <div className="flex-1">
-                              <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                                <div className="flex justify-between items-start mb-2">
-                                  <h4 className="font-semibold text-gray-900">
-                                    {milestone.name}
-                                  </h4>
-                                  <span
-                                    className={`px-3 py-1 rounded-full text-xs font-medium ${
-                                      milestone.status === "Complete"
-                                        ? "bg-green-100 text-green-800"
-                                        : milestone.status === "In Progress"
-                                          ? "bg-blue-100 text-blue-800"
-                                          : "bg-gray-100 text-gray-800"
-                                    }`}
-                                  >
-                                    {milestone.status}
-                                  </span>
-                                </div>
-
-                                {milestone.notes && (
-                                  <p className="text-sm text-gray-600 mb-3">
-                                    {milestone.notes}
-                                  </p>
-                                )}
-
-                                {milestone.status === "Locked" ? (
-                                  <p className="text-xs text-gray-500">
-                                    Locked - Complete previous milestones to
-                                    unlock
-                                  </p>
-                                ) : milestone.status === "Complete" ? (
-                                  <p className="text-xs text-green-600">
-                                    Completed on{" "}
-                                    {new Date(
-                                      milestone.completion_date,
-                                    ).toLocaleDateString()}
-                                  </p>
-                                ) : (
-                                  <div className="flex gap-2">
-                                    <button
-                                      onClick={() =>
-                                        handleMilestoneUpdate(
-                                          milestone.name,
-                                          "Complete",
-                                        )
-                                      }
-                                      className="text-xs bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded transition"
-                                    >
-                                      Mark Complete
-                                    </button>
-                                  </div>
-                                )}
+                            <div
+                              className="nv-milestone-card"
+                              style={{ flex: 1 }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "space-between",
+                                  alignItems: "flex-start",
+                                  gap: 12,
+                                  marginBottom: 8,
+                                }}
+                              >
+                                <h4
+                                  style={{
+                                    margin: 0,
+                                    fontSize: 15,
+                                    color: "var(--dark)",
+                                  }}
+                                >
+                                  {milestone.name}
+                                </h4>
+                                <span
+                                  className={`nv-badge ${
+                                    milestone.status === "Complete"
+                                      ? "nv-badge-complete"
+                                      : milestone.status === "In Progress"
+                                        ? "nv-badge-progress"
+                                        : "nv-badge-locked"
+                                  }`}
+                                >
+                                  {milestone.status}
+                                </span>
                               </div>
+
+                              {milestone.notes && (
+                                <p
+                                  style={{
+                                    fontSize: 13,
+                                    color: "var(--text-light)",
+                                    margin: "0 0 10px",
+                                    lineHeight: 1.5,
+                                  }}
+                                >
+                                  {milestone.notes}
+                                </p>
+                              )}
+
+                              {milestone.status === "Locked" ? (
+                                <p
+                                  style={{
+                                    fontSize: 12,
+                                    color: "var(--text-light)",
+                                    margin: 0,
+                                  }}
+                                >
+                                  Locked - complete previous milestones to
+                                  unlock
+                                </p>
+                              ) : milestone.status === "Complete" ? (
+                                <p
+                                  style={{
+                                    fontSize: 12,
+                                    color: "var(--sage-dark)",
+                                    margin: 0,
+                                  }}
+                                >
+                                  Completed on{" "}
+                                  {new Date(
+                                    milestone.completion_date,
+                                  ).toLocaleDateString()}
+                                </p>
+                              ) : (
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    handleMilestoneUpdate(
+                                      milestone.name,
+                                      "Complete",
+                                    )
+                                  }
+                                  className="nv-btn-edit"
+                                  style={{ fontSize: 12, padding: "6px 14px" }}
+                                >
+                                  Mark Complete
+                                </button>
+                              )}
                             </div>
                           </div>
 
                           {index < questProgress.milestones.length - 1 && (
-                            <div className="flex justify-center mt-2 mb-2">
-                              <div className="h-6 w-0.5 bg-gray-300"></div>
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                margin: "8px 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: 2,
+                                  height: 20,
+                                  background: "var(--cream-dark)",
+                                  borderRadius: 1,
+                                }}
+                              />
                             </div>
                           )}
                         </div>
                       ))}
                   </div>
 
-                  {/* Quest Token Info */}
-                  <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200 flex items-center gap-3">
-                    <Download size={20} className="text-blue-600" />
-                    <div className="flex-1">
-                      <p className="text-sm font-medium text-gray-900">
+                  <div
+                    className="nv-callout"
+                    style={{
+                      marginTop: 28,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 14,
+                    }}
+                  >
+                    <Download
+                      size={22}
+                      style={{ color: "var(--sage-dark)", flexShrink: 0 }}
+                    />
+                    <div>
+                      <p
+                        style={{
+                          fontSize: 14,
+                          fontWeight: 600,
+                          margin: "0 0 4px",
+                          color: "var(--dark)",
+                        }}
+                      >
                         Your Quest Token
                       </p>
-                      <p className="text-xs text-gray-600">
+                      <p
+                        style={{
+                          fontSize: 12,
+                          color: "var(--text-light)",
+                          margin: 0,
+                        }}
+                      >
                         Use this token to resume your quest from any device
                       </p>
                     </div>

@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import io from "socket.io-client";
 
-const SOCKET_URL = "http://127.0.0.1:5000";
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || window.location.origin;
 
 export const useChat = () => {
   const [socket, setSocket] = useState(null);
@@ -20,7 +20,12 @@ export const useChat = () => {
   };
 
   useEffect(() => {
-    const newSocket = io(SOCKET_URL);
+    const newSocket = io(SOCKET_URL, {
+      path: import.meta.env.VITE_SOCKET_PATH || "/socket.io",
+      transports: ["polling", "websocket"],
+      reconnectionAttempts: 5,
+      timeout: 10000,
+    });
     setSocket(newSocket);
 
     // Each chunk arrives here — accumulate into the last bot message
@@ -100,5 +105,11 @@ export const useChat = () => {
     historyRef.current = [];
   };
 
-  return { messages, sendMessage, resetChat, isTyping };
+  return {
+    messages,
+    sendMessage,
+    resetChat,
+    clearMessages: resetChat,
+    isTyping,
+  };
 };

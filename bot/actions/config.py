@@ -8,7 +8,7 @@ class Config:
     DB_PORT = 5432
     DB_NAME = "iasi_quest_db"
     DB_USER = "postgres"
-    DB_PASSWORD = "Abcd123"
+    DB_PASSWORD = "postgres"
     DB_CONNECTION_STRING = (
         f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
     )

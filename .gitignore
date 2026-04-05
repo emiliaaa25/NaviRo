@@ -9,8 +9,7 @@ env/
 venv/
 node_modules/
 
-# --- Rasa (The Bot) ---
-bot/.rasa/
+# --- Bot Artifacts ---
 bot/models/
 bot/results/
 bot/graph.html

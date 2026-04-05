@@ -1,7 +1,52 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import { UserPlus, AlertCircle } from "lucide-react";
+import { AlertCircle } from "lucide-react";
+
+const UserIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+    aria-hidden
+  >
+    <circle cx="12" cy="8" r="4" />
+    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+  </svg>
+);
+
+const LockIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+    aria-hidden
+  >
+    <rect x="3" y="11" width="18" height="11" rx="2" />
+    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+  </svg>
+);
+
+const MailIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+    aria-hidden
+  >
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+    <polyline points="22,6 12,13 2,6" />
+  </svg>
+);
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -80,153 +125,134 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
-        <div className="flex justify-center mb-6">
-          <div className="bg-indigo-100 p-3 rounded-full">
-            <UserPlus size={32} className="text-indigo-600" />
+    <div className="nv-auth-screen">
+      <div className="nv-login-left">
+        <div className="nv-login-logo">
+          <div style={{ fontSize: 36, lineHeight: 1 }} aria-hidden>
+            🤖
+          </div>
+          <div className="nv-login-logo-text">
+            Navi<span>Ro</span>
           </div>
         </div>
-
-        <h1 className="text-2xl font-bold text-center text-gray-900 mb-2">
-          Create Account
+        <h1 className="nv-login-tagline">
+          Join Navi<span>Ro</span> and get settled in Romania with confidence.
         </h1>
-        <p className="text-center text-gray-600 mb-6">
-          Join our learning platform
+        <p className="nv-login-sub">
+          Create an account to save your profile, track your relocation quest,
+          and chat with your AI guide anytime.
         </p>
+      </div>
+
+      <div className="nv-login-right">
+        <h2 className="nv-login-form-title">Create account</h2>
+        <p className="nv-login-form-sub">Sign up for your NaviRo account</p>
 
         {localError && (
-          <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
-            <AlertCircle
-              size={20}
-              className="text-red-600 flex-shrink-0 mt-0.5"
-            />
-            <span className="text-red-700 text-sm">{localError}</span>
+          <div className="nv-alert nv-alert-error">
+            <AlertCircle size={18} className="flex-shrink-0" />
+            <span>{localError}</span>
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label
-              htmlFor="fullName"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Full Name
-            </label>
-            <input
-              id="fullName"
-              name="fullName"
-              type="text"
-              value={formData.fullName}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
-              placeholder="Your full name"
-              disabled={loading}
-            />
+        <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+          <div className="nv-form-group">
+            <label htmlFor="fullName">Full name</label>
+            <div className="nv-input-wrap">
+              <UserIcon />
+              <input
+                id="fullName"
+                name="fullName"
+                type="text"
+                placeholder="Your full name"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                disabled={loading}
+                autoComplete="name"
+              />
+            </div>
           </div>
 
-          <div>
-            <label
-              htmlFor="username"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Username
-            </label>
-            <input
-              id="username"
-              name="username"
-              type="text"
-              value={formData.username}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
-              placeholder="Choose a username"
-              disabled={loading}
-            />
+          <div className="nv-form-group">
+            <label htmlFor="username">Username</label>
+            <div className="nv-input-wrap">
+              <UserIcon />
+              <input
+                id="username"
+                name="username"
+                type="text"
+                placeholder="Choose a username"
+                value={formData.username}
+                onChange={handleInputChange}
+                disabled={loading}
+                autoComplete="username"
+              />
+            </div>
           </div>
 
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
-              placeholder="your.email@example.com"
-              disabled={loading}
-            />
+          <div className="nv-form-group">
+            <label htmlFor="email">Email</label>
+            <div className="nv-input-wrap">
+              <MailIcon />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="your.email@example.com"
+                value={formData.email}
+                onChange={handleInputChange}
+                disabled={loading}
+                autoComplete="email"
+              />
+            </div>
           </div>
 
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Password
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
-              placeholder="At least 6 characters"
-              disabled={loading}
-            />
+          <div className="nv-form-group">
+            <label htmlFor="password">Password</label>
+            <div className="nv-input-wrap">
+              <LockIcon />
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="At least 6 characters"
+                value={formData.password}
+                onChange={handleInputChange}
+                disabled={loading}
+                autoComplete="new-password"
+              />
+            </div>
           </div>
 
-          <div>
-            <label
-              htmlFor="confirmPassword"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Confirm Password
-            </label>
-            <input
-              id="confirmPassword"
-              name="confirmPassword"
-              type="password"
-              value={formData.confirmPassword}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
-              placeholder="Confirm your password"
-              disabled={loading}
-            />
+          <div className="nv-form-group">
+            <label htmlFor="confirmPassword">Confirm password</label>
+            <div className="nv-input-wrap">
+              <LockIcon />
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                placeholder="Confirm your password"
+                value={formData.confirmPassword}
+                onChange={handleInputChange}
+                disabled={loading}
+                autoComplete="new-password"
+              />
+            </div>
           </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
-          >
-            {loading ? "Creating account..." : "Create Account"}
+          <button type="submit" className="nv-btn-login" disabled={loading}>
+            {loading ? "Creating account..." : "Create account"}
           </button>
         </form>
 
-        <div className="mt-6 relative">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-300"></div>
-          </div>
-          <div className="relative flex justify-center text-sm">
-            <span className="px-2 bg-white text-gray-500">
-              Already have an account?
-            </span>
-          </div>
+        <div className="nv-login-divider">
+          <span>Already registered?</span>
         </div>
 
-        <Link
-          to="/login"
-          className="mt-6 block text-center text-indigo-600 hover:text-indigo-700 font-medium transition"
-        >
-          Login to your account
-        </Link>
+        <p className="nv-signup-prompt">
+          <Link to="/login">Login to your account</Link>
+        </p>
       </div>
     </div>
   );

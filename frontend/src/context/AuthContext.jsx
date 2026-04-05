@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5056";
+  const API_BASE_URL = import.meta.env.VITE_API_URL || "/api";
 
   // Load token from localStorage on mount
   useEffect(() => {

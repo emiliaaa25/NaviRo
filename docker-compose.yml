@@ -34,26 +34,28 @@ services:
       db:
         condition: service_healthy
 
-  action_server:
+  assistant_server:
     build:
-      context: ./bot/actions
-    volumes:
-      - ./bot/actions:/app/actions
-    ports:
-      - "5055:5055"
-    depends_on:
-      - db
-
-  rasa_server:
-    image: rasa/rasa:3.6.15-full
-    user: root
-    ports:
-      - "5005:5005"
+      context: ./bot
+      dockerfile: Dockerfile.azure
+    environment:
+      DB_HOST: db
+      DB_NAME: iasi_quest_db
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_PORT: 5432
+      AZURE_PROJECT_ENDPOINT: ${AZURE_PROJECT_ENDPOINT}
+      AZURE_AGENT_NAME: ${AZURE_AGENT_NAME}
+      AZURE_AGENT_VERSION: ${AZURE_AGENT_VERSION}
+      AZURE_ASSISTANT_ID: ${AZURE_ASSISTANT_ID}
+      AZURE_API_KEY: ${AZURE_API_KEY}
+      AZURE_API_VERSION: ${AZURE_API_VERSION:-2025-11-15-preview}
+      AZURE_DEPLOYMENT_NAME: ${AZURE_DEPLOYMENT_NAME:-gpt-4o}
+      SYSTEM_PROMPT: ${SYSTEM_PROMPT:-}
     volumes:
       - ./bot:/app
-    command: run --enable-api --cors "*" --debug --credentials credentials.yml
+    ports:
+      - "5000:5000"
     depends_on:
       db:
         condition: service_healthy
-      action_server:
-        condition: service_started

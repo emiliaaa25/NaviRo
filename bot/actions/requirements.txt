@@ -1,7 +1,8 @@
-rasa-sdk>=3.6.0
 psycopg2-binary
 openai
 flask   
+flask-cors
+PyJWT
 requests
 urllib3
 flask-socketio

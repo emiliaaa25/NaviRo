@@ -43,10 +43,47 @@ def _load_citation_mapping():
 CITATION_MAPPING = _load_citation_mapping()
 
 
+def _normalize_input_messages(messages):
+    """Convert chat history to role/content messages and drop invalid entries."""
+    normalized = []
+    allowed_roles = {"system", "developer", "user", "assistant"}
+
+    for msg in messages or []:
+        if not isinstance(msg, dict):
+            continue
+
+        role = msg.get("role", "user")
+        if role not in allowed_roles:
+            role = "user"
+
+        content = msg.get("content", "")
+        if content is None:
+            content = ""
+
+        # Keep content as plain text for this API path.
+        if isinstance(content, (dict, list)):
+            try:
+                content = json.dumps(content, ensure_ascii=False)
+            except Exception:
+                content = str(content)
+        elif not isinstance(content, str):
+            content = str(content)
+
+        content = content.strip()
+
+        if not content:
+            continue
+
+        normalized.append({"role": role, "content": content})
+
+    return normalized
+
+
 def _build_input_messages(messages):
+    merged = list(messages or [])
     if Config.SYSTEM_PROMPT:
-        return [{"role": "system", "content": Config.SYSTEM_PROMPT}] + messages
-    return messages
+        merged = [{"role": "system", "content": Config.SYSTEM_PROMPT}] + merged
+    return _normalize_input_messages(merged)
 
 
 def _extract_citation_filenames(response):
@@ -160,6 +197,7 @@ def handle_user_uttered(data):
     sender_id = data.get("sender", "")
     history = data.get("history", [])
     messages = history + [{"role": "user", "content": content}]
+    stream_text = ""
 
     try:
         # Get the full result dictionary
@@ -195,4 +233,4 @@ def health_check():
 
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True, host="0.0.0.0")
+    socketio.run(app, debug=True, host="0.0.0.0", allow_unsafe_werkzeug=True)

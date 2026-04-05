@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircle, Circle, Lock, MapPin } from "lucide-react"; // Install lucide-react for icons
+import { CheckCircle, Circle, Lock, MapPin } from "lucide-react";
 
 const milestones = [
   {
@@ -19,56 +19,62 @@ const QuestMap = ({
   questStatusLabel = "Quest not started",
 }) => {
   return (
-    <div className="p-6 bg-slate-50 rounded-xl shadow-md border border-slate-200 w-80">
-      <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
-        <MapPin className="text-blue-600" /> Your Iași Quest
+    <div className="nv-quest-map">
+      <h2 className="nv-quest-map-title">
+        <MapPin size={22} strokeWidth={2} aria-hidden />
+        Your Iași Quest
       </h2>
 
       {userTag && (
-        <div className="mb-4 p-2 bg-white border border-slate-200 rounded-lg text-xs text-slate-600">
-          <strong className="text-slate-800">Profile:</strong> {userTag}
-          <p className="mt-1">{questStatusLabel}</p>
+        <div className="nv-quest-map-tag">
+          <strong>Profile:</strong> {userTag}
+          <p>{questStatusLabel}</p>
         </div>
       )}
 
-      <div className="space-y-8">
+      <div className="nv-quest-map-steps">
         {milestones.map((step) => {
           const isCompleted = step.id < currentStep;
           const isActive = step.id === currentStep;
 
           return (
-            <div key={step.id} className="relative flex gap-4">
-              {/* Vertical Line Connector */}
+            <div key={step.id} className="nv-quest-map-step">
               {step.id !== milestones.length && (
                 <div
-                  className={`absolute left-3 top-8 w-0.5 h-12 ${isCompleted ? "bg-green-500" : "bg-slate-300"}`}
+                  className={`nv-quest-map-line${isCompleted ? " nv-quest-map-line-done" : ""}`}
                 />
               )}
 
-              {/* Icon Logic */}
-              <div className="z-10">
+              <div className="nv-quest-map-icon-wrap">
                 {isCompleted ? (
-                  <CheckCircle className="text-green-500 bg-white" size={24} />
+                  <CheckCircle
+                    className="nv-quest-map-icon nv-quest-map-icon-done"
+                    size={24}
+                  />
                 ) : isActive ? (
                   <Circle
-                    className="text-blue-600 fill-blue-600 animate-pulse"
+                    className="nv-quest-map-icon nv-quest-map-icon-active"
                     size={24}
                   />
                 ) : (
-                  <Lock className="text-slate-400" size={24} />
+                  <Lock
+                    className="nv-quest-map-icon nv-quest-map-icon-locked"
+                    size={24}
+                  />
                 )}
               </div>
 
-              {/* Text Content */}
-              <div className="flex flex-col">
+              <div className="nv-quest-map-step-text">
                 <span
-                  className={`font-semibold ${isActive ? "text-blue-700" : "text-slate-700"}`}
+                  className={
+                    isActive
+                      ? "nv-quest-map-label-active"
+                      : "nv-quest-map-label"
+                  }
                 >
                   {step.label}
                 </span>
-                <span className="text-xs text-slate-500 italic">
-                  {step.description}
-                </span>
+                <span className="nv-quest-map-desc">{step.description}</span>
               </div>
             </div>
           );
@@ -76,12 +82,12 @@ const QuestMap = ({
       </div>
 
       {questToken ? (
-        <div className="mt-8 p-3 bg-blue-100 rounded-lg text-xs text-blue-800 border border-blue-200">
+        <div className="nv-quest-map-token">
           <strong>Quest Token:</strong> {questToken}
-          <p className="mt-1">Save this to resume your journey anytime.</p>
+          <p>Save this to resume your journey anytime.</p>
         </div>
       ) : (
-        <div className="mt-8 p-3 bg-slate-100 rounded-lg text-xs text-slate-700 border border-slate-200">
+        <div className="nv-quest-map-hint">
           Start your quest from Profile to generate a Quest Token.
         </div>
       )}
