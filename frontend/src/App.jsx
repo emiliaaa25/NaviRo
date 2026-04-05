@@ -38,13 +38,18 @@ function App() {
                 className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[80%] p-4 rounded-2xl shadow-sm ${
-                    msg.sender === "user"
+                  className={`max-w-[80%] p-4 rounded-2xl shadow-sm ${msg.sender === "user"
                       ? "bg-blue-600 text-white rounded-tr-none"
                       : "bg-white text-slate-800 border border-slate-200 rounded-tl-none"
-                  }`}
+                    }`}
                 >
                   {msg.text}
+                  {msg.sender === "bot" && msg.citations?.length > 0 && (
+                    <div className="mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600">
+                      <span className="font-semibold">Sources: </span>
+                      {msg.citations.join(", ")}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

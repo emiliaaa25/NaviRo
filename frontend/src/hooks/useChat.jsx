@@ -9,24 +9,49 @@ export const useChat = () => {
   const [isTyping, setIsTyping] = useState(false);
   const historyRef = useRef([]); // track {role, content} history for backend
 
+  const normalizeCitations = (citations) => {
+    if (!Array.isArray(citations)) {
+      return [];
+    }
+
+    return citations.filter(
+      (citation) => typeof citation === "string" && citation.trim().length > 0,
+    );
+  };
+
   useEffect(() => {
     const newSocket = io(SOCKET_URL);
     setSocket(newSocket);
 
     // Each chunk arrives here — accumulate into the last bot message
-    newSocket.on("bot_uttered", ({ text }) => {
+    newSocket.on("bot_uttered", ({ text, metadata }) => {
       setIsTyping(true);
+      const incomingCitations = normalizeCitations(metadata?.citations);
+
       setMessages((prev) => {
         const last = prev[prev.length - 1];
         // If last message is already a streaming bot message, append to it
         if (last?.sender === "bot" && last?.streaming) {
+          const mergedCitations = [
+            ...(last.citations || []),
+            ...incomingCitations,
+          ].filter((item, index, arr) => arr.indexOf(item) === index);
+
           return [
             ...prev.slice(0, -1),
-            { ...last, text: last.text + text },
+            { ...last, text: last.text + text, citations: mergedCitations },
           ];
         }
         // Otherwise start a new bot message
-        return [...prev, { text, sender: "bot", streaming: true }];
+        return [
+          ...prev,
+          {
+            text,
+            sender: "bot",
+            streaming: true,
+            citations: incomingCitations,
+          },
+        ];
       });
     });
 
