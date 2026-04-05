@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 from flask import Flask, request, session, Response, jsonify, stream_with_context
 from flask_cors import CORS
@@ -22,6 +23,24 @@ client = AzureOpenAI(
 
 CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
+
+
+def _load_citation_mapping():
+    """Load filename -> URL citation mapping from mapping.json."""
+    mapping_path = Path(__file__).with_name("mapping.json")
+    if not mapping_path.exists():
+        return {}
+
+    try:
+        with mapping_path.open("r", encoding="utf-8") as file:
+            data = json.load(file)
+            return data if isinstance(data, dict) else {}
+    except Exception as e:
+        print(f"Error loading citation mapping: {e}")
+        return {}
+
+
+CITATION_MAPPING = _load_citation_mapping()
 
 
 def _build_input_messages(messages):
@@ -65,6 +84,20 @@ def _extract_citation_filenames(response):
     return filenames
 
 
+def _map_citation_urls(filenames):
+    """Map citation filenames to URLs and drop unmapped entries."""
+    urls = []
+    seen = set()
+
+    for filename in filenames:
+        url = CITATION_MAPPING.get(filename)
+        if url and url not in seen:
+            seen.add(url)
+            urls.append(url)
+
+    return urls
+
+
 def _agent_response_text(messages):
     response = client.responses.create(
         input=_build_input_messages(messages),
@@ -80,10 +113,10 @@ def _agent_response_text(messages):
     # Extract the text
     text = getattr(response, "output_text", "") or ""
 
-    print(response)
-
-    # Return citations as source filenames for frontend display.
-    citations = _extract_citation_filenames(response)
+    # Return only mapped source URLs; skip citations with no mapping.
+    citation_filenames = _extract_citation_filenames(response)
+    citations = _map_citation_urls(citation_filenames)
+    print(f"Extracted filenames: {citation_filenames}. Mapped URLs: {citations}")
 
     return {"text": text, "citations": citations}
 
