@@ -169,6 +169,98 @@ def update_project(project_id):
     except Exception as e:
         return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
 
+
+@app.route('/conversations', methods=['GET'])
+@token_required
+def get_conversations():
+    """Get stored conversation sessions for the authenticated user."""
+    try:
+        limit = request.args.get('limit', default=20, type=int)
+        limit = max(1, min(limit, 100))
+
+        with db.get_cursor() as cur:
+            cur.execute(
+                """
+                CREATE TABLE IF NOT EXISTS conversations (
+                    id BIGSERIAL PRIMARY KEY,
+                    user_id TEXT,
+                    session_id TEXT,
+                    user_message TEXT NOT NULL,
+                    bot_response TEXT NOT NULL,
+                    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+                )
+                """
+            )
+
+            cur.execute(
+                """
+                DO $$
+                BEGIN
+                    IF NOT EXISTS (
+                        SELECT 1
+                        FROM information_schema.columns
+                        WHERE table_schema = 'public'
+                          AND table_name = 'conversations'
+                          AND column_name = 'session_id'
+                    ) THEN
+                        ALTER TABLE conversations
+                        ADD COLUMN session_id TEXT;
+                    END IF;
+                END
+                $$;
+                """
+            )
+
+            cur.execute(
+                """
+                SELECT id, session_id, user_message, bot_response, created_at
+                FROM conversations
+                WHERE user_id = %s
+                ORDER BY created_at ASC, id ASC
+                """,
+                (str(request.user_id),),
+            )
+            rows = cur.fetchall()
+
+        session_map = {}
+        ordered_sessions = []
+
+        for row_id, session_id, user_message, bot_response, created_at in rows:
+            normalized_session_id = session_id or 'legacy'
+
+            if normalized_session_id not in session_map:
+                session_map[normalized_session_id] = {
+                    'id': normalized_session_id,
+                    'title': user_message[:42] if user_message else 'New chat',
+                    'preview': '',
+                    'updatedAt': created_at.isoformat() if created_at else None,
+                    'messages': [],
+                }
+                ordered_sessions.append(session_map[normalized_session_id])
+
+            session_entry = session_map[normalized_session_id]
+            session_entry['messages'].append({'text': user_message, 'sender': 'user'})
+            session_entry['messages'].append({'text': bot_response, 'sender': 'bot'})
+            session_entry['preview'] = bot_response[:120] if bot_response else session_entry['preview']
+            session_entry['updatedAt'] = created_at.isoformat() if created_at else session_entry['updatedAt']
+
+        for session_entry in ordered_sessions:
+            first_user_message = next(
+                (message['text'] for message in session_entry['messages'] if message.get('sender') == 'user' and message.get('text')),
+                None,
+            )
+            if first_user_message:
+                session_entry['title'] = first_user_message[:42]
+            if session_entry['messages'] and not session_entry['preview']:
+                session_entry['preview'] = session_entry['messages'][-1]['text'][:120]
+
+        conversations = list(reversed(ordered_sessions[-limit:]))
+
+        return jsonify({'success': True, 'sessions': conversations}), 200
+
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
+
 # ============ HEALTH CHECK ============
 
 @app.route('/health', methods=['GET'])
@@ -214,6 +306,8 @@ def resume_quest():
         return jsonify({
             'success': True,
             'message': 'Quest resumed successfully',
+            'token': quest_token,
+            'quest_token': quest_token,
             'user_id': quest_data['user_id'],
             'profile': full_profile
         }), 200

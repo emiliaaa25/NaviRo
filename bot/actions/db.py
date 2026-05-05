@@ -131,6 +131,21 @@ class Database:
                 )
             """)
 
+            # Verified links table (for RAG: MAE, IGI, official resources)
+            cur.execute("""
+                CREATE TABLE IF NOT EXISTS verified_links (
+                    id SERIAL PRIMARY KEY,
+                    category VARCHAR(50) NOT NULL,
+                    title VARCHAR(255) NOT NULL,
+                    url VARCHAR(500) NOT NULL UNIQUE,
+                    description TEXT,
+                    keywords TEXT,
+                    is_active BOOLEAN DEFAULT TRUE,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+
             print("Database initialized successfully")
 
 # Initialize database instance

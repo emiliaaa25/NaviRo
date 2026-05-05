@@ -137,7 +137,15 @@ const TIPS = [
 ];
 
 function ChatApp() {
-  const { messages, sendMessage, clearMessages } = useChat();
+  const {
+    messages,
+    sendMessage,
+    clearMessages,
+    historyLoaded,
+    recentChats,
+    activeChatId,
+    selectRecentChat,
+  } = useChat();
   const [input, setInput] = useState("");
   const [currentStep, setCurrentStep] = useState(1);
   const [questSummary, setQuestSummary] = useState(null);
@@ -435,11 +443,34 @@ function ChatApp() {
 
         <div className="nv-sidebar-section">
           <div className="nv-sidebar-section-label">Recent chats</div>
-          <div className="nv-prev-chat-muted">
-            <span className="nv-prev-chat" style={{ cursor: "default" }}>
-              <ChatBubbleIcon />
-              No saved history yet
-            </span>
+          <div className="nv-recent-chat-list">
+            {recentChats.length > 0 ? (
+              recentChats.map((chat) => (
+                <button
+                  key={chat.id}
+                  type="button"
+                  className={`nv-prev-chat${activeChatId === chat.id ? " nv-active" : ""}`}
+                  onClick={() => selectRecentChat(chat.id)}
+                >
+                  <ChatBubbleIcon />
+                  <span className="nv-prev-chat-text">
+                    <span className="nv-prev-chat-title">{chat.title}</span>
+                    <span className="nv-prev-chat-preview">
+                      {chat.preview || "Open conversation"}
+                    </span>
+                  </span>
+                </button>
+              ))
+            ) : (
+              <div className="nv-prev-chat-muted">
+                <span className="nv-prev-chat" style={{ cursor: "default" }}>
+                  <ChatBubbleIcon />
+                  {historyLoaded
+                    ? "Saved conversation loaded"
+                    : "No saved history yet"}
+                </span>
+              </div>
+            )}
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import sys
 
 from flask import Flask, request, session, Response, jsonify, stream_with_context
 from flask_cors import CORS
@@ -7,7 +8,11 @@ from flask_socketio import SocketIO, emit
 from openai import AzureOpenAI
 
 from actions.config import Config
+from actions.db import db
 from actions.utils import store_conversation
+
+# Force unbuffered output so logs appear immediately
+sys.stdout = sys.stderr
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
@@ -40,7 +45,313 @@ def _load_citation_mapping():
         return {}
 
 
+def _load_verified_links_from_db():
+    """Load all active verified links from the database."""
+    try:
+        with db.get_cursor() as cur:
+            cur.execute(
+                """SELECT category, title, url, description, keywords
+                   FROM verified_links
+                   WHERE is_active = TRUE
+                   ORDER BY category, title"""
+            )
+            rows = cur.fetchall()
+            links = []
+            for row in rows:
+                links.append({
+                    "category": row[0],
+                    "title": row[1],
+                    "url": row[2],
+                    "description": row[3],
+                    "keywords": row[4] or ""
+                })
+            return links
+    except Exception as e:
+        print(f"Error loading verified links from DB: {e}")
+        return []
+
+
+def _seed_verified_links_from_json():
+    """One-time seed verified links from JSON file into database."""
+    seed_path = Path(__file__).with_name("verified_links.json")
+    if not seed_path.exists():
+        print(f"No verified_links.json found at {seed_path}")
+        return
+
+    try:
+        with seed_path.open("r", encoding="utf-8") as file:
+            data = json.load(file)
+            links = data.get("links", [])
+
+        with db.get_cursor() as cur:
+            for link in links:
+                cur.execute(
+                    """INSERT INTO verified_links
+                       (category, title, url, description, keywords, is_active)
+                       VALUES (%s, %s, %s, %s, %s, TRUE)
+                       ON CONFLICT (url) DO NOTHING""",
+                    (
+                        link.get("category"),
+                        link.get("title"),
+                        link.get("url"),
+                        link.get("description"),
+                        link.get("keywords")
+                    )
+                )
+        print(f"Seeded {len(links)} verified links from JSON")
+    except Exception as e:
+        print(f"Error seeding verified links from JSON: {e}")
+
+
 CITATION_MAPPING = _load_citation_mapping()
+
+# One-time seed of verified links on app startup
+_seed_verified_links_from_json()
+
+QUEST_MILESTONES = [
+    "Initial Profiling",
+    "Admission & Docs",
+    "Visa",
+    "Iași Arrival",
+]
+
+# ── RAG: Verified Links Database ────────────────────────────────────────────
+
+
+# Load verified links into memory (lazy load on first use)
+VERIFIED_LINKS_CACHE = None
+
+
+def _get_verified_links():
+    """Get verified links from cache or load from DB."""
+    global VERIFIED_LINKS_CACHE
+    if VERIFIED_LINKS_CACHE is None:
+        VERIFIED_LINKS_CACHE = _load_verified_links_from_db()
+    return VERIFIED_LINKS_CACHE
+
+
+def _similarity_score(query, text):
+    """Simple keyword-based similarity score between query and text."""
+    if not query or not text:
+        return 0.0
+    
+    query_words = set(query.lower().split())
+    text_words = set(text.lower().split())
+    
+    if not query_words or not text_words:
+        return 0.0
+    
+    intersection = query_words & text_words
+    union = query_words | text_words
+    
+    return len(intersection) / len(union)
+
+
+def _find_relevant_links(user_message, category=None, top_k=3):
+    """
+    Find relevant verified links using similarity search against keywords/description.
+    
+    Args:
+        user_message: User's question or context
+        category: Optional filter (e.g., 'MAE', 'IGI', 'OFFICIAL')
+        top_k: Number of top results to return
+    
+    Returns:
+        List of relevant link dicts sorted by relevance
+    """
+    print(f"[RAG] Starting link discovery for message: {user_message[:80]}...")
+    links = _get_verified_links()
+    print(f"[RAG] Loaded {len(links)} verified links from cache")
+    
+    if not links:
+        print(f"[RAG] No verified links available")
+        return []
+    
+    # Filter by category if specified
+    if category:
+        links = [l for l in links if l["category"] == category]
+        print(f"[RAG] Filtered to {len(links)} links in category '{category}'")
+    
+    # Score each link
+    scored_links = []
+    for link in links:
+        # Combine keywords and description for similarity search
+        search_text = f"{link.get('keywords', '')} {link.get('description', '')}"
+        score = _similarity_score(user_message, search_text)
+        
+        if score > 0:  # Only include if there's some relevance
+            scored_links.append((score, link))
+    
+    # Sort by score descending and return top_k
+    scored_links.sort(key=lambda x: x[0], reverse=True)
+    top_results = [link for score, link in scored_links[:top_k]]
+    print(f"[RAG] Found {len(top_results)} relevant links: {[l['title'] for l in top_results]}")
+    return top_results
+
+
+def _build_link_constraint_prompt(relevant_links):
+    """
+    Build a constraint prompt instructing the LLM to ONLY cite from verified links.
+    
+    Args:
+        relevant_links: List of link dicts to include in constraint
+    
+    Returns:
+        String prompt constraint
+    """
+    if not relevant_links:
+        return ""
+    
+    links_text = "\n".join([
+        f"- {link['title']}: {link['url']}"
+        for link in relevant_links
+    ])
+    
+    return f"""
+**IMPORTANT: Verified Resources Only**
+When answering about Erasmus/MAE, IGI insurance, visas, or international student procedures,
+you MUST reference ONLY these verified official links:
+
+{links_text}
+
+Do NOT invent, hallucinate, or reference any other links. If the user's question doesn't match
+these verified sources, acknowledge the limitation and redirect to official channels."""
+
+
+def _normalize_sender_id(sender_id):
+    try:
+        if sender_id is None or sender_id == "":
+            return None
+        return int(sender_id)
+    except (TypeError, ValueError):
+        return None
+
+
+def _fetch_user_quest_context(user_id):
+    if user_id is None:
+        print(f"[CONTEXT] Skipping quest context: user_id is None")
+        return None
+
+    try:
+        print(f"[CONTEXT] Fetching quest context for user_id={user_id}")
+        with db.get_cursor() as cur:
+            cur.execute(
+                """SELECT country_of_origin, citizenship_type
+                   FROM quest_relocation_profiles
+                   WHERE user_id = %s""",
+                (user_id,),
+            )
+            relocation_profile = cur.fetchone()
+            print(f"[CONTEXT] Relocation profile query result: {relocation_profile}")
+
+            cur.execute(
+                """SELECT milestone_name, status
+                   FROM quest_progress
+                   WHERE user_id = %s
+                   ORDER BY CASE
+                       WHEN status = 'In Progress' THEN 0
+                       WHEN status = 'Locked' THEN 1
+                       WHEN status = 'Complete' THEN 2
+                       ELSE 3
+                   END, created_at DESC
+                   LIMIT 1""",
+                (user_id,),
+            )
+            progress_rows = cur.fetchall()
+
+        if not relocation_profile and not progress_rows:
+            print(f"[CONTEXT] No profile or progress found for user_id={user_id}")
+            return None
+
+        print(f"[CONTEXT] Progress rows: {progress_rows}")
+        parts = []
+        if relocation_profile:
+            country_of_origin, citizenship_type = relocation_profile
+            if citizenship_type and country_of_origin:
+                parts.append(
+                    f"The user is a {citizenship_type} student from {country_of_origin}."
+                )
+            elif citizenship_type:
+                parts.append(f"The user is a {citizenship_type} student.")
+            elif country_of_origin:
+                parts.append(f"The user is a student from {country_of_origin}.")
+
+        current_milestone_number = None
+        current_milestone_name = None
+
+        for index, milestone_name in enumerate(QUEST_MILESTONES, start=1):
+            matching_row = next(
+                (
+                    row
+                    for row in progress_rows
+                    if row[0] == milestone_name and row[1] in {"In Progress", "Locked"}
+                ),
+                None,
+            )
+            if matching_row:
+                current_milestone_number = index
+                current_milestone_name = milestone_name
+                break
+
+        if current_milestone_number is None:
+            completed_rows = [row for row in progress_rows if row[1] == "Complete"]
+            if completed_rows:
+                completed_names = [row[0] for row in completed_rows]
+                for index, milestone_name in enumerate(QUEST_MILESTONES, start=1):
+                    if milestone_name in completed_names:
+                        current_milestone_number = min(index + 1, len(QUEST_MILESTONES))
+                        current_milestone_name = QUEST_MILESTONES[current_milestone_number - 1]
+                        break
+
+        if current_milestone_number is not None and current_milestone_name:
+            parts.append(
+                f"The user is currently on Milestone {current_milestone_number}: {current_milestone_name}."
+            )
+
+        if not parts:
+            print(f"[CONTEXT] No context parts built for user_id={user_id}")
+            return None
+
+        parts.append(
+            "Tailor your advice to this context and keep legal, administrative, and relocation guidance aligned with the user's current progress."
+        )
+        context_str = " ".join(parts)
+        print(f"[CONTEXT] Built quest context for user_id={user_id}: {context_str}")
+        return context_str
+    except Exception as e:
+        print(f"[CONTEXT] Error fetching quest context for user_id={user_id}: {e}")
+        return None
+
+
+def _build_system_messages(user_id, user_message=None):
+    """Build system messages including quest context and RAG-discovered verified links."""
+    print(f"[INJECT] Building system messages for user_id={user_id}")
+    system_messages = []
+
+    if Config.SYSTEM_PROMPT:
+        system_messages.append({"role": "system", "content": Config.SYSTEM_PROMPT})
+        print(f"[INJECT] Added base system prompt")
+
+    quest_context = _fetch_user_quest_context(user_id)
+    if quest_context:
+        system_messages.append({"role": "system", "content": quest_context})
+        print(f"[INJECT] Added quest context system message")
+    else:
+        print(f"[INJECT] No quest context available for user_id={user_id}")
+
+    # RAG: Find relevant verified links and add constraint prompt
+    if user_message:
+        print(f"[INJECT] Performing RAG search...")
+        relevant_links = _find_relevant_links(user_message, top_k=3)
+        if relevant_links:
+            link_constraint = _build_link_constraint_prompt(relevant_links)
+            system_messages.append({"role": "system", "content": link_constraint})
+            print(f"[INJECT] Added {len(relevant_links)} verified links constraint")
+    else:
+        print(f"[INJECT] No user message for RAG search")
+
+    print(f"[INJECT] Total system messages: {len(system_messages)}")
+    return system_messages
 
 
 def _normalize_input_messages(messages):
@@ -74,24 +385,32 @@ def _normalize_input_messages(messages):
         if not content:
             continue
 
-        normalized.append({"role": role, "content": content})
+        normalized.append({"type": "message", "role": role, "content": content})
 
     return normalized
 
 
-def _build_input_messages(messages):
+def _build_input_messages(messages, user_id=None):
     merged = list(messages or [])
-    if Config.SYSTEM_PROMPT:
-        merged = [{"role": "system", "content": Config.SYSTEM_PROMPT}] + merged
+    
+    # Extract the latest user message for RAG search
+    user_message = None
+    for msg in reversed(merged):
+        if isinstance(msg, dict) and msg.get("role") == "user":
+            user_message = msg.get("content", "")
+            break
+    
+    merged = _build_system_messages(user_id, user_message=user_message) + merged
     return _normalize_input_messages(merged)
 
 
 def _extract_citation_filenames(response):
-    """Extract unique source filenames from file citation annotations."""
+    """Extract unique source filenames from explicit file citation annotations."""
     filenames = []
     seen = set()
 
-    # New Responses API shape: response.output[*].content[*].annotations[*]
+    # Prefer explicit file_citation annotations from the final output content.
+    # Response-level citation collections can include loosely related retrieved docs.
     for output_item in getattr(response, "output", []) or []:
         for content_item in getattr(output_item, "content", []) or []:
             for annotation in getattr(content_item, "annotations", []) or []:
@@ -104,19 +423,6 @@ def _extract_citation_filenames(response):
                 ):
                     seen.add(filename)
                     filenames.append(filename)
-
-    # Fallback for potential alternate response shapes.
-    if not filenames:
-        for citation in getattr(response, "citations", []) or []:
-            filename = None
-            if isinstance(citation, dict):
-                filename = citation.get("filename")
-            else:
-                filename = getattr(citation, "filename", None)
-
-            if filename and filename not in seen:
-                seen.add(filename)
-                filenames.append(filename)
 
     return filenames
 
@@ -135,9 +441,17 @@ def _map_citation_urls(filenames):
     return urls
 
 
-def _agent_response_text(messages):
+def _agent_response_text(messages, user_id=None):
+    print(f"[AZURE] Calling Azure OpenAI for user_id={user_id}")
+    input_messages = _build_input_messages(messages, user_id=user_id)
+    print(f"[AZURE] Total input messages: {len(input_messages)}")
+    for i, msg in enumerate(input_messages):
+        role = msg.get('role', 'unknown')
+        content = msg.get('content', '')[:100]  # First 100 chars
+        print(f"[AZURE]   Message {i}: role={role}, content_preview={content}...")
+    
     response = client.responses.create(
-        input=_build_input_messages(messages),
+        input=input_messages,
         extra_body={
             "agent_reference": {
                 "name": Config.AZURE_AGENT_NAME,
@@ -149,11 +463,12 @@ def _agent_response_text(messages):
 
     # Extract the text
     text = getattr(response, "output_text", "") or ""
+    print(f"[AZURE] Received response for user_id={user_id}, text_length={len(text)}")
 
     # Return only mapped source URLs; skip citations with no mapping.
     citation_filenames = _extract_citation_filenames(response)
     citations = _map_citation_urls(citation_filenames)
-    print(f"Extracted filenames: {citation_filenames}. Mapped URLs: {citations}")
+    print(f"[AZURE] Extracted filenames: {citation_filenames}. Mapped URLs: {citations}")
 
     return {"text": text, "citations": citations}
 
@@ -167,17 +482,20 @@ def send_message():
         body = request.json
         content = body.get("message")
         sender_id = body.get("sender", "")
+        session_id = body.get("session_id")
+        user_id = _normalize_sender_id(sender_id)
         history = body.get("history", [])
         messages = history + [{"role": "user", "content": content}]
         stream_text = ""
 
         def generate():
             nonlocal stream_text
-            stream_text = _agent_response_text(messages)
+            result = _agent_response_text(messages, user_id=user_id)
+            stream_text = result.get("text", "")
             if stream_text:
                 yield stream_text
 
-            store_conversation(sender_id, content, stream_text)
+            store_conversation(sender_id, content, stream_text, session_id=session_id)
             print(
                 f"Stored conversation for user_id={sender_id}: {content} -> {stream_text}"
             )
@@ -190,23 +508,41 @@ def send_message():
 
 # ── Socket.IO route (used by React) ─────────────────────────────────────────
 
+# Catch-all handler to debug all socket events
+@socketio.on("*")
+def debug_event_handler(event, data):
+    print(f"[DEBUG] Socket event received: {event}", flush=True)
+    print(f"[DEBUG] Event data: {data}", flush=True)
+
 
 @socketio.on("user_uttered")
 def handle_user_uttered(data):
+    print(f"\n{'='*80}")
+    print(f"[SOCKET] Received user_uttered event")
     content = data.get("message")
     sender_id = data.get("sender", "")
+    session_id = data.get("session_id")
+    print(f"[SOCKET] Raw sender_id from client: {sender_id}")
+    user_id = _normalize_sender_id(sender_id)
+    print(f"[SOCKET] Normalized user_id: {user_id}")
+    print(f"[SOCKET] Session id: {session_id}")
     history = data.get("history", [])
+    print(f"[SOCKET] Chat history length: {len(history)}")
+    print(f"[SOCKET] User message: {content[:80]}...")
     messages = history + [{"role": "user", "content": content}]
     stream_text = ""
 
     try:
         # Get the full result dictionary
-        result = _agent_response_text(messages)
+        print(f"[SOCKET] Starting context injection and Azure call...")
+        result = _agent_response_text(messages, user_id=user_id)
         stream_text = result.get("text", "")
         citations = result.get("citations", [])
+        print(f"[SOCKET] Received response: text_length={len(stream_text)}, citations_count={len(citations)}")
 
         if stream_text:
             # Emit BOTH text and citations to React
+            print(f"[SOCKET] Emitting bot_uttered event to client...")
             emit(
                 "bot_uttered",
                 {
@@ -216,12 +552,20 @@ def handle_user_uttered(data):
                     },
                 },
             )
+        else:
+            print(f"[SOCKET] WARNING: Empty stream_text received")
 
     except Exception as e:
+        print(f"[SOCKET] ERROR in user_uttered handler: {e}")
+        import traceback
+        traceback.print_exc()
         emit("bot_uttered", {"text": f"Error: {str(e)}"})
 
+    print(f"[SOCKET] Emitting bot_done event")
     emit("bot_done")
-    store_conversation(sender_id, content, stream_text)
+    print(f"[SOCKET] Conversation stored for sender_id={sender_id}")
+    store_conversation(sender_id, content, stream_text, session_id=session_id)
+    print(f"{'='*80}\n")
 
 
 # ── Health check ─────────────────────────────────────────────────────────────

@@ -1,0 +1,333 @@
+{
+  "links": [
+    {
+      "category": "MAE",
+      "title": "MAE (Mobility and Erasmus) Official Program",
+      "url": "https://ec.europa.eu/programmes/erasmus-plus/",
+      "description": "Official European Commission Erasmus+ program page with information about student mobility, grants, and partnerships.",
+      "keywords": "erasmus, mobility, student exchange, eu funding, european commission"
+    },
+    {
+      "category": "MAE",
+      "title": "Erasmus+ Student Charter",
+      "url": "https://erasmus-plus.ec.europa.eu/document/erasmus-student-charter",
+      "description": "Official Erasmus Student Charter defining rights, responsibilities, and support for exchange students.",
+      "keywords": "student charter, rights, responsibilities, erasmus support"
+    },
+    {
+      "category": "MAE",
+      "title": "Erasmus+ Funding and Grants",
+      "url": "https://erasmus-plus.ec.europa.eu/about-erasmus/key-facts",
+      "description": "Information about Erasmus+ grants, funding amounts, and eligibility criteria for different countries.",
+      "keywords": "erasmus grants, funding, financial support, eligibility, scholarships"
+    },
+    {
+      "category": "MAE",
+      "title": "Finding Erasmus+ Host Institutions",
+      "url": "https://erasmusplus.it.pt/en/find-institutions",
+      "description": "Directory and search tool for finding partnered institutions participating in Erasmus+.",
+      "keywords": "host institutions, partner universities, erasmus+ partnerships"
+    },
+    {
+      "category": "MAE",
+      "title": "Erasmus+ Application Process",
+      "url": "https://erasmus-plus.ec.europa.eu/how-to-take-part",
+      "description": "Step-by-step guide for applying to Erasmus+ as a student, including deadlines and requirements.",
+      "keywords": "application, how to apply, erasmus process, deadlines, requirements"
+    },
+    {
+      "category": "MAE",
+      "title": "Erasmus+ Learning Agreement",
+      "url": "https://erasmus-plus.ec.europa.eu/document/learning-agreement",
+      "description": "Essential document for Erasmus+ mobility defining academic recognition and course equivalence.",
+      "keywords": "learning agreement, academic recognition, course equivalence, erasmus contract"
+    },
+    {
+      "category": "MAE",
+      "title": "European Youth Foundation Grants",
+      "url": "https://www.eyf.coe.int/",
+      "description": "Alternative funding and support opportunities for European youth mobility projects.",
+      "keywords": "youth grants, european funding, mobility support, youth projects"
+    },
+    {
+      "category": "IGI",
+      "title": "IGI - International Group Insurance",
+      "url": "https://www.igi.it/",
+      "description": "Official IGI website providing comprehensive international group insurance coverage for international students and travelers.",
+      "keywords": "igi insurance, international group, student insurance, health coverage"
+    },
+    {
+      "category": "IGI",
+      "title": "IGI Student Insurance Plans",
+      "url": "https://www.igi.it/en/student-insurance",
+      "description": "Specialized insurance plans for international students including health, travel, and liability coverage.",
+      "keywords": "student plans, health insurance, travel insurance, liability, coverage"
+    },
+    {
+      "category": "IGI",
+      "title": "IGI Policy Coverage and Benefits",
+      "url": "https://www.igi.it/en/coverage-benefits",
+      "description": "Detailed information about what is covered under IGI policies, including medical, emergency, and travel expenses.",
+      "keywords": "coverage, benefits, medical expenses, emergency, travel costs"
+    },
+    {
+      "category": "IGI",
+      "title": "IGI Claims and Support",
+      "url": "https://www.igi.it/en/claims-support",
+      "description": "How to file claims with IGI, emergency support numbers, and customer service information.",
+      "keywords": "claims, support, emergency, customer service, hotline"
+    },
+    {
+      "category": "IGI",
+      "title": "IGI Documentation and Forms",
+      "url": "https://www.igi.it/en/documents-forms",
+      "description": "Download policy documents, claim forms, and other required paperwork for IGI coverage.",
+      "keywords": "documents, forms, policy, paperwork, downloads"
+    },
+    {
+      "category": "IGI",
+      "title": "IGI Online Portal and Billing",
+      "url": "https://www.igi.it/en/online-portal",
+      "description": "Access your IGI insurance account, manage policies, view billing, and submit claims online.",
+      "keywords": "online account, policy management, billing, claims submission"
+    },
+    {
+      "category": "VISA",
+      "title": "Romania Visa Information",
+      "url": "https://www.mae.ro/en/romanian-visas",
+      "description": "Official Romanian Ministry of Foreign Affairs information about visa requirements and application procedures.",
+      "keywords": "visa, romania, student visa, residence permit, requirements"
+    },
+    {
+      "category": "VISA",
+      "title": "Romanian Student Residence Permit (D Visa)",
+      "url": "https://www.mae.ro/en/travel/travel-documents/residence-permits",
+      "description": "Detailed procedures for obtaining a student residence permit (D visa) to study in Romania.",
+      "keywords": "residence permit, d visa, student visa, long-term stay, permit application"
+    },
+    {
+      "category": "VISA",
+      "title": "EU/EEA Citizens in Romania",
+      "url": "https://www.mai.gov.ro/en/information-eu-eea-citizens",
+      "description": "Information for EU and EEA citizens regarding residence registration and rights in Romania.",
+      "keywords": "eu citizens, residence registration, eea, free movement, rights"
+    },
+    {
+      "category": "VISA",
+      "title": "Biometric Passports and Travel Documents",
+      "url": "https://www.mae.ro/en/travel/travel-documents/passports",
+      "description": "Information about Romanian and foreign passport requirements for traveling to Romania.",
+      "keywords": "passport, biometric, travel documents, requirements"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "University of Iași Official Website",
+      "url": "https://www.uaic.ro/en/",
+      "description": "Universitatea Alexandru Ioan Cuza main website with information about programs, admissions, and student services.",
+      "keywords": "uaic, iasi university, admission, programs, student support"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "UAIC International Relations Department",
+      "url": "https://www.uaic.ro/en/international/departamentul-de-relatii-internationale/",
+      "description": "Official international office providing support for international students at UAIC.",
+      "keywords": "international office, erasmus, international students, exchange programs"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "UAIC Admissions and Programs",
+      "url": "https://www.uaic.ro/en/admission/",
+      "description": "UAIC admission procedures, application deadlines, program information, and requirements.",
+      "keywords": "admission, application, programs, enrollment, deadlines"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "UAIC Library and Academic Resources",
+      "url": "https://www.uaic.ro/en/library/",
+      "description": "Library services, digital resources, and academic support for UAIC students.",
+      "keywords": "library, academic resources, research databases, student support"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "TU Iași (Gheorghe Asachi Technical University)",
+      "url": "https://www.tuiasi.ro/en/",
+      "description": "Gheorghe Asachi Technical University main website with information about engineering programs, admissions, and services.",
+      "keywords": "tuiasi, technical university, iasi, engineering, admission, programs"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "TU Iași International Office",
+      "url": "https://www.tuiasi.ro/en/international/",
+      "description": "International office at TU Iași providing support for Erasmus+ and international students.",
+      "keywords": "international office, erasmus, international students, exchange programs, tuiasi"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "TU Iași Admissions",
+      "url": "https://www.tuiasi.ro/en/admissions/",
+      "description": "TU Iași admission procedures, application deadlines, and program requirements.",
+      "keywords": "admission, application, enrollment, deadlines, tuiasi"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "Grigore Popa University of Medicine and Pharmacy",
+      "url": "https://www.umfiasi.ro/en/",
+      "description": "Grigore Popa University main website offering medical, pharmacy, and dental programs with international student support.",
+      "keywords": "grigore popa, medical university, medicine, pharmacy, dental, iasi, admission"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "Grigore Popa University International Office",
+      "url": "https://www.umfiasi.ro/en/international/",
+      "description": "International relations office at Grigore Popa University supporting Erasmus+ mobility and international students.",
+      "keywords": "international office, erasmus, international students, exchange, grigore popa"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "Grigore Popa University Admissions",
+      "url": "https://www.umfiasi.ro/en/admissions/",
+      "description": "Admission procedures and requirements for medical, pharmacy, and dental programs at Grigore Popa University.",
+      "keywords": "admission, application, medical, pharmacy, dental, enrollment, grigore popa"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "Iași City Information Portal",
+      "url": "https://www.iasi.ro/en/",
+      "description": "Official city information for Iași including housing, transportation, and local services.",
+      "keywords": "iasi city, housing, transportation, local services, accommodation"
+    },
+    {
+      "category": "OFFICIAL",
+      "title": "Romanian Government Official Portal",
+      "url": "https://www.romania.ro/en/",
+      "description": "Official government portal with information about living and studying in Romania.",
+      "keywords": "romania government, official information, living in romania"
+    },
+    {
+      "category": "ACCOMMODATION",
+      "title": "UAIC Student Housing Services",
+      "url": "https://www.uaic.ro/en/student-services/accommodation",
+      "description": "Official university accommodation office for student housing allocation and registration.",
+      "keywords": "housing, dormitory, accommodation, student residence, dorm application"
+    },
+    {
+      "category": "ACCOMMODATION",
+      "title": "Iași Student Dormitories",
+      "url": "https://www.iasi.ro/en/living/student-housing/dormitories",
+      "description": "List of student dormitories in Iași with information about availability and requirements.",
+      "keywords": "dormitories, student housing, dorms, accommodation options"
+    },
+    {
+      "category": "ACCOMMODATION",
+      "title": "Iași Housing Portals - Airbnb",
+      "url": "https://www.airbnb.com/s/Iași--Romania/homes",
+      "description": "Private rental accommodation options for international students in Iași.",
+      "keywords": "private housing, rent, airbnb, accommodation search, rental"
+    },
+    {
+      "category": "ACCOMMODATION",
+      "title": "Iași Housing Portals - Imobiliare",
+      "url": "https://www.imobiliare.ro/inchirieri/iasi/",
+      "description": "Local real estate portal with rental apartments and houses in Iași.",
+      "keywords": "apartment rental, housing search, private accommodation, imobiliare"
+    },
+    {
+      "category": "TRANSPORTATION",
+      "title": "Iași Public Transportation",
+      "url": "https://www.rataiasi.ro/",
+      "description": "Official site for RATA public transportation company serving Iași with bus and trolley routes.",
+      "keywords": "public transport, buses, trolleys, routes, schedules, tickets"
+    },
+    {
+      "category": "TRANSPORTATION",
+      "title": "Romanian Railways - CFR",
+      "url": "https://www.cfr.ro/en/",
+      "description": "Official Romanian railway company for inter-city and international train connections.",
+      "keywords": "trains, railway, cfr, inter-city, travel"
+    },
+    {
+      "category": "TRANSPORTATION",
+      "title": "Airport Transportation and Access",
+      "url": "https://www.iasi-airport.ro/",
+      "description": "Iași International Airport information including ground transportation options.",
+      "keywords": "airport, ground transport, shuttle, taxi, connections"
+    },
+    {
+      "category": "BANKING",
+      "title": "Romanian Banking Information",
+      "url": "https://www.bnr.ro/en/",
+      "description": "National Bank of Romania providing information about banking services and currency.",
+      "keywords": "banking, bank account, currency, financial services, transfers"
+    },
+    {
+      "category": "BANKING",
+      "title": "Opening Bank Accounts as International Student",
+      "url": "https://www.mag.ro/en/accounts/student",
+      "description": "Information about opening bank accounts specifically for international students in Romania.",
+      "keywords": "bank account, student account, banking, financial services"
+    },
+    {
+      "category": "HEALTHCARE",
+      "title": "Romanian Healthcare System",
+      "url": "https://www.ms.gov.ro/en/",
+      "description": "Ministry of Health information about healthcare access for international students and residents.",
+      "keywords": "healthcare, medical services, hospital, insurance coverage"
+    },
+    {
+      "category": "HEALTHCARE",
+      "title": "Iași General Emergency Hospital",
+      "url": "https://urgenta-spitalul-sf-spiridon.ro/en/",
+      "description": "Main emergency hospital in Iași providing emergency and general medical services.",
+      "keywords": "hospital, emergency, medical, healthcare, urgent care"
+    },
+    {
+      "category": "HEALTHCARE",
+      "title": "Emergency Services and Hotlines",
+      "url": "https://www.romania.ro/en/emergency-services",
+      "description": "Emergency contact numbers and procedures for medical, police, and fire services in Romania.",
+      "keywords": "emergency, hotline, ambulance, police, fire, 112"
+    },
+    {
+      "category": "CULTURE",
+      "title": "Iași Cultural Events and Attractions",
+      "url": "https://www.iasi.ro/en/tourism/attractions/",
+      "description": "Information about cultural sites, museums, and events in Iași for students.",
+      "keywords": "culture, museums, events, attractions, entertainment"
+    },
+    {
+      "category": "CULTURE",
+      "title": "Palace of Culture Iași",
+      "url": "https://www.palatul-culturii.ro/",
+      "description": "One of Iași's most iconic cultural venues hosting exhibitions, performances, and events.",
+      "keywords": "palace of culture, exhibitions, performances, cultural events"
+    },
+    {
+      "category": "ADMINISTRATION",
+      "title": "Iași City Hall Services",
+      "url": "https://www.iasi.ro/en/city-hall/services/",
+      "description": "Official city administration services including residence registration and permits.",
+      "keywords": "city hall, permits, registration, local administration, services"
+    },
+    {
+      "category": "ADMINISTRATION",
+      "title": "Romanian Immigration Office (IGI)",
+      "url": "https://igpf.mai.gov.ro/en/",
+      "description": "General Inspectorate for Immigration handling visa, residence, and immigration matters.",
+      "keywords": "immigration, visa, residence, permits, immigration office"
+    },
+    {
+      "category": "LANGUAGE",
+      "title": "Romanian Language Courses",
+      "url": "https://www.uaic.ro/en/international/romanian-language/",
+      "description": "Information about Romanian language courses for international students at UAIC.",
+      "keywords": "language courses, romanian, language learning, international students"
+    },
+    {
+      "category": "LANGUAGE",
+      "title": "Language Certification Requirements",
+      "url": "https://www.soros.ro/en/language/certifications/",
+      "description": "Information about language proficiency certifications accepted in Romania.",
+      "keywords": "language certification, proficiency, test, requirements"
+    }
+  ]
+}

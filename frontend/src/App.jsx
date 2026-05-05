@@ -10,6 +10,7 @@ export default function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/" element={<Navigate to="/chat" replace />} />
       <Route
         path="/profile"
         element={
@@ -19,14 +20,14 @@ export default function App() {
         }
       />
       <Route
-        path="/"
+        path="/chat"
         element={
           <ProtectedRoute>
             <ChatApp />
           </ProtectedRoute>
         }
       />
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<Navigate to="/chat" replace />} />
     </Routes>
   );
 }
