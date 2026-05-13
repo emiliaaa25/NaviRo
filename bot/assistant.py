@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 import sys
+import os
+import tempfile
 
 from flask import Flask, request, session, Response, jsonify, stream_with_context
 from flask_cors import CORS
@@ -10,6 +12,7 @@ from openai import AzureOpenAI
 from actions.config import Config
 from actions.db import db
 from actions.utils import store_conversation
+from actions.voice_processor import VoiceProcessor
 
 # Force unbuffered output so logs appear immediately
 sys.stdout = sys.stderr
@@ -483,19 +486,45 @@ def send_message():
         content = body.get("message")
         sender_id = body.get("sender", "")
         session_id = body.get("session_id")
+        language = body.get("language", "en")
+        enable_tts = body.get("enable_tts", False)
+        is_voice_message = body.get("is_voice_message", False)
+        transcription = body.get("transcription")  # For voice messages
+        voice_url = body.get("voice_url")  # URL to original voice recording
+        
         user_id = _normalize_sender_id(sender_id)
         history = body.get("history", [])
         messages = history + [{"role": "user", "content": content}]
         stream_text = ""
+        voice_response_url = None
 
         def generate():
-            nonlocal stream_text
+            nonlocal stream_text, voice_response_url
             result = _agent_response_text(messages, user_id=user_id)
             stream_text = result.get("text", "")
+            
+            # Generate TTS if enabled
+            if enable_tts and stream_text:
+                tts_result = VoiceProcessor.text_to_speech(stream_text, language=language)
+                if tts_result['success'] and tts_result['file_path']:
+                    voice_response_url = f"/audio/{os.path.basename(tts_result['file_path'])}"
+            
             if stream_text:
                 yield stream_text
 
-            store_conversation(sender_id, content, stream_text, session_id=session_id)
+            # Store conversation with voice fields
+            store_conversation(
+                sender_id, 
+                content, 
+                stream_text, 
+                session_id=session_id,
+                transcription=transcription,
+                voice_url=voice_url,
+                voice_response_url=voice_response_url,
+                language=language,
+                is_voice_message=is_voice_message,
+                tts_enabled=enable_tts
+            )
             print(
                 f"Stored conversation for user_id={sender_id}: {content} -> {stream_text}"
             )
@@ -522,15 +551,24 @@ def handle_user_uttered(data):
     content = data.get("message")
     sender_id = data.get("sender", "")
     session_id = data.get("session_id")
+    language = data.get("language", "en")
+    enable_tts = data.get("enable_tts", False)
+    is_voice_message = data.get("is_voice_message", False)
+    transcription = data.get("transcription")  # For voice messages
+    voice_url = data.get("voice_url")  # URL to original voice recording
+    
     print(f"[SOCKET] Raw sender_id from client: {sender_id}")
     user_id = _normalize_sender_id(sender_id)
     print(f"[SOCKET] Normalized user_id: {user_id}")
     print(f"[SOCKET] Session id: {session_id}")
+    print(f"[SOCKET] Language: {language}, TTS enabled: {enable_tts}, Voice message: {is_voice_message}")
+    
     history = data.get("history", [])
     print(f"[SOCKET] Chat history length: {len(history)}")
     print(f"[SOCKET] User message: {content[:80]}...")
     messages = history + [{"role": "user", "content": content}]
     stream_text = ""
+    voice_response_url = None
 
     try:
         # Get the full result dictionary
@@ -540,16 +578,32 @@ def handle_user_uttered(data):
         citations = result.get("citations", [])
         print(f"[SOCKET] Received response: text_length={len(stream_text)}, citations_count={len(citations)}")
 
+        # Generate TTS if enabled
+        if enable_tts and stream_text:
+            print(f"[SOCKET] Generating TTS for bot response...")
+            tts_result = VoiceProcessor.text_to_speech(stream_text, language=language)
+            if tts_result['success'] and tts_result['file_path']:
+                voice_response_url = f"/audio/{os.path.basename(tts_result['file_path'])}"
+                print(f"[SOCKET] TTS generated successfully: {voice_response_url}")
+            else:
+                print(f"[SOCKET] TTS generation failed: {tts_result.get('error')}")
+
         if stream_text:
-            # Emit BOTH text and citations to React
+            # Emit text and optional voice URL to React
+            metadata = {
+                "citations": citations,
+                "language": language,
+                "voice_response_url": voice_response_url
+            }
+            if is_voice_message:
+                metadata["is_voice_response"] = True
+            
             print(f"[SOCKET] Emitting bot_uttered event to client...")
             emit(
                 "bot_uttered",
                 {
                     "text": stream_text,
-                    "metadata": {
-                        "citations": citations  # This allows React to render the links
-                    },
+                    "metadata": metadata,
                 },
             )
         else:
@@ -563,8 +617,21 @@ def handle_user_uttered(data):
 
     print(f"[SOCKET] Emitting bot_done event")
     emit("bot_done")
-    print(f"[SOCKET] Conversation stored for sender_id={sender_id}")
-    store_conversation(sender_id, content, stream_text, session_id=session_id)
+    
+    # Store conversation with voice fields
+    print(f"[SOCKET] Storing conversation for sender_id={sender_id}")
+    store_conversation(
+        sender_id, 
+        content, 
+        stream_text, 
+        session_id=session_id,
+        transcription=transcription,
+        voice_url=voice_url,
+        voice_response_url=voice_response_url,
+        language=language,
+        is_voice_message=is_voice_message,
+        tts_enabled=enable_tts
+    )
     print(f"{'='*80}\n")
 
 

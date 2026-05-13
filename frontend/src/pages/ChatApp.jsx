@@ -3,7 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import QuestMap from "../components/QuestMap";
 import { useChat } from "../hooks/useChat";
 import useAuth from "../hooks/useAuth";
-import { LogOut } from "lucide-react";
+import { LogOut, Volume2 } from "lucide-react";
+import VoiceInput from "../components/VoiceInput";
 
 const ChatBubbleIcon = () => (
   <svg
@@ -63,7 +64,6 @@ const SettingsIcon = () => (
     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
   </svg>
 );
-
 const QUICK_CHIPS = [
   { label: "🏛️ Visa info", text: "Visa info" },
   { label: "🚌 Transport", text: "Transport options in my city" },
@@ -147,6 +147,7 @@ function ChatApp() {
     selectRecentChat,
   } = useChat();
   const [input, setInput] = useState("");
+  const [speakingMessageId, setSpeakingMessageId] = useState(null);
   const [currentStep, setCurrentStep] = useState(1);
   const [questSummary, setQuestSummary] = useState(null);
   const [activeTab, setActiveTab] = useState("chat");
@@ -199,6 +200,44 @@ function ChatApp() {
   const handleLogout = () => {
     logout();
     navigate("/login");
+  };
+
+  const stopBotSpeech = () => {
+    if (window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+    setSpeakingMessageId(null);
+  };
+
+  const handleSpeakBotMessage = (text, messageId) => {
+    const spokenText = String(text || "").trim();
+
+    if (!spokenText || !window.speechSynthesis) {
+      return;
+    }
+
+    if (speakingMessageId === messageId && window.speechSynthesis.speaking) {
+      stopBotSpeech();
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(spokenText);
+    utterance.lang = "en-US";
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    setSpeakingMessageId(messageId);
+    utterance.onend = () => {
+      setSpeakingMessageId((currentId) =>
+        currentId === messageId ? null : currentId,
+      );
+    };
+    utterance.onerror = () => {
+      setSpeakingMessageId((currentId) =>
+        currentId === messageId ? null : currentId,
+      );
+    };
+    window.speechSynthesis.speak(utterance);
   };
 
   const displayName = user?.username || "there";
@@ -586,6 +625,25 @@ function ChatApp() {
                     <>
                       {renderBotText(msg.text)}
                       {renderCitationLinks(msg.citations, `msg-${i}`)}
+                      <div className="nv-chat-bubble-actions">
+                        <button
+                          type="button"
+                          className="nv-chat-speak-btn"
+                          onClick={() => handleSpeakBotMessage(msg.text, i)}
+                          title={
+                            speakingMessageId === i &&
+                            window.speechSynthesis?.speaking
+                              ? "Stop reading aloud"
+                              : "Read response aloud"
+                          }
+                        >
+                          <Volume2 size={14} />
+                          {speakingMessageId === i &&
+                          window.speechSynthesis?.speaking
+                            ? "Stop"
+                            : "Speak"}
+                        </button>
+                      </div>
                     </>
                   ) : (
                     msg.text
@@ -621,6 +679,18 @@ function ChatApp() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
+              />
+              <VoiceInput
+                compact={true}
+                onTranscript={(text) =>
+                  setInput(
+                    String(text || "")
+                      .replace(/#+/g, "")
+                      .replace(/\s+/g, " ")
+                      .trimStart(),
+                  )
+                }
+                onSend={sendMessage}
               />
               <button
                 type="button"

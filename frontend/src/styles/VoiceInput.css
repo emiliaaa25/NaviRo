@@ -1,0 +1,475 @@
+/* Voice Input Component Styles */
+
+/* Compact mic button for input bar */
+.nv-voice-mic-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+}
+
+.nv-voice-btn {
+  width: 38px;
+  height: 38px;
+  background: var(--sage-dark, #5d8d7d);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition:
+    background 0.2s,
+    transform 0.1s;
+  flex-shrink: 0;
+}
+
+.nv-voice-btn:hover {
+  background: var(--dark, #2c3e50);
+  transform: scale(1.05);
+}
+
+.nv-voice-btn.recording {
+  background: #e74c3c;
+  animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+  0%,
+  100% {
+    background: #e74c3c;
+  }
+  50% {
+    background: #c0392b;
+  }
+}
+
+/* Mini waveform in input bar */
+.nv-waveform-mini {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 28px;
+  padding: 0 4px;
+}
+
+.nv-waveform-mini .nv-waveform-bar {
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--sage, #7a9e8e) 0%,
+    var(--sage-dark, #5d8d7d) 100%
+  );
+  border-radius: 1px;
+  min-height: 2px;
+  animation: waveform-pulse 0.3s ease-in-out;
+}
+
+/* Full voice input container */
+.nv-voice-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: var(--cream, #f5f3f0);
+  border-radius: 12px;
+  border: 1.5px solid var(--cream-dark, #e8ddd5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.nv-voice-error {
+  padding: 12px;
+  background-color: #fdeaea;
+  color: #c42e3b;
+  border-radius: 8px;
+  font-size: 13px;
+  border-left: 3px solid #c42e3b;
+  font-weight: 500;
+}
+
+/* Voice Header */
+.nv-voice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.nv-voice-language-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.nv-voice-language-selector label {
+  font-weight: 600;
+  color: var(--dark, #2c3e50);
+}
+
+.nv-voice-language-selector select {
+  padding: 6px 10px;
+  border: 1.5px solid var(--cream-dark, #e8ddd5);
+  border-radius: 6px;
+  background: var(--white, #ffffff);
+  cursor: pointer;
+  font-size: 12px;
+  transition: border-color 0.2s;
+}
+
+.nv-voice-language-selector select:focus {
+  outline: none;
+  border-color: var(--sage, #7a9e8e);
+  box-shadow: 0 0 0 2px rgba(122, 158, 142, 0.1);
+}
+
+/* Waveform Visualization */
+.nv-waveform-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  height: 60px;
+  padding: 12px;
+  background: rgba(122, 158, 142, 0.05);
+  border-radius: 8px;
+}
+
+.nv-waveform-bar {
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--sage, #7a9e8e) 0%,
+    var(--sage-dark, #5d8d7d) 100%
+  );
+  border-radius: 2px;
+  min-height: 3px;
+  animation: waveform-pulse 0.3s ease-in-out;
+}
+
+@keyframes waveform-pulse {
+  0% {
+    height: 5%;
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+/* Transcript Display */
+.nv-transcript-display {
+  padding: 12px;
+  background: var(--white, #ffffff);
+  border-radius: 8px;
+  border: 1px solid var(--cream-dark, #e8ddd5);
+  font-size: 14px;
+  color: var(--text, #2c3e50);
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+/* Voice Controls */
+.nv-voice-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nv-record-btn,
+.nv-playback-btn,
+.nv-send-transcript-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1.5px solid var(--cream-dark, #e8ddd5);
+  border-radius: 8px;
+  background: var(--white, #ffffff);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--dark, #2c3e50);
+  transition: all 0.2s;
+}
+
+.nv-record-btn:hover,
+.nv-playback-btn:hover,
+.nv-send-transcript-btn:hover {
+  border-color: var(--sage, #7a9e8e);
+  background: rgba(122, 158, 142, 0.05);
+  color: var(--sage-dark, #5d8d7d);
+}
+
+.nv-record-btn.recording {
+  background: #e74c3c;
+  border-color: #e74c3c;
+  color: white;
+  animation: pulse-record 1s infinite;
+}
+
+@keyframes pulse-record {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(231, 76, 60, 0);
+  }
+}
+
+.nv-send-transcript-btn {
+  background: var(--sage-dark, #5d8d7d);
+  border-color: var(--sage-dark, #5d8d7d);
+  color: white;
+}
+
+.nv-send-transcript-btn:hover {
+  background: var(--dark, #2c3e50);
+  border-color: var(--dark, #2c3e50);
+  color: white;
+}
+
+.nv-send-transcript-btn:disabled,
+.nv-playback-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .nv-voice-input-container {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .nv-voice-controls {
+    flex-direction: column;
+  }
+
+  .nv-record-btn,
+  .nv-playback-btn,
+  .nv-send-transcript-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nv-waveform-container {
+    height: 50px;
+  }
+}
+
+.voice-language-selector select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Waveform Visualization */
+.voice-waveform {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  height: 40px;
+  padding: 8px;
+  background: white;
+  border-radius: 8px;
+}
+
+.voice-bar {
+  flex: 1;
+  background: linear-gradient(to top, #4f46e5, #06b6d4);
+  border-radius: 2px;
+  min-height: 4px;
+  transition: height 0.1s ease-out;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+}
+
+/* Transcript Display */
+.voice-transcript {
+  padding: 10px 12px;
+  background: white;
+  border-radius: 8px;
+  border-left: 3px solid #4f46e5;
+  font-size: 14px;
+}
+
+.voice-transcript p {
+  margin: 0;
+  color: #333;
+  word-wrap: break-word;
+}
+
+/* Controls */
+.voice-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.voice-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 100px;
+}
+
+.voice-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Record Button */
+.record-btn {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  color: white;
+  border: 2px solid #dc2626;
+}
+
+.record-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.record-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Stop Button */
+.stop-btn {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+  border: 2px solid #1d4ed8;
+}
+
+.stop-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Playback Button */
+.playback-btn {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+  border: 2px solid #059669;
+}
+
+.playback-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Send Button */
+.send-btn {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  color: white;
+  border: 2px solid #6d28d9;
+}
+
+.send-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+/* Status Badges */
+.voice-status {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-height: 20px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-badge.recording {
+  background: #fee2e2;
+  color: #991b1b;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.status-badge.recording::before {
+  content: "●";
+  font-size: 8px;
+  animation: blink 1s ease-in-out infinite;
+}
+
+.status-badge.speaking {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-badge.loading {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    background: #fee2e2;
+  }
+  50% {
+    background: #fecaca;
+  }
+  100% {
+    background: #fee2e2;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .voice-input-container {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .voice-controls {
+    flex-direction: column;
+  }
+
+  .voice-btn {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .voice-waveform {
+    height: 35px;
+    gap: 2px;
+  }
+}

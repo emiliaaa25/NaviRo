@@ -9,3 +9,9 @@ flask-socketio
 eventlet
 PyPDF2
 bs4
+SpeechRecognition
+pyttsx3
+google-cloud-speech
+google-cloud-storage
+librosa
+soundfile

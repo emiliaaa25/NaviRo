@@ -3,7 +3,9 @@ from flask_cors import CORS
 from functools import wraps
 from db import db
 from auth import AuthManager
+from voice_processor import VoiceProcessor
 import os
+import tempfile
 
 app = Flask(__name__)
 CORS(app)
@@ -407,6 +409,131 @@ def get_digital_shadow():
             
     except Exception as e:
         return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
+
+# ============ VOICE CHAT ROUTES ============
+
+@app.route('/chat/transcribe', methods=['POST'])
+@token_required
+def transcribe_audio():
+    """
+    Transcribe audio file to text.
+    
+    Expected request:
+    - audio: audio file (webm, wav, ogg, etc.)
+    - language: language code (en-US, ro-RO, etc.) - optional, will be detected
+    """
+    try:
+        # Check if audio file is present
+        if 'audio' not in request.files:
+            return jsonify({
+                'success': False,
+                'message': 'No audio file provided'
+            }), 400
+        
+        audio_file = request.files['audio']
+        if audio_file.filename == '':
+            return jsonify({
+                'success': False,
+                'message': 'Empty audio file'
+            }), 400
+        
+        # Get language preference (optional)
+        language = request.form.get('language', 'en-US')
+        if language not in ['en-US', 'ro-RO', 'en', 'ro']:
+            language = 'en-US'
+        
+        # Save temporary file for processing
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.webm')
+        temp_path = temp_file.name
+        audio_file.save(temp_path)
+        
+        try:
+            # Transcribe audio
+            result = VoiceProcessor.transcribe_audio(temp_path, language)
+            
+            if result['success']:
+                return jsonify({
+                    'success': True,
+                    'transcript': result['transcript'],
+                    'confidence': result['confidence'],
+                    'detected_language': result['detected_language'],
+                    'user_id': request.user_id
+                }), 200
+            else:
+                return jsonify({
+                    'success': False,
+                    'message': result['error'],
+                    'detected_language': language
+                }), 400
+                
+        finally:
+            # Clean up temporary file
+            import os
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+    
+    except Exception as e:
+        print(f"Error in transcribe_audio: {e}")
+        return jsonify({
+            'success': False,
+            'message': f'Server error: {str(e)}'
+        }), 500
+
+
+@app.route('/chat/tts', methods=['POST'])
+@token_required
+def generate_speech():
+    """
+    Generate speech audio from text.
+    
+    Expected request JSON:
+    - text: Text to convert to speech
+    - language: Language code (en, ro) - optional
+    """
+    try:
+        data = request.get_json()
+        
+        if not data or 'text' not in data:
+            return jsonify({
+                'success': False,
+                'message': 'No text provided'
+            }), 400
+        
+        text = data['text'].strip()
+        if not text:
+            return jsonify({
+                'success': False,
+                'message': 'Empty text'
+            }), 400
+        
+        language = data.get('language', 'en')
+        if language not in ['en', 'ro']:
+            language = 'en'
+        
+        # Generate speech
+        result = VoiceProcessor.text_to_speech(text, language)
+        
+        if result['success'] and result['file_path']:
+            # Return the audio file
+            from flask import send_file
+            return send_file(
+                result['file_path'],
+                mimetype='audio/mp3',
+                as_attachment=False,
+                download_name='response.mp3'
+            )
+        else:
+            return jsonify({
+                'success': False,
+                'message': result['error'] or 'Failed to generate speech'
+            }), 500
+            
+    except Exception as e:
+        print(f"Error in generate_speech: {e}")
+        return jsonify({
+            'success': False,
+            'message': f'Server error: {str(e)}'
+        }), 500
 
 @app.errorhandler(404)
 def not_found(error):

@@ -39,6 +39,36 @@ def _ensure_schema(cursor):
         """
     )
 
+    # Add voice fields if they don't exist
+    voice_migrations = [
+        ("transcription", "TEXT"),
+        ("voice_url", "VARCHAR(500)"),
+        ("voice_response_url", "VARCHAR(500)"),
+        ("language", "VARCHAR(10) DEFAULT 'en'"),
+        ("is_voice_message", "BOOLEAN DEFAULT FALSE"),
+        ("tts_enabled", "BOOLEAN DEFAULT TRUE"),
+    ]
+
+    for column_name, column_type in voice_migrations:
+        cursor.execute(
+            f"""
+            DO $$
+            BEGIN
+                IF NOT EXISTS (
+                    SELECT 1
+                    FROM information_schema.columns
+                    WHERE table_schema = 'public'
+                      AND table_name = 'conversations'
+                      AND column_name = '{column_name}'
+                ) THEN
+                    ALTER TABLE conversations
+                    ADD COLUMN {column_name} {column_type};
+                END IF;
+            END
+            $$;
+            """
+        )
+
     # Repair older schemas where id exists but has no default sequence.
     cursor.execute(
         """
@@ -67,8 +97,33 @@ def _ensure_schema(cursor):
     )
 
 
-def store_conversation(user_id, user_message, bot_response, session_id=None):
-    """Persist a single conversation turn."""
+def store_conversation(
+    user_id,
+    user_message,
+    bot_response,
+    session_id=None,
+    transcription=None,
+    voice_url=None,
+    voice_response_url=None,
+    language="en",
+    is_voice_message=False,
+    tts_enabled=True
+):
+    """
+    Persist a single conversation turn with optional voice fields.
+    
+    Args:
+        user_id: User identifier
+        user_message: Text of user message
+        bot_response: Text of bot response
+        session_id: Chat session identifier
+        transcription: Transcribed text from voice input
+        voice_url: URL to user's voice recording
+        voice_response_url: URL to bot's TTS response audio
+        language: Detected language (e.g., 'en', 'ro')
+        is_voice_message: Flag if message was voice-initiated
+        tts_enabled: Flag if TTS was used for response
+    """
     conn = None
     cursor = None
     try:
@@ -77,10 +132,18 @@ def store_conversation(user_id, user_message, bot_response, session_id=None):
         _ensure_schema(cursor)
         cursor.execute(
             """
-            INSERT INTO conversations (user_id, session_id, user_message, bot_response)
-            VALUES (%s, %s, %s, %s)
+            INSERT INTO conversations (
+                user_id, session_id, user_message, bot_response,
+                transcription, voice_url, voice_response_url,
+                language, is_voice_message, tts_enabled
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """,
-            (user_id, session_id, user_message, bot_response),
+            (
+                user_id, session_id, user_message, bot_response,
+                transcription, voice_url, voice_response_url,
+                language, is_voice_message, tts_enabled
+            ),
         )
         conn.commit()
     except Exception as e:
