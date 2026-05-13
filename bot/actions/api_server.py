@@ -3,6 +3,23 @@ from flask_cors import CORS
 from functools import wraps
 from db import db
 from auth import AuthManager
+from social_helpers import (
+    COHORT_SEPT_2026,
+    create_peer_match,
+    fetch_activities_filtered,
+    fetch_peer_chat_messages,
+    fetch_recommended_activities,
+    find_peer_candidates,
+    forum_create_answer,
+    forum_create_question,
+    forum_get_question,
+    forum_list_questions,
+    forum_vote_answer,
+    forum_vote_question,
+    get_peer_connections,
+    post_peer_chat_message,
+    upsert_activity_preferences,
+)
 from voice_processor import VoiceProcessor
 import os
 import tempfile
@@ -336,7 +353,8 @@ def create_relocation_profile():
             target_university=data.get('target_university'),
             target_faculty=data.get('target_faculty'),
             birth_date=data.get('birth_date'),
-            phone=data.get('phone')
+            phone=data.get('phone'),
+            languages_spoken=data.get('languages_spoken'),
         )
         
         if result['success']:
@@ -409,6 +427,235 @@ def get_digital_shadow():
             
     except Exception as e:
         return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
+
+
+# ============ ACTIVITIES & PEERS & FORUM ============
+
+
+@app.route('/activities/filter', methods=['GET'])
+def activities_filter():
+    """Public list with optional filters (discovery)."""
+    try:
+        q = request.args.get('q')
+        typ = request.args.get('type')
+        target = request.args.get('target')
+        meeting_location = request.args.get('meeting_location')
+        schedule = request.args.get('schedule')
+        limit = request.args.get('limit', default=40, type=int)
+        offset = request.args.get('offset', default=0, type=int)
+        items = fetch_activities_filtered(
+            q=q,
+            typ=typ,
+            target=target,
+            meeting_location=meeting_location,
+            schedule=schedule,
+            limit=limit,
+            offset=offset,
+        )
+        return jsonify({'success': True, 'activities': items}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/activities/recommended', methods=['GET'])
+@token_required
+def activities_recommended():
+    try:
+        limit = request.args.get('limit', default=12, type=int)
+        items = fetch_recommended_activities(request.user_id, limit=limit)
+        return jsonify({'success': True, 'activities': items}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/profile/activity-preferences', methods=['POST'])
+@token_required
+def save_activity_preferences():
+    try:
+        data = request.get_json() or {}
+        ok = upsert_activity_preferences(
+            request.user_id,
+            interests=str(data.get('interests') or ''),
+            preferred_types=str(data.get('preferred_types') or ''),
+        )
+        if not ok:
+            return jsonify({'success': False, 'message': 'Could not save preferences'}), 400
+        return jsonify({'success': True}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/peers/find', methods=['GET'])
+@token_required
+def peers_find():
+    try:
+        country = request.args.get('country')
+        program = request.args.get('program')
+        language = request.args.get('language')
+        limit = request.args.get('limit', default=30, type=int)
+        peers = find_peer_candidates(
+            request.user_id,
+            country=country,
+            program=program,
+            language=language,
+            limit=limit,
+        )
+        return jsonify({'success': True, 'peers': peers}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/peers/connections', methods=['GET'])
+@token_required
+def peers_connections():
+    try:
+        conns = get_peer_connections(request.user_id)
+        return jsonify({'success': True, 'connections': conns}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/peers/match', methods=['POST'])
+@token_required
+def peers_match():
+    try:
+        data = request.get_json() or {}
+        mode = (data.get('mode') or 'manual').lower()
+        peer_user_id = data.get('peer_user_id')
+        if peer_user_id is not None:
+            peer_user_id = int(peer_user_id)
+        result = create_peer_match(request.user_id, peer_user_id, mode)
+        if not result:
+            return jsonify({'success': False, 'message': 'No match available'}), 400
+        return jsonify({'success': True, 'connection': result}), 201
+    except ValueError:
+        return jsonify({'success': False, 'message': 'Invalid peer id'}), 400
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/peers/chat', methods=['GET'])
+@token_required
+def peers_chat_get():
+    try:
+        room = (request.args.get('room') or 'buddy').lower()
+        connection_id = request.args.get('connection_id', type=int)
+        cohort_key = request.args.get('cohort_key') or COHORT_SEPT_2026
+        limit = request.args.get('limit', default=80, type=int)
+        messages = fetch_peer_chat_messages(
+            request.user_id,
+            room_type=room,
+            connection_id=connection_id,
+            cohort_key=cohort_key if room == 'cohort' else None,
+            limit=limit,
+        )
+        return jsonify({'success': True, 'messages': messages, 'cohort_default': COHORT_SEPT_2026}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/peers/chat', methods=['POST'])
+@token_required
+def peers_chat_post():
+    try:
+        data = request.get_json() or {}
+        room = (data.get('room') or 'buddy').lower()
+        body = data.get('message') or data.get('body') or ''
+        connection_id = data.get('connection_id')
+        cohort_key = data.get('cohort_key')
+        if connection_id is not None:
+            connection_id = int(connection_id)
+        ok = post_peer_chat_message(
+            request.user_id,
+            room_type=room,
+            body=body,
+            connection_id=connection_id,
+            cohort_key=cohort_key,
+        )
+        if not ok:
+            return jsonify({'success': False, 'message': 'Message rejected'}), 400
+        return jsonify({'success': True}), 201
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/forum/questions', methods=['GET'])
+def forum_questions_list():
+    try:
+        limit = request.args.get('limit', default=40, type=int)
+        items = forum_list_questions(limit=limit)
+        return jsonify({'success': True, 'questions': items}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/forum/questions', methods=['POST'])
+@token_required
+def forum_questions_create():
+    try:
+        data = request.get_json() or {}
+        title = (data.get('title') or '').strip()
+        body = (data.get('body') or '').strip()
+        tags = (data.get('tags') or '').strip()
+        qid = forum_create_question(request.user_id, title, body, tags)
+        if not qid:
+            return jsonify({'success': False, 'message': 'Invalid question'}), 400
+        return jsonify({'success': True, 'question_id': qid}), 201
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/forum/questions/<int:question_id>', methods=['GET'])
+def forum_question_detail(question_id):
+    try:
+        qd = forum_get_question(question_id)
+        if not qd:
+            return jsonify({'success': False, 'message': 'Not found'}), 404
+        return jsonify({'success': True, 'question': qd}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/forum/answers', methods=['POST'])
+@token_required
+def forum_answers_create():
+    try:
+        data = request.get_json() or {}
+        question_id = int(data.get('question_id'))
+        body = data.get('body') or ''
+        aid = forum_create_answer(request.user_id, question_id, body)
+        if not aid:
+            return jsonify({'success': False, 'message': 'Could not post answer'}), 400
+        return jsonify({'success': True, 'answer_id': aid}), 201
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/forum/questions/<int:question_id>/vote', methods=['POST'])
+@token_required
+def forum_question_vote(question_id):
+    try:
+        data = request.get_json() or {}
+        vote = int(data.get('vote', 0))
+        if not forum_vote_question(request.user_id, question_id, vote):
+            return jsonify({'success': False, 'message': 'Vote failed'}), 400
+        return jsonify({'success': True}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+
+@app.route('/forum/answers/<int:answer_id>/vote', methods=['POST'])
+@token_required
+def forum_answer_vote(answer_id):
+    try:
+        data = request.get_json() or {}
+        vote = int(data.get('vote', 0))
+        if not forum_vote_answer(request.user_id, answer_id, vote):
+            return jsonify({'success': False, 'message': 'Vote failed'}), 400
+        return jsonify({'success': True}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
+
 
 # ============ VOICE CHAT ROUTES ============
 

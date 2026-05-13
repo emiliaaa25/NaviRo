@@ -547,6 +547,15 @@ function ChatApp() {
             >
               Chat
             </button>
+            <Link to="/activities" className="nv-nav-tab nv-nav-link-tab">
+              Activities
+            </Link>
+            <Link to="/buddies" className="nv-nav-tab nv-nav-link-tab">
+              Buddies
+            </Link>
+            <Link to="/forum" className="nv-nav-tab nv-nav-link-tab">
+              Peer Q&amp;A
+            </Link>
             <button
               type="button"
               className={tabClass("topics")}

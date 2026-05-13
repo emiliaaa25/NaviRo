@@ -11,6 +11,10 @@ from openai import AzureOpenAI
 
 from actions.config import Config
 from actions.db import db
+from actions.social_helpers import (
+    fetch_recommended_activities,
+    suggest_peers_summary_for_assistant,
+)
 from actions.utils import store_conversation
 from actions.voice_processor import VoiceProcessor
 
@@ -107,6 +111,12 @@ def _seed_verified_links_from_json():
 
 
 CITATION_MAPPING = _load_citation_mapping()
+
+# Ensure DB schema (activities, forum, peers) exists before seeding links
+try:
+    db.init_db()
+except Exception as _init_err:
+    print(f"[assistant] db.init_db(): {_init_err}")
 
 # One-time seed of verified links on app startup
 _seed_verified_links_from_json()
@@ -219,6 +229,56 @@ you MUST reference ONLY these verified official links:
 
 Do NOT invent, hallucinate, or reference any other links. If the user's question doesn't match
 these verified sources, acknowledge the limitation and redirect to official channels."""
+
+
+def _build_activity_suggestions_prompt(user_id, user_message):
+    """Personalized student-life activities when the user asks about lifestyle / integration."""
+    if not user_id:
+        return ""
+    um = (user_message or "").lower()
+    keys = (
+        "sport", "club", "volunteer", "event", "social", "weekend", "activity", "culture",
+        "gym", "music", "party", "student life", "integrat", "meet people", "bored", "things to do",
+    )
+    if not um or not any(k in um for k in keys):
+        return ""
+    try:
+        picks = fetch_recommended_activities(int(user_id), limit=4)
+    except Exception as exc:
+        print(f"[assistant] activity suggestions: {exc}")
+        return ""
+    if not picks:
+        return ""
+    lines = []
+    for a in picks:
+        tgt = ", ".join(a.get("target") or [])
+        lines.append(
+            f"- **{a['name']}** ({a.get('type')}) — {a.get('schedule')}, {a.get('meeting_location')}. "
+            f"Targets: {tgt}. Link: {a.get('link')}"
+        )
+    intro = (
+        "From the NaviRo **Activities** catalogue (student life — not legal advice):\n"
+    )
+    return intro + "\n".join(lines)
+
+
+def _build_peer_social_prompt(user_id, user_message):
+    """Buddy / forum / cohort when the conversation is about peers or community."""
+    if not user_id:
+        return ""
+    text = (user_message or "").lower()
+    social_keys = (
+        "buddy", "friend", "lonely", "meet people", "peer", "roommate", "housing tip",
+        "forum", "other students", "cohort", "language exchange", "social", "connect with",
+    )
+    if not text or not any(k in text for k in social_keys):
+        return ""
+    extra = suggest_peers_summary_for_assistant(int(user_id))
+    base = (
+        "The user may benefit from **Buddy Finder**, **cohort group chat**, or the **peer Q&A forum** "
+        "inside NaviRo. Suggest practical next steps; do not invent private contact details."
+    )
+    return base + ("\n\n" + extra if extra else "")
 
 
 def _normalize_sender_id(sender_id):
@@ -341,6 +401,14 @@ def _build_system_messages(user_id, user_message=None):
         print(f"[INJECT] Added quest context system message")
     else:
         print(f"[INJECT] No quest context available for user_id={user_id}")
+
+    peer_prompt = _build_peer_social_prompt(user_id, user_message)
+    if peer_prompt:
+        system_messages.append({"role": "system", "content": peer_prompt})
+
+    activity_prompt = _build_activity_suggestions_prompt(user_id, user_message)
+    if activity_prompt:
+        system_messages.append({"role": "system", "content": activity_prompt})
 
     # RAG: Find relevant verified links and add constraint prompt
     if user_message:

@@ -375,24 +375,25 @@ class AuthManager:
     def create_relocation_profile(user_id: int, country_of_origin: str, citizenship_type: str,
                                   study_program: str = None, target_university: str = None,
                                   target_faculty: str = None, birth_date: str = None,
-                                  phone: str = None) -> Dict[str, Any]:
+                                  phone: str = None, languages_spoken: str = None) -> Dict[str, Any]:
         """Create initial relocation profile (handles nationality-based branching)"""
         try:
             with db.get_cursor() as cur:
                 cur.execute(
                     """INSERT INTO quest_relocation_profiles 
                        (user_id, country_of_origin, citizenship_type, study_program, 
-                        target_university, target_faculty, birth_date, phone) 
-                       VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                        target_university, target_faculty, birth_date, phone, languages_spoken) 
+                       VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
                        ON CONFLICT (user_id) DO UPDATE SET
                        country_of_origin = EXCLUDED.country_of_origin,
                        citizenship_type = EXCLUDED.citizenship_type,
                        study_program = EXCLUDED.study_program,
                        target_university = EXCLUDED.target_university,
-                       target_faculty = EXCLUDED.target_faculty
+                       target_faculty = EXCLUDED.target_faculty,
+                       languages_spoken = COALESCE(EXCLUDED.languages_spoken, quest_relocation_profiles.languages_spoken)
                        RETURNING id""",
                     (user_id, country_of_origin, citizenship_type, study_program,
-                     target_university, target_faculty, birth_date, phone)
+                     target_university, target_faculty, birth_date, phone, languages_spoken)
                 )
 
                 # Initialize first milestone (Admission)
@@ -422,7 +423,7 @@ class AuthManager:
                 # Get relocation profile
                 cur.execute(
                     """SELECT country_of_origin, citizenship_type, study_program, 
-                              target_university, visa_status, housing_status, arrival_date
+                              target_university, visa_status, housing_status, arrival_date, languages_spoken
                        FROM quest_relocation_profiles WHERE user_id = %s""",
                     (user_id,)
                 )
@@ -471,6 +472,7 @@ class AuthManager:
                     'visa_status': profile[4],
                     'housing_status': profile[5],
                     'arrival_date': str(profile[6]) if profile[6] else None,
+                    'languages_spoken': profile[7],
                     'milestones': milestones_progress
                 }
         except Exception as e:
