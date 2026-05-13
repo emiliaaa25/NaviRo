@@ -577,6 +577,9 @@ function ChatApp() {
             </button>
           </div>
           <div className="nv-topnav-right">
+            <Link to="/roadmap" className="nv-btn-secondary">
+              Roadmap
+            </Link>
             <button type="button" className="nv-lang-btn">
               EN
             </button>

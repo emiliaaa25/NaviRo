@@ -3,6 +3,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ChatApp from "./pages/ChatApp";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import QuestRoadmap from "./pages/QuestRoadmap";
 import UserProfile from "./pages/UserProfile";
 
 export default function App() {
@@ -24,6 +25,14 @@ export default function App() {
         element={
           <ProtectedRoute>
             <ChatApp />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/roadmap"
+        element={
+          <ProtectedRoute>
+            <QuestRoadmap />
           </ProtectedRoute>
         }
       />

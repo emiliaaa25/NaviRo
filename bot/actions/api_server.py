@@ -4,11 +4,14 @@ from functools import wraps
 from db import db
 from auth import AuthManager
 from voice_processor import VoiceProcessor
+from psycopg2.extras import Json
 import os
 import tempfile
 
 app = Flask(__name__)
 CORS(app)
+
+DEFAULT_QUEST_SLUG = 'eu-student-admission-september-2026'
 
 # Middleware to verify token
 def token_required(f):
@@ -33,6 +36,161 @@ def token_required(f):
         return f(*args, **kwargs)
     
     return decorated
+
+
+def _fetch_quest_catalog(cur, quest_slug=DEFAULT_QUEST_SLUG):
+    cur.execute(
+        """
+        SELECT id, slug, title, description, journey_type, target_audience, start_deadline
+        FROM quests
+        WHERE slug = %s AND is_active = TRUE
+        ORDER BY id ASC
+        LIMIT 1
+        """,
+        (quest_slug,),
+    )
+    quest_row = cur.fetchone()
+    if not quest_row:
+        return None
+
+    return {
+        'id': quest_row[0],
+        'slug': quest_row[1],
+        'title': quest_row[2],
+        'description': quest_row[3],
+        'journey_type': quest_row[4],
+        'target_audience': quest_row[5],
+        'start_deadline': quest_row[6].isoformat() if quest_row[6] else None,
+    }
+
+
+def _fetch_quest_steps(cur, quest_id):
+    cur.execute(
+        """
+        SELECT id, step_order, title, description, deadline_label, deadline_date, resource_label, resource_url
+        FROM quest_steps
+        WHERE quest_id = %s
+        ORDER BY step_order ASC
+        """,
+        (quest_id,),
+    )
+    rows = cur.fetchall()
+    steps = []
+    for row in rows:
+        steps.append(
+            {
+                'id': row[0],
+                'step_order': row[1],
+                'title': row[2],
+                'description': row[3],
+                'deadline_label': row[4],
+                'deadline_date': row[5].isoformat() if row[5] else None,
+                'resource_label': row[6],
+                'resource_url': row[7],
+            }
+        )
+    return steps
+
+
+def _fetch_step_checklist(cur, step_id):
+    cur.execute(
+        """
+        SELECT id, item_order, title, details, requires_scan, resource_label, resource_url
+        FROM quest_checklist_items
+        WHERE step_id = %s
+        ORDER BY item_order ASC
+        """,
+        (step_id,),
+    )
+    rows = cur.fetchall()
+    checklist = []
+    for row in rows:
+        checklist.append(
+            {
+                'id': row[0],
+                'item_order': row[1],
+                'title': row[2],
+                'details': row[3],
+                'requires_scan': row[4],
+                'resource_label': row[5],
+                'resource_url': row[6],
+                'completed': False,
+            }
+        )
+    return checklist
+
+
+def _derive_quest_progress(legacy_progress, steps):
+    milestones = legacy_progress.get('milestones', []) if legacy_progress else []
+    completed_milestones = sum(1 for milestone in milestones if milestone.get('status') == 'Complete')
+    current_step_order = min(completed_milestones + 1, len(steps) or 1)
+    completion_percentage = int(round((completed_milestones / len(steps)) * 100)) if steps else 0
+
+    current_step = None
+    next_step = None
+    if steps:
+        current_step = next((step for step in steps if step['step_order'] == current_step_order), steps[0])
+        next_step = next((step for step in steps if step['step_order'] == current_step_order + 1), None)
+        if current_step_order >= len(steps):
+            next_step = None
+
+    return {
+        'current_step_order': current_step_order,
+        'completion_percentage': completion_percentage,
+        'current_step': current_step,
+        'next_step': next_step,
+        'completed_steps': [step['step_order'] for step in steps if step['step_order'] < current_step_order],
+    }
+
+
+def _store_user_quest_progress(user_id, quest, steps, legacy_progress):
+    if not quest or not steps:
+        return
+
+    derived = _derive_quest_progress(legacy_progress, steps)
+    current_step = derived['current_step']
+    next_step = derived['next_step']
+
+    with db.get_cursor() as cur:
+        cur.execute(
+            """
+            INSERT INTO quest_user_progress (
+                user_id,
+                quest_id,
+                current_step_order,
+                completion_percentage,
+                status,
+                next_deadline_label,
+                next_step_title,
+                completed_steps,
+                completed_checklist,
+                last_milestone_hint
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            ON CONFLICT (user_id, quest_id) DO UPDATE SET
+                current_step_order = EXCLUDED.current_step_order,
+                completion_percentage = EXCLUDED.completion_percentage,
+                status = EXCLUDED.status,
+                next_deadline_label = EXCLUDED.next_deadline_label,
+                next_step_title = EXCLUDED.next_step_title,
+                completed_steps = EXCLUDED.completed_steps,
+                completed_checklist = EXCLUDED.completed_checklist,
+                last_milestone_hint = EXCLUDED.last_milestone_hint,
+                updated_at = CURRENT_TIMESTAMP
+            """,
+            (
+                user_id,
+                quest['id'],
+                derived['current_step_order'],
+                derived['completion_percentage'],
+                'Complete' if derived['completion_percentage'] >= 100 else 'In Progress',
+                next_step['deadline_label'] if next_step else None,
+                next_step['title'] if next_step else None,
+                Json(derived['completed_steps']),
+                Json([]),
+                current_step['title'] if current_step else quest['title'],
+            ),
+        )
 
 # ============ AUTHENTICATION ROUTES ============
 
@@ -340,6 +498,13 @@ def create_relocation_profile():
         )
         
         if result['success']:
+            legacy_progress = AuthManager.get_quest_progress(request.user_id)
+            if legacy_progress:
+                with db.get_cursor() as cur:
+                    quest = _fetch_quest_catalog(cur)
+                    if quest:
+                        steps = _fetch_quest_steps(cur, quest['id'])
+                        _store_user_quest_progress(request.user_id, quest, steps, legacy_progress)
             return jsonify(result), 201
         else:
             return jsonify(result), 400
@@ -356,12 +521,127 @@ def get_quest_progress():
         
         if not progress:
             return jsonify({'success': False, 'message': 'No quest profile found'}), 404
+
+        quest_slug = request.args.get('quest_slug', DEFAULT_QUEST_SLUG)
+        with db.get_cursor() as cur:
+            quest = _fetch_quest_catalog(cur, quest_slug)
+            if quest:
+                steps = _fetch_quest_steps(cur, quest['id'])
+                derived = _derive_quest_progress(progress, steps)
+                checklist = []
+                for step in steps:
+                    step_checklist = _fetch_step_checklist(cur, step['id'])
+                    checklist.append(
+                        {
+                            'step_id': step['id'],
+                            'step_order': step['step_order'],
+                            'items': step_checklist,
+                        }
+                    )
+
+                _store_user_quest_progress(request.user_id, quest, steps, progress)
+                progress = {
+                    **progress,
+                    'quest': quest,
+                    'steps': steps,
+                    'checklist': checklist,
+                    'current_step_order': derived['current_step_order'],
+                    'current_step': derived['current_step'],
+                    'next_step': derived['next_step'],
+                    'completion_percentage': derived['completion_percentage'],
+                }
         
         return jsonify({
             'success': True,
             'progress': progress
         }), 200
             
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
+
+
+@app.route('/quest/steps', methods=['GET'])
+@token_required
+def get_quest_steps():
+    """Get the full step list for the active quest."""
+    try:
+        quest_slug = request.args.get('quest_slug', DEFAULT_QUEST_SLUG)
+
+        with db.get_cursor() as cur:
+            quest = _fetch_quest_catalog(cur, quest_slug)
+            if not quest:
+                return jsonify({'success': False, 'message': 'Quest not found'}), 404
+
+            steps = _fetch_quest_steps(cur, quest['id'])
+
+        return jsonify({
+            'success': True,
+            'quest': quest,
+            'steps': steps,
+        }), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
+
+
+@app.route('/quest/checklist', methods=['GET'])
+@token_required
+def get_quest_checklist():
+    """Get checklist items for a quest step."""
+    try:
+        quest_slug = request.args.get('quest_slug', DEFAULT_QUEST_SLUG)
+        step_id = request.args.get('step_id', type=int)
+        step_order = request.args.get('step_order', type=int)
+
+        with db.get_cursor() as cur:
+            quest = _fetch_quest_catalog(cur, quest_slug)
+            if not quest:
+                return jsonify({'success': False, 'message': 'Quest not found'}), 404
+
+            step_row = None
+            if step_id:
+                cur.execute(
+                    """
+                    SELECT id, step_order, title, description, deadline_label, deadline_date, resource_label, resource_url
+                    FROM quest_steps
+                    WHERE id = %s AND quest_id = %s
+                    LIMIT 1
+                    """,
+                    (step_id, quest['id']),
+                )
+                step_row = cur.fetchone()
+            elif step_order:
+                cur.execute(
+                    """
+                    SELECT id, step_order, title, description, deadline_label, deadline_date, resource_label, resource_url
+                    FROM quest_steps
+                    WHERE quest_id = %s AND step_order = %s
+                    LIMIT 1
+                    """,
+                    (quest['id'], step_order),
+                )
+                step_row = cur.fetchone()
+
+            if not step_row:
+                return jsonify({'success': False, 'message': 'Quest step not found'}), 404
+
+            step = {
+                'id': step_row[0],
+                'step_order': step_row[1],
+                'title': step_row[2],
+                'description': step_row[3],
+                'deadline_label': step_row[4],
+                'deadline_date': step_row[5].isoformat() if step_row[5] else None,
+                'resource_label': step_row[6],
+                'resource_url': step_row[7],
+            }
+            checklist = _fetch_step_checklist(cur, step['id'])
+
+        return jsonify({
+            'success': True,
+            'quest': quest,
+            'step': step,
+            'checklist': checklist,
+        }), 200
     except Exception as e:
         return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
 
@@ -385,6 +665,13 @@ def update_quest_milestone(milestone_name):
         )
         
         if result['success']:
+            legacy_progress = AuthManager.get_quest_progress(request.user_id)
+            if legacy_progress:
+                with db.get_cursor() as cur:
+                    quest = _fetch_quest_catalog(cur)
+                    if quest:
+                        steps = _fetch_quest_steps(cur, quest['id'])
+                        _store_user_quest_progress(request.user_id, quest, steps, legacy_progress)
             return jsonify(result), 200
         else:
             return jsonify(result), 400

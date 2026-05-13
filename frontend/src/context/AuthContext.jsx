@@ -430,6 +430,96 @@ export const AuthProvider = ({ children }) => {
     }
   }, [token]);
 
+  const getQuestSteps = useCallback(
+    async (questSlug = null) => {
+      if (!token) {
+        setError("No authentication token");
+        return null;
+      }
+
+      try {
+        const params = new URLSearchParams();
+        if (questSlug) {
+          params.set("quest_slug", questSlug);
+        }
+
+        const response = await fetch(
+          `${API_BASE_URL}/quest/steps${params.toString() ? `?${params.toString()}` : ""}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          if (response.status === 404) {
+            return null;
+          }
+          setError(data.message || "Failed to fetch quest steps");
+          return null;
+        }
+
+        return data;
+      } catch (err) {
+        setError(err.message || "Network error fetching quest steps");
+        return null;
+      }
+    },
+    [token],
+  );
+
+  const getQuestChecklist = useCallback(
+    async ({ stepId = null, stepOrder = null, questSlug = null } = {}) => {
+      if (!token) {
+        setError("No authentication token");
+        return null;
+      }
+
+      try {
+        const params = new URLSearchParams();
+        if (stepId) {
+          params.set("step_id", stepId);
+        }
+        if (stepOrder) {
+          params.set("step_order", stepOrder);
+        }
+        if (questSlug) {
+          params.set("quest_slug", questSlug);
+        }
+
+        const response = await fetch(
+          `${API_BASE_URL}/quest/checklist${params.toString() ? `?${params.toString()}` : ""}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          if (response.status === 404) {
+            return null;
+          }
+          setError(data.message || "Failed to fetch quest checklist");
+          return null;
+        }
+
+        return data;
+      } catch (err) {
+        setError(err.message || "Network error fetching quest checklist");
+        return null;
+      }
+    },
+    [token],
+  );
+
   const updateQuestMilestone = useCallback(
     async (milestoneName, status, notes = null) => {
       if (!token) {
@@ -527,6 +617,8 @@ export const AuthProvider = ({ children }) => {
     getQuestProgress,
     updateQuestMilestone,
     getDigitalShadow,
+    getQuestSteps,
+    getQuestChecklist,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
