@@ -1,7 +1,10 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Activities from "./pages/Activities";
+import BuddyFinder from "./pages/BuddyFinder";
 import ChatApp from "./pages/ChatApp";
 import Login from "./pages/Login";
+import PeerForum from "./pages/PeerForum";
 import Register from "./pages/Register";
 import UserProfile from "./pages/UserProfile";
 
@@ -24,6 +27,30 @@ export default function App() {
         element={
           <ProtectedRoute>
             <ChatApp />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/activities"
+        element={
+          <ProtectedRoute>
+            <Activities />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/buddies"
+        element={
+          <ProtectedRoute>
+            <BuddyFinder />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/forum"
+        element={
+          <ProtectedRoute>
+            <PeerForum />
           </ProtectedRoute>
         }
       />

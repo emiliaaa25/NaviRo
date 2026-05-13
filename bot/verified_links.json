@@ -329,5 +329,2087 @@
       "description": "Information about language proficiency certifications accepted in Romania.",
       "keywords": "language certification, proficiency, test, requirements"
     }
+  ],
+  "activities": [
+    {
+      "name": "International student mixer — Iași",
+      "type": "Club",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0001",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Bucharest",
+      "type": "Event",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0002",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Cluj-Napoca",
+      "type": "Sport",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0003",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Timișoara",
+      "type": "Volunteering",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0004",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Brașov",
+      "type": "Study Group",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0005",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Constanța",
+      "type": "Cultural",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0006",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Craiova",
+      "type": "Club",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0007",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Sibiu",
+      "type": "Club",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0008",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Oradea",
+      "type": "Sport",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0009",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Galați",
+      "type": "Volunteering",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0010",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Iași",
+      "type": "Study Group",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0011",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Bucharest",
+      "type": "Cultural",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0012",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Cluj-Napoca",
+      "type": "Club",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0013",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Timișoara",
+      "type": "Event",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0014",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Brașov",
+      "type": "Cultural",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0015",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Constanța",
+      "type": "Volunteering",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0016",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Craiova",
+      "type": "Study Group",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0017",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Sibiu",
+      "type": "Cultural",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0018",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Oradea",
+      "type": "Club",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0019",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Galați",
+      "type": "Event",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0020",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Iași",
+      "type": "Sport",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0021",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Bucharest",
+      "type": "Cultural",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0022",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Cluj-Napoca",
+      "type": "Study Group",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0023",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Timișoara",
+      "type": "Cultural",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0024",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Brașov",
+      "type": "Club",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0025",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Constanța",
+      "type": "Event",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0026",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Craiova",
+      "type": "Sport",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0027",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Sibiu",
+      "type": "Volunteering",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0028",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Oradea",
+      "type": "Study Group",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0029",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Galați",
+      "type": "Cultural",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0030",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Iași",
+      "type": "Club",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0031",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Bucharest",
+      "type": "Event",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0032",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Cluj-Napoca",
+      "type": "Sport",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0033",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Timișoara",
+      "type": "Volunteering",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0034",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Brașov",
+      "type": "Study Group",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0035",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Constanța",
+      "type": "Club",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0036",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Craiova",
+      "type": "Club",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0037",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Sibiu",
+      "type": "Event",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0038",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Oradea",
+      "type": "Sport",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0039",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Galați",
+      "type": "Volunteering",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0040",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Iași",
+      "type": "Study Group",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0041",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Bucharest",
+      "type": "Cultural",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0042",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Cluj-Napoca",
+      "type": "Sport",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0043",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Timișoara",
+      "type": "Event",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0044",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Brașov",
+      "type": "Sport",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0045",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Constanța",
+      "type": "Volunteering",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0046",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Craiova",
+      "type": "Study Group",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0047",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Sibiu",
+      "type": "Cultural",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0048",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Oradea",
+      "type": "Club",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0049",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Galați",
+      "type": "Sport",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0050",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Iași",
+      "type": "Sport",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0051",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Bucharest",
+      "type": "Volunteering",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0052",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Cluj-Napoca",
+      "type": "Study Group",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0053",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Timișoara",
+      "type": "Cultural",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0054",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Brașov",
+      "type": "Club",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0055",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Constanța",
+      "type": "Event",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0056",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Craiova",
+      "type": "Study Group",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0057",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Sibiu",
+      "type": "Volunteering",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0058",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Oradea",
+      "type": "Study Group",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0059",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Galați",
+      "type": "Cultural",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0060",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Iași",
+      "type": "Club",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0061",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Bucharest",
+      "type": "Event",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0062",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Cluj-Napoca",
+      "type": "Sport",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0063",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Timișoara",
+      "type": "Volunteering",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0064",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Brașov",
+      "type": "Study Group",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0065",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Constanța",
+      "type": "Cultural",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0066",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Craiova",
+      "type": "Club",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0067",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Sibiu",
+      "type": "Event",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0068",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Oradea",
+      "type": "Sport",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0069",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Galați",
+      "type": "Volunteering",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0070",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Iași",
+      "type": "Volunteering",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0071",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Bucharest",
+      "type": "Cultural",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0072",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Cluj-Napoca",
+      "type": "Club",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0073",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Timișoara",
+      "type": "Event",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0074",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Brașov",
+      "type": "Sport",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0075",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Constanța",
+      "type": "Volunteering",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0076",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Craiova",
+      "type": "Study Group",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0077",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Sibiu",
+      "type": "Event",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0078",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Oradea",
+      "type": "Club",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0079",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Galați",
+      "type": "Event",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0080",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Iași",
+      "type": "Sport",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0081",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Bucharest",
+      "type": "Volunteering",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0082",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Cluj-Napoca",
+      "type": "Study Group",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0083",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Timișoara",
+      "type": "Cultural",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0084",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Brașov",
+      "type": "Club",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0085",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Constanța",
+      "type": "Event",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0086",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Craiova",
+      "type": "Sport",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0087",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Sibiu",
+      "type": "Volunteering",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0088",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Oradea",
+      "type": "Study Group",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0089",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Galați",
+      "type": "Cultural",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0090",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Iași",
+      "type": "Club",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0091",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Bucharest",
+      "type": "Club",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0092",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Cluj-Napoca",
+      "type": "Sport",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0093",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Timișoara",
+      "type": "Volunteering",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0094",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Brașov",
+      "type": "Study Group",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0095",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Constanța",
+      "type": "Cultural",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0096",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Craiova",
+      "type": "Club",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0097",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Sibiu",
+      "type": "Event",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0098",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Oradea",
+      "type": "Cultural",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0099",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Galați",
+      "type": "Volunteering",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0100",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Iași",
+      "type": "Study Group",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0101",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Bucharest",
+      "type": "Cultural",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0102",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Cluj-Napoca",
+      "type": "Club",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0103",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Timișoara",
+      "type": "Event",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0104",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Brașov",
+      "type": "Sport",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0105",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Constanța",
+      "type": "Cultural",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0106",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Craiova",
+      "type": "Study Group",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0107",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Sibiu",
+      "type": "Cultural",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0108",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Oradea",
+      "type": "Club",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0109",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Galați",
+      "type": "Event",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0110",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Iași",
+      "type": "Sport",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0111",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Bucharest",
+      "type": "Volunteering",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0112",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Cluj-Napoca",
+      "type": "Study Group",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0113",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Timișoara",
+      "type": "Cultural",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0114",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Brașov",
+      "type": "Club",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0115",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Constanța",
+      "type": "Event",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0116",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Craiova",
+      "type": "Sport",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0117",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Sibiu",
+      "type": "Volunteering",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0118",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Oradea",
+      "type": "Study Group",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0119",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Galați",
+      "type": "Club",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0120",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Iași",
+      "type": "Club",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0121",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Bucharest",
+      "type": "Event",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0122",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Cluj-Napoca",
+      "type": "Sport",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0123",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Timișoara",
+      "type": "Volunteering",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0124",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Brașov",
+      "type": "Study Group",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0125",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Constanța",
+      "type": "Cultural",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0126",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Craiova",
+      "type": "Sport",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0127",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Sibiu",
+      "type": "Event",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0128",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Oradea",
+      "type": "Sport",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0129",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Galați",
+      "type": "Volunteering",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0130",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Iași",
+      "type": "Study Group",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0131",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Bucharest",
+      "type": "Cultural",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0132",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Cluj-Napoca",
+      "type": "Club",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0133",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Timișoara",
+      "type": "Sport",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0134",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Brașov",
+      "type": "Sport",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0135",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Constanța",
+      "type": "Volunteering",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0136",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Craiova",
+      "type": "Study Group",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0137",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Sibiu",
+      "type": "Cultural",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0138",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Oradea",
+      "type": "Club",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0139",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Galați",
+      "type": "Event",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0140",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Iași",
+      "type": "Study Group",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0141",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Bucharest",
+      "type": "Volunteering",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0142",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Cluj-Napoca",
+      "type": "Study Group",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0143",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Timișoara",
+      "type": "Cultural",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0144",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Brașov",
+      "type": "Club",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0145",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Constanța",
+      "type": "Event",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0146",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Craiova",
+      "type": "Sport",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0147",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Sibiu",
+      "type": "Volunteering",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0148",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Thesis writing circle — Oradea",
+      "type": "Study Group",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0149",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "academic, writing, library",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Erasmus info session — Galați",
+      "type": "Cultural",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0150",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "mobility, grants, paperwork",
+      "meeting_location": "Hybrid",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Hiking club weekend — Iași",
+      "type": "Club",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0151",
+      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
+      "keywords": "nature, trips, social",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Board games café meetup — Bucharest",
+      "type": "Event",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0152",
+      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
+      "keywords": "games, casual, friends",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Coding lab hours — Cluj-Napoca",
+      "type": "Sport",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0153",
+      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
+      "keywords": "STEM, programming, projects",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Intercultural dialogue workshop — Timișoara",
+      "type": "Volunteering",
+      "target": [
+        "PhD",
+        "New Arrivals"
+      ],
+      "link": "https://naviro.app/activities/catalog/0154",
+      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
+      "keywords": "diversity, dialogue, inclusion",
+      "meeting_location": "On-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "River clean-up day — Brașov",
+      "type": "Volunteering",
+      "target": [
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://naviro.app/activities/catalog/0155",
+      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
+      "keywords": "environment, volunteering, team",
+      "meeting_location": "Off-campus",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Public speaking club — Constanța",
+      "type": "Cultural",
+      "target": [
+        "Non-EU Students",
+        "Graduate"
+      ],
+      "link": "https://naviro.app/activities/catalog/0156",
+      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
+      "keywords": "skills, confidence, English",
+      "meeting_location": "Hybrid",
+      "schedule": "One-time"
+    },
+    {
+      "name": "International student mixer — Craiova",
+      "type": "Club",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://naviro.app/activities/catalog/0157",
+      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
+      "keywords": "socializing, networking, welcome",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "Campus football league — Sibiu",
+      "type": "Event",
+      "target": [
+        "First Year",
+        "PhD"
+      ],
+      "link": "https://naviro.app/activities/catalog/0158",
+      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
+      "keywords": "fitness, team sports, outdoors",
+      "meeting_location": "Off-campus",
+      "schedule": "Biweekly"
+    },
+    {
+      "name": "Romanian film night — Oradea",
+      "type": "Sport",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0159",
+      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
+      "keywords": "culture, cinema, language",
+      "meeting_location": "Hybrid",
+      "schedule": "Monthly"
+    },
+    {
+      "name": "Volunteer at food bank — Galați",
+      "type": "Volunteering",
+      "target": [
+        "Erasmus+",
+        "Non-EU Students"
+      ],
+      "link": "https://naviro.app/activities/catalog/0160",
+      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
+      "keywords": "community, civic, solidarity",
+      "meeting_location": "On-campus",
+      "schedule": "One-time"
+    }
   ]
 }

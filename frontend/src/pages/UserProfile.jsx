@@ -54,6 +54,7 @@ export default function UserProfile() {
     target_faculty: "",
     birth_date: "",
     phone: "",
+    languages_spoken: "",
   });
 
   useEffect(() => {
@@ -93,6 +94,7 @@ export default function UserProfile() {
         study_program: questData.study_program || "",
         target_university: questData.target_university || "",
         target_faculty: questData.target_faculty || "",
+        languages_spoken: questData.languages_spoken || "",
       }));
     } else if (!profileData) {
       setError("Failed to load profile");
@@ -732,6 +734,21 @@ export default function UserProfile() {
                             placeholder="+40..."
                           />
                         </div>
+                      </div>
+
+                      <div style={{ marginBottom: 16 }}>
+                        <label className="nv-label" htmlFor="languages_spoken">
+                          Languages you speak (for Buddy Finder)
+                        </label>
+                        <input
+                          id="languages_spoken"
+                          type="text"
+                          name="languages_spoken"
+                          value={relocationData.languages_spoken}
+                          onChange={handleRelocationChange}
+                          className="nv-input"
+                          placeholder="e.g. English, Romanian, French"
+                        />
                       </div>
 
                       <div
