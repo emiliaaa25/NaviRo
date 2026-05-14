@@ -244,6 +244,19 @@ export default function UserProfile() {
               <MessageCircle size={18} aria-hidden />
               Back to chat
             </Link>
+            <Link
+              to="/roadmap"
+              className="nv-btn-secondary"
+              style={{
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+              }}
+            >
+              <MapPin size={18} aria-hidden />
+              Quest roadmap
+            </Link>
             <button
               type="button"
               onClick={handleLogout}

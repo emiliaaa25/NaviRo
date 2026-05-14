@@ -1,16 +1,68 @@
 import jwt
 import hashlib
 import secrets
+import re
 from datetime import datetime, timedelta
 from functools import wraps
 from typing import Optional, Dict, Any
 import os
+import requests
 from db import db
+from config import Config
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'your-secret-key-change-in-production')
 TOKEN_EXPIRATION = int(os.getenv('TOKEN_EXPIRATION', 86400))  # 24 hours in seconds
+GOOGLE_CLIENT_ID = Config.GOOGLE_CLIENT_ID
 
 class AuthManager:
+    @staticmethod
+    def _normalize_username_seed(seed: str) -> str:
+        base = re.sub(r'[^a-zA-Z0-9_]', '_', (seed or '').strip().lower())
+        base = re.sub(r'_+', '_', base).strip('_')
+        if not base:
+            base = f"user_{secrets.token_hex(4)}"
+        return base[:50]
+
+    @staticmethod
+    def _build_unique_username(cur, seed: str) -> str:
+        base = AuthManager._normalize_username_seed(seed)
+        candidate = base
+        suffix = 1
+
+        while True:
+            cur.execute("SELECT 1 FROM users WHERE username = %s", (candidate,))
+            if not cur.fetchone():
+                return candidate
+            candidate = f"{base}_{suffix}"
+            suffix += 1
+
+    @staticmethod
+    def _verify_google_id_token(id_token: str) -> Dict[str, Any]:
+        if not id_token:
+            raise ValueError('Missing Google ID token')
+
+        response = requests.get(
+            'https://oauth2.googleapis.com/tokeninfo',
+            params={'id_token': id_token},
+            timeout=10,
+        )
+
+        if response.status_code != 200:
+            raise ValueError('Invalid Google token')
+
+        payload = response.json() or {}
+        audience = payload.get('aud', '')
+        email = payload.get('email', '')
+        email_verified = str(payload.get('email_verified', 'false')).lower() == 'true'
+
+        if GOOGLE_CLIENT_ID and audience != GOOGLE_CLIENT_ID:
+            raise ValueError('Google token audience mismatch')
+
+        if not email or not email_verified:
+            raise ValueError('Google account email is missing or unverified')
+
+        return payload
+
     @staticmethod
     def hash_password(password: str) -> str:
         """Hash password using PBKDF2"""
@@ -121,6 +173,69 @@ class AuthManager:
             return {
                 'success': False,
                 'message': f'Login failed: {str(e)}'
+            }
+
+    @staticmethod
+    def login_with_google(id_token: str) -> Dict[str, Any]:
+        """Authenticate or register user using Google ID token."""
+        try:
+            payload = AuthManager._verify_google_id_token(id_token)
+            email = payload.get('email')
+            full_name = payload.get('name') or email.split('@')[0]
+            username_seed = email.split('@')[0]
+
+            with db.get_cursor() as cur:
+                cur.execute(
+                    "SELECT id, username, email FROM users WHERE email = %s",
+                    (email,),
+                )
+                user = cur.fetchone()
+
+                if user:
+                    user_id, username, user_email = user
+                    cur.execute(
+                        "SELECT id FROM student_profiles WHERE user_id = %s",
+                        (user_id,),
+                    )
+                    profile_exists = cur.fetchone()
+                    if not profile_exists:
+                        cur.execute(
+                            """INSERT INTO student_profiles (user_id, full_name)
+                               VALUES (%s, %s)""",
+                            (user_id, full_name),
+                        )
+                else:
+                    username = AuthManager._build_unique_username(cur, username_seed)
+                    generated_password_hash = AuthManager.hash_password(secrets.token_urlsafe(32))
+
+                    cur.execute(
+                        """INSERT INTO users (username, email, password_hash)
+                           VALUES (%s, %s, %s)
+                           RETURNING id, username, email""",
+                        (username, email, generated_password_hash),
+                    )
+                    created_user = cur.fetchone()
+                    user_id, username, user_email = created_user
+
+                    cur.execute(
+                        """INSERT INTO student_profiles (user_id, full_name)
+                           VALUES (%s, %s)""",
+                        (user_id, full_name),
+                    )
+
+            token = AuthManager.generate_token(user_id, username)
+            return {
+                'success': True,
+                'user_id': user_id,
+                'username': username,
+                'email': user_email,
+                'token': token,
+                'message': 'Google login successful'
+            }
+        except Exception as e:
+            return {
+                'success': False,
+                'message': f'Google login failed: {str(e)}'
             }
 
     @staticmethod

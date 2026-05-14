@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 import sys
 import os
+import re
 import tempfile
 
 from flask import Flask, request, session, Response, jsonify, stream_with_context
@@ -127,6 +128,34 @@ QUEST_MILESTONES = [
     "Visa",
     "Iași Arrival",
 ]
+
+QUEST_STEP_SEQUENCE = [
+    "Submit Application",
+    "Wait & Track",
+    "Receive Offer",
+    "Housing Application",
+    "Pre-Arrival",
+]
+
+QUEST_STEP_KEYWORDS = {
+    "Submit Application": ["submit application", "application", "portal", "documents", "fee", "upload"],
+    "Wait & Track": ["wait", "track", "email", "follow up", "update", "status"],
+    "Receive Offer": ["offer", "accept", "reject", "enrollment", "confirm", "admission result"],
+    "Housing Application": ["housing", "dorm", "accommodation", "room", "rent", "backup housing"],
+    "Pre-Arrival": ["pre-arrival", "flight", "transport", "bank", "sim", "arrival", "departure"],
+}
+
+
+def _detect_quest_step_focus(user_message):
+    message = (user_message or "").lower()
+    if not message:
+        return None
+
+    for step_name, keywords in QUEST_STEP_KEYWORDS.items():
+        for keyword in keywords:
+            if re.search(rf"\b{re.escape(keyword)}\b", message):
+                return step_name
+    return None
 
 # ── RAG: Verified Links Database ────────────────────────────────────────────
 
@@ -409,6 +438,19 @@ def _build_system_messages(user_id, user_message=None):
     activity_prompt = _build_activity_suggestions_prompt(user_id, user_message)
     if activity_prompt:
         system_messages.append({"role": "system", "content": activity_prompt})
+    quest_step_focus = _detect_quest_step_focus(user_message)
+    if quest_step_focus:
+        system_messages.append(
+            {
+                "role": "system",
+                "content": (
+                    f"The user is asking about the quest step '{quest_step_focus}'. "
+                    "Answer with the next concrete step, the immediate deadline or reminder, "
+                    "and the checklist items that should be completed now. Keep the guidance linear and practical."
+                ),
+            }
+        )
+        print(f"[INJECT] Added quest step focus for '{quest_step_focus}'")
 
     # RAG: Find relevant verified links and add constraint prompt
     if user_message:
