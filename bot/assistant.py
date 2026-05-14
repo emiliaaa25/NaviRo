@@ -4,6 +4,7 @@ import sys
 import os
 import re
 import tempfile
+from urllib.parse import urlparse
 
 from flask import Flask, request, session, Response, jsonify, stream_with_context
 from flask_cors import CORS
@@ -38,21 +39,6 @@ CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
 
 
-def _load_citation_mapping():
-    """Load filename -> URL citation mapping from mapping.json."""
-    mapping_path = Path(__file__).with_name("mapping.json")
-    if not mapping_path.exists():
-        return {}
-
-    try:
-        with mapping_path.open("r", encoding="utf-8") as file:
-            data = json.load(file)
-            return data if isinstance(data, dict) else {}
-    except Exception as e:
-        print(f"Error loading citation mapping: {e}")
-        return {}
-
-
 def _load_verified_links_from_db():
     """Load all active verified links from the database."""
     try:
@@ -77,6 +63,39 @@ def _load_verified_links_from_db():
     except Exception as e:
         print(f"Error loading verified links from DB: {e}")
         return []
+
+
+def _load_verified_links_from_json():
+    """Load verified links from verified_links.json as the canonical source."""
+    seed_path = Path(__file__).with_name("verified_links.json")
+    if not seed_path.exists():
+        return []
+
+    try:
+        with seed_path.open("r", encoding="utf-8") as file:
+            data = json.load(file)
+            links = data.get("links", [])
+            if isinstance(links, list):
+                return links
+    except Exception as e:
+        print(f"Error loading verified links from JSON: {e}")
+    return []
+def _load_citation_mapping():
+    """Load filename -> URL citation mapping from mapping.json as a fallback."""
+    mapping_path = Path(__file__).with_name("mapping.json")
+    if not mapping_path.exists():
+        return {}
+
+    try:
+        with mapping_path.open("r", encoding="utf-8") as file:
+            data = json.load(file)
+            return data if isinstance(data, dict) else {}
+    except Exception as e:
+        print(f"Error loading citation mapping: {e}")
+        return {}
+
+
+CITATION_MAPPING = _load_citation_mapping()
 
 
 def _seed_verified_links_from_json():
@@ -109,9 +128,6 @@ def _seed_verified_links_from_json():
         print(f"Seeded {len(links)} verified links from JSON")
     except Exception as e:
         print(f"Error seeding verified links from JSON: {e}")
-
-
-CITATION_MAPPING = _load_citation_mapping()
 
 # Ensure DB schema (activities, forum, peers) exists before seeding links
 try:
@@ -157,19 +173,201 @@ def _detect_quest_step_focus(user_message):
                 return step_name
     return None
 
+
+def _detect_rag_category(user_message):
+    message = (user_message or "").lower()
+    if not message:
+        return None
+
+    healthcare_terms = (
+        "healthcare",
+        "health care",
+        "medical",
+        "medicine",
+        "doctor",
+        "clinic",
+        "hospital",
+        "insurance",
+        "ehic",
+        "cnas",
+        "emergency",
+        "pharmacy",
+    )
+
+    if any(term in message for term in healthcare_terms):
+        return "HEALTHCARE"
+
+    return None
+
+
+def _detect_student_preferences(user_message):
+    """
+    Detect student's preferred university and program from their message.
+    Returns dict with 'university' and 'program' keys.
+    """
+    msg_lower = (user_message or "").lower()
+    
+    preferences = {
+        'university': None,  # UAIC, TUIASI, UMF, or None
+        'program': None      # LIBERAL_ARTS, ENGINEERING, MEDICINE, or None
+    }
+    
+    # Detect university preference
+    if any(term in msg_lower for term in ("medicine", "medical", "pharmacy", "dental", "umf", "grigore popa")):
+        preferences['university'] = 'UMF'
+        preferences['program'] = 'MEDICINE'
+    elif any(term in msg_lower for term in ("engineering", "engineer", "technical", "tuiasi", "computer science", "software", "it program")):
+        preferences['university'] = 'TUIASI'
+        preferences['program'] = 'ENGINEERING'
+    elif any(term in msg_lower for term in ("uaic", "literature", "history", "philosophy", "languages", "liberal arts", "social sciences", "humanities")):
+        preferences['university'] = 'UAIC'
+        preferences['program'] = 'LIBERAL_ARTS'
+    
+    return preferences
+
+
+def _save_student_preferences(user_id, preferences):
+    """
+    Save detected student preferences to quest_relocation_profiles.
+    Creates profile if not exists, updates if exists.
+    """
+    if not user_id or (not preferences.get('university') and not preferences.get('program')):
+        return
+    
+    try:
+        with db.get_cursor() as cur:
+            # Check if profile exists
+            cur.execute("SELECT id FROM quest_relocation_profiles WHERE user_id = %s", (user_id,))
+            exists = cur.fetchone()
+            
+            if exists:
+                # Update existing profile
+                updates = []
+                params = []
+                if preferences.get('university'):
+                    updates.append("target_university = %s")
+                    params.append(preferences['university'])
+                if preferences.get('program'):
+                    updates.append("study_program = %s")
+                    params.append(preferences['program'])
+                
+                if updates:
+                    updates.append("updated_at = CURRENT_TIMESTAMP")
+                    params.append(user_id)
+                    query = f"UPDATE quest_relocation_profiles SET {', '.join(updates)} WHERE user_id = %s"
+                    cur.execute(query, params)
+                    print(f"[PROFILE] Updated student preferences: {preferences}")
+            else:
+                # Create new profile with defaults
+                cur.execute("""
+                    INSERT INTO quest_relocation_profiles 
+                    (user_id, country_of_origin, citizenship_type, target_university, study_program)
+                    VALUES (%s, %s, %s, %s, %s)
+                """, (
+                    user_id, 
+                    'Unknown',  # Will be detected later
+                    'Unknown',  # Will be detected later
+                    preferences.get('university'),
+                    preferences.get('program')
+                ))
+                print(f"[PROFILE] Created new student profile with preferences: {preferences}")
+    except Exception as e:
+        print(f"[PROFILE] Error saving preferences: {e}")
+
 # ── RAG: Verified Links Database ────────────────────────────────────────────
 
 
 # Load verified links into memory (lazy load on first use)
 VERIFIED_LINKS_CACHE = None
 
+QUERY_SYNONYMS = {
+    "medicina": ["medicine", "medical", "umf", "grigore", "popa"],
+    "medicala": ["medicine", "medical", "umf", "grigore", "popa"],
+    "farmacie": ["pharmacy", "medical", "umf", "grigore", "popa"],
+    "stomatologie": ["dental", "medicine", "umf", "grigore", "popa"],
+    "universitatea de medicina": ["grigore", "popa", "umf"],
+    "umf": ["grigore", "popa", "medicine", "medical"],
+    "grigore": ["grigore", "popa", "medicine", "medical"],
+    "popa": ["grigore", "popa", "medicine", "medical"],
+}
+
 
 def _get_verified_links():
-    """Get verified links from cache or load from DB."""
+    """Get verified links from cache or load from canonical JSON + DB fallback."""
     global VERIFIED_LINKS_CACHE
     if VERIFIED_LINKS_CACHE is None:
-        VERIFIED_LINKS_CACHE = _load_verified_links_from_db()
+        json_links = _load_verified_links_from_json()
+        db_links = _load_verified_links_from_db()
+
+        merged = []
+        seen_urls = set()
+        seen_titles = set()
+
+        for link in json_links + db_links:
+            url = (link.get("url") or "").strip().lower()
+            title = (link.get("title") or "").strip().lower()
+            if not url or url in seen_urls:
+                continue
+            if title and title in seen_titles:
+                continue
+            seen_urls.add(url)
+            if title:
+                seen_titles.add(title)
+            merged.append(link)
+
+        VERIFIED_LINKS_CACHE = merged
     return VERIFIED_LINKS_CACHE
+
+
+def _slugify_citation_name(value):
+    text = (value or "").lower()
+    text = re.sub(r"\.[a-z0-9]+$", "", text)
+    text = text.replace("_", " ").replace("-", " ")
+    text = re.sub(r"[^a-z0-9ăâîșț ]+", " ", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _verified_link_search_blob(link):
+    return " ".join(
+        [
+            link.get("title", ""),
+            link.get("description", ""),
+            link.get("keywords", ""),
+            link.get("url", ""),
+        ]
+    ).lower()
+
+
+def _resolve_verified_link_for_citation(filename):
+    """Match a citation filename to the closest verified link URL."""
+    if not filename:
+        return None
+
+    citation_slug = _slugify_citation_name(filename)
+    if not citation_slug:
+        return None
+
+    links = _get_verified_links()
+    best_url = None
+    best_score = 0.0
+
+    for link in links:
+        blob = _verified_link_search_blob(link)
+        score = _similarity_score(citation_slug, blob)
+
+        title = (link.get("title") or "").lower()
+        url = (link.get("url") or "").lower()
+        keywords = (link.get("keywords") or "").lower()
+
+        if citation_slug in title or citation_slug in url or citation_slug in keywords:
+            score += 0.75
+
+        if score > best_score:
+            best_score = score
+            best_url = link.get("url")
+
+    return best_url if best_score >= 0.2 else None
+    
 
 
 def _similarity_score(query, text):
@@ -177,8 +375,13 @@ def _similarity_score(query, text):
     if not query or not text:
         return 0.0
     
-    query_words = set(query.lower().split())
-    text_words = set(text.lower().split())
+    normalized_query = query.lower()
+    for source_term, expansions in QUERY_SYNONYMS.items():
+        if source_term in normalized_query:
+            normalized_query += " " + " ".join(expansions)
+
+    query_words = set(re.findall(r"[a-z0-9ăâîșț]+", normalized_query))
+    text_words = set(re.findall(r"[a-z0-9ăâîșț]+", text.lower()))
     
     if not query_words or not text_words:
         return 0.0
@@ -189,14 +392,16 @@ def _similarity_score(query, text):
     return len(intersection) / len(union)
 
 
-def _find_relevant_links(user_message, category=None, top_k=3):
+def _find_relevant_links(user_message, category=None, top_k=3, user_id=None):
     """
     Find relevant verified links using similarity search against keywords/description.
+    Boosts links from the detected query category and student's preferred university/program.
     
     Args:
         user_message: User's question or context
         category: Optional filter (e.g., 'MAE', 'IGI', 'OFFICIAL')
         top_k: Number of top results to return
+        user_id: User ID for retrieving stored preferences
     
     Returns:
         List of relevant link dicts sorted by relevance
@@ -209,10 +414,52 @@ def _find_relevant_links(user_message, category=None, top_k=3):
         print(f"[RAG] No verified links available")
         return []
     
+    # Detect student's current preferences from message
+    student_prefs = _detect_student_preferences(user_message)
+    print(f"[RAG] Detected student preferences: university={student_prefs['university']}, program={student_prefs['program']}")
+    
+    # Try to load stored preferences from DB if user_id provided
+    stored_university = None
+    stored_program = None
+    if user_id:
+        try:
+            with db.get_cursor() as cur:
+                cur.execute("""
+                    SELECT target_university, study_program 
+                    FROM quest_relocation_profiles 
+                    WHERE user_id = %s
+                """, (user_id,))
+                row = cur.fetchone()
+                if row:
+                    stored_university = row[0]
+                    stored_program = row[1]
+                    print(f"[RAG] Loaded stored preferences: university={stored_university}, program={stored_program}")
+        except Exception as e:
+            print(f"[RAG] Could not load stored preferences: {e}")
+    
+    # Merge current detection with stored preferences (current takes precedence)
+    student_university = student_prefs['university'] or stored_university
+    student_program = student_prefs['program'] or stored_program
+    
     # Filter by category if specified
     if category:
         links = [l for l in links if l["category"] == category]
         print(f"[RAG] Filtered to {len(links)} links in category '{category}'")
+    
+    # Detect query category to boost relevant sources
+    msg_lower = (user_message or "").lower()
+    detected_category = None
+    
+    healthcare_terms = r"\b(health|medical|doctor|hospital|pharmacy|emergency|healthcare|clinic|medicine|dental|urgent)\b"
+    housing_terms = r"\b(housing|accommodation|dormitor|rent|apartment|lodge|student house|dorm)\b"
+    visa_terms = r"\b(visa|permit|residence|immigration|document|igi|mae|travel|border)\b"
+    
+    if re.search(healthcare_terms, msg_lower):
+        detected_category = "HEALTHCARE"
+    elif re.search(housing_terms, msg_lower):
+        detected_category = "ACCOMMODATION"
+    elif re.search(visa_terms, msg_lower):
+        detected_category = "VISA"
     
     # Score each link
     scored_links = []
@@ -220,6 +467,47 @@ def _find_relevant_links(user_message, category=None, top_k=3):
         # Combine keywords and description for similarity search
         search_text = f"{link.get('keywords', '')} {link.get('description', '')}"
         score = _similarity_score(user_message, search_text)
+
+        # Boost if link is from the detected query category
+        if detected_category and link.get("category") == detected_category:
+            score += 0.4
+        
+        # Boost links from student's preferred university/program
+        link_university = link.get("university", "GENERAL")
+        link_program = link.get("program", "GENERAL")
+        
+        if student_university and link_university == student_university:
+            score += 0.3
+            print(f"[RAG] Boosted '{link.get('title')}' for preferred university {student_university}")
+        
+        if student_program and link_program == student_program:
+            score += 0.25
+            print(f"[RAG] Boosted '{link.get('title')}' for preferred program {student_program}")
+        
+        # Penalize links from non-preferred universities (if preference is set and link is university-specific)
+        if student_university and link_university != "GENERAL" and link_university != student_university:
+            score -= 0.15
+        
+        # Additional subject-specific boosting
+        link_blob = f"{link.get('title', '')} {search_text}".lower()
+        
+        if detected_category == "HEALTHCARE":
+            if any(term in link_blob for term in ("medical", "pharmacy", "healthcare", "hospital", "emergency", "health")):
+                score += 0.25
+            if any(term in link_blob for term in ("housing", "language", "airbnb", "culture")):
+                score -= 0.2
+        
+        if detected_category == "ACCOMMODATION":
+            if any(term in link_blob for term in ("housing", "dormitory", "accommodation", "dorm", "rent")):
+                score += 0.25
+            if any(term in link_blob for term in ("medical", "healthcare", "hospital")):
+                score -= 0.2
+        
+        if detected_category == "VISA":
+            if any(term in link_blob for term in ("visa", "immigration", "permit", "residence", "igi")):
+                score += 0.25
+            if any(term in link_blob for term in ("housing", "accommodation", "dormitory")):
+                score -= 0.15
         
         if score > 0:  # Only include if there's some relevance
             scored_links.append((score, link))
@@ -227,7 +515,7 @@ def _find_relevant_links(user_message, category=None, top_k=3):
     # Sort by score descending and return top_k
     scored_links.sort(key=lambda x: x[0], reverse=True)
     top_results = [link for score, link in scored_links[:top_k]]
-    print(f"[RAG] Found {len(top_results)} relevant links: {[l['title'] for l in top_results]}")
+    print(f"[RAG] Found {len(top_results)} relevant links (prioritized for {student_university or 'GENERAL'}/{student_program or 'GENERAL'}): {[l['title'] for l in top_results]}")
     return top_results
 
 
@@ -455,9 +743,30 @@ def _build_system_messages(user_id, user_message=None):
     # RAG: Find relevant verified links and add constraint prompt
     if user_message:
         print(f"[INJECT] Performing RAG search...")
-        relevant_links = _find_relevant_links(user_message, top_k=3)
+        
+        # Detect and save student preferences
+        student_prefs = _detect_student_preferences(user_message)
+        if student_prefs['university'] or student_prefs['program']:
+            _save_student_preferences(user_id, student_prefs)
+        
+        rag_category = _detect_rag_category(user_message)
+        # For healthcare queries, search broadly (not only HEALTHCARE category)
+        if rag_category == "HEALTHCARE":
+            relevant_links = _find_relevant_links(user_message, category=None, top_k=6, user_id=user_id)
+        else:
+            relevant_links = _find_relevant_links(
+                user_message,
+                category=rag_category,
+                top_k=5 if rag_category == "HEALTHCARE" else 3,
+                user_id=user_id
+            )
         if relevant_links:
             link_constraint = _build_link_constraint_prompt(relevant_links)
+            if rag_category == "HEALTHCARE":
+                link_constraint += (
+                    "\n\nFor healthcare questions, use only the healthcare links above. "
+                    "Do not cite general university pages unless the user explicitly asks about a specific university medical service."
+                )
             system_messages.append({"role": "system", "content": link_constraint})
             print(f"[INJECT] Added {len(relevant_links)} verified links constraint")
     else:
@@ -540,23 +849,100 @@ def _extract_citation_filenames(response):
     return filenames
 
 
-def _map_citation_urls(filenames):
-    """Map citation filenames to URLs and drop unmapped entries."""
+def _map_citation_urls(filenames, user_message=None):
+    """Map citation filenames to verified-link URLs and drop unmapped entries."""
     urls = []
     seen = set()
 
     for filename in filenames:
-        url = CITATION_MAPPING.get(filename)
+        url = _resolve_verified_link_for_citation(filename)
+        if not url:
+            # fallback to raw mapping if present
+            url = CITATION_MAPPING.get(filename)
         if url and url not in seen:
             seen.add(url)
             urls.append(url)
 
+    if not urls:
+        rag_category = _detect_rag_category(user_message)
+        if rag_category == "HEALTHCARE":
+            fallback_links = _find_relevant_links(user_message or "", category=None, top_k=5)
+        else:
+            fallback_links = _find_relevant_links(user_message or "", category=rag_category, top_k=3)
+        for link in fallback_links:
+            url = link.get("url")
+            if url and url not in seen:
+                seen.add(url)
+                urls.append(url)
+
     return urls
+
+
+def _filter_citations_for_query(citations, user_message):
+    """Prefer verified links for any query domain.
+
+    Behavior:
+    - If any of the provided `citations` match known verified link URLs or hosts,
+      return only those (deduplicated, preserving order).
+    - Otherwise, return top verified links for the user query as fallback.
+    """
+    try:
+        verified = _get_verified_links() or []
+        verified_urls = { (l.get("url") or "").lower() for l in verified }
+        verified_hosts = { urlparse((l.get("url") or "")).hostname for l in verified }
+    except Exception:
+        verified_urls = set()
+        verified_hosts = set()
+
+    filtered = []
+    seen = set()
+
+    for citation in citations or []:
+        if not citation:
+            continue
+        try:
+            c_url = citation.strip()
+            c_host = urlparse(c_url).hostname or ""
+        except Exception:
+            c_url = citation
+            c_host = ""
+
+        key = (c_url or "").lower()
+        if key in seen:
+            continue
+
+        # Keep citation if it's exactly a verified URL or its host is a verified host
+        if key in verified_urls or (c_host and c_host in verified_hosts):
+            seen.add(key)
+            filtered.append(c_url)
+
+    if filtered:
+        return filtered
+
+    # No verified matches — fall back to top verified links for the user query
+    try:
+        top_links = _find_relevant_links(user_message or "", category=None, top_k=3)
+        fallback = []
+        seen_fb = set()
+        for link in top_links:
+            url = link.get("url")
+            if url and url.lower() not in seen_fb:
+                seen_fb.add(url.lower())
+                fallback.append(url)
+        return fallback
+    except Exception as _err:
+        print(f"[RAG] Could not fetch fallback verified links: {_err}")
+        return citations or []
 
 
 def _agent_response_text(messages, user_id=None):
     print(f"[AZURE] Calling Azure OpenAI for user_id={user_id}")
     input_messages = _build_input_messages(messages, user_id=user_id)
+    user_message = None
+    for msg in reversed(messages or []):
+        if isinstance(msg, dict) and msg.get("role") == "user":
+            user_message = msg.get("content", "")
+            break
     print(f"[AZURE] Total input messages: {len(input_messages)}")
     for i, msg in enumerate(input_messages):
         role = msg.get('role', 'unknown')
@@ -574,16 +960,79 @@ def _agent_response_text(messages, user_id=None):
         },
     )
 
-    # Extract the text
-    text = getattr(response, "output_text", "") or ""
+    # DEBUG: Log complete response structure for v12 compatibility
+    print(f"[AZURE] Response type: {type(response)}")
+    print(f"[AZURE] Response dir: {[attr for attr in dir(response) if not attr.startswith('_')]}")
+    print(f"[AZURE] Response object: {response}")
+    
+    # Try multiple ways to extract text for v12 compatibility
+    text = ""
+    if hasattr(response, "output_text"):
+        text = response.output_text or ""
+    elif hasattr(response, "output"):
+        # v12 might return output as list or dict
+        output = response.output
+        if isinstance(output, list) and len(output) > 0:
+            # Try to extract text from first output item
+            first_item = output[0]
+            if hasattr(first_item, "content"):
+                content = first_item.content
+                if isinstance(content, list) and len(content) > 0:
+                    if hasattr(content[0], "text"):
+                        text = content[0].text
+                    elif isinstance(content[0], str):
+                        text = content[0]
+            elif isinstance(first_item, str):
+                text = first_item
+        elif isinstance(output, dict):
+            text = output.get("text", "") or output.get("output", "")
+        elif isinstance(output, str):
+            text = output
+    elif hasattr(response, "text"):
+        text = response.text or ""
+    
     print(f"[AZURE] Received response for user_id={user_id}, text_length={len(text)}")
 
     # Return only mapped source URLs; skip citations with no mapping.
     citation_filenames = _extract_citation_filenames(response)
-    citations = _map_citation_urls(citation_filenames)
+    citations = _map_citation_urls(citation_filenames, user_message=user_message)
+    citations = _filter_citations_for_query(citations, user_message)
     print(f"[AZURE] Extracted filenames: {citation_filenames}. Mapped URLs: {citations}")
 
-    return {"text": text, "citations": citations}
+    # Enrich citations with titles from verified links for frontend display
+    enriched = []
+    seen = set()
+    links_index = { (l.get('url') or '').lower(): l for l in _get_verified_links() }
+    for url in citations or []:
+        if not url or url in seen:
+            continue
+        seen.add(url)
+        key = (url or '').lower()
+        title = None
+        if key in links_index:
+            title = links_index[key].get('title')
+        if not title:
+            try:
+                host = urlparse(url).hostname or url
+                title = host
+            except Exception:
+                title = url
+        enriched.append({"url": url, "title": title})
+
+    # Always include top verified links for the user query as sources (not just fallback)
+    try:
+        rag_category = _detect_rag_category(user_message)
+        top_links = _find_relevant_links(user_message or "", category=rag_category, top_k=5)
+        for link in top_links:
+            url = link.get("url")
+            if not url or url in seen:
+                continue
+            seen.add(url)
+            enriched.append({"url": url, "title": link.get("title") or url})
+    except Exception as _err:
+        print(f"[RAG] Could not fetch top verified links: {_err}")
+
+    return {"text": text, "citations": enriched}
 
 
 # ── HTTP route (kept for non-socket clients) ────────────────────────────────

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import QuestMap from "../components/QuestMap";
 import { useChat } from "../hooks/useChat";
 import useAuth from "../hooks/useAuth";
 import { LogOut, Volume2 } from "lucide-react";
@@ -148,33 +147,9 @@ function ChatApp() {
   } = useChat();
   const [input, setInput] = useState("");
   const [speakingMessageId, setSpeakingMessageId] = useState(null);
-  const [currentStep, setCurrentStep] = useState(1);
-  const [questSummary, setQuestSummary] = useState(null);
   const [activeTab, setActiveTab] = useState("chat");
-  const { user, logout, getQuestProgress } = useAuth();
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const loadQuestProgress = async () => {
-      const progress = await getQuestProgress();
-      if (!progress) {
-        setCurrentStep(1);
-        setQuestSummary(null);
-        return;
-      }
-
-      setQuestSummary(progress);
-      const milestoneList = Array.isArray(progress.milestones)
-        ? progress.milestones
-        : [];
-      const completed = milestoneList.filter(
-        (milestone) => milestone.status === "Complete",
-      ).length;
-      setCurrentStep(Math.min(4, Math.max(1, completed + 1)));
-    };
-
-    loadQuestProgress();
-  }, [getQuestProgress]);
 
   const handleSend = () => {
     if (input.trim()) {
@@ -242,9 +217,7 @@ function ChatApp() {
 
   const displayName = user?.username || "there";
   const userInitial = (user?.username || "?").charAt(0).toUpperCase();
-  const sidebarSubtitle = questSummary
-    ? `${questSummary.study_program || "Student"} · Quest active`
-    : "International student";
+  const sidebarSubtitle = "International student";
 
   const tabClass = (id) => `nv-nav-tab${activeTab === id ? " nv-active" : ""}`;
 
@@ -425,13 +398,23 @@ function ChatApp() {
   };
 
   const renderCitationLinks = (citations, keyPrefix = "citations") => {
-    const uniqueCitations = Array.from(
-      new Set(
-        (Array.isArray(citations) ? citations : []).filter(
-          (citation) => typeof citation === "string" && citation.trim(),
-        ),
-      ),
-    );
+    // Support citations as strings (urls) or objects {url, title}
+    const input = Array.isArray(citations) ? citations : [];
+    const urlToTitle = {};
+    const urls = [];
+    input.forEach((c) => {
+      if (!c) return;
+      if (typeof c === "string") {
+        const u = c.trim();
+        if (u && !urls.includes(u)) urls.push(u);
+      } else if (typeof c === "object" && c.url) {
+        const u = c.url.trim();
+        if (u && !urls.includes(u)) urls.push(u);
+        if (c.title) urlToTitle[c.url] = c.title;
+      }
+    });
+
+    const uniqueCitations = urls;
 
     if (uniqueCitations.length === 0) {
       return null;
@@ -442,13 +425,15 @@ function ChatApp() {
         <div className="nv-chat-citations-label">More info</div>
         <div className="nv-chat-citations-list">
           {uniqueCitations.map((citation, idx) => {
-            let hostLabel = citation;
-
-            try {
-              hostLabel = new URL(citation).hostname.replace(/^www\./, "");
-            } catch {
-              hostLabel = citation;
-            }
+            const title =
+              urlToTitle[citation] ||
+              (() => {
+                try {
+                  return new URL(citation).hostname.replace(/^www\./, "");
+                } catch {
+                  return citation;
+                }
+              })();
 
             return (
               <a
@@ -459,7 +444,7 @@ function ChatApp() {
                 className="nv-chat-citation-link"
               >
                 Source {idx + 1}
-                <span>{hostLabel}</span>
+                <span>{title}</span>
               </a>
             );
           })}
@@ -556,6 +541,9 @@ function ChatApp() {
             <Link to="/forum" className="nv-nav-tab nv-nav-link-tab">
               Peer Q&amp;A
             </Link>
+            <Link to="/roadmap" className="nv-nav-tab nv-nav-link-tab">
+              Roadmap
+            </Link>
             <button
               type="button"
               className={tabClass("topics")}
@@ -570,31 +558,8 @@ function ChatApp() {
             >
               Tips
             </button>
-            <button
-              type="button"
-              className={tabClass("quest")}
-              onClick={() => setActiveTab("quest")}
-            >
-              Quest
-            </button>
-            <button
-              type="button"
-              className={tabClass("account")}
-              onClick={() => setActiveTab("account")}
-            >
-              Account
-            </button>
           </div>
           <div className="nv-topnav-right">
-            <Link to="/roadmap" className="nv-btn-secondary">
-              Roadmap
-            </Link>
-            <button type="button" className="nv-lang-btn">
-              EN
-            </button>
-            <button type="button" className="nv-settings-btn" title="Settings">
-              <SettingsIcon />
-            </button>
             <button
               type="button"
               className="nv-btn-logout"
@@ -770,32 +735,6 @@ function ChatApp() {
           </div>
         </div>
 
-        {/* Quest (existing IAȘI quest map) */}
-        <div
-          className={`nv-panel nv-quest-panel${activeTab === "quest" ? " nv-active" : ""}`}
-        >
-          <div className="nv-quest-panel-inner">
-            <div className="nv-panel-header">
-              <h2>Your quest</h2>
-              <p>Track your relocation milestones for Iași.</p>
-            </div>
-            <QuestMap
-              currentStep={currentStep}
-              questToken={localStorage.getItem("questToken")}
-              userTag={
-                questSummary
-                  ? `${questSummary.country_of_origin || "Unknown"} • ${questSummary.citizenship_type || "N/A"}`
-                  : null
-              }
-              questStatusLabel={
-                questSummary
-                  ? `Program: ${questSummary.study_program || "Not set"}`
-                  : "Quest not started"
-              }
-            />
-          </div>
-        </div>
-
         {/* Account summary → full profile */}
         <div
           className={`nv-panel nv-scroll-panel${activeTab === "account" ? " nv-active" : ""}`}
@@ -817,18 +756,6 @@ function ChatApp() {
                 <div className="nv-account-name">{displayName}</div>
                 <div className="nv-account-role">
                   {user?.email || "Signed in"}
-                </div>
-                <div className="nv-account-tags">
-                  {questSummary?.target_university && (
-                    <span className="nv-account-tag">
-                      🎓 {questSummary.target_university}
-                    </span>
-                  )}
-                  {questSummary?.country_of_origin && (
-                    <span className="nv-account-tag">
-                      📍 {questSummary.country_of_origin}
-                    </span>
-                  )}
                 </div>
                 <div className="nv-account-divider" />
                 <div className="nv-account-section-title">About</div>

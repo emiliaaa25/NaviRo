@@ -96,13 +96,21 @@ export const useChat = () => {
   };
 
   const normalizeCitations = (citations) => {
-    if (!Array.isArray(citations)) {
-      return [];
-    }
+    if (!Array.isArray(citations)) return [];
 
-    return citations.filter(
-      (citation) => typeof citation === "string" && citation.trim().length > 0,
-    );
+    // Normalize to objects {url, title}
+    const out = [];
+    citations.forEach((c) => {
+      if (!c) return;
+      if (typeof c === "string") {
+        const u = c.trim();
+        if (u) out.push({ url: u, title: null });
+      } else if (typeof c === "object" && c.url) {
+        out.push({ url: c.url, title: c.title || null });
+      }
+    });
+
+    return out;
   };
 
   useEffect(() => {
@@ -123,10 +131,13 @@ export const useChat = () => {
         const last = prev[prev.length - 1];
         // If last message is already a streaming bot message, append to it
         if (last?.sender === "bot" && last?.streaming) {
-          const mergedCitations = [
-            ...(last.citations || []),
-            ...incomingCitations,
-          ].filter((item, index, arr) => arr.indexOf(item) === index);
+          const existing = Array.isArray(last.citations) ? last.citations : [];
+          const combined = [...existing, ...incomingCitations];
+          // dedupe by url
+          const mergedCitations = combined.filter(
+            (item, idx, arr) =>
+              arr.findIndex((a) => a.url === item.url) === idx,
+          );
 
           return [
             ...prev.slice(0, -1),

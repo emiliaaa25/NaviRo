@@ -21,7 +21,7 @@ class Config:
     #########################################
     AZURE_PROJECT_ENDPOINT = "https://virtual-assistant-team--resource.services.ai.azure.com/api/projects/virtual-assistant-team-project"
     AZURE_AGENT_NAME = "Test-agent"
-    AZURE_AGENT_VERSION = "10"
+    AZURE_AGENT_VERSION = "12"
     AZURE_ASSISTANT_ID = "9f76828d-b392-44d8-b17a-84bdd5dae546"
     AZURE_API_KEY = "7K13zSno3ZlbGv2HFibaXxhWGYh58JLFSNeBWf4lNEA8gy8JWIPMJQQJ99CDACfhMk5XJ3w3AAAAACOGk4Fo"
     AZURE_API_VERSION = "2025-11-15-preview"

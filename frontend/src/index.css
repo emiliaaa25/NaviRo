@@ -1009,7 +1009,7 @@ a.nv-nav-link-tab {
 }
 
 .nv-topics-card p,
-.nv-tips-card>p {
+.nv-tips-card > p {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.75);
   margin-bottom: 24px;
@@ -1578,161 +1578,6 @@ a.nv-btn-primary {
   }
 }
 
-/* Quest panel */
-.nv-quest-panel {
-  background: var(--cream);
-  overflow-y: auto;
-  padding: 28px;
-}
-
-.nv-quest-panel-inner {
-  max-width: 420px;
-  margin: 0 auto;
-}
-
-/* Quest map widget */
-.nv-quest-map {
-  padding: 24px;
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--cream-dark);
-  box-shadow: var(--shadow-sm);
-  width: 100%;
-}
-
-.nv-quest-map-title {
-  font-family: "DM Serif Display", Georgia, serif;
-  font-size: 1.25rem;
-  color: var(--dark);
-  margin: 0 0 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nv-quest-map-title svg {
-  color: var(--sage-dark);
-  flex-shrink: 0;
-}
-
-.nv-quest-map-tag {
-  margin-bottom: 1rem;
-  padding: 10px 12px;
-  background: var(--cream);
-  border: 1px solid var(--cream-dark);
-  border-radius: var(--radius-sm);
-  font-size: 12px;
-  color: var(--text-light);
-}
-
-.nv-quest-map-tag strong {
-  color: var(--dark);
-}
-
-.nv-quest-map-tag p {
-  margin: 6px 0 0;
-  font-size: 11px;
-}
-
-.nv-quest-map-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.nv-quest-map-step {
-  position: relative;
-  display: flex;
-  gap: 1rem;
-}
-
-.nv-quest-map-line {
-  position: absolute;
-  left: 11px;
-  top: 28px;
-  width: 2px;
-  height: calc(100% + 0.5rem);
-  background: var(--cream-dark);
-  border-radius: 1px;
-}
-
-.nv-quest-map-line.nv-quest-map-line-done {
-  background: var(--sage);
-}
-
-.nv-quest-map-icon-wrap {
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
-}
-
-.nv-quest-map-icon {
-  display: block;
-}
-
-.nv-quest-map-icon-done {
-  color: var(--sage-dark);
-}
-
-.nv-quest-map-icon-active {
-  color: var(--sage-dark);
-  fill: var(--sage-light);
-}
-
-.nv-quest-map-icon-locked {
-  color: var(--text-light);
-}
-
-.nv-quest-map-step-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding-top: 2px;
-}
-
-.nv-quest-map-label {
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--text);
-}
-
-.nv-quest-map-label-active {
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--sage-dark);
-}
-
-.nv-quest-map-desc {
-  font-size: 12px;
-  color: var(--text-light);
-  font-style: italic;
-}
-
-.nv-quest-map-token {
-  margin-top: 1.5rem;
-  padding: 12px;
-  background: var(--sage-bg);
-  border-radius: var(--radius-sm);
-  font-size: 11px;
-  color: var(--sage-dark);
-  border: 1px solid var(--sage-light);
-}
-
-.nv-quest-map-token p {
-  margin: 6px 0 0;
-  opacity: 0.9;
-}
-
-.nv-quest-map-hint {
-  margin-top: 1.5rem;
-  padding: 12px;
-  background: var(--cream);
-  border-radius: var(--radius-sm);
-  font-size: 12px;
-  color: var(--text-light);
-  border: 1px solid var(--cream-dark);
-}
-
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -1753,8 +1598,16 @@ a.nv-btn-primary {
   min-height: 100vh;
   padding: 32px 20px 48px;
   background:
-    radial-gradient(circle at top left, rgba(183, 211, 186, 0.35), transparent 30%),
-    radial-gradient(circle at top right, rgba(237, 221, 203, 0.5), transparent 26%),
+    radial-gradient(
+      circle at top left,
+      rgba(183, 211, 186, 0.35),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(237, 221, 203, 0.5),
+      transparent 26%
+    ),
     linear-gradient(180deg, #faf7f1 0%, #f6f1e7 100%);
 }
 
@@ -1910,9 +1763,16 @@ a.nv-btn-primary {
   padding: 18px;
   border: 1px solid transparent;
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(251, 248, 241, 0.96));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.94),
+    rgba(251, 248, 241, 0.96)
+  );
   text-align: left;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .nv-roadmap-step:hover {
@@ -2075,7 +1935,11 @@ a.nv-btn-primary {
   gap: 12px;
   padding: 18px;
   border-radius: 22px;
-  background: linear-gradient(180deg, rgba(250, 247, 240, 0.95), rgba(255, 255, 255, 0.96));
+  background: linear-gradient(
+    180deg,
+    rgba(250, 247, 240, 0.95),
+    rgba(255, 255, 255, 0.96)
+  );
   border: 1px solid rgba(198, 183, 162, 0.24);
 }
 
@@ -2141,7 +2005,6 @@ a.nv-btn-primary {
 }
 
 @media (max-width: 1024px) {
-
   .nv-roadmap-metrics,
   .nv-roadmap-grid {
     grid-template-columns: 1fr 1fr;

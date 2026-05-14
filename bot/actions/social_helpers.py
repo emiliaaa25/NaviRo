@@ -5,7 +5,10 @@ import json
 import re
 from typing import Any, Dict, List, Optional, Tuple
 
-from db import db
+try:
+    from actions.db import db
+except ImportError:  # pragma: no cover - supports api_server container layout
+    from db import db
 
 COHORT_SEPT_2026 = "Sept 2026 arrivals"
 
