@@ -26,7 +26,7 @@ export default function BuddyFinder() {
       });
       const data = await res.json();
       if (!res.ok) {
-        setMsg(data.message || `Eroare server (${res.status})`);
+        setMsg(data.message || `Server error (${res.status})`);
         setPeers([]);
         return;
       }
@@ -109,9 +109,9 @@ export default function BuddyFinder() {
         <div>
           <h1 className="nv-page-title">Buddy Finder</h1>
           <p className="nv-page-sub">
-            Fără filtre vezi toți ceilalți utilizatori înregistrați. Dacă pui țară /
-            program / limbă, apar doar cei care au completat profilul de relocare
-            în Profile. Pentru teste: al doilea cont (alt browser sau incognito).
+            Without filters you see all other registered users. If you add
+            country / program / language, only those who completed their
+            relocation profile in Profile appear.
           </p>
         </div>
         <nav className="nv-page-nav">
@@ -150,7 +150,11 @@ export default function BuddyFinder() {
           <button type="button" className="nv-btn-primary" onClick={loadPeers}>
             Search peers
           </button>
-          <button type="button" className="nv-btn-ghost" onClick={matchOneClick}>
+          <button
+            type="button"
+            className="nv-btn-ghost"
+            onClick={matchOneClick}
+          >
             One-click match
           </button>
         </div>
@@ -161,9 +165,9 @@ export default function BuddyFinder() {
             <ul className="nv-buddy-list">
               {peers.filter((p) => p.user_id !== user?.id).length === 0 && (
                 <li className="nv-page-sub" style={{ padding: "12px 0" }}>
-                  Nu există alți utilizatori în baza de date (sau filtrele nu
-                  potrivesc pe nimeni). Înregistrează un al doilea user sau golește
-                  filtrele și apasă din nou Search.
+                  No other users found in database (or filters don't match
+                  anyone). Register a second user or clear the filters and press
+                  Search again.
                 </li>
               )}
               {peers
@@ -173,8 +177,8 @@ export default function BuddyFinder() {
                     <div>
                       <strong>{p.username}</strong>
                       <div className="nv-page-sub">
-                        {p.country_of_origin || "—"} · {p.study_program || "—"} ·{" "}
-                        {p.languages_spoken || "—"}
+                        {p.country_of_origin || "—"} · {p.study_program || "—"}{" "}
+                        · {p.languages_spoken || "—"}
                       </div>
                     </div>
                     <button

@@ -20,13 +20,16 @@ export default function PeerForum() {
       const res = await fetch(`${api}/forum/questions?limit=50`);
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setErr(data.message || `Eroare server (${res.status}). Verifică dacă API-ul rulează.`);
+        setErr(
+          data.message ||
+            `Server error (${res.status}). Check if API is running.`,
+        );
         setQuestions([]);
         return;
       }
       setQuestions(data.questions || []);
     } catch (e) {
-      setErr(e.message || "Nu s-a putut încărca forumul.");
+      setErr(e.message || "Could not load forum.");
       setQuestions([]);
     }
   };
@@ -36,7 +39,7 @@ export default function PeerForum() {
       const res = await fetch(`${api}/forum/questions/${id}`);
       const data = await res.json();
       if (!res.ok) {
-        setErr(data.message || "Întrebarea nu a fost găsită.");
+        setErr(data.message || "Question not found.");
         return;
       }
       if (data.success) setSelected(data.question);
@@ -51,7 +54,7 @@ export default function PeerForum() {
 
   const postQuestion = async () => {
     if (!token) {
-      setMsg("Loghează-te ca să publici.");
+      setMsg("Log in to post.");
       return;
     }
     try {
@@ -68,7 +71,7 @@ export default function PeerForum() {
         setTitle("");
         setBody("");
         setTags("");
-        setMsg("Întrebarea a fost publicată.");
+        setMsg("Question posted.");
         load();
       } else setMsg(data.message || "Failed");
     } catch (e) {
@@ -132,9 +135,9 @@ export default function PeerForum() {
         <div>
           <h1 className="nv-page-title">Peer Q&amp;A</h1>
           <p className="nv-page-sub">
-            Întrebări și răspunsuri de la alți studenți (locuință, acte, viață
-            aici). Lista din stânga — click pe o întrebare ca să vezi răspunsurile
-            în dreapta. Votează cu ▲ / ▼ (e nevoie să fii autentificat).
+            Questions and answers from other students (housing, documents, life
+            here). List on the left — click a question to see answers on the
+            right. Vote with ▲ / ▼ (authentication required).
           </p>
         </div>
         <nav className="nv-page-nav">
@@ -157,16 +160,14 @@ export default function PeerForum() {
 
       <div className="nv-forum-layout">
         <section className="nv-section">
-          <h2 className="nv-section-title">Întrebări</h2>
+          <h2 className="nv-section-title">Questions</h2>
           {questions.length === 0 && !err && (
             <div className="nv-forum-empty nv-mb-md">
+              <p>No questions in database yet, or still loading.</p>
               <p>
-                Încă nu există întrebări în baza de date, sau încă se încarcă.
-              </p>
-              <p>
-                După ce pornești API-ul cu ultimul cod, ar trebui să apară câteva
-                exemple demo. Poți și să publici prima ta întrebare mai jos
-                (titlu + text, apoi „Post”) — trebuie să fii logat.
+                Once you start the API with the latest code, some demo examples
+                should appear. You can also post your first question below
+                (title + text, then "Post") — you must be logged in.
               </p>
             </div>
           )}
@@ -196,7 +197,7 @@ export default function PeerForum() {
             ))}
           </ul>
 
-          <h3 className="nv-section-title">Întrebare nouă</h3>
+          <h3 className="nv-section-title">New Question</h3>
           <input
             className="nv-filter-input nv-mb-sm"
             placeholder="Title"
@@ -215,14 +216,18 @@ export default function PeerForum() {
             value={tags}
             onChange={(e) => setTags(e.target.value)}
           />
-          <button type="button" className="nv-btn-primary" onClick={postQuestion}>
-            Publică întrebarea
+          <button
+            type="button"
+            className="nv-btn-primary"
+            onClick={postQuestion}
+          >
+            Post Question
           </button>
         </section>
 
         <section className="nv-section nv-forum-detail">
           <h2 className="nv-section-title" style={{ fontSize: "16px" }}>
-            Detaliu întrebare
+            Question Details
           </h2>
           {selected ? (
             <>
@@ -231,7 +236,7 @@ export default function PeerForum() {
                 {selected.username} · score {selected.score}
               </p>
               <p className="nv-forum-detail-body">{selected.body}</p>
-              <h3 className="nv-section-title">Răspunsuri</h3>
+              <h3 className="nv-section-title">Answers</h3>
               <ul className="nv-forum-a-list">
                 {(selected.answers || []).map((a) => (
                   <li key={a.id} className="nv-forum-answer">
@@ -257,14 +262,18 @@ export default function PeerForum() {
                 value={answerBody}
                 onChange={(e) => setAnswerBody(e.target.value)}
               />
-              <button type="button" className="nv-btn-primary" onClick={postAnswer}>
-                Publică răspunsul
+              <button
+                type="button"
+                className="nv-btn-primary"
+                onClick={postAnswer}
+              >
+                Post Answer
               </button>
             </>
           ) : (
             <p className="nv-page-sub">
-              Alege o întrebare din lista din stânga ca să vezi textul complet și
-              răspunsurile aici.
+              Select a question from the list on the left to see the full text
+              and answers here.
             </p>
           )}
         </section>

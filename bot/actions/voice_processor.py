@@ -89,13 +89,12 @@ class VoiceProcessor:
             }
 
     @staticmethod
-    def text_to_speech(text, language="en", output_path=None):
+    def text_to_speech(text, output_path=None):
         """
         Convert text to speech and optionally save to file.
         
         Args:
             text: Text to convert to speech
-            language: Language code ('en' for English, 'ro' for Romanian)
             output_path: Optional file path to save audio
         
         Returns:
@@ -108,17 +107,10 @@ class VoiceProcessor:
         try:
             engine = VoiceProcessor.get_tts_engine()
             
-            # Set language
+            # Use first available voice (usually English)
             voices = engine.getProperty('voices')
-            if language.startswith('ro'):
-                # Try to find Romanian voice
-                romanian_voices = [v for v in voices if 'romanian' in v.languages[0].lower() or 'ro' in v.languages[0].lower()]
-                if romanian_voices:
-                    engine.setProperty('voice', romanian_voices[0].id)
-            else:
-                # Use first available voice (usually English)
-                if voices:
-                    engine.setProperty('voice', voices[0].id)
+            if voices:
+                engine.setProperty('voice', voices[0].id)
             
             # Generate or save audio
             if output_path is None:
@@ -152,32 +144,3 @@ class VoiceProcessor:
                 'error': f'TTS error: {str(e)}'
             }
 
-    @staticmethod
-    def detect_language_from_text(text):
-        """
-        Simple language detection based on common words/patterns.
-        
-        Args:
-            text: Text to analyze
-        
-        Returns:
-            'ro-RO' or 'en-US'
-        """
-        if not text:
-            return 'en-US'
-        
-        # Romanian patterns
-        romanian_patterns = [
-            'ă', 'î', 'ș', 'ț', 'ئ',  # Romanian diacritics
-            'care', 'pentru', 'cum', 'un', 'pe', 'din', 'la', 'ce', 'eu', 'tu', 'el',
-            'aceasta', 'acesta', 'mai', 'mult', 'puțin', 'bine', 'rău', 'gol', 'plin'
-        ]
-        
-        text_lower = text.lower()
-        romanian_count = sum(1 for pattern in romanian_patterns if pattern in text_lower)
-        total_words = len(text_lower.split())
-        
-        if total_words > 0 and (romanian_count / total_words) > 0.1:
-            return 'ro-RO'
-        
-        return 'en-US'
