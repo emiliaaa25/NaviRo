@@ -59,9 +59,40 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [localError, setLocalError] = useState("");
+  const [googleLoading, setGoogleLoading] = useState(false);
 
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
+
+  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
+  const loadGoogleIdentityScript = () =>
+    new Promise((resolve, reject) => {
+      if (window.google?.accounts?.id) {
+        resolve();
+        return;
+      }
+
+      const existing = document.getElementById("google-identity-script");
+      if (existing) {
+        existing.addEventListener("load", () => resolve(), { once: true });
+        existing.addEventListener(
+          "error",
+          () => reject(new Error("Failed to load Google script")),
+          { once: true },
+        );
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.id = "google-identity-script";
+      script.src = "https://accounts.google.com/gsi/client";
+      script.async = true;
+      script.defer = true;
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error("Failed to load Google script"));
+      document.head.appendChild(script);
+    });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -83,6 +114,68 @@ export default function Login() {
     }
 
     setLoading(false);
+  };
+
+  const handleGoogleLogin = async () => {
+    if (!googleClientId) {
+      setLocalError(
+        "Google login is not configured. Please set VITE_GOOGLE_CLIENT_ID.",
+      );
+      return;
+    }
+
+    setLocalError("");
+    setGoogleLoading(true);
+
+    try {
+      await loadGoogleIdentityScript();
+
+      const credential = await new Promise((resolve, reject) => {
+        let settled = false;
+        const timeout = setTimeout(() => {
+          if (settled) return;
+          settled = true;
+          reject(new Error("Google login timed out. Please try again."));
+        }, 45000);
+
+        window.google.accounts.id.initialize({
+          client_id: googleClientId,
+          callback: (response) => {
+            if (settled) return;
+            settled = true;
+            clearTimeout(timeout);
+
+            if (!response?.credential) {
+              reject(new Error("Google did not return a credential."));
+              return;
+            }
+
+            resolve(response.credential);
+          },
+        });
+
+        window.google.accounts.id.prompt((notification) => {
+          if (settled) return;
+
+          if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+            settled = true;
+            clearTimeout(timeout);
+            reject(new Error("Google sign-in was dismissed or blocked."));
+          }
+        });
+      });
+
+      const result = await loginWithGoogle(credential);
+      if (result.success) {
+        navigate("/chat");
+      } else {
+        setLocalError(result.message || "Google login failed");
+      }
+    } catch (error) {
+      setLocalError(error.message || "Google login failed");
+    } finally {
+      setGoogleLoading(false);
+    }
   };
 
   return (
@@ -164,9 +257,14 @@ export default function Login() {
           <span>or continue with</span>
         </div>
 
-        <button type="button" className="nv-btn-google" disabled>
+        <button
+          type="button"
+          className="nv-btn-google"
+          onClick={handleGoogleLogin}
+          disabled={loading || googleLoading}
+        >
           <GoogleIcon />
-          Continue with Google
+          {googleLoading ? "Connecting to Google..." : "Continue with Google"}
         </button>
 
         <p className="nv-signup-prompt">

@@ -280,12 +280,26 @@ body {
   font-size: 14px;
   font-family: "DM Sans", system-ui, sans-serif;
   color: var(--text);
-  cursor: not-allowed;
-  opacity: 0.72;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.1s;
+}
+
+.nv-btn-google:hover:not(:disabled) {
+  background: var(--cream);
+  border-color: var(--text);
+  transform: translateY(-1px);
+}
+
+.nv-btn-google:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
 }
 
 .nv-signup-prompt {
@@ -860,6 +874,7 @@ body {
   color: var(--text-light);
   word-break: break-word;
 }
+
 .nv-quick-chips {
   display: flex;
   flex-wrap: wrap;
@@ -999,7 +1014,7 @@ body {
 }
 
 .nv-topics-card p,
-.nv-tips-card > p {
+.nv-tips-card>p {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.75);
   margin-bottom: 24px;
@@ -2107,6 +2122,7 @@ body {
 }
 
 @media (max-width: 1024px) {
+
   .nv-roadmap-metrics,
   .nv-roadmap-grid {
     grid-template-columns: 1fr 1fr;
@@ -2159,6 +2175,7 @@ body {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

@@ -44,3 +44,6 @@ Key competencies:
 - Financial documentation and proof of funds
 - Language requirements and certifications"""
     TOOLS = []
+
+    # Google OAuth configuration
+    GOOGLE_CLIENT_ID = "637432744098-edegr6i8gr13ko8vvfk18f2a3rf05shc.apps.googleusercontent.com"

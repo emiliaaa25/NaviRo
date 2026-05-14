@@ -128,6 +128,53 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
+  const loginWithGoogle = useCallback(async (idToken) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/google`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id_token: idToken }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || "Google login failed");
+        return { success: false, message: data.message };
+      }
+
+      localStorage.setItem("authToken", data.token);
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          id: data.user_id,
+          username: data.username,
+          email: data.email,
+        }),
+      );
+
+      setToken(data.token);
+      setUser({
+        id: data.user_id,
+        username: data.username,
+        email: data.email,
+      });
+
+      return { success: true, message: data.message };
+    } catch (err) {
+      const errorMessage = err.message || "Network error during Google login";
+      setError(errorMessage);
+      return { success: false, message: errorMessage };
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   const logout = useCallback(() => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("user");
@@ -604,6 +651,7 @@ export const AuthProvider = ({ children }) => {
     isAuthenticated,
     register,
     login,
+    loginWithGoogle,
     logout,
     getProfile,
     updateProfile,

@@ -242,6 +242,25 @@ def login():
     except Exception as e:
         return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
 
+@app.route('/auth/google', methods=['POST'])
+def google_login():
+    """Login user with Google ID token."""
+    try:
+        data = request.get_json() or {}
+        id_token = data.get('id_token')
+
+        if not id_token:
+            return jsonify({'success': False, 'message': 'Missing Google ID token'}), 400
+
+        result = AuthManager.login_with_google(id_token=id_token)
+
+        if result['success']:
+            return jsonify(result), 200
+        return jsonify(result), 401
+
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
+
 @app.route('/auth/verify', methods=['GET'])
 @token_required
 def verify_token():
