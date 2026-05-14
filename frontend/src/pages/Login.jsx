@@ -261,7 +261,6 @@ export default function Login() {
           type="button"
           className="nv-btn-google"
           onClick={handleGoogleLogin}
-          disabled={loading || googleLoading}
         >
           <GoogleIcon />
           {googleLoading ? "Connecting to Google..." : "Continue with Google"}
