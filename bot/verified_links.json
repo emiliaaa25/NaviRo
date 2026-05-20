@@ -1,840 +1,1140 @@
 {
   "links": [
-    
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Biology",
-    "url": "https://www.bio.uaic.ro/index.php/en/",
-    "description": "Official website of the Faculty of Biology at UAIC, offering programs in biology, biochemistry, and ecology.",
-    "keywords": "uaic, biology, biochemistry, ecology, iasi, faculty",
-    "university": "UAIC",
-    "faculty": "uaic-biologie"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Chemistry",
-    "url": "https://www.chem.uaic.ro/en/",
-    "description": "Official website of the Faculty of Chemistry at UAIC, featuring programs in medical, food, and environmental chemistry.",
-    "keywords": "uaic, chemistry, medical chemistry, food chemistry, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-chimie"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Law",
-    "url": "https://laws.uaic.ro/en/",
-    "description": "Official English page for the Faculty of Law at UAIC, detailing legal studies, business law, and European law programs.",
-    "keywords": "uaic, law, european law, business law, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-drept"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Economics and Business Administration",
-    "url": "https://www.feaa.uaic.ro/en/",
-    "description": "Official website of FEAA at UAIC, providing details on economics, management, and business administration programs.",
-    "keywords": "uaic, feaa, economics, business administration, management, finance, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-economie-si-administrarea-afacerilor"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Physical Education and Sport",
-    "url": "https://www.sport.uaic.ro/en/",
-    "description": "Official website covering programs in physical education, sport management, and kinesitherapy at UAIC.",
-    "keywords": "uaic, sport, physical education, kinesitherapy, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-sport"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Philosophy and Social-Political Sciences",
-    "url": "https://www.fssp.uaic.ro/en/",
-    "description": "Official page for philosophy, sociology, political sciences, and communication studies at UAIC.",
-    "keywords": "uaic, philosophy, sociology, political sciences, communication, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-filosofie"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Physics",
-    "url": "https://www.phys.uaic.ro/en/",
-    "description": "Official English website for the Faculty of Physics at UAIC, featuring medical physics and biophysics.",
-    "keywords": "uaic, physics, medical physics, biophysics, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-fizica"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Geography and Geology",
-    "url": "https://www.geo.uaic.ro/en/",
-    "description": "Official portal for studies in geography, tourism, and geological engineering at UAIC.",
-    "keywords": "uaic, geography, geology, tourism, environment, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-geografie"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Computer Science",
-    "url": "https://www.info.uaic.ro/en/",
-    "description": "Official website of the Faculty of Computer Science (FII) at UAIC, offering advanced studies in software engineering and AI.",
-    "keywords": "uaic, computer science, informatics, fii, ai, software engineering, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-informatica"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of History",
-    "url": "https://history.uaic.ro/en/",
-    "description": "Official English portal for the Faculty of History at UAIC, covering archaeology, heritage, and international relations.",
-    "keywords": "uaic, history, archaeology, heritage, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-istorie"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Letters",
-    "url": "https://media.lit.uaic.ro/en/",
-    "description": "Official page for literature, modern languages, classical philology, and journalism programs at UAIC.",
-    "keywords": "uaic, letters, literature, languages, journalism, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-litere"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Mathematics",
-    "url": "https://www.math.uaic.ro/en/",
-    "description": "Official website for the Faculty of Mathematics at UAIC, offering fundamental and applied mathematics.",
-    "keywords": "uaic, mathematics, applied mathematics, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-matematica"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Psychology and Education Sciences",
-    "url": "https://www.psih.uaic.ro/en/",
-    "description": "Official English portal for psychology, pedagogy, and educational sciences at UAIC.",
-    "keywords": "uaic, psychology, education, pedagogy, special psychopedagogy, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-psihologie"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Orthodox Theology",
-    "url": "https://www.teologie.uaic.ro/en/",
-    "description": "Official website for the Faculty of Orthodox Theology at UAIC, providing programs in pastoral theology and sacred art.",
-    "keywords": "uaic, orthodox theology, sacred art, pastoral theology, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-teologie-ortodoxa"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Roman-Catholic Theology",
-    "url": "https://www.ftrc.uaic.ro/en/",
-    "description": "Official English page for Roman-Catholic Theology and social assistance programs at UAIC.",
-    "keywords": "uaic, catholic theology, roman-catholic, social assistance, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-teologie-romano-cat"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Medicine",
-    "url": "https://www.umfiasi.ro/en/academic/faculties/faculty-of-medicine",
-    "description": "Official page of the Faculty of Medicine at UMF Iasi, detailing the medicine, nursing, and nutrition programs in multiple languages.",
-    "keywords": "umf, medicine, general nursing, nutrition, iasi",
-    "university": "UMF",
-    "faculty": "umf-medicina"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Dental Medicine",
-    "url": "https://www.umfiasi.ro/en/academic/faculties/faculty-of-dental-medicine",
-    "description": "Official webpage for the Faculty of Dental Medicine at UMF Iasi, offering dental programs in Romanian, English, and French.",
-    "keywords": "umf, dental medicine, dentistry, dental technology, iasi",
-    "university": "UMF",
-    "faculty": "umf-medicina-dentara"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Pharmacy",
-    "url": "https://www.umfiasi.ro/en/academic/faculties/faculty-of-pharmacy",
-    "description": "Official English site for the Faculty of Pharmacy at UMF Iasi, detailing studies in pharmacy and medical cosmetics.",
-    "keywords": "umf, pharmacy, medical cosmetics, iasi",
-    "university": "UMF",
-    "faculty": "umf-farmacie"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Medical Bioengineering",
-    "url": "https://www.umfiasi.ro/en/academic/faculties/faculty-of-medical-bioengineering",
-    "description": "Official webpage for the Faculty of Medical Bioengineering at UMF Iasi, covering balneophysiokinesiotherapy, audiology, and biomedical engineering.",
-    "keywords": "umf, bioengineering, medical bioengineering, biomedical engineering, iasi",
-    "university": "UMF",
-    "faculty": "umf-bioinginerie-medicala"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "Faculty of Automatic Control and Computer Engineering",
-    "url": "https://ac.tuiasi.ro/en/",
-    "description": "Official website for the AC faculty at TUIASI, focusing on computer science, applied informatics, and intelligent systems.",
-    "keywords": "tuiasi, automatic control, computer engineering, informatics, cybersecurity, iasi",
+    "url": "https://study.tuiasi.ro/",
+    "description": "Official international study portal of Gheorghe Asachi Technical University of Iași (TUIASI).",
+    "keywords": "tuiasi, technical university, iasi, engineering, study, international",
     "university": "TUIASI",
-    "faculty": "tuiasi-automatica-calculatoare"
+    "faculty": "tuiasi-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Chemical Engineering and Environmental Protection",
-    "url": "https://ch.tuiasi.ro/en/",
-    "description": "Official portal for chemical engineering, environmental protection, and biochemical technologies at TUIASI.",
-    "keywords": "tuiasi, chemical engineering, environmental engineering, biomaterials, iasi",
+    "url": "https://study.tuiasi.ro/about/",
+    "description": "About page for TUIASI international study portal.",
+    "keywords": "tuiasi, about, technical university, iasi",
     "university": "TUIASI",
-    "faculty": "tuiasi-inginerie-chimica"
+    "faculty": "tuiasi-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Civil Engineering and Building Services",
-    "url": "https://ci.tuiasi.ro/en/",
-    "description": "Official page for civil engineering, structural engineering, and building installations at TUIASI.",
-    "keywords": "tuiasi, civil engineering, building services, construction, iasi",
+    "url": "https://study.tuiasi.ro/study-programs/",
+    "description": "All study programs offered by TUIASI for international students.",
+    "keywords": "tuiasi, programs, study, master, bachelor, iasi",
     "university": "TUIASI",
-    "faculty": "tuiasi-constructii-instalatii"
+    "faculty": "tuiasi-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Machine Manufacturing and Management",
-    "url": "https://cm.tuiasi.ro/en/",
-    "description": "Official website covering digital production systems, machine manufacturing, and smart manufacturing at TUIASI.",
-    "keywords": "tuiasi, machine manufacturing, digital production, industrial management, iasi",
+    "url": "https://study.tuiasi.ro/courses/",
+    "description": "Courses available at TUIASI for international students.",
+    "keywords": "tuiasi, courses, iasi",
     "university": "TUIASI",
-    "faculty": "tuiasi-constructii-masini"
+    "faculty": "tuiasi-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Electronics, Telecommunications and Information Technology",
-    "url": "https://etti.tuiasi.ro/en/",
-    "description": "Official English portal for applied electronics, telecommunications, and microelectronics at TUIASI.",
-    "keywords": "tuiasi, electronics, telecommunications, optoelectronics, iasi",
+    "url": "https://study.tuiasi.ro/admissions/",
+    "description": "Admissions page for international students at TUIASI.",
+    "keywords": "tuiasi, admissions, apply, iasi, international",
     "university": "TUIASI",
-    "faculty": "tuiasi-electronica-telecomunicatii"
+    "faculty": "tuiasi-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Electrical Engineering, Power Engineering and Applied Informatics",
-    "url": "https://ieea.tuiasi.ro/en/",
-    "description": "Official website for electrical and power engineering, data acquisition, and energy systems at TUIASI.",
-    "keywords": "tuiasi, electrical engineering, power engineering, applied informatics, iasi",
+    "url": "https://study.tuiasi.ro/eu-eea-countries-and-the-swiss-confederation-students/",
+    "description": "Information for EU/EEA and Swiss students applying to TUIASI.",
+    "keywords": "tuiasi, eu students, eea, swiss, admissions, iasi",
     "university": "TUIASI",
-    "faculty": "tuiasi-inginerie-electrica"
+    "faculty": "tuiasi-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Hydrotechnics, Geodesy and Environmental Engineering",
-    "url": "https://hgim.tuiasi.ro/en/",
-    "description": "Official webpage detailing hydraulic works, land surveying, and geomatics programs at TUIASI.",
-    "keywords": "tuiasi, hydrotechnics, geodesy, environmental engineering, cadastre, iasi",
+    "url": "https://study.tuiasi.ro/non-eu-students/",
+    "description": "Information for non-EU international students applying to TUIASI.",
+    "keywords": "tuiasi, non-eu, international students, admissions, iasi",
     "university": "TUIASI",
-    "faculty": "tuiasi-hidrotehnica-geodezie"
+    "faculty": "tuiasi-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Mechanical Engineering",
-    "url": "https://mec.tuiasi.ro/en/",
-    "description": "Official portal for mechanical engineering, mechatronics, robotics, and automotive studies at TUIASI.",
-    "keywords": "tuiasi, mechanical engineering, automotive, robotics, mechatronics, iasi",
+    "url": "https://study.tuiasi.ro/campus-and-living/",
+    "description": "Campus and facilities information for students at TUIASI.",
+    "keywords": "tuiasi, campus, facilities, living, iasi",
     "university": "TUIASI",
-    "faculty": "tuiasi-mecanica"
+    "faculty": "tuiasi-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Materials Science and Engineering",
-    "url": "https://sim.tuiasi.ro/en/",
-    "description": "Official website focusing on materials processing, industrial safety, and advanced materials analysis at TUIASI.",
-    "keywords": "tuiasi, materials science, materials engineering, industrial safety, iasi",
+    "url": "https://study.tuiasi.ro/living-in-iasi/",
+    "description": "Guide to living in Iași for international students at TUIASI.",
+    "keywords": "tuiasi, living, iasi, student life, city",
     "university": "TUIASI",
-    "faculty": "tuiasi-stiinta-ingineria-materialelor"
+    "faculty": "tuiasi-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Industrial Design and Business Management",
-    "url": "https://dima.tuiasi.ro/en/",
-    "description": "Official webpage for industrial design, textile technology, and business management at TUIASI.",
-    "keywords": "tuiasi, industrial design, textile technology, business management, iasi",
+    "url": "https://study.tuiasi.ro/exchange-programs/",
+    "description": "Exchange programs available at TUIASI.",
+    "keywords": "tuiasi, exchange, erasmus, international, iasi",
     "university": "TUIASI",
-    "faculty": "tuiasi-design-industrial"
+    "faculty": "tuiasi-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Architecture \"G. M. Cantacuzino\"",
-    "url": "https://arhitectura.tuiasi.ro/en/",
-    "description": "Official English portal for the 6-year Architecture program at TUIASI.",
-    "keywords": "tuiasi, architecture, cantacuzino, iasi",
+    "url": "https://study.tuiasi.ro/fees/",
+    "description": "Tuition fees and cost information for studying at TUIASI.",
+    "keywords": "tuiasi, fees, tuition, cost, iasi",
     "university": "TUIASI",
-    "faculty": "tuiasi-arhitectura"
+    "faculty": "tuiasi-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Performance, Composition and Music Theory Studies",
-    "url": "https://www.arteiasi.ro/en/faculty-of-performance-composition-and-music-theory/",
-    "description": "Official page detailing programs in singing, instrumental performance, composition, and conducting at UNAGE Iasi.",
-    "keywords": "university of arts, unage, music, composition, performance, iasi",
-    "university": "Universitatea de Arte Iași",
-    "faculty": "uarte-iasi-interpretare-compozitie-muzicologie"
+    "url": "https://study.tuiasi.ro/study-programs/artificial-intelligence-ai/",
+    "description": "Master's program in Artificial Intelligence at TUIASI, covering ML, neural networks, NLP, computer vision, robotics, and reinforcement learning.",
+    "keywords": "tuiasi, artificial intelligence, AI, master, machine learning, neural networks, NLP, computer vision",
+    "university": "TUIASI",
+    "faculty": "tuiasi-automatic-control-computer-engineering"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Theatre",
-    "url": "https://www.arteiasi.ro/en/faculty-of-theatre/",
-    "description": "Official webpage for performing arts, acting, directing, choreography, and puppetry at UNAGE Iasi.",
-    "keywords": "university of arts, unage, theatre, acting, directing, choreography, iasi",
-    "university": "Universitatea de Arte Iași",
-    "faculty": "uarte-iasi-teatru"
+    "url": "https://study.tuiasi.ro/study-programs/machine-learning-robotics-and-control-mlrc/",
+    "description": "Master's program in Machine Learning, Robotics, and Control (MLRC) at TUIASI.",
+    "keywords": "tuiasi, machine learning, robotics, control, MLRC, master, engineering",
+    "university": "TUIASI",
+    "faculty": "tuiasi-automatic-control-computer-engineering"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Visual Arts and Design",
-    "url": "https://www.arteiasi.ro/en/faculty-of-visual-arts-and-design/",
-    "description": "Official site for painting, sculpture, graphics, fashion design, and conservation programs at UNAGE Iasi.",
-    "keywords": "university of arts, unage, visual arts, design, painting, fashion, iasi",
-    "university": "Universitatea de Arte Iași",
-    "faculty": "uarte-iasi-arte-vizuale-design"
+    "url": "https://study.tuiasi.ro/study-programs/intelligent-manufacturing-and-automation-ima/",
+    "description": "Master's program in Intelligent Manufacturing and Automation (IMA) at TUIASI.",
+    "keywords": "tuiasi, intelligent manufacturing, automation, IMA, master, industrial engineering",
+    "university": "TUIASI",
+    "faculty": "tuiasi-machine-manufacturing"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Agriculture",
-    "url": "https://iuls.ro/en/agriculture/",
-    "description": "Official website for agricultural engineering, montanology, and agribusiness management at USV (IULS) Iasi.",
-    "keywords": "usv, iuls, agriculture, montanology, agribusiness, iasi",
-    "university": "USV",
-    "faculty": "usvt-iasi-agricultura"
+    "url": "https://study.tuiasi.ro/study-programs/distributed-systems-and-web-technologies-dswt/",
+    "description": "Master's program in Distributed Systems and Web Technologies (DSWT) at TUIASI.",
+    "keywords": "tuiasi, distributed systems, web technologies, DSWT, cloud, grid, master",
+    "university": "TUIASI",
+    "faculty": "tuiasi-automatic-control-computer-engineering"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Horticulture",
-    "url": "https://iuls.ro/en/horticulture/",
-    "description": "Official portal for horticulture, landscape design, and environmental engineering at USV (IULS) Iasi.",
-    "keywords": "usv, iuls, horticulture, landscape design, biotechnology, iasi",
-    "university": "USV",
-    "faculty": "usvt-iasi-horticultura"
+    "url": "https://study.tuiasi.ro/study-programs/innovations-in-biotechnologies-vegetablesenzymatic-and-microbial-ibvem/",
+    "description": "Master's program in Innovations in Biotechnologies Vegetables, Enzymatic and Microbial (IBVEM) at TUIASI.",
+    "keywords": "tuiasi, biotechnologies, IBVEM, chemical engineering, biology, master",
+    "university": "TUIASI",
+    "faculty": "tuiasi-chemical-engineering"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Animal and Food Resources Engineering",
-    "url": "https://iuls.ro/en/food-and-animal-sciences/",
-    "description": "Official English page for animal science, public catering, and food products expertise at USV (IULS) Iasi.",
-    "keywords": "usv, iuls, animal science, food engineering, food resources, iasi",
-    "university": "USV",
-    "faculty": "usvt-iasi-ingineria-resurselor-animale-alimentare"
+    "url": "https://study.tuiasi.ro/study-programs/structural-engineering/",
+    "description": "Master's program in Structural Engineering (SE) at TUIASI, the first English-taught civil engineering master's in Romania.",
+    "keywords": "tuiasi, structural engineering, civil engineering, master, construction",
+    "university": "TUIASI",
+    "faculty": "tuiasi-civil-engineering"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Veterinary Medicine",
-    "url": "https://iuls.ro/en/veterinary-medicine/",
-    "description": "Official webpage for the veterinary medicine programs offered in Romanian and English at USV (IULS) Iasi.",
-    "keywords": "usv, iuls, veterinary medicine, vet, iasi",
-    "university": "USV",
-    "faculty": "usvt-iasi-medicina-veterinara"
+    "url": "https://study.tuiasi.ro/study-programs/environmental-management-and-sustainable-energy/",
+    "description": "Master's program in Environmental Management and Sustainable Energy (EMSE) at TUIASI, the first English-taught environmental engineering master's in Romania.",
+    "keywords": "tuiasi, environmental management, sustainable energy, EMSE, master, ecology",
+    "university": "TUIASI",
+    "faculty": "tuiasi-hydrotechnics-geodesy-environmental"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Law, Economics, Political and Administrative Sciences",
-    "url": "https://www.upa.ro/facultatea-de-drept-si-stiinte-economice/",
-    "description": "Official webpage (Romanian site root) for the law, economics, and political science programs at UPA Iasi.",
-    "keywords": "upa, law, economics, political science, administrative sciences, iasi",
-    "university": "UPA",
-    "faculty": "upa-iasi-drept-economie-stiinte-politice-administrative"
+    "url": "https://study.tuiasi.ro/study-programs/information-technologies-for-telecommunications/",
+    "description": "Master's program in Information Technologies for Telecommunications (IT4T) at TUIASI.",
+    "keywords": "tuiasi, IT, telecommunications, IT4T, ICT, master",
+    "university": "TUIASI",
+    "faculty": "tuiasi-electronics-telecommunications"
   },
   {
     "category": "OFFICIAL",
-    "title": "Faculty of Psychology, Educational Sciences and Social Work",
-    "url": "https://www.upa.ro/facultatea-de-psihologie-si-stiintele-educatiei/",
-    "description": "Official webpage (Romanian site root) for the psychology, educational sciences, and social work programs at UPA Iasi.",
-    "keywords": "upa, psychology, social work, educational sciences, iasi",
-    "university": "UPA",
-    "faculty": "upa-iasi-psihologie-stiintele-educatiei-asistenta-sociala"
+    "url": "https://study.tuiasi.ro/study-programs/automotive-electronic-control-systems/",
+    "description": "Master's program in Automotive Electronic Control Systems (AECS) at TUIASI.",
+    "keywords": "tuiasi, automotive, electronic control, AECS, master, electronics",
+    "university": "TUIASI",
+    "faculty": "tuiasi-electronics-telecommunications"
   },
   {
     "category": "OFFICIAL",
-    "title": "UAIC – Alexandru Ioan Cuza University",
+    "url": "https://study.tuiasi.ro/study-programs/telecommunication-technologies-and-systems/",
+    "description": "Bachelor's program in Telecommunication Technologies and Systems (TTS) at TUIASI.",
+    "keywords": "tuiasi, telecommunications, TTS, bachelor, communication systems",
+    "university": "TUIASI",
+    "faculty": "tuiasi-electronics-telecommunications"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://study.tuiasi.ro/study-programs/industrial-design/",
+    "description": "Bachelor's program in Industrial Design (ID) at TUIASI, preparing students for careers in fashion and the textile industry.",
+    "keywords": "tuiasi, industrial design, fashion, textile, bachelor",
+    "university": "TUIASI",
+    "faculty": "tuiasi-textiles-leather-industrial-management"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://study.tuiasi.ro/study-programs/civil-engineering/",
+    "description": "Bachelor's program in Civil Engineering (CE) at TUIASI.",
+    "keywords": "tuiasi, civil engineering, bachelor, construction, structures",
+    "university": "TUIASI",
+    "faculty": "tuiasi-civil-engineering"
+  },
+  {
+    "category": "OFFICIAL",
     "url": "https://www.uaic.ro/en/",
-    "description": "Official website of Alexandru Ioan Cuza University of Iași, the oldest university in Romania, with information about programs, research, and university life.",
-    "keywords": "uaic, cuza, iasi, university, admission, programs, bachelor, master, doctorate",
+    "description": "Official website of Alexandru Ioan Cuza University (UAIC) of Iași.",
+    "keywords": "uaic, alexandru ioan cuza, iasi, university, international",
     "university": "UAIC",
-    "faculty": null
+    "faculty": "uaic-general"
   },
   {
-    "category": "ADMISSION",
-    "title": "UAIC – Admissions Portal",
-    "url": "https://admitere.uaic.ro/",
-    "description": "Official admissions portal for Alexandru Ioan Cuza University. Information on bachelor, master, and doctoral admission for all faculties.",
-    "keywords": "uaic, admitere, admission, licenta, masterat, doctorat, inscriere, 2026",
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/about-uaic/",
+    "description": "About UAIC – general presentation of Alexandru Ioan Cuza University.",
+    "keywords": "uaic, about, history, iasi, university",
     "university": "UAIC",
-    "faculty": null
+    "faculty": "uaic-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "TU Iași (Gheorghe Asachi Technical University)",
-    "url": "https://www.tuiasi.ro/en/",
-    "description": "Gheorghe Asachi Technical University main website with information about engineering programs, admissions, and services.",
-    "keywords": "tuiasi, technical university, iasi, engineering, admission, programs",
-    "university": "TUIASI",
-    "faculty": null
-  },
-  {
-    "category": "ADMISSION",
-    "title": "TUIAȘI – Admissions Portal",
-    "url": "https://www.admitere.tuiasi.ro/",
-    "description": "Official admissions portal for Gheorghe Asachi Technical University of Iași, covering all engineering and architecture faculties.",
-    "keywords": "tuiasi, admitere, admission, inginerie, licenta, masterat, inscriere",
-    "university": "TUIAȘI",
-    "faculty": null
+    "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/",
+    "description": "Admission information for international full-degree students at UAIC.",
+    "keywords": "uaic, admission, international students, full degree, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "UMF Iași – Grigore T. Popa University of Medicine and Pharmacy",
-    "url": "https://www.umfiasi.ro/en",
-    "description": "Official website of the Grigore T. Popa University of Medicine and Pharmacy Iași, covering medicine, pharmacy, dental medicine, and bioengineering.",
-    "keywords": "umf, medicina, farmacie, iasi, university, medical school",
-    "university": "UMF",
-    "faculty": null
-  },
-  {
-    "category": "ADMISSION",
-    "title": "UMF Iași – Admissions Portal",
-    "url": "https://admitere.umfiasi.ro/",
-    "description": "Official admissions portal for UMF Iași. Covers inscription and admission for medicine, dental medicine, pharmacy, and bioengineering programs.",
-    "keywords": "umf, admitere, admission, medicina, stomatologie, farmacie, inscriere, grila",
-    "university": "UMF",
-    "faculty": null
+    "url": "https://www.uaic.ro/en/studies/faculties/",
+    "description": "List of faculties at UAIC.",
+    "keywords": "uaic, faculties, departments, studies, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "USV Iași – Ion Ionescu de la Brad University of Life Sciences",
-    "url": "https://iuls.ro/en/",
-    "description": "Official website of USV Iași (IULS), covering agriculture, horticulture, animal sciences, and veterinary medicine programs.",
-    "keywords": "usv, iuls, agronomie, agricultura, medicina veterinara, iasi",
-    "university": "USV",
-    "faculty": null
-  },
-  {
-    "category": "ADMISSION",
-    "title": "USV Iași – Admissions Portal",
-    "url": "https://admitereonline.iuls.ro/",
-    "description": "Online admissions portal for USV Iași. Registration and information for all life sciences and veterinary medicine programs.",
-    "keywords": "usv, iuls, admitere, admission, inscriere, agricultura, horticultura, veterinara",
-    "university": "USV",
-    "faculty": null
+    "url": "http://www.uaic.ro/en/cercetare/",
+    "description": "Research activities and centers at UAIC.",
+    "keywords": "uaic, research, innovation, science, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "UNAGE – George Enescu National University of Arts Iași",
-    "url": "https://www.arteiasi.ro/",
-    "description": "Official website of the George Enescu National University of Arts Iași, covering music, theatre, and visual arts programs.",
-    "keywords": "unage, arte, muzica, teatru, design, iasi, george enescu",
-    "university": "UNIVERSITY_OF_ARTS",
-    "faculty": null
-  },
-  {
-    "category": "ADMISSION",
-    "title": "UNAGE – Admissions Portal",
-    "url": "https://www.arteiasi.ro/admitere/",
-    "description": "Admissions information for George Enescu National University of Arts Iași, covering all three faculties: music, theatre, and visual arts.",
-    "keywords": "unage, admitere, admission, muzica, teatru, arte vizuale, inscriere",
-    "university": "UNIVERSITY_OF_ARTS",
-    "faculty": null
+    "url": "https://www.uaic.ro/en/international/",
+    "description": "International relations and programs at UAIC.",
+    "keywords": "uaic, international, erasmus, exchange, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "Petre Andrei University of Iași (UPA)",
-    "url": "https://www.upa.ro/",
-    "description": "Official website of Petre Andrei University of Iași, a private university offering law, economics, psychology, political sciences, and social work programs.",
-    "keywords": "upa, petre andrei, iasi, drept, economie, psihologie, universitate privata",
-    "university": "Petre Andrei University of Iași (UPA)",
-    "faculty": null
+    "url": "http://www.uaic.ro/en/absolventi/",
+    "description": "Alumni section of UAIC.",
+    "keywords": "uaic, alumni, graduates, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
   },
-  {
-    "category": "ADMISSION",
-    "title": "UPA Iași – Admissions Information",
-    "url": "https://www.upa.ro/admitere/",
-    "description": "Admissions information for Petre Andrei University of Iași covering law, economics, psychology, and social work programs.",
-    "keywords": "upa, petre andrei, admitere, admission, inscriere, licenta, masterat",
-    "university": "Petre Andrei University of Iași (UPA)",
-    "faculty": null
-  },
-
   {
     "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Biology",
-    "url": "https://www.bio.uaic.ro/",
-    "description": "Faculty of Biology at UAIC Iași. Programs in biology, biochemistry, and ecology. Bachelor, master, and doctoral studies.",
-    "keywords": "uaic, biologie, biology, biochemistry, ecology, iasi",
+    "url": "http://www.uaic.ro/en/iasi-2/",
+    "description": "Information about the city of Iași for prospective UAIC students.",
+    "keywords": "uaic, iasi, city, living, romania",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/registration-for-eu-citizens/",
+    "description": "Registration process for EU citizens applying to UAIC.",
+    "keywords": "uaic, eu citizens, registration, admission, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/registration-for-non-eu-citizens/",
+    "description": "Registration process for non-EU citizens applying to UAIC.",
+    "keywords": "uaic, non-eu, registration, admission, international, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/143014-2/",
+    "description": "Recognition of previous university studies at UAIC.",
+    "keywords": "uaic, recognition, previous studies, credits, transfer, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/registration-for-non-eu-citizens/study-fees-2026-2027/",
+    "description": "Study fees for non-EU students at UAIC for the 2026–2027 academic year.",
+    "keywords": "uaic, fees, tuition, non-eu, 2026, 2027, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/wp-content/uploads/2025/06/Academic-calendar-25-26.pdf",
+    "description": "Academic calendar 2025–2026 for UAIC.",
+    "keywords": "uaic, academic calendar, schedule, 2025, 2026, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/wp-content/uploads/2026/04/Campus-map-UAIC.pdf",
+    "description": "Campus map of Alexandru Ioan Cuza University (UAIC).",
+    "keywords": "uaic, campus map, buildings, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/libraries-iasi/",
+    "description": "Library and learning facilities at UAIC for incoming Erasmus students.",
+    "keywords": "uaic, library, learning, facilities, erasmus, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/internet-facilities/",
+    "description": "Internet facilities at UAIC for international students.",
+    "keywords": "uaic, internet, wifi, facilities, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/student-associations/",
+    "description": "Student associations at UAIC.",
+    "keywords": "uaic, student associations, clubs, organizations, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/recognition-procedures/",
+    "description": "Recognition procedures for credits and degrees at UAIC.",
+    "keywords": "uaic, recognition, credits, procedures, erasmus, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/romanian-grading-scale/",
+    "description": "Romanian grading scale explanation for international students at UAIC.",
+    "keywords": "uaic, grading, grades, romania, scale, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/bologna-process/",
+    "description": "Bologna process information for UAIC international students.",
+    "keywords": "uaic, bologna, ects, credits, system, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/erasmus-day/",
+    "description": "Erasmus Day events at UAIC.",
+    "keywords": "uaic, erasmus day, international, events, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/cost-living/",
+    "description": "Cost of living in Iași for international students at UAIC.",
+    "keywords": "uaic, cost of living, budget, iasi, student life",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/meals/",
+    "description": "Meals and dining options for students at UAIC.",
+    "keywords": "uaic, meals, canteen, food, dining, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/copou-student-medical-center/",
+    "description": "Medical services at UAIC's Copou student medical center.",
+    "keywords": "uaic, medical, health, student center, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/facilities-special-needs-students/",
+    "description": "Facilities for students with special needs at UAIC.",
+    "keywords": "uaic, special needs, accessibility, facilities, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/sports-leisure-facilities/",
+    "description": "Sports and leisure facilities at UAIC for students.",
+    "keywords": "uaic, sports, leisure, gym, recreation, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/main-local-events/",
+    "description": "Main local events in Iași for UAIC students.",
+    "keywords": "uaic, events, culture, iasi, student life",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/meet-city-iasi/",
+    "description": "Guide to the city of Iași for UAIC international students.",
+    "keywords": "uaic, iasi, city guide, tourism, sightseeing",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/extra-mural-activities/",
+    "description": "Extra-mural and extracurricular activities at UAIC.",
+    "keywords": "uaic, extracurricular, activities, student life, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.bio.uaic.ro/",
+    "description": "Faculty of Biology at UAIC.",
+    "keywords": "uaic, biology, biochemistry, ecology, faculty, iasi",
     "university": "UAIC",
     "faculty": "uaic-biologie"
   },
   {
     "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Chemistry",
-    "url": "https://www.chem.uaic.ro/",
-    "description": "Faculty of Chemistry at UAIC Iași. Programs in chemistry, food chemistry, medical chemistry, and forensic chemistry.",
-    "keywords": "uaic, chimie, chemistry, food chemistry, forensic, iasi",
+    "url": "http://www.chem.uaic.ro/en/",
+    "description": "Faculty of Chemistry at UAIC.",
+    "keywords": "uaic, chemistry, chemical, faculty, iasi",
     "university": "UAIC",
     "faculty": "uaic-chimie"
   },
   {
     "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Law",
-    "url": "https://laws.uaic.ro/",
-    "description": "Faculty of Law at UAIC Iași. Programs in law, European law, criminal sciences, and criminalistics.",
-    "keywords": "uaic, drept, law, european law, criminal, iasi",
+    "url": "http://www.feaa.uaic.ro/en",
+    "description": "Faculty of Economics and Business Administration at UAIC.",
+    "keywords": "uaic, economics, business administration, management, faculty, iasi",
     "university": "UAIC",
-    "faculty": "uaic-drept"
+    "faculty": "uaic-economie"
   },
   {
     "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Economics and Business Administration",
-    "url": "https://www.feaa.uaic.ro/",
-    "description": "Faculty of Economics and Business Administration at UAIC Iași. Programs in economics, finance, accounting, management, marketing, and public administration.",
-    "keywords": "uaic, feaa, economie, economics, business, finance, accounting, management, marketing, iasi",
+    "url": "http://www.geo.uaic.ro/",
+    "description": "Faculty of Geography and Geology at UAIC.",
+    "keywords": "uaic, geography, geology, faculty, iasi",
     "university": "UAIC",
-    "faculty": "uaic-economie-si-administrarea-afacerilor"
+    "faculty": "uaic-geografie-geologie"
   },
   {
     "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Physical Education and Sport",
-    "url": "https://sport.uaic.ro/",
-    "description": "Faculty of Physical Education and Sport at UAIC Iași. Programs in physical education, sport performance, sport management, and kinesitherapy.",
-    "keywords": "uaic, sport, educatie fizica, kinesitherapy, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-sport"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Philosophy and Social-Political Sciences",
-    "url": "https://filozofie.uaic.ro/",
-    "description": "Faculty of Philosophy and Social-Political Sciences at UAIC Iași. Programs in philosophy, sociology, political sciences, social work, communication, and international relations.",
-    "keywords": "uaic, filozofie, filosofie, sociology, political science, social work, communication, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-filosofie"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Physics",
-    "url": "https://www.phys.uaic.ro/",
-    "description": "Faculty of Physics at UAIC Iași. Programs in physics, medical physics, computational physics, and technological physics.",
-    "keywords": "uaic, fizica, physics, medical physics, optics, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-fizica"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Geography and Geology",
-    "url": "https://geo.uaic.ro/",
-    "description": "Faculty of Geography and Geology at UAIC Iași. Programs in geography, tourism geography, territorial planning, geology, and environmental science.",
-    "keywords": "uaic, geografie, geologie, geography, geology, tourism, GIS, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-geografie"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Computer Science",
-    "url": "https://www.info.uaic.ro/",
-    "description": "Faculty of Computer Science at UAIC Iași. Programs in computer science, artificial intelligence, software engineering, cybersecurity, and distributed systems.",
-    "keywords": "uaic, informatica, computer science, AI, software engineering, cybersecurity, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-informatica"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "UAIC – Faculty of History",
-    "url": "https://istorie.uaic.ro/",
-    "description": "Faculty of History at UAIC Iași. Programs in history, archaeology, archival studies, and international relations.",
-    "keywords": "uaic, istorie, history, archaeology, archival, iasi",
+    "url": "http://history.uaic.ro/",
+    "description": "Faculty of History at UAIC.",
+    "keywords": "uaic, history, faculty, humanities, iasi",
     "university": "UAIC",
     "faculty": "uaic-istorie"
   },
   {
     "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Letters",
     "url": "https://litere.uaic.ro/",
-    "description": "Faculty of Letters at UAIC Iași. Programs in Romanian philology, modern languages, translation, journalism, and comparative literature.",
-    "keywords": "uaic, litere, letters, philology, translation, journalism, languages, iasi",
+    "description": "Faculty of Letters at UAIC.",
+    "keywords": "uaic, letters, literature, languages, philology, faculty, iasi",
     "university": "UAIC",
     "faculty": "uaic-litere"
   },
   {
     "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Mathematics",
-    "url": "https://www.math.uaic.ro/",
-    "description": "Faculty of Mathematics at UAIC Iași. Programs in mathematics, mathematics and computer science, and applied mathematics.",
-    "keywords": "uaic, matematica, mathematics, applied mathematics, iasi",
+    "url": "http://www.math.uaic.ro/index.php?lb=1&id=0&cod=&tip=&an=&cat=&subcat=",
+    "description": "Faculty of Mathematics at UAIC.",
+    "keywords": "uaic, mathematics, faculty, iasi",
     "university": "UAIC",
     "faculty": "uaic-matematica"
   },
   {
     "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Psychology and Education Sciences",
-    "url": "https://psih.uaic.ro/",
-    "description": "Faculty of Psychology and Education Sciences at UAIC Iași. Programs in psychology, pedagogy, special psychopedagogy, and primary/preschool education.",
-    "keywords": "uaic, psihologie, psychology, pedagogy, education, special needs, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-psihologie"
-  },
-  {
-    "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Orthodox Theology",
-    "url": "https://teologie.uaic.ro/",
-    "description": "Faculty of Orthodox Theology at UAIC Iași. Programs in pastoral theology, social assistance, and sacred art.",
-    "keywords": "uaic, teologie ortodoxa, orthodox theology, sacred art, iasi",
+    "url": "http://www.teologie.uaic.ro/",
+    "description": "Faculty of Orthodox Theology at UAIC.",
+    "keywords": "uaic, orthodox theology, theology, faculty, iasi",
     "university": "UAIC",
     "faculty": "uaic-teologie-ortodoxa"
   },
   {
     "category": "OFFICIAL",
-    "title": "UAIC – Faculty of Roman-Catholic Theology",
-    "url": "https://teologie-rc.uaic.ro/",
-    "description": "Faculty of Roman-Catholic Theology at UAIC Iași. Programs in Roman-Catholic theology and social assistance.",
-    "keywords": "uaic, teologie romano-catolica, catholic theology, iasi",
+    "url": "http://www.fssp.uaic.ro/en/",
+    "description": "Faculty of Philosophy and Social-Political Sciences at UAIC.",
+    "keywords": "uaic, philosophy, political science, social sciences, faculty, iasi",
     "university": "UAIC",
-    "faculty": "uaic-teologie-romano-cat"
+    "faculty": "uaic-filozofie-stiinte-social-politice"
   },
-
   {
     "category": "OFFICIAL",
-    "title": "UMF Iași – Faculty of Medicine",
-    "url": "https://www.umfiasi.ro/ro/facultati/facultatea-de-medicina",
-    "description": "Faculty of Medicine at UMF Iași. Programs in medicine (Romanian, English, French), general nursing, and nutrition and dietetics.",
-    "keywords": "umf, medicina, medicine, nursing, nutrition, iasi, english, french",
+    "url": "https://www.psih.uaic.ro/",
+    "description": "Faculty of Psychology and Education Sciences at UAIC.",
+    "keywords": "uaic, psychology, education, sciences, faculty, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-psihologie-stiintele-educatiei"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "http://www.ftrc.uaic.ro/",
+    "description": "Faculty of Roman-Catholic Theology at UAIC.",
+    "keywords": "uaic, roman catholic, theology, faculty, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-teologie-romano-catolica"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/studies/doctoral-schools/",
+    "description": "Doctoral schools at UAIC.",
+    "keywords": "uaic, doctoral, phd, research, studies, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/cercetare/department-research-project-management/",
+    "description": "Department for Research and Project Management at UAIC.",
+    "keywords": "uaic, research, projects, management, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/jassy/",
+    "description": "Jassy Summer School 2025 at UAIC.",
+    "keywords": "uaic, jassy summer school, 2025, international, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/explore-iasi/",
+    "description": "Explore the city of Iași – guide for UAIC students and visitors.",
+    "keywords": "uaic, iasi, explore, tourism, city, romania",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/gradina-botanica-anastasie-fatu/",
+    "description": "Anastasie Fătu Botanical Garden at UAIC.",
+    "keywords": "uaic, botanical garden, nature, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/planetarium/",
+    "description": "Planetarium at UAIC.",
+    "keywords": "uaic, planetarium, astronomy, science, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.uaic.ro/en/natural-history-museum/",
+    "description": "Natural History Museum at UAIC.",
+    "keywords": "uaic, natural history, museum, iasi",
+    "university": "UAIC",
+    "faculty": "uaic-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/admission/Pages/Admission-2026.aspx",
+    "description": "Admission page for the 2026 intake at Grigore T. Popa University of Medicine and Pharmacy (UMF) Iași.",
+    "keywords": "umf iasi, admission, 2026, medicine, pharmacy, dentistry",
     "university": "UMF",
-    "faculty": "umf-medicina"
+    "faculty": "umf-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "UMF Iași – Faculty of Dental Medicine",
-    "url": "https://www.umfiasi.ro/ro/facultati/facultatea-de-medicina-dentara",
-    "description": "Faculty of Dental Medicine at UMF Iași. Programs in dental medicine, dental technology, and dental prophylaxis.",
-    "keywords": "umf, medicina dentara, stomatologie, dental medicine, iasi",
+    "url": "https://www.umfiasi.ro/en/admission/Pages/Medical-doctor.aspx",
+    "description": "Medical Doctor undergraduate program at UMF Iași.",
+    "keywords": "umf iasi, medical doctor, medicine, bachelor, admission",
+    "university": "UMF",
+    "faculty": "umf-medicina-generala"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/admission/Pages/Medical-doctor---dentist.aspx",
+    "description": "Medical Doctor – Dentist undergraduate program at UMF Iași (70 places).",
+    "keywords": "umf iasi, dentist, dental medicine, bachelor, admission",
     "university": "UMF",
     "faculty": "umf-medicina-dentara"
   },
   {
     "category": "OFFICIAL",
-    "title": "UMF Iași – Faculty of Pharmacy",
-    "url": "https://www.umfiasi.ro/ro/facultati/facultatea-de-farmacie",
-    "description": "Faculty of Pharmacy at UMF Iași. Programs in pharmacy and medical cosmetics.",
-    "keywords": "umf, farmacie, pharmacy, cosmetics, iasi",
+    "url": "https://www.umfiasi.ro/en/admission/Pages/Pharmacist.aspx",
+    "description": "Pharmacist undergraduate program at UMF Iași (50 places).",
+    "keywords": "umf iasi, pharmacist, pharmacy, bachelor, admission",
     "university": "UMF",
     "faculty": "umf-farmacie"
   },
   {
     "category": "OFFICIAL",
-    "title": "UMF Iași – Faculty of Medical Bioengineering",
-    "url": "https://www.umfiasi.ro/ro/facultati/facultatea-de-bioinginerie-medicala",
-    "description": "Faculty of Medical Bioengineering at UMF Iași. Programs in bioengineering, balneophysiokinesiotherapy, audiology, and rehabilitation.",
-    "keywords": "umf, bioinginerie medicala, bioengineering, kinesitherapy, audiology, iasi",
+    "url": "https://www.umfiasi.ro/en/admission/Pages/Physio-kinesitherapist.aspx",
+    "description": "Physio-Kinesitherapist undergraduate program at UMF Iași (45 places).",
+    "keywords": "umf iasi, physiotherapy, kinesitherapy, rehabilitation, bachelor, admission",
     "university": "UMF",
     "faculty": "umf-bioinginerie-medicala"
   },
-
   {
     "category": "OFFICIAL",
-    "title": "TUIAȘI – Faculty of Automatic Control and Computer Engineering",
-    "url": "https://www.ac.tuiasi.ro/",
-    "description": "Faculty of Automatic Control and Computer Engineering at TUIAȘI. Programs in automation, computer science, AI, cybersecurity, and embedded systems.",
-    "keywords": "tuiasi, automatica, calculatoare, computer engineering, AI, cybersecurity, iasi",
-    "university": "TUIAȘI",
-    "faculty": "tuiasi-automatica-calculatoare"
+    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Metodologie%20admitere%20EN%20final%20senat%202026-2027.pdf",
+    "description": "Admission methodology document for UMF Iași 2026–2027.",
+    "keywords": "umf iasi, admission methodology, 2026, 2027, document, pdf",
+    "university": "UMF",
+    "faculty": "umf-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "TUIAȘI – Faculty of Chemical Engineering and Environmental Protection",
-    "url": "https://www.ch.tuiasi.ro/",
-    "description": "Faculty of Chemical Engineering at TUIAȘI. Programs in chemical engineering, environmental engineering, food chemistry, and polymer science.",
-    "keywords": "tuiasi, inginerie chimica, chemical engineering, environment, food, polymers, iasi",
-    "university": "TUIAȘI",
-    "faculty": "tuiasi-inginerie-chimica"
+    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/calendar%202026-2027%20eng.pdf",
+    "description": "Admission timetable/calendar for UMF Iași 2026–2027.",
+    "keywords": "umf iasi, admission calendar, timetable, 2026, 2027",
+    "university": "UMF",
+    "faculty": "umf-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "TUIAȘI – Faculty of Civil Engineering and Building Services",
-    "url": "https://www.ce.tuiasi.ro/",
-    "description": "Faculty of Civil Engineering and Building Services at TUIAȘI. Programs in civil engineering, roads and bridges, building services, and construction management.",
-    "keywords": "tuiasi, constructii, civil engineering, building services, roads, bridges, iasi",
-    "university": "TUIAȘI",
-    "faculty": "tuiasi-constructii-instalatii"
+    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%201%20-%20Accepted%20language%20skills.pdf",
+    "description": "Accepted language skills for admission at UMF Iași 2026–2027.",
+    "keywords": "umf iasi, language skills, english, admission, requirements",
+    "university": "UMF",
+    "faculty": "umf-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "TUIAȘI – Faculty of Machine Manufacturing and Management",
-    "url": "https://www.tcm.tuiasi.ro/",
-    "description": "Faculty of Machine Manufacturing and Management at TUIAȘI. Programs in technology of machine manufacturing, welding, fine mechanics, and industrial management.",
-    "keywords": "tuiasi, constructii masini, machine manufacturing, welding, mechatronics, iasi",
-    "university": "TUIAȘI",
-    "faculty": "tuiasi-constructii-masini"
+    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%202%20-%20Evaluation%20grid.pdf",
+    "description": "Evaluation grid for UMF Iași admission 2026–2027.",
+    "keywords": "umf iasi, evaluation, grid, admission, scoring",
+    "university": "UMF",
+    "faculty": "umf-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "TUIAȘI – Faculty of Electronics, Telecommunications and Information Technology",
-    "url": "https://www.etti.tuiasi.ro/",
-    "description": "Faculty of Electronics, Telecommunications and IT at TUIAȘI. Programs in electronics, telecommunications, microelectronics, and communication networks.",
-    "keywords": "tuiasi, electronica, telecomunicatii, electronics, telecommunications, IT, iasi",
-    "university": "TUIAȘI",
-    "faculty": "tuiasi-electronica-telecomunicatii"
+    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%204%20Declaration.pdf",
+    "description": "Declaration form (Annex 4) for UMF Iași admission 2026–2027.",
+    "keywords": "umf iasi, declaration, form, admission, document",
+    "university": "UMF",
+    "faculty": "umf-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "TUIAȘI – Faculty of Electrical Engineering, Power Engineering and Applied Informatics",
-    "url": "https://www.ee.tuiasi.ro/",
-    "description": "Faculty of Electrical Engineering at TUIAȘI. Programs in power electronics, electrical systems, energy engineering, and applied informatics.",
-    "keywords": "tuiasi, inginerie electrica, electrical engineering, energy, power electronics, iasi",
-    "university": "TUIAȘI",
-    "faculty": "tuiasi-inginerie-electrica"
+    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%205%20Declaration%20regarding%20the%20study%20program%20and%20the%20chosen%20option.pdf",
+    "description": "Declaration regarding study program and chosen option (Annex 5) for UMF Iași admission 2026–2027.",
+    "keywords": "umf iasi, study program, option, declaration, admission",
+    "university": "UMF",
+    "faculty": "umf-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "TUIAȘI – Faculty of Hydrotechnics, Geodesy and Environmental Engineering",
-    "url": "https://www.hidro.tuiasi.ro/",
-    "description": "Faculty of Hydrotechnics, Geodesy and Environmental Engineering at TUIAȘI. Programs in hydraulics, land surveying, cadastre, and environmental engineering.",
-    "keywords": "tuiasi, hidrotehnica, geodezie, hydraulics, geodesy, cadastre, environmental, iasi",
-    "university": "TUIAȘI",
-    "faculty": "tuiasi-hidrotehnica-geodezie"
+    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%206%20Agreement%20GDPR.pdf",
+    "description": "GDPR agreement form (Annex 6) for UMF Iași admission 2026–2027.",
+    "keywords": "umf iasi, GDPR, agreement, form, admission",
+    "university": "UMF",
+    "faculty": "umf-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "TUIAȘI – Faculty of Mechanical Engineering",
-    "url": "https://www.mec.tuiasi.ro/",
-    "description": "Faculty of Mechanical Engineering at TUIAȘI. Programs in vehicles, mechatronics, robotics, thermal systems, and agricultural machinery.",
-    "keywords": "tuiasi, mecanica, mechanical engineering, vehicles, mechatronics, robotics, iasi",
-    "university": "TUIAȘI",
-    "faculty": "tuiasi-mecanica"
+    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/cerere-recunoastere-studii-cetateni-europeni-admitere-licenta_2026_en.pdf",
+    "description": "Application for recognition of studies for EU citizens enrolling at UMF Iași 2026–2027.",
+    "keywords": "umf iasi, recognition, eu citizens, studies, application, 2026",
+    "university": "UMF",
+    "faculty": "umf-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "TUIAȘI – Faculty of Materials Science and Engineering",
-    "url": "https://www.sim.tuiasi.ro/",
-    "description": "Faculty of Materials Science and Engineering at TUIAȘI. Programs in materials processing, materials science, industrial safety, and process equipment.",
-    "keywords": "tuiasi, materiale, materials science, materials engineering, industrial safety, iasi",
-    "university": "TUIAȘI",
-    "faculty": "tuiasi-stiinta-ingineria-materialelor"
+    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/CPV_Application%20form%202026-2027.pdf",
+    "description": "Application form for Letter of Acceptance for non-EU students at UMF Iași 2026–2027.",
+    "keywords": "umf iasi, non-eu, letter of acceptance, application form, 2026",
+    "university": "UMF",
+    "faculty": "umf-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "TUIAȘI – Faculty of Industrial Design and Business Management",
-    "url": "https://www.misp.tuiasi.ro/",
-    "description": "Faculty of Industrial Design and Business Management at TUIAȘI. Programs in textile technology, industrial design, leather goods, and business engineering.",
-    "keywords": "tuiasi, design industrial, textile, fashion, leather, business management, iasi",
-    "university": "TUIAȘI",
-    "faculty": "tuiasi-design-industrial"
+    "url": "https://www.umfiasi.ro/en/admission/Pages/Admission-step-by-step.aspx",
+    "description": "Step-by-step admission guide for UMF Iași.",
+    "keywords": "umf iasi, admission, step by step, guide, how to apply",
+    "university": "UMF",
+    "faculty": "umf-general"
   },
   {
     "category": "OFFICIAL",
-    "title": "TUIAȘI – Faculty of Architecture \"G. M. Cantacuzino\"",
-    "url": "https://www.arch.tuiasi.ro/",
-    "description": "Faculty of Architecture at TUIAȘI. Six-year architecture program.",
-    "keywords": "tuiasi, arhitectura, architecture, cantacuzino, iasi",
-    "university": "TUIAȘI",
-    "faculty": "tuiasi-arhitectura"
+    "url": "https://www.umfiasi.ro/en/university/Pages/Carta-universității.aspx",
+    "description": "University charter of UMF Iași.",
+    "keywords": "umf iasi, charter, regulations, university, iasi",
+    "university": "UMF",
+    "faculty": "umf-general"
   },
-
   {
     "category": "OFFICIAL",
-    "title": "USV Iași – Faculty of Agriculture",
+    "url": "https://www.umfiasi.ro/en/academic/facultati/Pages/default.aspx",
+    "description": "Faculties overview at UMF Iași.",
+    "keywords": "umf iasi, faculties, medicine, pharmacy, dentistry, iasi",
+    "university": "UMF",
+    "faculty": "umf-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/academic/program-de-licenta/Pages/default.aspx",
+    "description": "Undergraduate degree programs at UMF Iași.",
+    "keywords": "umf iasi, bachelor, undergraduate, programs, iasi",
+    "university": "UMF",
+    "faculty": "umf-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/academic/Pages/Academic-calendar.aspx",
+    "description": "Academic calendar at UMF Iași.",
+    "keywords": "umf iasi, academic calendar, schedule, iasi",
+    "university": "UMF",
+    "faculty": "umf-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://catalog.umfiasi.ro/login?language=RO",
+    "description": "Student catalog login portal at UMF Iași.",
+    "keywords": "umf iasi, catalog, student portal, login",
+    "university": "UMF",
+    "faculty": "umf-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/academic/Pages/Scholarships.aspx",
+    "description": "Scholarships available for students at UMF Iași.",
+    "keywords": "umf iasi, scholarships, financial aid, funding, iasi",
+    "university": "UMF",
+    "faculty": "umf-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/academic/Pages/University-fees.aspx",
+    "description": "University fees at UMF Iași.",
+    "keywords": "umf iasi, fees, tuition, cost, iasi",
+    "university": "UMF",
+    "faculty": "umf-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/academic/Pages/Academic-Mobility.aspx",
+    "description": "Academic mobility programs at UMF Iași.",
+    "keywords": "umf iasi, academic mobility, erasmus, exchange, iasi",
+    "university": "UMF",
+    "faculty": "umf-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/university/Pages/despre-umf-iasi.aspx",
+    "description": "About UMF Iași – general information.",
+    "keywords": "umf iasi, about, history, university, iasi",
+    "university": "UMF",
+    "faculty": "umf-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/university/university-leadership/Pages/default.aspx",
+    "description": "University leadership and management structure at UMF Iași.",
+    "keywords": "umf iasi, leadership, rector, senate, management",
+    "university": "UMF",
+    "faculty": "umf-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/university/Pages/International-relations.aspx",
+    "description": "International relations and partnerships at UMF Iași.",
+    "keywords": "umf iasi, international, erasmus, partnerships, iasi",
+    "university": "UMF",
+    "faculty": "umf-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/academic/facultati/medicina-generala/Pages/Bachelor-degree-programmes.aspx",
+    "description": "Bachelor's degree programs at the Faculty of Medicine, UMF Iași.",
+    "keywords": "umf iasi, medicine, bachelor, programs, general medicine",
+    "university": "UMF",
+    "faculty": "umf-medicina-generala"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/academic/facultati/medicina-generala/Pages/Masters-programs.aspx",
+    "description": "Master's programs at the Faculty of Medicine, UMF Iași.",
+    "keywords": "umf iasi, medicine, master, programs",
+    "university": "UMF",
+    "faculty": "umf-medicina-generala"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/academic/facultati/medical-bioengineering/Pages/English-programs.aspx",
+    "description": "English-language programs at the Faculty of Medical Bioengineering, UMF Iași.",
+    "keywords": "umf iasi, bioengineering, english, programs, medical",
+    "university": "UMF",
+    "faculty": "umf-bioinginerie-medicala"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/academic/facultati/medical-bioengineering/Pages/Bachelor-degree-programmes.aspx",
+    "description": "Bachelor's degree programs at the Faculty of Medical Bioengineering, UMF Iași.",
+    "keywords": "umf iasi, bioengineering, bachelor, programs",
+    "university": "UMF",
+    "faculty": "umf-bioinginerie-medicala"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.umfiasi.ro/en/academic/facultati/medical-bioengineering/Pages/Masters-programs.aspx",
+    "description": "Master's programs at the Faculty of Medical Bioengineering, UMF Iași.",
+    "keywords": "umf iasi, bioengineering, master, programs",
+    "university": "UMF",
+    "faculty": "umf-bioinginerie-medicala"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/",
+    "description": "Official website of George Enescu National University of Arts (UNAGE) Iași.",
+    "keywords": "unage, george enescu, arts, iasi, university",
+    "university": "UNAGE",
+    "faculty": "unage-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/about-unage/",
+    "description": "About UNAGE – George Enescu National University of Arts Iași.",
+    "keywords": "unage, about, arts, george enescu, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/admissions/",
+    "description": "Admissions page for UNAGE – George Enescu National University of Arts Iași.",
+    "keywords": "unage, admissions, apply, arts, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/international-relations/",
+    "description": "International relations at UNAGE Iași.",
+    "keywords": "unage, international, erasmus, exchange, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/international-relations/exchange-students/",
+    "description": "Erasmus+ and exchange student programs at UNAGE Iași.",
+    "keywords": "unage, erasmus, exchange students, international, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/international-relations/international-students/",
+    "description": "Academic calendar and information for international students at UNAGE Iași.",
+    "keywords": "unage, academic calendar, international students, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/research/",
+    "description": "Research activities at UNAGE – George Enescu National University of Arts Iași.",
+    "keywords": "unage, research, arts, ICMA, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/category/events/",
+    "description": "Events at UNAGE – George Enescu National University of Arts Iași.",
+    "keywords": "unage, events, concerts, exhibitions, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/university-galleries/",
+    "description": "University galleries at UNAGE Iași.",
+    "keywords": "unage, galleries, art, exhibitions, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/scientific-journals/",
+    "description": "Scientific journals published by UNAGE Iași.",
+    "keywords": "unage, journals, publications, research, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/faculty-of-performance-composition-and-music-theory-studies/",
+    "description": "Faculty of Performance, Composition and Music Theory Studies at UNAGE Iași.",
+    "keywords": "unage, music, performance, composition, music theory, faculty, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-interpretare-compozitie-muzicologie"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/faculty-of-theatre/",
+    "description": "Faculty of Theatre at UNAGE Iași.",
+    "keywords": "unage, theatre, acting, drama, faculty, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-teatru"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/faculty-of-visual-arts-and-design-2/",
+    "description": "Faculty of Visual Arts and Design at UNAGE Iași.",
+    "keywords": "unage, visual arts, design, fine arts, faculty, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-arte-vizuale-design"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.arteiasi.ro/en/department-for-teachers-education/",
+    "description": "Department for Teachers Education (DPPD) at UNAGE Iași.",
+    "keywords": "unage, teachers education, DPPD, pedagogy, faculty, iasi",
+    "university": "UNAGE",
+    "faculty": "unage-dppd"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://iuls.ro/en/",
+    "description": "Official website of Ion Ionescu de la Brad University of Life Sciences (IULS) Iași.",
+    "keywords": "iuls, life sciences, agriculture, veterinary, iasi, university",
+    "university": "IULS",
+    "faculty": "iuls-general"
+  },
+  {
+    "category": "OFFICIAL",
     "url": "https://iuls.ro/agricultura/en/",
-    "description": "Faculty of Agriculture at USV Iași. Programs in agriculture, montanology, agricultural machinery, food processing, and biology.",
-    "keywords": "usv, iuls, agricultura, agriculture, montanology, food, biology, iasi",
-    "university": "USV",
-    "faculty": "usvt-iasi-agricultura"
+    "description": "Faculty of Agriculture at IULS Iași.",
+    "keywords": "iuls, agriculture, agronomy, food engineering, biology, faculty, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
   },
   {
     "category": "OFFICIAL",
-    "title": "USV Iași – Faculty of Horticulture",
-    "url": "https://iuls.ro/horticultura/",
-    "description": "Faculty of Horticulture at USV Iași. Programs in horticulture, landscape design, environmental engineering, and agricultural biotechnology.",
-    "keywords": "usv, iuls, horticultura, horticulture, landscape, environment, biotechnology, iasi",
-    "university": "USV",
-    "faculty": "usvt-iasi-horticultura"
+    "url": "https://iuls.ro/agricultura/en/brief-history/",
+    "description": "Brief history of the Faculty of Agriculture at IULS Iași, founded in 1912.",
+    "keywords": "iuls, agriculture, history, faculty, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
   },
   {
     "category": "OFFICIAL",
-    "title": "USV Iași – Faculty of Animal and Food Resources Engineering",
-    "url": "https://iuls.ro/zootehnie/",
-    "description": "Faculty of Animal and Food Resources Engineering at USV Iași. Programs in animal science, food control, and agrotourism management.",
-    "keywords": "usv, iuls, zootehnie, animal science, food control, agrotourism, iasi",
-    "university": "USV",
-    "faculty": "usvt-iasi-ingineria-resurselor-animale-alimentare"
+    "url": "https://iuls.ro/agricultura/en/deans-welcome/",
+    "description": "Dean's welcome message at the Faculty of Agriculture, IULS Iași.",
+    "keywords": "iuls, dean, agriculture, welcome, faculty, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
   },
   {
     "category": "OFFICIAL",
-    "title": "USV Iași – Faculty of Veterinary Medicine",
-    "url": "https://iuls.ro/medicina/en/",
-    "description": "Faculty of Veterinary Medicine at USV Iași. Six-year programs in veterinary medicine in Romanian and English.",
-    "keywords": "usv, iuls, medicina veterinara, veterinary medicine, iasi, english",
-    "university": "USV",
-    "faculty": "usvt-iasi-medicina-veterinara"
-  },
-
- 
-  {
-    "category": "OFFICIAL",
-    "title": "UNAGE – Faculty of Performance, Composition and Music Theory Studies",
-    "url": "https://www.arteiasi.ro/facultatea-de-interpretare-compozitie-si-studii-muzicale-teoretice/",
-    "description": "Faculty of Performance, Composition and Music Theory at UNAGE Iași. Programs in singing, instruments, composition, conducting, and musicology.",
-    "keywords": "unage, muzica, music, interpretare, compozitie, dirijat, muzicologie, iasi",
-    "university": "UNIVERSITY_OF_ARTS",
-    "faculty": "uarte-iasi-interpretare-compozitie-muzicologie"
-  },
-  {
-    "category": "ADMISSION",
-    "title": "UNAGE – Music Faculty Admissions",
-    "url": "https://www.arteiasi.ro/admitere/licenta-muzica/",
-    "description": "Admission information for the Faculty of Performance, Composition and Music Theory Studies at UNAGE Iași.",
-    "keywords": "unage, admitere, muzica, music admission, interpretare, canto, iasi",
-    "university": "UNIVERSITY_OF_ARTS",
-    "faculty": "uarte-iasi-interpretare-compozitie-muzicologie"
+    "url": "https://iuls.ro/agricultura/en/international-relations/",
+    "description": "International relations at the Faculty of Agriculture, IULS Iași.",
+    "keywords": "iuls, international, erasmus, exchange, agriculture, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
   },
   {
     "category": "OFFICIAL",
-    "title": "UNAGE – Faculty of Theatre",
-    "url": "https://www.arteiasi.ro/facultatea-de-teatru/",
-    "description": "Faculty of Theatre at UNAGE Iași. Programs in acting, puppetry, directing, choreography, and cultural management.",
-    "keywords": "unage, teatru, theatre, acting, directing, choreography, puppetry, iasi",
-    "university": "UNIVERSITY_OF_ARTS",
-    "faculty": "uarte-iasi-teatru"
+    "url": "https://iuls.ro/agricultura/en/managing-board/",
+    "description": "Managing board of the Faculty of Agriculture at IULS Iași.",
+    "keywords": "iuls, management, board, agriculture, faculty, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
   },
   {
     "category": "OFFICIAL",
-    "title": "UNAGE – Faculty of Visual Arts and Design",
-    "url": "https://www.arteiasi.ro/facultatea-de-arte-vizuale-si-design/",
-    "description": "Faculty of Visual Arts and Design at UNAGE Iași. Programs in painting, sculpture, graphics, photography, design, fashion, and art restoration.",
-    "keywords": "unage, arte vizuale, design, painting, sculpture, graphics, fashion, restoration, iasi",
-    "university": "UNIVERSITY_OF_ARTS",
-    "faculty": "uarte-iasi-arte-vizuale-design"
-  },
-  {
-    "category": "ADMISSION",
-    "title": "UNAGE – Visual Arts Faculty Admissions",
-    "url": "https://www.arteiasi.ro/admitere/licenta-arte-vizuale-si-design/",
-    "description": "Admission information for the Faculty of Visual Arts and Design at UNAGE Iași.",
-    "keywords": "unage, admitere, arte vizuale, design, fashion, painting, iasi",
-    "university": "UNIVERSITY_OF_ARTS",
-    "faculty": "uarte-iasi-arte-vizuale-design"
-  },
-
-  {
-    "category": "OFFICIAL",
-    "title": "UPA Iași – Faculty of Law, Economics, Political and Administrative Sciences",
-    "url": "https://www.upa.ro/facultatea-de-drept-economie-stiinte-politice-si-administrative/",
-    "description": "Faculty of Law, Economics, Political and Administrative Sciences at Petre Andrei University Iași. Programs in law, accounting, finance, marketing, computer science, and political sciences.",
-    "keywords": "upa, petre andrei, drept, economie, law, economics, marketing, political science, iasi",
-    "university": "Petre Andrei University of Iași (UPA)",
-    "faculty": "upa-iasi-drept-economie-stiinte-politice-administrative"
+    "url": "https://iuls.ro/agricultura/en/bachelors-degree/",
+    "description": "Bachelor's degree programs at the Faculty of Agriculture, IULS Iași (Agronomy, Food Engineering, Biology, Engineering and Management in Agriculture).",
+    "keywords": "iuls, bachelor, agronomy, biology, food engineering, agriculture, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
   },
   {
     "category": "OFFICIAL",
-    "title": "UPA Iași – Faculty of Psychology, Educational Sciences and Social Work",
-    "url": "https://www.upa.ro/facultatea-de-psihologie-stiintele-educatiei-si-asistenta-sociala/",
-    "description": "Faculty of Psychology, Educational Sciences and Social Work at Petre Andrei University Iași. Programs in psychology and social work.",
-    "keywords": "upa, petre andrei, psihologie, asistenta sociala, psychology, social work, iasi",
-    "university": "Petre Andrei University of Iași (UPA)",
-    "faculty": "upa-iasi-psihologie-stiintele-educatiei-asistenta-sociala"
+    "url": "https://iuls.ro/agricultura/en/masters-degree/",
+    "description": "Master's degree programs at the Faculty of Agriculture, IULS Iași.",
+    "keywords": "iuls, master, agriculture, food engineering, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://iuls.ro/agricultura/en/doctoral-studies/",
+    "description": "Doctoral studies at the Faculty of Agriculture, IULS Iași.",
+    "keywords": "iuls, doctoral, phd, agriculture, research, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://iuls.ro/agricultura/en/distance-learning/",
+    "description": "Distance learning programs at the Faculty of Agriculture, IULS Iași.",
+    "keywords": "iuls, distance learning, online, agriculture, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://iuls.ro/agricultura/en/admission/",
+    "description": "Admission information for the Faculty of Agriculture at IULS Iași.",
+    "keywords": "iuls, admission, agriculture, apply, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://iuls.ro/agricultura/en/students/",
+    "description": "Student resources and information at the Faculty of Agriculture, IULS Iași.",
+    "keywords": "iuls, students, resources, agriculture, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://iuls.ro/agricultura/en/research/",
+    "description": "Research activities at the Faculty of Agriculture, IULS Iași.",
+    "keywords": "iuls, research, agriculture, science, iasi",
+    "university": "IULS",
+    "faculty": "iuls-agricultura"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://iuls.ro/en/students/campus-map/",
+    "description": "Campus map for IULS Iași – Ion Ionescu de la Brad University of Life Sciences.",
+    "keywords": "iuls, campus map, buildings, locations, iasi",
+    "university": "IULS",
+    "faculty": "iuls-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/",
+    "description": "Official website of Petre Andrei University (UPA) Iași, the largest private university in Moldavia.",
+    "keywords": "upa, petre andrei, private university, iasi, romania",
+    "university": "UPA",
+    "faculty": "upa-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/admitere-2025-2026-2/",
+    "description": "Admission information for Petre Andrei University (UPA) Iași for 2025–2026.",
+    "keywords": "upa, admission, 2025, 2026, apply, iasi",
+    "university": "UPA",
+    "faculty": "upa-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/conducerea-universitatii/",
+    "description": "University management at Petre Andrei University (UPA) Iași.",
+    "keywords": "upa, management, leadership, rector, iasi",
+    "university": "UPA",
+    "faculty": "upa-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/organizare/",
+    "description": "Organizational structure of Petre Andrei University (UPA) Iași.",
+    "keywords": "upa, organization, structure, departments, iasi",
+    "university": "UPA",
+    "faculty": "upa-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/facultatea-de-drept-economie-stiinte-politice-si-administrative/",
+    "description": "Faculty of Law, Economics, Political and Administrative Sciences at UPA Iași.",
+    "keywords": "upa, law, economics, political science, administrative, faculty, iasi",
+    "university": "UPA",
+    "faculty": "upa-drept-economie-stiinte-politice"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/taxe_sc/",
+    "description": "School fees and tuition information at Petre Andrei University (UPA) Iași.",
+    "keywords": "upa, fees, tuition, cost, iasi",
+    "university": "UPA",
+    "faculty": "upa-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/acreditare_upa/",
+    "description": "Accreditation details of Petre Andrei University (UPA) Iași.",
+    "keywords": "upa, accreditation, recognition, ministry, iasi",
+    "university": "UPA",
+    "faculty": "upa-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/alumni/",
+    "description": "Alumni network of Petre Andrei University (UPA) Iași.",
+    "keywords": "upa, alumni, graduates, network, iasi",
+    "university": "UPA",
+    "faculty": "upa-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/ghidul-studentilor-pachet-informativ/",
+    "description": "Student guide and information package at UPA Iași.",
+    "keywords": "upa, student guide, information, resources, iasi",
+    "university": "UPA",
+    "faculty": "upa-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/contact-2/",
+    "description": "Contact information for Petre Andrei University (UPA) Iași.",
+    "keywords": "upa, contact, address, phone, email, iasi",
+    "university": "UPA",
+    "faculty": "upa-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/cursuri-postuniversitare-2021-2022/",
+    "description": "Postgraduate courses at Petre Andrei University (UPA) Iași.",
+    "keywords": "upa, postgraduate, continuing education, courses, iasi",
+    "university": "UPA",
+    "faculty": "upa-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/biblioteca_upa/",
+    "description": "Library at Petre Andrei University (UPA) Iași.",
+    "keywords": "upa, library, books, resources, iasi",
+    "university": "UPA",
+    "faculty": "upa-general"
+  },
+  {
+    "category": "OFFICIAL",
+    "url": "https://www.upa.ro/en/structura-an-universitar-2/",
+    "description": "Academic year structure at Petre Andrei University (UPA) Iași.",
+    "keywords": "upa, academic year, structure, calendar, iasi",
+    "university": "UPA",
+    "faculty": "upa-general"
   }
 ],
   "activities": [
