@@ -1,2742 +1,1665 @@
 {
   "links": [
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/",
-    "description": "Official international study portal of Gheorghe Asachi Technical University of Iași (TUIASI).",
-    "keywords": "tuiasi, technical university, iasi, engineering, study, international",
-    "university": "TUIASI",
-    "faculty": "tuiasi-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/about/",
-    "description": "About page for TUIASI international study portal.",
-    "keywords": "tuiasi, about, technical university, iasi",
-    "university": "TUIASI",
-    "faculty": "tuiasi-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/",
-    "description": "All study programs offered by TUIASI for international students.",
-    "keywords": "tuiasi, programs, study, master, bachelor, iasi",
-    "university": "TUIASI",
-    "faculty": "tuiasi-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/courses/",
-    "description": "Courses available at TUIASI for international students.",
-    "keywords": "tuiasi, courses, iasi",
-    "university": "TUIASI",
-    "faculty": "tuiasi-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/admissions/",
-    "description": "Admissions page for international students at TUIASI.",
-    "keywords": "tuiasi, admissions, apply, iasi, international",
-    "university": "TUIASI",
-    "faculty": "tuiasi-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/eu-eea-countries-and-the-swiss-confederation-students/",
-    "description": "Information for EU/EEA and Swiss students applying to TUIASI.",
-    "keywords": "tuiasi, eu students, eea, swiss, admissions, iasi",
-    "university": "TUIASI",
-    "faculty": "tuiasi-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/non-eu-students/",
-    "description": "Information for non-EU international students applying to TUIASI.",
-    "keywords": "tuiasi, non-eu, international students, admissions, iasi",
-    "university": "TUIASI",
-    "faculty": "tuiasi-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/campus-and-living/",
-    "description": "Campus and facilities information for students at TUIASI.",
-    "keywords": "tuiasi, campus, facilities, living, iasi",
-    "university": "TUIASI",
-    "faculty": "tuiasi-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/living-in-iasi/",
-    "description": "Guide to living in Iași for international students at TUIASI.",
-    "keywords": "tuiasi, living, iasi, student life, city",
-    "university": "TUIASI",
-    "faculty": "tuiasi-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/exchange-programs/",
-    "description": "Exchange programs available at TUIASI.",
-    "keywords": "tuiasi, exchange, erasmus, international, iasi",
-    "university": "TUIASI",
-    "faculty": "tuiasi-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/fees/",
-    "description": "Tuition fees and cost information for studying at TUIASI.",
-    "keywords": "tuiasi, fees, tuition, cost, iasi",
-    "university": "TUIASI",
-    "faculty": "tuiasi-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/artificial-intelligence-ai/",
-    "description": "Master's program in Artificial Intelligence at TUIASI, covering ML, neural networks, NLP, computer vision, robotics, and reinforcement learning.",
-    "keywords": "tuiasi, artificial intelligence, AI, master, machine learning, neural networks, NLP, computer vision",
-    "university": "TUIASI",
-    "faculty": "tuiasi-automatic-control-computer-engineering"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/machine-learning-robotics-and-control-mlrc/",
-    "description": "Master's program in Machine Learning, Robotics, and Control (MLRC) at TUIASI.",
-    "keywords": "tuiasi, machine learning, robotics, control, MLRC, master, engineering",
-    "university": "TUIASI",
-    "faculty": "tuiasi-automatic-control-computer-engineering"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/intelligent-manufacturing-and-automation-ima/",
-    "description": "Master's program in Intelligent Manufacturing and Automation (IMA) at TUIASI.",
-    "keywords": "tuiasi, intelligent manufacturing, automation, IMA, master, industrial engineering",
-    "university": "TUIASI",
-    "faculty": "tuiasi-machine-manufacturing"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/distributed-systems-and-web-technologies-dswt/",
-    "description": "Master's program in Distributed Systems and Web Technologies (DSWT) at TUIASI.",
-    "keywords": "tuiasi, distributed systems, web technologies, DSWT, cloud, grid, master",
-    "university": "TUIASI",
-    "faculty": "tuiasi-automatic-control-computer-engineering"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/innovations-in-biotechnologies-vegetablesenzymatic-and-microbial-ibvem/",
-    "description": "Master's program in Innovations in Biotechnologies Vegetables, Enzymatic and Microbial (IBVEM) at TUIASI.",
-    "keywords": "tuiasi, biotechnologies, IBVEM, chemical engineering, biology, master",
-    "university": "TUIASI",
-    "faculty": "tuiasi-chemical-engineering"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/structural-engineering/",
-    "description": "Master's program in Structural Engineering (SE) at TUIASI, the first English-taught civil engineering master's in Romania.",
-    "keywords": "tuiasi, structural engineering, civil engineering, master, construction",
-    "university": "TUIASI",
-    "faculty": "tuiasi-civil-engineering"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/environmental-management-and-sustainable-energy/",
-    "description": "Master's program in Environmental Management and Sustainable Energy (EMSE) at TUIASI, the first English-taught environmental engineering master's in Romania.",
-    "keywords": "tuiasi, environmental management, sustainable energy, EMSE, master, ecology",
-    "university": "TUIASI",
-    "faculty": "tuiasi-hydrotechnics-geodesy-environmental"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/information-technologies-for-telecommunications/",
-    "description": "Master's program in Information Technologies for Telecommunications (IT4T) at TUIASI.",
-    "keywords": "tuiasi, IT, telecommunications, IT4T, ICT, master",
-    "university": "TUIASI",
-    "faculty": "tuiasi-electronics-telecommunications"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/automotive-electronic-control-systems/",
-    "description": "Master's program in Automotive Electronic Control Systems (AECS) at TUIASI.",
-    "keywords": "tuiasi, automotive, electronic control, AECS, master, electronics",
-    "university": "TUIASI",
-    "faculty": "tuiasi-electronics-telecommunications"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/telecommunication-technologies-and-systems/",
-    "description": "Bachelor's program in Telecommunication Technologies and Systems (TTS) at TUIASI.",
-    "keywords": "tuiasi, telecommunications, TTS, bachelor, communication systems",
-    "university": "TUIASI",
-    "faculty": "tuiasi-electronics-telecommunications"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/industrial-design/",
-    "description": "Bachelor's program in Industrial Design (ID) at TUIASI, preparing students for careers in fashion and the textile industry.",
-    "keywords": "tuiasi, industrial design, fashion, textile, bachelor",
-    "university": "TUIASI",
-    "faculty": "tuiasi-textiles-leather-industrial-management"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://study.tuiasi.ro/study-programs/civil-engineering/",
-    "description": "Bachelor's program in Civil Engineering (CE) at TUIASI.",
-    "keywords": "tuiasi, civil engineering, bachelor, construction, structures",
-    "university": "TUIASI",
-    "faculty": "tuiasi-civil-engineering"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/",
-    "description": "Official website of Alexandru Ioan Cuza University (UAIC) of Iași.",
-    "keywords": "uaic, alexandru ioan cuza, iasi, university, international",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/about-uaic/",
-    "description": "About UAIC – general presentation of Alexandru Ioan Cuza University.",
-    "keywords": "uaic, about, history, iasi, university",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/",
-    "description": "Admission information for international full-degree students at UAIC.",
-    "keywords": "uaic, admission, international students, full degree, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/studies/faculties/",
-    "description": "List of faculties at UAIC.",
-    "keywords": "uaic, faculties, departments, studies, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/cercetare/",
-    "description": "Research activities and centers at UAIC.",
-    "keywords": "uaic, research, innovation, science, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/international/",
-    "description": "International relations and programs at UAIC.",
-    "keywords": "uaic, international, erasmus, exchange, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/absolventi/",
-    "description": "Alumni section of UAIC.",
-    "keywords": "uaic, alumni, graduates, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/iasi-2/",
-    "description": "Information about the city of Iași for prospective UAIC students.",
-    "keywords": "uaic, iasi, city, living, romania",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/registration-for-eu-citizens/",
-    "description": "Registration process for EU citizens applying to UAIC.",
-    "keywords": "uaic, eu citizens, registration, admission, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/registration-for-non-eu-citizens/",
-    "description": "Registration process for non-EU citizens applying to UAIC.",
-    "keywords": "uaic, non-eu, registration, admission, international, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/143014-2/",
-    "description": "Recognition of previous university studies at UAIC.",
-    "keywords": "uaic, recognition, previous studies, credits, transfer, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/registration-for-non-eu-citizens/study-fees-2026-2027/",
-    "description": "Study fees for non-EU students at UAIC for the 2026–2027 academic year.",
-    "keywords": "uaic, fees, tuition, non-eu, 2026, 2027, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/wp-content/uploads/2025/06/Academic-calendar-25-26.pdf",
-    "description": "Academic calendar 2025–2026 for UAIC.",
-    "keywords": "uaic, academic calendar, schedule, 2025, 2026, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/wp-content/uploads/2026/04/Campus-map-UAIC.pdf",
-    "description": "Campus map of Alexandru Ioan Cuza University (UAIC).",
-    "keywords": "uaic, campus map, buildings, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/libraries-iasi/",
-    "description": "Library and learning facilities at UAIC for incoming Erasmus students.",
-    "keywords": "uaic, library, learning, facilities, erasmus, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/internet-facilities/",
-    "description": "Internet facilities at UAIC for international students.",
-    "keywords": "uaic, internet, wifi, facilities, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/student-associations/",
-    "description": "Student associations at UAIC.",
-    "keywords": "uaic, student associations, clubs, organizations, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/recognition-procedures/",
-    "description": "Recognition procedures for credits and degrees at UAIC.",
-    "keywords": "uaic, recognition, credits, procedures, erasmus, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/romanian-grading-scale/",
-    "description": "Romanian grading scale explanation for international students at UAIC.",
-    "keywords": "uaic, grading, grades, romania, scale, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/bologna-process/",
-    "description": "Bologna process information for UAIC international students.",
-    "keywords": "uaic, bologna, ects, credits, system, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/erasmus-day/",
-    "description": "Erasmus Day events at UAIC.",
-    "keywords": "uaic, erasmus day, international, events, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/cost-living/",
-    "description": "Cost of living in Iași for international students at UAIC.",
-    "keywords": "uaic, cost of living, budget, iasi, student life",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/meals/",
-    "description": "Meals and dining options for students at UAIC.",
-    "keywords": "uaic, meals, canteen, food, dining, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/copou-student-medical-center/",
-    "description": "Medical services at UAIC's Copou student medical center.",
-    "keywords": "uaic, medical, health, student center, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/facilities-special-needs-students/",
-    "description": "Facilities for students with special needs at UAIC.",
-    "keywords": "uaic, special needs, accessibility, facilities, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/sports-leisure-facilities/",
-    "description": "Sports and leisure facilities at UAIC for students.",
-    "keywords": "uaic, sports, leisure, gym, recreation, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/main-local-events/",
-    "description": "Main local events in Iași for UAIC students.",
-    "keywords": "uaic, events, culture, iasi, student life",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/meet-city-iasi/",
-    "description": "Guide to the city of Iași for UAIC international students.",
-    "keywords": "uaic, iasi, city guide, tourism, sightseeing",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/extra-mural-activities/",
-    "description": "Extra-mural and extracurricular activities at UAIC.",
-    "keywords": "uaic, extracurricular, activities, student life, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.bio.uaic.ro/",
-    "description": "Faculty of Biology at UAIC.",
-    "keywords": "uaic, biology, biochemistry, ecology, faculty, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-biologie"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.chem.uaic.ro/en/",
-    "description": "Faculty of Chemistry at UAIC.",
-    "keywords": "uaic, chemistry, chemical, faculty, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-chimie"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.feaa.uaic.ro/en",
-    "description": "Faculty of Economics and Business Administration at UAIC.",
-    "keywords": "uaic, economics, business administration, management, faculty, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-economie"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.geo.uaic.ro/",
-    "description": "Faculty of Geography and Geology at UAIC.",
-    "keywords": "uaic, geography, geology, faculty, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-geografie-geologie"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://history.uaic.ro/",
-    "description": "Faculty of History at UAIC.",
-    "keywords": "uaic, history, faculty, humanities, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-istorie"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://litere.uaic.ro/",
-    "description": "Faculty of Letters at UAIC.",
-    "keywords": "uaic, letters, literature, languages, philology, faculty, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-litere"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.math.uaic.ro/index.php?lb=1&id=0&cod=&tip=&an=&cat=&subcat=",
-    "description": "Faculty of Mathematics at UAIC.",
-    "keywords": "uaic, mathematics, faculty, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-matematica"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.teologie.uaic.ro/",
-    "description": "Faculty of Orthodox Theology at UAIC.",
-    "keywords": "uaic, orthodox theology, theology, faculty, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-teologie-ortodoxa"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.fssp.uaic.ro/en/",
-    "description": "Faculty of Philosophy and Social-Political Sciences at UAIC.",
-    "keywords": "uaic, philosophy, political science, social sciences, faculty, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-filozofie-stiinte-social-politice"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.psih.uaic.ro/",
-    "description": "Faculty of Psychology and Education Sciences at UAIC.",
-    "keywords": "uaic, psychology, education, sciences, faculty, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-psihologie-stiintele-educatiei"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "http://www.ftrc.uaic.ro/",
-    "description": "Faculty of Roman-Catholic Theology at UAIC.",
-    "keywords": "uaic, roman catholic, theology, faculty, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-teologie-romano-catolica"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/studies/doctoral-schools/",
-    "description": "Doctoral schools at UAIC.",
-    "keywords": "uaic, doctoral, phd, research, studies, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/cercetare/department-research-project-management/",
-    "description": "Department for Research and Project Management at UAIC.",
-    "keywords": "uaic, research, projects, management, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/jassy/",
-    "description": "Jassy Summer School 2025 at UAIC.",
-    "keywords": "uaic, jassy summer school, 2025, international, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/explore-iasi/",
-    "description": "Explore the city of Iași – guide for UAIC students and visitors.",
-    "keywords": "uaic, iasi, explore, tourism, city, romania",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/gradina-botanica-anastasie-fatu/",
-    "description": "Anastasie Fătu Botanical Garden at UAIC.",
-    "keywords": "uaic, botanical garden, nature, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/planetarium/",
-    "description": "Planetarium at UAIC.",
-    "keywords": "uaic, planetarium, astronomy, science, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.uaic.ro/en/natural-history-museum/",
-    "description": "Natural History Museum at UAIC.",
-    "keywords": "uaic, natural history, museum, iasi",
-    "university": "UAIC",
-    "faculty": "uaic-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Pages/Admission-2026.aspx",
-    "description": "Admission page for the 2026 intake at Grigore T. Popa University of Medicine and Pharmacy (UMF) Iași.",
-    "keywords": "umf iasi, admission, 2026, medicine, pharmacy, dentistry",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Pages/Medical-doctor.aspx",
-    "description": "Medical Doctor undergraduate program at UMF Iași.",
-    "keywords": "umf iasi, medical doctor, medicine, bachelor, admission",
-    "university": "UMF",
-    "faculty": "umf-medicina-generala"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Pages/Medical-doctor---dentist.aspx",
-    "description": "Medical Doctor – Dentist undergraduate program at UMF Iași (70 places).",
-    "keywords": "umf iasi, dentist, dental medicine, bachelor, admission",
-    "university": "UMF",
-    "faculty": "umf-medicina-dentara"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Pages/Pharmacist.aspx",
-    "description": "Pharmacist undergraduate program at UMF Iași (50 places).",
-    "keywords": "umf iasi, pharmacist, pharmacy, bachelor, admission",
-    "university": "UMF",
-    "faculty": "umf-farmacie"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Pages/Physio-kinesitherapist.aspx",
-    "description": "Physio-Kinesitherapist undergraduate program at UMF Iași (45 places).",
-    "keywords": "umf iasi, physiotherapy, kinesitherapy, rehabilitation, bachelor, admission",
-    "university": "UMF",
-    "faculty": "umf-bioinginerie-medicala"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Metodologie%20admitere%20EN%20final%20senat%202026-2027.pdf",
-    "description": "Admission methodology document for UMF Iași 2026–2027.",
-    "keywords": "umf iasi, admission methodology, 2026, 2027, document, pdf",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/calendar%202026-2027%20eng.pdf",
-    "description": "Admission timetable/calendar for UMF Iași 2026–2027.",
-    "keywords": "umf iasi, admission calendar, timetable, 2026, 2027",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%201%20-%20Accepted%20language%20skills.pdf",
-    "description": "Accepted language skills for admission at UMF Iași 2026–2027.",
-    "keywords": "umf iasi, language skills, english, admission, requirements",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%202%20-%20Evaluation%20grid.pdf",
-    "description": "Evaluation grid for UMF Iași admission 2026–2027.",
-    "keywords": "umf iasi, evaluation, grid, admission, scoring",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%204%20Declaration.pdf",
-    "description": "Declaration form (Annex 4) for UMF Iași admission 2026–2027.",
-    "keywords": "umf iasi, declaration, form, admission, document",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%205%20Declaration%20regarding%20the%20study%20program%20and%20the%20chosen%20option.pdf",
-    "description": "Declaration regarding study program and chosen option (Annex 5) for UMF Iași admission 2026–2027.",
-    "keywords": "umf iasi, study program, option, declaration, admission",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%206%20Agreement%20GDPR.pdf",
-    "description": "GDPR agreement form (Annex 6) for UMF Iași admission 2026–2027.",
-    "keywords": "umf iasi, GDPR, agreement, form, admission",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/cerere-recunoastere-studii-cetateni-europeni-admitere-licenta_2026_en.pdf",
-    "description": "Application for recognition of studies for EU citizens enrolling at UMF Iași 2026–2027.",
-    "keywords": "umf iasi, recognition, eu citizens, studies, application, 2026",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/CPV_Application%20form%202026-2027.pdf",
-    "description": "Application form for Letter of Acceptance for non-EU students at UMF Iași 2026–2027.",
-    "keywords": "umf iasi, non-eu, letter of acceptance, application form, 2026",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/admission/Pages/Admission-step-by-step.aspx",
-    "description": "Step-by-step admission guide for UMF Iași.",
-    "keywords": "umf iasi, admission, step by step, guide, how to apply",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/university/Pages/Carta-universității.aspx",
-    "description": "University charter of UMF Iași.",
-    "keywords": "umf iasi, charter, regulations, university, iasi",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/academic/facultati/Pages/default.aspx",
-    "description": "Faculties overview at UMF Iași.",
-    "keywords": "umf iasi, faculties, medicine, pharmacy, dentistry, iasi",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/academic/program-de-licenta/Pages/default.aspx",
-    "description": "Undergraduate degree programs at UMF Iași.",
-    "keywords": "umf iasi, bachelor, undergraduate, programs, iasi",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/academic/Pages/Academic-calendar.aspx",
-    "description": "Academic calendar at UMF Iași.",
-    "keywords": "umf iasi, academic calendar, schedule, iasi",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://catalog.umfiasi.ro/login?language=RO",
-    "description": "Student catalog login portal at UMF Iași.",
-    "keywords": "umf iasi, catalog, student portal, login",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/academic/Pages/Scholarships.aspx",
-    "description": "Scholarships available for students at UMF Iași.",
-    "keywords": "umf iasi, scholarships, financial aid, funding, iasi",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/academic/Pages/University-fees.aspx",
-    "description": "University fees at UMF Iași.",
-    "keywords": "umf iasi, fees, tuition, cost, iasi",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/academic/Pages/Academic-Mobility.aspx",
-    "description": "Academic mobility programs at UMF Iași.",
-    "keywords": "umf iasi, academic mobility, erasmus, exchange, iasi",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/university/Pages/despre-umf-iasi.aspx",
-    "description": "About UMF Iași – general information.",
-    "keywords": "umf iasi, about, history, university, iasi",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/university/university-leadership/Pages/default.aspx",
-    "description": "University leadership and management structure at UMF Iași.",
-    "keywords": "umf iasi, leadership, rector, senate, management",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/university/Pages/International-relations.aspx",
-    "description": "International relations and partnerships at UMF Iași.",
-    "keywords": "umf iasi, international, erasmus, partnerships, iasi",
-    "university": "UMF",
-    "faculty": "umf-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/academic/facultati/medicina-generala/Pages/Bachelor-degree-programmes.aspx",
-    "description": "Bachelor's degree programs at the Faculty of Medicine, UMF Iași.",
-    "keywords": "umf iasi, medicine, bachelor, programs, general medicine",
-    "university": "UMF",
-    "faculty": "umf-medicina-generala"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/academic/facultati/medicina-generala/Pages/Masters-programs.aspx",
-    "description": "Master's programs at the Faculty of Medicine, UMF Iași.",
-    "keywords": "umf iasi, medicine, master, programs",
-    "university": "UMF",
-    "faculty": "umf-medicina-generala"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/academic/facultati/medical-bioengineering/Pages/English-programs.aspx",
-    "description": "English-language programs at the Faculty of Medical Bioengineering, UMF Iași.",
-    "keywords": "umf iasi, bioengineering, english, programs, medical",
-    "university": "UMF",
-    "faculty": "umf-bioinginerie-medicala"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/academic/facultati/medical-bioengineering/Pages/Bachelor-degree-programmes.aspx",
-    "description": "Bachelor's degree programs at the Faculty of Medical Bioengineering, UMF Iași.",
-    "keywords": "umf iasi, bioengineering, bachelor, programs",
-    "university": "UMF",
-    "faculty": "umf-bioinginerie-medicala"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.umfiasi.ro/en/academic/facultati/medical-bioengineering/Pages/Masters-programs.aspx",
-    "description": "Master's programs at the Faculty of Medical Bioengineering, UMF Iași.",
-    "keywords": "umf iasi, bioengineering, master, programs",
-    "university": "UMF",
-    "faculty": "umf-bioinginerie-medicala"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/",
-    "description": "Official website of George Enescu National University of Arts (UNAGE) Iași.",
-    "keywords": "unage, george enescu, arts, iasi, university",
-    "university": "UNAGE",
-    "faculty": "unage-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/about-unage/",
-    "description": "About UNAGE – George Enescu National University of Arts Iași.",
-    "keywords": "unage, about, arts, george enescu, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/admissions/",
-    "description": "Admissions page for UNAGE – George Enescu National University of Arts Iași.",
-    "keywords": "unage, admissions, apply, arts, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/international-relations/",
-    "description": "International relations at UNAGE Iași.",
-    "keywords": "unage, international, erasmus, exchange, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/international-relations/exchange-students/",
-    "description": "Erasmus+ and exchange student programs at UNAGE Iași.",
-    "keywords": "unage, erasmus, exchange students, international, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/international-relations/international-students/",
-    "description": "Academic calendar and information for international students at UNAGE Iași.",
-    "keywords": "unage, academic calendar, international students, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/research/",
-    "description": "Research activities at UNAGE – George Enescu National University of Arts Iași.",
-    "keywords": "unage, research, arts, ICMA, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/category/events/",
-    "description": "Events at UNAGE – George Enescu National University of Arts Iași.",
-    "keywords": "unage, events, concerts, exhibitions, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/university-galleries/",
-    "description": "University galleries at UNAGE Iași.",
-    "keywords": "unage, galleries, art, exhibitions, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/scientific-journals/",
-    "description": "Scientific journals published by UNAGE Iași.",
-    "keywords": "unage, journals, publications, research, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/faculty-of-performance-composition-and-music-theory-studies/",
-    "description": "Faculty of Performance, Composition and Music Theory Studies at UNAGE Iași.",
-    "keywords": "unage, music, performance, composition, music theory, faculty, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-interpretare-compozitie-muzicologie"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/faculty-of-theatre/",
-    "description": "Faculty of Theatre at UNAGE Iași.",
-    "keywords": "unage, theatre, acting, drama, faculty, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-teatru"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/faculty-of-visual-arts-and-design-2/",
-    "description": "Faculty of Visual Arts and Design at UNAGE Iași.",
-    "keywords": "unage, visual arts, design, fine arts, faculty, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-arte-vizuale-design"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.arteiasi.ro/en/department-for-teachers-education/",
-    "description": "Department for Teachers Education (DPPD) at UNAGE Iași.",
-    "keywords": "unage, teachers education, DPPD, pedagogy, faculty, iasi",
-    "university": "UNAGE",
-    "faculty": "unage-dppd"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/en/",
-    "description": "Official website of Ion Ionescu de la Brad University of Life Sciences (IULS) Iași.",
-    "keywords": "iuls, life sciences, agriculture, veterinary, iasi, university",
-    "university": "IULS",
-    "faculty": "iuls-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/",
-    "description": "Faculty of Agriculture at IULS Iași.",
-    "keywords": "iuls, agriculture, agronomy, food engineering, biology, faculty, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/brief-history/",
-    "description": "Brief history of the Faculty of Agriculture at IULS Iași, founded in 1912.",
-    "keywords": "iuls, agriculture, history, faculty, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/deans-welcome/",
-    "description": "Dean's welcome message at the Faculty of Agriculture, IULS Iași.",
-    "keywords": "iuls, dean, agriculture, welcome, faculty, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/international-relations/",
-    "description": "International relations at the Faculty of Agriculture, IULS Iași.",
-    "keywords": "iuls, international, erasmus, exchange, agriculture, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/managing-board/",
-    "description": "Managing board of the Faculty of Agriculture at IULS Iași.",
-    "keywords": "iuls, management, board, agriculture, faculty, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/bachelors-degree/",
-    "description": "Bachelor's degree programs at the Faculty of Agriculture, IULS Iași (Agronomy, Food Engineering, Biology, Engineering and Management in Agriculture).",
-    "keywords": "iuls, bachelor, agronomy, biology, food engineering, agriculture, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/masters-degree/",
-    "description": "Master's degree programs at the Faculty of Agriculture, IULS Iași.",
-    "keywords": "iuls, master, agriculture, food engineering, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/doctoral-studies/",
-    "description": "Doctoral studies at the Faculty of Agriculture, IULS Iași.",
-    "keywords": "iuls, doctoral, phd, agriculture, research, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/distance-learning/",
-    "description": "Distance learning programs at the Faculty of Agriculture, IULS Iași.",
-    "keywords": "iuls, distance learning, online, agriculture, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/admission/",
-    "description": "Admission information for the Faculty of Agriculture at IULS Iași.",
-    "keywords": "iuls, admission, agriculture, apply, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/students/",
-    "description": "Student resources and information at the Faculty of Agriculture, IULS Iași.",
-    "keywords": "iuls, students, resources, agriculture, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/agricultura/en/research/",
-    "description": "Research activities at the Faculty of Agriculture, IULS Iași.",
-    "keywords": "iuls, research, agriculture, science, iasi",
-    "university": "IULS",
-    "faculty": "iuls-agricultura"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://iuls.ro/en/students/campus-map/",
-    "description": "Campus map for IULS Iași – Ion Ionescu de la Brad University of Life Sciences.",
-    "keywords": "iuls, campus map, buildings, locations, iasi",
-    "university": "IULS",
-    "faculty": "iuls-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/",
-    "description": "Official website of Petre Andrei University (UPA) Iași, the largest private university in Moldavia.",
-    "keywords": "upa, petre andrei, private university, iasi, romania",
-    "university": "UPA",
-    "faculty": "upa-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/admitere-2025-2026-2/",
-    "description": "Admission information for Petre Andrei University (UPA) Iași for 2025–2026.",
-    "keywords": "upa, admission, 2025, 2026, apply, iasi",
-    "university": "UPA",
-    "faculty": "upa-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/conducerea-universitatii/",
-    "description": "University management at Petre Andrei University (UPA) Iași.",
-    "keywords": "upa, management, leadership, rector, iasi",
-    "university": "UPA",
-    "faculty": "upa-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/organizare/",
-    "description": "Organizational structure of Petre Andrei University (UPA) Iași.",
-    "keywords": "upa, organization, structure, departments, iasi",
-    "university": "UPA",
-    "faculty": "upa-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/facultatea-de-drept-economie-stiinte-politice-si-administrative/",
-    "description": "Faculty of Law, Economics, Political and Administrative Sciences at UPA Iași.",
-    "keywords": "upa, law, economics, political science, administrative, faculty, iasi",
-    "university": "UPA",
-    "faculty": "upa-drept-economie-stiinte-politice"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/taxe_sc/",
-    "description": "School fees and tuition information at Petre Andrei University (UPA) Iași.",
-    "keywords": "upa, fees, tuition, cost, iasi",
-    "university": "UPA",
-    "faculty": "upa-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/acreditare_upa/",
-    "description": "Accreditation details of Petre Andrei University (UPA) Iași.",
-    "keywords": "upa, accreditation, recognition, ministry, iasi",
-    "university": "UPA",
-    "faculty": "upa-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/alumni/",
-    "description": "Alumni network of Petre Andrei University (UPA) Iași.",
-    "keywords": "upa, alumni, graduates, network, iasi",
-    "university": "UPA",
-    "faculty": "upa-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/ghidul-studentilor-pachet-informativ/",
-    "description": "Student guide and information package at UPA Iași.",
-    "keywords": "upa, student guide, information, resources, iasi",
-    "university": "UPA",
-    "faculty": "upa-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/contact-2/",
-    "description": "Contact information for Petre Andrei University (UPA) Iași.",
-    "keywords": "upa, contact, address, phone, email, iasi",
-    "university": "UPA",
-    "faculty": "upa-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/cursuri-postuniversitare-2021-2022/",
-    "description": "Postgraduate courses at Petre Andrei University (UPA) Iași.",
-    "keywords": "upa, postgraduate, continuing education, courses, iasi",
-    "university": "UPA",
-    "faculty": "upa-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/biblioteca_upa/",
-    "description": "Library at Petre Andrei University (UPA) Iași.",
-    "keywords": "upa, library, books, resources, iasi",
-    "university": "UPA",
-    "faculty": "upa-general"
-  },
-  {
-    "category": "OFFICIAL",
-    "url": "https://www.upa.ro/en/structura-an-universitar-2/",
-    "description": "Academic year structure at Petre Andrei University (UPA) Iași.",
-    "keywords": "upa, academic year, structure, calendar, iasi",
-    "university": "UPA",
-    "faculty": "upa-general"
-  }
-],
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/",
+      "description": "Official international study portal of Gheorghe Asachi Technical University of Iași (TUIASI).",
+      "keywords": "tuiasi, technical university, iasi, engineering, study, international",
+      "university": "TUIASI",
+      "faculty": "tuiasi-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/about/",
+      "description": "About page for TUIASI international study portal.",
+      "keywords": "tuiasi, about, technical university, iasi",
+      "university": "TUIASI",
+      "faculty": "tuiasi-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/",
+      "description": "All study programs offered by TUIASI for international students.",
+      "keywords": "tuiasi, programs, study, master, bachelor, iasi",
+      "university": "TUIASI",
+      "faculty": "tuiasi-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/courses/",
+      "description": "Courses available at TUIASI for international students.",
+      "keywords": "tuiasi, courses, iasi",
+      "university": "TUIASI",
+      "faculty": "tuiasi-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/admissions/",
+      "description": "Admissions page for international students at TUIASI.",
+      "keywords": "tuiasi, admissions, apply, iasi, international",
+      "university": "TUIASI",
+      "faculty": "tuiasi-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/eu-eea-countries-and-the-swiss-confederation-students/",
+      "description": "Information for EU/EEA and Swiss students applying to TUIASI.",
+      "keywords": "tuiasi, eu students, eea, swiss, admissions, iasi",
+      "university": "TUIASI",
+      "faculty": "tuiasi-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/non-eu-students/",
+      "description": "Information for non-EU international students applying to TUIASI.",
+      "keywords": "tuiasi, non-eu, international students, admissions, iasi",
+      "university": "TUIASI",
+      "faculty": "tuiasi-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/campus-and-living/",
+      "description": "Campus and facilities information for students at TUIASI.",
+      "keywords": "tuiasi, campus, facilities, living, iasi",
+      "university": "TUIASI",
+      "faculty": "tuiasi-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/living-in-iasi/",
+      "description": "Guide to living in Iași for international students at TUIASI.",
+      "keywords": "tuiasi, living, iasi, student life, city",
+      "university": "TUIASI",
+      "faculty": "tuiasi-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/exchange-programs/",
+      "description": "Exchange programs available at TUIASI.",
+      "keywords": "tuiasi, exchange, erasmus, international, iasi",
+      "university": "TUIASI",
+      "faculty": "tuiasi-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/fees/",
+      "description": "Tuition fees and cost information for studying at TUIASI.",
+      "keywords": "tuiasi, fees, tuition, cost, iasi",
+      "university": "TUIASI",
+      "faculty": "tuiasi-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/artificial-intelligence-ai/",
+      "description": "Master's program in Artificial Intelligence at TUIASI, covering ML, neural networks, NLP, computer vision, robotics, and reinforcement learning.",
+      "keywords": "tuiasi, artificial intelligence, AI, master, machine learning, neural networks, NLP, computer vision",
+      "university": "TUIASI",
+      "faculty": "tuiasi-automatic-control-computer-engineering"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/machine-learning-robotics-and-control-mlrc/",
+      "description": "Master's program in Machine Learning, Robotics, and Control (MLRC) at TUIASI.",
+      "keywords": "tuiasi, machine learning, robotics, control, MLRC, master, engineering",
+      "university": "TUIASI",
+      "faculty": "tuiasi-automatic-control-computer-engineering"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/intelligent-manufacturing-and-automation-ima/",
+      "description": "Master's program in Intelligent Manufacturing and Automation (IMA) at TUIASI.",
+      "keywords": "tuiasi, intelligent manufacturing, automation, IMA, master, industrial engineering",
+      "university": "TUIASI",
+      "faculty": "tuiasi-machine-manufacturing"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/distributed-systems-and-web-technologies-dswt/",
+      "description": "Master's program in Distributed Systems and Web Technologies (DSWT) at TUIASI.",
+      "keywords": "tuiasi, distributed systems, web technologies, DSWT, cloud, grid, master",
+      "university": "TUIASI",
+      "faculty": "tuiasi-automatic-control-computer-engineering"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/innovations-in-biotechnologies-vegetablesenzymatic-and-microbial-ibvem/",
+      "description": "Master's program in Innovations in Biotechnologies Vegetables, Enzymatic and Microbial (IBVEM) at TUIASI.",
+      "keywords": "tuiasi, biotechnologies, IBVEM, chemical engineering, biology, master",
+      "university": "TUIASI",
+      "faculty": "tuiasi-chemical-engineering"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/structural-engineering/",
+      "description": "Master's program in Structural Engineering (SE) at TUIASI, the first English-taught civil engineering master's in Romania.",
+      "keywords": "tuiasi, structural engineering, civil engineering, master, construction",
+      "university": "TUIASI",
+      "faculty": "tuiasi-civil-engineering"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/environmental-management-and-sustainable-energy/",
+      "description": "Master's program in Environmental Management and Sustainable Energy (EMSE) at TUIASI, the first English-taught environmental engineering master's in Romania.",
+      "keywords": "tuiasi, environmental management, sustainable energy, EMSE, master, ecology",
+      "university": "TUIASI",
+      "faculty": "tuiasi-hydrotechnics-geodesy-environmental"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/information-technologies-for-telecommunications/",
+      "description": "Master's program in Information Technologies for Telecommunications (IT4T) at TUIASI.",
+      "keywords": "tuiasi, IT, telecommunications, IT4T, ICT, master",
+      "university": "TUIASI",
+      "faculty": "tuiasi-electronics-telecommunications"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/automotive-electronic-control-systems/",
+      "description": "Master's program in Automotive Electronic Control Systems (AECS) at TUIASI.",
+      "keywords": "tuiasi, automotive, electronic control, AECS, master, electronics",
+      "university": "TUIASI",
+      "faculty": "tuiasi-electronics-telecommunications"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/telecommunication-technologies-and-systems/",
+      "description": "Bachelor's program in Telecommunication Technologies and Systems (TTS) at TUIASI.",
+      "keywords": "tuiasi, telecommunications, TTS, bachelor, communication systems",
+      "university": "TUIASI",
+      "faculty": "tuiasi-electronics-telecommunications"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/industrial-design/",
+      "description": "Bachelor's program in Industrial Design (ID) at TUIASI, preparing students for careers in fashion and the textile industry.",
+      "keywords": "tuiasi, industrial design, fashion, textile, bachelor",
+      "university": "TUIASI",
+      "faculty": "tuiasi-textiles-leather-industrial-management"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://study.tuiasi.ro/study-programs/civil-engineering/",
+      "description": "Bachelor's program in Civil Engineering (CE) at TUIASI.",
+      "keywords": "tuiasi, civil engineering, bachelor, construction, structures",
+      "university": "TUIASI",
+      "faculty": "tuiasi-civil-engineering"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/",
+      "description": "Official website of Alexandru Ioan Cuza University (UAIC) of Iași.",
+      "keywords": "uaic, alexandru ioan cuza, iasi, university, international",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/about-uaic/",
+      "description": "About UAIC – general presentation of Alexandru Ioan Cuza University.",
+      "keywords": "uaic, about, history, iasi, university",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/",
+      "description": "Admission information for international full-degree students at UAIC.",
+      "keywords": "uaic, admission, international students, full degree, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/studies/faculties/",
+      "description": "List of faculties at UAIC.",
+      "keywords": "uaic, faculties, departments, studies, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/cercetare/",
+      "description": "Research activities and centers at UAIC.",
+      "keywords": "uaic, research, innovation, science, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/international/",
+      "description": "International relations and programs at UAIC.",
+      "keywords": "uaic, international, erasmus, exchange, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/absolventi/",
+      "description": "Alumni section of UAIC.",
+      "keywords": "uaic, alumni, graduates, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/iasi-2/",
+      "description": "Information about the city of Iași for prospective UAIC students.",
+      "keywords": "uaic, iasi, city, living, romania",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/registration-for-eu-citizens/",
+      "description": "Registration process for EU citizens applying to UAIC.",
+      "keywords": "uaic, eu citizens, registration, admission, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/registration-for-non-eu-citizens/",
+      "description": "Registration process for non-EU citizens applying to UAIC.",
+      "keywords": "uaic, non-eu, registration, admission, international, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/143014-2/",
+      "description": "Recognition of previous university studies at UAIC.",
+      "keywords": "uaic, recognition, previous studies, credits, transfer, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/international/international-students/full-degree-students/registration-for-non-eu-citizens/study-fees-2026-2027/",
+      "description": "Study fees for non-EU students at UAIC for the 2026–2027 academic year.",
+      "keywords": "uaic, fees, tuition, non-eu, 2026, 2027, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/wp-content/uploads/2025/06/Academic-calendar-25-26.pdf",
+      "description": "Academic calendar 2025–2026 for UAIC.",
+      "keywords": "uaic, academic calendar, schedule, 2025, 2026, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/wp-content/uploads/2026/04/Campus-map-UAIC.pdf",
+      "description": "Campus map of Alexandru Ioan Cuza University (UAIC).",
+      "keywords": "uaic, campus map, buildings, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/libraries-iasi/",
+      "description": "Library and learning facilities at UAIC for incoming Erasmus students.",
+      "keywords": "uaic, library, learning, facilities, erasmus, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/internet-facilities/",
+      "description": "Internet facilities at UAIC for international students.",
+      "keywords": "uaic, internet, wifi, facilities, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/student-associations/",
+      "description": "Student associations at UAIC.",
+      "keywords": "uaic, student associations, clubs, organizations, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/recognition-procedures/",
+      "description": "Recognition procedures for credits and degrees at UAIC.",
+      "keywords": "uaic, recognition, credits, procedures, erasmus, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/romanian-grading-scale/",
+      "description": "Romanian grading scale explanation for international students at UAIC.",
+      "keywords": "uaic, grading, grades, romania, scale, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/bologna-process/",
+      "description": "Bologna process information for UAIC international students.",
+      "keywords": "uaic, bologna, ects, credits, system, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/erasmus-day/",
+      "description": "Erasmus Day events at UAIC.",
+      "keywords": "uaic, erasmus day, international, events, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/cost-living/",
+      "description": "Cost of living in Iași for international students at UAIC.",
+      "keywords": "uaic, cost of living, budget, iasi, student life",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/meals/",
+      "description": "Meals and dining options for students at UAIC.",
+      "keywords": "uaic, meals, canteen, food, dining, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/copou-student-medical-center/",
+      "description": "Medical services at UAIC's Copou student medical center.",
+      "keywords": "uaic, medical, health, student center, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/facilities-special-needs-students/",
+      "description": "Facilities for students with special needs at UAIC.",
+      "keywords": "uaic, special needs, accessibility, facilities, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/sports-leisure-facilities/",
+      "description": "Sports and leisure facilities at UAIC for students.",
+      "keywords": "uaic, sports, leisure, gym, recreation, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/main-local-events/",
+      "description": "Main local events in Iași for UAIC students.",
+      "keywords": "uaic, events, culture, iasi, student life",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/meet-city-iasi/",
+      "description": "Guide to the city of Iași for UAIC international students.",
+      "keywords": "uaic, iasi, city guide, tourism, sightseeing",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/extra-mural-activities/",
+      "description": "Extra-mural and extracurricular activities at UAIC.",
+      "keywords": "uaic, extracurricular, activities, student life, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.bio.uaic.ro/",
+      "description": "Faculty of Biology at UAIC.",
+      "keywords": "uaic, biology, biochemistry, ecology, faculty, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-biologie"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.chem.uaic.ro/en/",
+      "description": "Faculty of Chemistry at UAIC.",
+      "keywords": "uaic, chemistry, chemical, faculty, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-chimie"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.feaa.uaic.ro/en",
+      "description": "Faculty of Economics and Business Administration at UAIC.",
+      "keywords": "uaic, economics, business administration, management, faculty, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-economie"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.geo.uaic.ro/",
+      "description": "Faculty of Geography and Geology at UAIC.",
+      "keywords": "uaic, geography, geology, faculty, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-geografie-geologie"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://history.uaic.ro/",
+      "description": "Faculty of History at UAIC.",
+      "keywords": "uaic, history, faculty, humanities, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-istorie"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://litere.uaic.ro/",
+      "description": "Faculty of Letters at UAIC.",
+      "keywords": "uaic, letters, literature, languages, philology, faculty, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-litere"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.math.uaic.ro/index.php?lb=1&id=0&cod=&tip=&an=&cat=&subcat=",
+      "description": "Faculty of Mathematics at UAIC.",
+      "keywords": "uaic, mathematics, faculty, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-matematica"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.teologie.uaic.ro/",
+      "description": "Faculty of Orthodox Theology at UAIC.",
+      "keywords": "uaic, orthodox theology, theology, faculty, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-teologie-ortodoxa"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.fssp.uaic.ro/en/",
+      "description": "Faculty of Philosophy and Social-Political Sciences at UAIC.",
+      "keywords": "uaic, philosophy, political science, social sciences, faculty, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-filozofie-stiinte-social-politice"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.psih.uaic.ro/",
+      "description": "Faculty of Psychology and Education Sciences at UAIC.",
+      "keywords": "uaic, psychology, education, sciences, faculty, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-psihologie-stiintele-educatiei"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "http://www.ftrc.uaic.ro/",
+      "description": "Faculty of Roman-Catholic Theology at UAIC.",
+      "keywords": "uaic, roman catholic, theology, faculty, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-teologie-romano-catolica"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/studies/doctoral-schools/",
+      "description": "Doctoral schools at UAIC.",
+      "keywords": "uaic, doctoral, phd, research, studies, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/cercetare/department-research-project-management/",
+      "description": "Department for Research and Project Management at UAIC.",
+      "keywords": "uaic, research, projects, management, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/jassy/",
+      "description": "Jassy Summer School 2025 at UAIC.",
+      "keywords": "uaic, jassy summer school, 2025, international, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/explore-iasi/",
+      "description": "Explore the city of Iași – guide for UAIC students and visitors.",
+      "keywords": "uaic, iasi, explore, tourism, city, romania",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/gradina-botanica-anastasie-fatu/",
+      "description": "Anastasie Fătu Botanical Garden at UAIC.",
+      "keywords": "uaic, botanical garden, nature, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/planetarium/",
+      "description": "Planetarium at UAIC.",
+      "keywords": "uaic, planetarium, astronomy, science, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.uaic.ro/en/natural-history-museum/",
+      "description": "Natural History Museum at UAIC.",
+      "keywords": "uaic, natural history, museum, iasi",
+      "university": "UAIC",
+      "faculty": "uaic-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Pages/Admission-2026.aspx",
+      "description": "Admission page for the 2026 intake at Grigore T. Popa University of Medicine and Pharmacy (UMF) Iași.",
+      "keywords": "umf iasi, admission, 2026, medicine, pharmacy, dentistry",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Pages/Medical-doctor.aspx",
+      "description": "Medical Doctor undergraduate program at UMF Iași.",
+      "keywords": "umf iasi, medical doctor, medicine, bachelor, admission",
+      "university": "UMF",
+      "faculty": "umf-medicina-generala"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Pages/Medical-doctor---dentist.aspx",
+      "description": "Medical Doctor – Dentist undergraduate program at UMF Iași (70 places).",
+      "keywords": "umf iasi, dentist, dental medicine, bachelor, admission",
+      "university": "UMF",
+      "faculty": "umf-medicina-dentara"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Pages/Pharmacist.aspx",
+      "description": "Pharmacist undergraduate program at UMF Iași (50 places).",
+      "keywords": "umf iasi, pharmacist, pharmacy, bachelor, admission",
+      "university": "UMF",
+      "faculty": "umf-farmacie"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Pages/Physio-kinesitherapist.aspx",
+      "description": "Physio-Kinesitherapist undergraduate program at UMF Iași (45 places).",
+      "keywords": "umf iasi, physiotherapy, kinesitherapy, rehabilitation, bachelor, admission",
+      "university": "UMF",
+      "faculty": "umf-bioinginerie-medicala"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Metodologie%20admitere%20EN%20final%20senat%202026-2027.pdf",
+      "description": "Admission methodology document for UMF Iași 2026–2027.",
+      "keywords": "umf iasi, admission methodology, 2026, 2027, document, pdf",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/calendar%202026-2027%20eng.pdf",
+      "description": "Admission timetable/calendar for UMF Iași 2026–2027.",
+      "keywords": "umf iasi, admission calendar, timetable, 2026, 2027",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%201%20-%20Accepted%20language%20skills.pdf",
+      "description": "Accepted language skills for admission at UMF Iași 2026–2027.",
+      "keywords": "umf iasi, language skills, english, admission, requirements",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%202%20-%20Evaluation%20grid.pdf",
+      "description": "Evaluation grid for UMF Iași admission 2026–2027.",
+      "keywords": "umf iasi, evaluation, grid, admission, scoring",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%204%20Declaration.pdf",
+      "description": "Declaration form (Annex 4) for UMF Iași admission 2026–2027.",
+      "keywords": "umf iasi, declaration, form, admission, document",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%205%20Declaration%20regarding%20the%20study%20program%20and%20the%20chosen%20option.pdf",
+      "description": "Declaration regarding study program and chosen option (Annex 5) for UMF Iași admission 2026–2027.",
+      "keywords": "umf iasi, study program, option, declaration, admission",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/Annex%206%20Agreement%20GDPR.pdf",
+      "description": "GDPR agreement form (Annex 6) for UMF Iași admission 2026–2027.",
+      "keywords": "umf iasi, GDPR, agreement, form, admission",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/cerere-recunoastere-studii-cetateni-europeni-admitere-licenta_2026_en.pdf",
+      "description": "Application for recognition of studies for EU citizens enrolling at UMF Iași 2026–2027.",
+      "keywords": "umf iasi, recognition, eu citizens, studies, application, 2026",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Documents/2026-2027/CPV_Application%20form%202026-2027.pdf",
+      "description": "Application form for Letter of Acceptance for non-EU students at UMF Iași 2026–2027.",
+      "keywords": "umf iasi, non-eu, letter of acceptance, application form, 2026",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/admission/Pages/Admission-step-by-step.aspx",
+      "description": "Step-by-step admission guide for UMF Iași.",
+      "keywords": "umf iasi, admission, step by step, guide, how to apply",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/university/Pages/Carta-universității.aspx",
+      "description": "University charter of UMF Iași.",
+      "keywords": "umf iasi, charter, regulations, university, iasi",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/academic/facultati/Pages/default.aspx",
+      "description": "Faculties overview at UMF Iași.",
+      "keywords": "umf iasi, faculties, medicine, pharmacy, dentistry, iasi",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/academic/program-de-licenta/Pages/default.aspx",
+      "description": "Undergraduate degree programs at UMF Iași.",
+      "keywords": "umf iasi, bachelor, undergraduate, programs, iasi",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/academic/Pages/Academic-calendar.aspx",
+      "description": "Academic calendar at UMF Iași.",
+      "keywords": "umf iasi, academic calendar, schedule, iasi",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://catalog.umfiasi.ro/login?language=RO",
+      "description": "Student catalog login portal at UMF Iași.",
+      "keywords": "umf iasi, catalog, student portal, login",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/academic/Pages/Scholarships.aspx",
+      "description": "Scholarships available for students at UMF Iași.",
+      "keywords": "umf iasi, scholarships, financial aid, funding, iasi",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/academic/Pages/University-fees.aspx",
+      "description": "University fees at UMF Iași.",
+      "keywords": "umf iasi, fees, tuition, cost, iasi",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/academic/Pages/Academic-Mobility.aspx",
+      "description": "Academic mobility programs at UMF Iași.",
+      "keywords": "umf iasi, academic mobility, erasmus, exchange, iasi",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/university/Pages/despre-umf-iasi.aspx",
+      "description": "About UMF Iași – general information.",
+      "keywords": "umf iasi, about, history, university, iasi",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/university/university-leadership/Pages/default.aspx",
+      "description": "University leadership and management structure at UMF Iași.",
+      "keywords": "umf iasi, leadership, rector, senate, management",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/university/Pages/International-relations.aspx",
+      "description": "International relations and partnerships at UMF Iași.",
+      "keywords": "umf iasi, international, erasmus, partnerships, iasi",
+      "university": "UMF",
+      "faculty": "umf-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/academic/facultati/medicina-generala/Pages/Bachelor-degree-programmes.aspx",
+      "description": "Bachelor's degree programs at the Faculty of Medicine, UMF Iași.",
+      "keywords": "umf iasi, medicine, bachelor, programs, general medicine",
+      "university": "UMF",
+      "faculty": "umf-medicina-generala"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/academic/facultati/medicina-generala/Pages/Masters-programs.aspx",
+      "description": "Master's programs at the Faculty of Medicine, UMF Iași.",
+      "keywords": "umf iasi, medicine, master, programs",
+      "university": "UMF",
+      "faculty": "umf-medicina-generala"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/academic/facultati/medical-bioengineering/Pages/English-programs.aspx",
+      "description": "English-language programs at the Faculty of Medical Bioengineering, UMF Iași.",
+      "keywords": "umf iasi, bioengineering, english, programs, medical",
+      "university": "UMF",
+      "faculty": "umf-bioinginerie-medicala"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/academic/facultati/medical-bioengineering/Pages/Bachelor-degree-programmes.aspx",
+      "description": "Bachelor's degree programs at the Faculty of Medical Bioengineering, UMF Iași.",
+      "keywords": "umf iasi, bioengineering, bachelor, programs",
+      "university": "UMF",
+      "faculty": "umf-bioinginerie-medicala"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.umfiasi.ro/en/academic/facultati/medical-bioengineering/Pages/Masters-programs.aspx",
+      "description": "Master's programs at the Faculty of Medical Bioengineering, UMF Iași.",
+      "keywords": "umf iasi, bioengineering, master, programs",
+      "university": "UMF",
+      "faculty": "umf-bioinginerie-medicala"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/",
+      "description": "Official website of George Enescu National University of Arts (UNAGE) Iași.",
+      "keywords": "unage, george enescu, arts, iasi, university",
+      "university": "UNAGE",
+      "faculty": "unage-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/about-unage/",
+      "description": "About UNAGE – George Enescu National University of Arts Iași.",
+      "keywords": "unage, about, arts, george enescu, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/admissions/",
+      "description": "Admissions page for UNAGE – George Enescu National University of Arts Iași.",
+      "keywords": "unage, admissions, apply, arts, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/international-relations/",
+      "description": "International relations at UNAGE Iași.",
+      "keywords": "unage, international, erasmus, exchange, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/international-relations/exchange-students/",
+      "description": "Erasmus+ and exchange student programs at UNAGE Iași.",
+      "keywords": "unage, erasmus, exchange students, international, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/international-relations/international-students/",
+      "description": "Academic calendar and information for international students at UNAGE Iași.",
+      "keywords": "unage, academic calendar, international students, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/research/",
+      "description": "Research activities at UNAGE – George Enescu National University of Arts Iași.",
+      "keywords": "unage, research, arts, ICMA, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/category/events/",
+      "description": "Events at UNAGE – George Enescu National University of Arts Iași.",
+      "keywords": "unage, events, concerts, exhibitions, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/university-galleries/",
+      "description": "University galleries at UNAGE Iași.",
+      "keywords": "unage, galleries, art, exhibitions, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/scientific-journals/",
+      "description": "Scientific journals published by UNAGE Iași.",
+      "keywords": "unage, journals, publications, research, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/faculty-of-performance-composition-and-music-theory-studies/",
+      "description": "Faculty of Performance, Composition and Music Theory Studies at UNAGE Iași.",
+      "keywords": "unage, music, performance, composition, music theory, faculty, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-interpretare-compozitie-muzicologie"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/faculty-of-theatre/",
+      "description": "Faculty of Theatre at UNAGE Iași.",
+      "keywords": "unage, theatre, acting, drama, faculty, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-teatru"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/faculty-of-visual-arts-and-design-2/",
+      "description": "Faculty of Visual Arts and Design at UNAGE Iași.",
+      "keywords": "unage, visual arts, design, fine arts, faculty, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-arte-vizuale-design"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.arteiasi.ro/en/department-for-teachers-education/",
+      "description": "Department for Teachers Education (DPPD) at UNAGE Iași.",
+      "keywords": "unage, teachers education, DPPD, pedagogy, faculty, iasi",
+      "university": "UNAGE",
+      "faculty": "unage-dppd"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/en/",
+      "description": "Official website of Ion Ionescu de la Brad University of Life Sciences (IULS) Iași.",
+      "keywords": "iuls, life sciences, agriculture, veterinary, iasi, university",
+      "university": "IULS",
+      "faculty": "iuls-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/",
+      "description": "Faculty of Agriculture at IULS Iași.",
+      "keywords": "iuls, agriculture, agronomy, food engineering, biology, faculty, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/brief-history/",
+      "description": "Brief history of the Faculty of Agriculture at IULS Iași, founded in 1912.",
+      "keywords": "iuls, agriculture, history, faculty, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/deans-welcome/",
+      "description": "Dean's welcome message at the Faculty of Agriculture, IULS Iași.",
+      "keywords": "iuls, dean, agriculture, welcome, faculty, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/international-relations/",
+      "description": "International relations at the Faculty of Agriculture, IULS Iași.",
+      "keywords": "iuls, international, erasmus, exchange, agriculture, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/managing-board/",
+      "description": "Managing board of the Faculty of Agriculture at IULS Iași.",
+      "keywords": "iuls, management, board, agriculture, faculty, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/bachelors-degree/",
+      "description": "Bachelor's degree programs at the Faculty of Agriculture, IULS Iași (Agronomy, Food Engineering, Biology, Engineering and Management in Agriculture).",
+      "keywords": "iuls, bachelor, agronomy, biology, food engineering, agriculture, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/masters-degree/",
+      "description": "Master's degree programs at the Faculty of Agriculture, IULS Iași.",
+      "keywords": "iuls, master, agriculture, food engineering, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/doctoral-studies/",
+      "description": "Doctoral studies at the Faculty of Agriculture, IULS Iași.",
+      "keywords": "iuls, doctoral, phd, agriculture, research, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/distance-learning/",
+      "description": "Distance learning programs at the Faculty of Agriculture, IULS Iași.",
+      "keywords": "iuls, distance learning, online, agriculture, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/admission/",
+      "description": "Admission information for the Faculty of Agriculture at IULS Iași.",
+      "keywords": "iuls, admission, agriculture, apply, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/students/",
+      "description": "Student resources and information at the Faculty of Agriculture, IULS Iași.",
+      "keywords": "iuls, students, resources, agriculture, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/agricultura/en/research/",
+      "description": "Research activities at the Faculty of Agriculture, IULS Iași.",
+      "keywords": "iuls, research, agriculture, science, iasi",
+      "university": "IULS",
+      "faculty": "iuls-agricultura"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://iuls.ro/en/students/campus-map/",
+      "description": "Campus map for IULS Iași – Ion Ionescu de la Brad University of Life Sciences.",
+      "keywords": "iuls, campus map, buildings, locations, iasi",
+      "university": "IULS",
+      "faculty": "iuls-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/",
+      "description": "Official website of Petre Andrei University (UPA) Iași, the largest private university in Moldavia.",
+      "keywords": "upa, petre andrei, private university, iasi, romania",
+      "university": "UPA",
+      "faculty": "upa-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/admitere-2025-2026-2/",
+      "description": "Admission information for Petre Andrei University (UPA) Iași for 2025–2026.",
+      "keywords": "upa, admission, 2025, 2026, apply, iasi",
+      "university": "UPA",
+      "faculty": "upa-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/conducerea-universitatii/",
+      "description": "University management at Petre Andrei University (UPA) Iași.",
+      "keywords": "upa, management, leadership, rector, iasi",
+      "university": "UPA",
+      "faculty": "upa-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/organizare/",
+      "description": "Organizational structure of Petre Andrei University (UPA) Iași.",
+      "keywords": "upa, organization, structure, departments, iasi",
+      "university": "UPA",
+      "faculty": "upa-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/facultatea-de-drept-economie-stiinte-politice-si-administrative/",
+      "description": "Faculty of Law, Economics, Political and Administrative Sciences at UPA Iași.",
+      "keywords": "upa, law, economics, political science, administrative, faculty, iasi",
+      "university": "UPA",
+      "faculty": "upa-drept-economie-stiinte-politice"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/taxe_sc/",
+      "description": "School fees and tuition information at Petre Andrei University (UPA) Iași.",
+      "keywords": "upa, fees, tuition, cost, iasi",
+      "university": "UPA",
+      "faculty": "upa-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/acreditare_upa/",
+      "description": "Accreditation details of Petre Andrei University (UPA) Iași.",
+      "keywords": "upa, accreditation, recognition, ministry, iasi",
+      "university": "UPA",
+      "faculty": "upa-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/alumni/",
+      "description": "Alumni network of Petre Andrei University (UPA) Iași.",
+      "keywords": "upa, alumni, graduates, network, iasi",
+      "university": "UPA",
+      "faculty": "upa-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/ghidul-studentilor-pachet-informativ/",
+      "description": "Student guide and information package at UPA Iași.",
+      "keywords": "upa, student guide, information, resources, iasi",
+      "university": "UPA",
+      "faculty": "upa-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/contact-2/",
+      "description": "Contact information for Petre Andrei University (UPA) Iași.",
+      "keywords": "upa, contact, address, phone, email, iasi",
+      "university": "UPA",
+      "faculty": "upa-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/cursuri-postuniversitare-2021-2022/",
+      "description": "Postgraduate courses at Petre Andrei University (UPA) Iași.",
+      "keywords": "upa, postgraduate, continuing education, courses, iasi",
+      "university": "UPA",
+      "faculty": "upa-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/biblioteca_upa/",
+      "description": "Library at Petre Andrei University (UPA) Iași.",
+      "keywords": "upa, library, books, resources, iasi",
+      "university": "UPA",
+      "faculty": "upa-general"
+    },
+    {
+      "category": "OFFICIAL",
+      "url": "https://www.upa.ro/en/structura-an-universitar-2/",
+      "description": "Academic year structure at Petre Andrei University (UPA) Iași.",
+      "keywords": "upa, academic year, structure, calendar, iasi",
+      "university": "UPA",
+      "faculty": "upa-general"
+    }
+  ],
   "activities": [
     {
-      "name": "International student mixer — Iași",
+      "name": "ESN Iași — Erasmus Student Network",
       "type": "Club",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0001",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
+      "target": [
+        "Erasmus+",
+        "EU Students",
+        "New Arrivals"
+      ],
+      "link": "https://www.iasi.esn.ro/",
+      "description": "Rețea de voluntari pentru studenți internaționali și Erasmus în Iași: excursii, petreceri, buddy și evenimente de integrare.",
+      "keywords": "esn, erasmus, international, volunteering, iasi",
       "meeting_location": "On-campus",
       "schedule": "Weekly"
     },
     {
-      "name": "Campus football league — Bucharest",
+      "name": "Voluntariat ESN Iași",
+      "type": "Volunteering",
+      "target": [
+        "Erasmus+",
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://www.iasi.esn.ro/join-esn-iasi",
+      "description": "Înscriere ca voluntar ESN (Evenimente, HR sau PR) pentru a organiza activități pentru studenți de schimb.",
+      "keywords": "esn, volunteer, events, international, iasi",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "ESN Iași — Evenimente naționale",
       "type": "Event",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0002",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Cluj-Napoca",
-      "type": "Sport",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0003",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Timișoara",
-      "type": "Volunteering",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0004",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
-      "meeting_location": "On-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Thesis writing circle — Brașov",
-      "type": "Study Group",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0005",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
-      "meeting_location": "Off-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Erasmus info session — Constanța",
-      "type": "Cultural",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0006",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Hiking club weekend — Craiova",
-      "type": "Club",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0007",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
-      "meeting_location": "On-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Board games café meetup — Sibiu",
-      "type": "Club",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0008",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
+      "target": [
+        "Erasmus+",
+        "EU Students"
+      ],
+      "link": "https://www.iasi.esn.ro/national-events",
+      "description": "Excursii și festivaluri la nivel național pentru Erasmus (ex. Halloween in Transylvania, Escape to Vama Veche).",
+      "keywords": "esn, trips, festival, erasmus, romania",
       "meeting_location": "Off-campus",
       "schedule": "One-time"
     },
     {
-      "name": "Coding lab hours — Oradea",
-      "type": "Sport",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0009",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Galați",
-      "type": "Volunteering",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0010",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
+      "name": "AIESEC România — stagii și voluntariat internațional",
+      "type": "Club",
+      "target": [
+        "First Year",
+        "Graduate",
+        "EU Students",
+        "Non-EU Students"
+      ],
+      "link": "https://www.aiesec.org.ro/",
+      "description": "ONG condus de tineri: stagii globale, proiecte de voluntariat și programe de leadership; birou local sprijină studenții din Iași.",
+      "keywords": "aiesec, internship, leadership, international, volunteering",
       "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Iași",
-      "type": "Study Group",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0011",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
-      "meeting_location": "Off-campus",
       "schedule": "Monthly"
     },
     {
-      "name": "Public speaking club — Bucharest",
-      "type": "Cultural",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0012",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
-    },
-    {
-      "name": "International student mixer — Cluj-Napoca",
+      "name": "Liga AC (LSAC) — viață studențească IT la TUIASI",
       "type": "Club",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0013",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
+      "target": [
+        "First Year",
+        "EU Students"
+      ],
+      "link": "https://ligaac.ro/",
+      "description": "Liga studenților de la Facultatea de Automatică și Calculatoare: ITMarathon, LanParty, workshopuri și evenimente pe campusul Tudor Vladimirescu.",
+      "keywords": "lsac, liga ac, programming, tuiasi, it, iasi",
       "meeting_location": "On-campus",
-      "schedule": "Weekly"
+      "schedule": "Monthly"
     },
     {
-      "name": "Campus football league — Timișoara",
+      "name": "LSAC Iași — proiecte și recrutare",
       "type": "Event",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0014",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Brașov",
-      "type": "Cultural",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0015",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Constanța",
-      "type": "Volunteering",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0016",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
+      "target": [
+        "First Year",
+        "Graduate"
+      ],
+      "link": "https://lsaciasi.ro/",
+      "description": "Site oficial LSAC: ITMarathon, LanParty, Balul Bobocilor și cum te implici în organizație.",
+      "keywords": "lsac, itmarathon, lanparty, tuiasi, students",
       "meeting_location": "On-campus",
       "schedule": "One-time"
     },
     {
-      "name": "Thesis writing circle — Craiova",
-      "type": "Study Group",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0017",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
-      "meeting_location": "Off-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Erasmus info session — Sibiu",
-      "type": "Cultural",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0018",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Hiking club weekend — Oradea",
+      "name": "BEST Iași — Board of European Students of Technology",
       "type": "Club",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0019",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
+      "target": [
+        "First Year",
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://bestis.ro/",
+      "description": "ONG studențesc la TUIASI în rețeaua BEST europeană: competiții inginerești, summer courses, JobShop și techathonul PROVE IT.",
+      "keywords": "best, engineering, tuiasi, competition, technology",
       "meeting_location": "On-campus",
       "schedule": "Monthly"
     },
     {
-      "name": "Board games café meetup — Galați",
+      "name": "BEST Iași — PROVE IT & symposium",
       "type": "Event",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0020",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
-      "meeting_location": "Off-campus",
+      "target": [
+        "Graduate",
+        "EU Students"
+      ],
+      "link": "https://bestis.ro/despre-noi/",
+      "description": "Evenimente anuale BEST Iași: PROVE IT (techathon 24h), BEST Symposium și cursuri de vară BEST în Europa.",
+      "keywords": "best, techathon, prove it, hackathon, tuiasi",
+      "meeting_location": "On-campus",
       "schedule": "One-time"
     },
     {
-      "name": "Coding lab hours — Iași",
-      "type": "Sport",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0021",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Bucharest",
-      "type": "Cultural",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0022",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
+      "name": "IEEE Student Branch — TUIASI",
+      "type": "Club",
+      "target": [
+        "Graduate",
+        "PhD",
+        "EU Students"
+      ],
+      "link": "https://edu.ieee.org/ro-gaitu/",
+      "description": "Filiala IEEE la Universitatea Tehnică Gheorghe Asachi: prezentări tehnice, workshopuri și networking pentru studenți ETTI.",
+      "keywords": "ieee, electronics, engineering, tuiasi, workshops",
       "meeting_location": "On-campus",
       "schedule": "Biweekly"
     },
     {
-      "name": "River clean-up day — Cluj-Napoca",
-      "type": "Study Group",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0023",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
-      "meeting_location": "Off-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Public speaking club — Timișoara",
-      "type": "Cultural",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0024",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
-    },
-    {
-      "name": "International student mixer — Brașov",
+      "name": "TUIASI — Organizații studențești (campus Tudor Vladimirescu)",
       "type": "Club",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0025",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
+      "target": [
+        "First Year",
+        "New Arrivals",
+        "Non-EU Students"
+      ],
+      "link": "https://campus.tuiasi.ro/en/student-organisations/",
+      "description": "Lista oficială a ONG-urilor studențești pe campus: BEST, LSAC, ASII și ligi de facultate.",
+      "keywords": "tuiasi, campus, student organisations, ngo, iasi",
       "meeting_location": "On-campus",
       "schedule": "Weekly"
     },
     {
-      "name": "Campus football league — Constanța",
+      "name": "Zilele Campusului Tudor Vladimirescu (TUIASI)",
       "type": "Event",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0026",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Craiova",
-      "type": "Sport",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0027",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Sibiu",
-      "type": "Volunteering",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0028",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
+      "target": [
+        "First Year",
+        "EU Students",
+        "Erasmus+"
+      ],
+      "link": "https://campus.tuiasi.ro/",
+      "description": "Festival studențesc de câteva zile pe campus: concerte, sport, târg de joburi și petreceri — printre cele mai mari evenimente universitare din România.",
+      "keywords": "tuiasi, festival, campus, concert, student life",
       "meeting_location": "On-campus",
       "schedule": "One-time"
     },
     {
-      "name": "Thesis writing circle — Oradea",
-      "type": "Study Group",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0029",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
-      "meeting_location": "Off-campus",
+      "name": "Liga Studenților Economiști (LSE Iași)",
+      "type": "Club",
+      "target": [
+        "First Year",
+        "EU Students"
+      ],
+      "link": "https://lse.ro/",
+      "description": "ONG al studenților FEAA de la UAIC: proiecte profesionale, săptămâna bobocilor, Zilele Studentului Economist și voluntariat.",
+      "keywords": "lse, economics, feaa, uaic, business, iasi",
+      "meeting_location": "On-campus",
       "schedule": "Weekly"
     },
     {
-      "name": "Erasmus info session — Galați",
-      "type": "Cultural",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0030",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Hiking club weekend — Iași",
-      "type": "Club",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0031",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
-      "meeting_location": "On-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Board games café meetup — Bucharest",
+      "name": "LSE Iași — proiecte și evenimente",
       "type": "Event",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0032",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
-      "meeting_location": "Off-campus",
+      "target": [
+        "First Year",
+        "Graduate"
+      ],
+      "link": "https://lse.ro/proiecte/",
+      "description": "Calendar LSE: Zilele Studentului Economist, Iași Street Games, Balul Bobocilor și participare la FestudIS.",
+      "keywords": "lse, festival, sports, feaa, uaic",
+      "meeting_location": "Hybrid",
       "schedule": "One-time"
     },
     {
-      "name": "Coding lab hours — Cluj-Napoca",
-      "type": "Sport",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0033",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Timișoara",
-      "type": "Volunteering",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0034",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
+      "name": "FEAA UAIC — Organizații studențești",
+      "type": "Club",
+      "target": [
+        "EU Students",
+        "Erasmus+"
+      ],
+      "link": "https://www.feaa.uaic.ro/students/student-organizations/?lang=en",
+      "description": "Pagină oficială FEAA cu LSE, CEAI și alte ONG-uri economice — contacte și misiuni.",
+      "keywords": "feaa, uaic, student organizations, economics, iasi",
       "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Brașov",
-      "type": "Study Group",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0035",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
-      "meeting_location": "Off-campus",
       "schedule": "Monthly"
     },
     {
-      "name": "Public speaking club — Constanța",
+      "name": "UAIC — Asociații studențești (ghid Erasmus)",
       "type": "Club",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0036",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
+      "target": [
+        "Erasmus+",
+        "New Arrivals"
+      ],
+      "link": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/student-associations/",
+      "description": "Prezentare a asociațiilor studențești de la Universitatea Alexandru Ioan Cuza pentru studenți internaționali.",
+      "keywords": "uaic, associations, erasmus, clubs, iasi",
+      "meeting_location": "On-campus",
+      "schedule": "Monthly"
     },
     {
-      "name": "International student mixer — Craiova",
-      "type": "Club",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0037",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
+      "name": "UAIC — Activități extrașcolare",
+      "type": "Cultural",
+      "target": [
+        "Erasmus+",
+        "EU Students",
+        "First Year"
+      ],
+      "link": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/extra-mural-activities/",
+      "description": "Ghid universitar la cluburi, activități culturale și viață studențească în afara cursurilor.",
+      "keywords": "uaic, extracurricular, culture, student life",
+      "meeting_location": "Hybrid",
+      "schedule": "Weekly"
+    },
+    {
+      "name": "UAIC — Facilități sport și timp liber",
+      "type": "Sport",
+      "target": [
+        "EU Students",
+        "Non-EU Students",
+        "First Year"
+      ],
+      "link": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/sports-leisure-facilities/",
+      "description": "Săli de sport și opțiuni de recreere pentru studenții UAIC în Iași.",
+      "keywords": "uaic, sports, gym, fitness, leisure",
       "meeting_location": "On-campus",
       "schedule": "Weekly"
     },
     {
-      "name": "Campus football league — Sibiu",
+      "name": "Erasmus Day la UAIC",
       "type": "Event",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0038",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Oradea",
-      "type": "Sport",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0039",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Galați",
-      "type": "Volunteering",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0040",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
+      "target": [
+        "Erasmus+",
+        "EU Students"
+      ],
+      "link": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/erasmus-day/",
+      "description": "Sărbătoare anuală Erasmus+ la UAIC: standuri informaționale, workshopuri și networking.",
+      "keywords": "erasmus day, uaic, mobility, international",
       "meeting_location": "On-campus",
       "schedule": "One-time"
     },
     {
-      "name": "Thesis writing circle — Iași",
-      "type": "Study Group",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0041",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
-      "meeting_location": "Off-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Erasmus info session — Bucharest",
-      "type": "Cultural",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0042",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
+      "name": "IEEE Student Branch — UAIC (Fizică)",
+      "type": "Club",
+      "target": [
+        "Graduate",
+        "PhD"
+      ],
+      "link": "https://stoner.phys.uaic.ro/ieee/ieee-student-branch-iasi.html",
+      "description": "Filială IEEE la Facultatea de Fizică UAIC: seminarii pentru studenți interesați de inginerie și științe aplicate.",
+      "keywords": "ieee, uaic, physics, engineering, seminars",
+      "meeting_location": "On-campus",
       "schedule": "Biweekly"
     },
     {
-      "name": "Hiking club weekend — Cluj-Napoca",
-      "type": "Sport",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0043",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
+      "name": "Casa de Cultură a Studenților Iași (CCS)",
+      "type": "Cultural",
+      "target": [
+        "First Year",
+        "EU Students",
+        "Erasmus+"
+      ],
+      "link": "https://www.ccsiasi.ro/",
+      "description": "Casa de cultură studențească din 1957: cursuri de artă, training leadership, festivaluri pe Bd. Carol I.",
+      "keywords": "ccs, culture, arts, student house, iasi",
       "meeting_location": "On-campus",
-      "schedule": "Monthly"
+      "schedule": "Weekly"
     },
     {
-      "name": "Board games café meetup — Timișoara",
+      "name": "FEStudIS — Festivalul Studenților Ieșeni",
       "type": "Event",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0044",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
+      "target": [
+        "First Year",
+        "EU Students",
+        "Erasmus+"
+      ],
+      "link": "https://www.ccsiasi.ro/evenimente-2/festudis-2023",
+      "description": "Cel mai mare festival studențesc din Iași (început de mai): paradă ONG-uri, concerte, teatru, workshopuri și sport.",
+      "keywords": "festudis, festival, parade, students, iasi",
       "meeting_location": "Off-campus",
       "schedule": "One-time"
     },
     {
-      "name": "Coding lab hours — Brașov",
-      "type": "Sport",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0045",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Constanța",
+      "name": "Habitat for Humanity — Hope Build (voluntariat construcții)",
       "type": "Volunteering",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0046",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
-      "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Craiova",
-      "type": "Study Group",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0047",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
+      "target": [
+        "EU Students",
+        "Graduate",
+        "First Year"
+      ],
+      "link": "https://www.habitat.ro/hopebuild-fiivoluntar/",
+      "description": "Construcție accelerată de locuințe; echipe de studenți din zona Iași (ex. Țuțora) pot participa 1–5 zile.",
+      "keywords": "habitat, volunteering, construction, community, iasi",
       "meeting_location": "Off-campus",
-      "schedule": "Monthly"
+      "schedule": "One-time"
     },
     {
-      "name": "Public speaking club — Sibiu",
+      "name": "Palatul Culturii Iași — muzee",
       "type": "Cultural",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0048",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
-    },
-    {
-      "name": "International student mixer — Oradea",
-      "type": "Club",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0049",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
-      "meeting_location": "On-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Campus football league — Galați",
-      "type": "Sport",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0050",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Iași",
-      "type": "Sport",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0051",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Bucharest",
-      "type": "Volunteering",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0052",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
-      "meeting_location": "On-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Thesis writing circle — Cluj-Napoca",
-      "type": "Study Group",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0053",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
+      "target": [
+        "Erasmus+",
+        "New Arrivals",
+        "EU Students"
+      ],
+      "link": "https://palatulculturii.ro/",
+      "description": "Complex cultural emblematic: muzee de istorie, artă și știință, foarte vizitat de studenți internaționali.",
+      "keywords": "museum, culture, history, tourism, iasi",
       "meeting_location": "Off-campus",
       "schedule": "Weekly"
     },
     {
-      "name": "Erasmus info session — Timișoara",
+      "name": "Teatrul Național „Vasile Alecsandri” Iași",
       "type": "Cultural",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0054",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
+      "target": [
+        "EU Students",
+        "Erasmus+"
+      ],
+      "link": "https://www.teatrulnationaliasi.ro/",
+      "description": "Teatru național cu spectacole în română și internaționale; bilete reduse pentru studenți.",
+      "keywords": "theatre, culture, performances, iasi",
+      "meeting_location": "Off-campus",
+      "schedule": "Weekly"
     },
     {
-      "name": "Hiking club weekend — Brașov",
-      "type": "Club",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0055",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
-      "meeting_location": "On-campus",
+      "name": "Muzeul Unirii Iași",
+      "type": "Cultural",
+      "target": [
+        "New Arrivals",
+        "Erasmus+"
+      ],
+      "link": "https://www.muzeulunirii.ro/",
+      "description": "Muzeul Unirii în Palatul Culturii — istorie românească; vizite frecvente în grupuri studențești.",
+      "keywords": "museum, history, union, culture, iasi",
+      "meeting_location": "Off-campus",
       "schedule": "Monthly"
     },
     {
-      "name": "Board games café meetup — Constanța",
+      "name": "UAIC — Evenimente locale principale în Iași",
       "type": "Event",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0056",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
-      "meeting_location": "Off-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Coding lab hours — Craiova",
-      "type": "Study Group",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0057",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Sibiu",
-      "type": "Volunteering",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0058",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
-      "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Oradea",
-      "type": "Study Group",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0059",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
+      "target": [
+        "Erasmus+",
+        "New Arrivals"
+      ],
+      "link": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/main-local-events/",
+      "description": "Ghid UAIC la festivaluri, concerte și evenimente culturale din oraș pentru studenți internaționali.",
+      "keywords": "events, festival, city, culture, uaic",
       "meeting_location": "Off-campus",
       "schedule": "Monthly"
     },
     {
-      "name": "Public speaking club — Galați",
+      "name": "Cunoaște orașul Iași (ghid UAIC)",
       "type": "Cultural",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0060",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
+      "target": [
+        "New Arrivals",
+        "Non-EU Students",
+        "Erasmus+"
+      ],
+      "link": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/meet-city-iasi/",
+      "description": "Sfaturi oficiale de orientare: cartiere, transport și obiective de vizitat pentru studenți de schimb.",
+      "keywords": "city guide, tourism, iasi, erasmus, orientation",
+      "meeting_location": "Off-campus",
       "schedule": "One-time"
     },
     {
-      "name": "International student mixer — Iași",
-      "type": "Club",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0061",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
-      "meeting_location": "On-campus",
+      "name": "Viața în Iași — ghid TUIASI internațional",
+      "type": "Cultural",
+      "target": [
+        "Non-EU Students",
+        "New Arrivals"
+      ],
+      "link": "https://study.tuiasi.ro/living-in-iasi/",
+      "description": "Ghid practic pentru studenți internaționali TUIASI: cazare, costuri, mâncare și timp liber în Iași.",
+      "keywords": "living, iasi, international, tuiasi, student life",
+      "meeting_location": "Off-campus",
+      "schedule": "One-time"
+    },
+    {
+      "name": "Parcul Copou — ieșiri în aer liber lângă UAIC",
+      "type": "Sport",
+      "target": [
+        "EU Students",
+        "First Year",
+        "Erasmus+"
+      ],
+      "link": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/meet-city-iasi/#copou",
+      "description": "Zonă verde lângă campusul Copou UAIC: alergare, picnicuri și întâlniri informale între studenți.",
+      "keywords": "copou, park, outdoors, running, social",
+      "meeting_location": "Off-campus",
       "schedule": "Weekly"
     },
     {
-      "name": "Campus football league — Bucharest",
+      "name": "Centrul medical studențesc Copou (UAIC)",
       "type": "Event",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0062",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Cluj-Napoca",
-      "type": "Sport",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0063",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Timișoara",
-      "type": "Volunteering",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0064",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
+      "target": [
+        "EU Students",
+        "Non-EU Students"
+      ],
+      "link": "https://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/copou-student-medical-center/",
+      "description": "Servicii medicale pe campus pentru studenții UAIC: program și înscriere pentru consultații.",
+      "keywords": "health, medical, uaic, student services",
       "meeting_location": "On-campus",
-      "schedule": "One-time"
+      "schedule": "Weekly"
     },
     {
-      "name": "Thesis writing circle — Brașov",
+      "name": "Biblioteci UAIC — spații de studiu",
       "type": "Study Group",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0065",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
-      "meeting_location": "Off-campus",
+      "target": [
+        "Graduate",
+        "PhD",
+        "First Year"
+      ],
+      "link": "http://www.uaic.ro/en/international/erasmus-programme/erasmus-incoming-students/libraries-iasi/",
+      "description": "Rețea de biblioteci universitare în Iași cu săli de lectură și resurse digitale pentru studiu individual sau în grup.",
+      "keywords": "library, study, research, uaic, quiet",
+      "meeting_location": "On-campus",
       "schedule": "Weekly"
     },
     {
-      "name": "Erasmus info session — Constanța",
+      "name": "TUIASI — Campus și cazare (internațional)",
       "type": "Cultural",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0066",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Hiking club weekend — Craiova",
-      "type": "Club",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0067",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
+      "target": [
+        "Non-EU Students",
+        "New Arrivals"
+      ],
+      "link": "https://study.tuiasi.ro/campus-and-living/",
+      "description": "Facilități campus, cămine și resurse de viață studențească pentru internaționali la TUIASI.",
+      "keywords": "tuiasi, campus, dorms, facilities, international",
       "meeting_location": "On-campus",
-      "schedule": "Monthly"
+      "schedule": "One-time"
     },
     {
-      "name": "Board games café meetup — Sibiu",
+      "name": "TUIASI — Programe de schimb și Erasmus",
       "type": "Event",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0068",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
-      "meeting_location": "Off-campus",
+      "target": [
+        "Erasmus+",
+        "EU Students"
+      ],
+      "link": "https://study.tuiasi.ro/exchange-programs/",
+      "description": "Informații mobilitate, universități partenere și planificarea unui semestru în străinătate de la TUIASI.",
+      "keywords": "erasmus, exchange, mobility, tuiasi, international",
+      "meeting_location": "Hybrid",
       "schedule": "One-time"
     },
     {
-      "name": "Coding lab hours — Oradea",
-      "type": "Sport",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0069",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Galați",
-      "type": "Volunteering",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0070",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
-      "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Iași",
-      "type": "Volunteering",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0071",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
-      "meeting_location": "Off-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Public speaking club — Bucharest",
+      "name": "CCS Iași — Cursuri de artă",
       "type": "Cultural",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0072",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
+      "target": [
+        "First Year",
+        "EU Students"
+      ],
+      "link": "https://www.ccsiasi.ro/despre-noi",
+      "description": "Ateliere creative la Casa de Cultură: pictură, dans, fotografie și chitară pentru studenți.",
+      "keywords": "arts, dance, painting, workshops, ccs",
+      "meeting_location": "On-campus",
+      "schedule": "Weekly"
     },
     {
-      "name": "International student mixer — Cluj-Napoca",
+      "name": "Descoperă TUIASI — BEST",
       "type": "Club",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0073",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
+      "target": [
+        "First Year"
+      ],
+      "link": "https://descopera.tuiasi.ro/best/",
+      "description": "Articol portal universitar despre BEST Iași și cum te implici în activități inginerești.",
+      "keywords": "tuiasi, best, student organisations",
       "meeting_location": "On-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Campus football league — Timișoara",
-      "type": "Event",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0074",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Brașov",
-      "type": "Sport",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0075",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
       "schedule": "Monthly"
     },
     {
-      "name": "Volunteer at food bank — Constanța",
-      "type": "Volunteering",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0076",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
-      "meeting_location": "On-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Thesis writing circle — Craiova",
-      "type": "Study Group",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0077",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
-      "meeting_location": "Off-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Erasmus info session — Sibiu",
-      "type": "Event",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0078",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Hiking club weekend — Oradea",
+      "name": "Descoperă TUIASI — LSAC",
       "type": "Club",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0079",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
+      "target": [
+        "First Year"
+      ],
+      "link": "https://descopera.tuiasi.ro/lsac/",
+      "description": "Prezentare LSAC și ligi studențești la Facultatea de Automatică și Calculatoare.",
+      "keywords": "lsac, tuiasi, student organisations, faculty",
       "meeting_location": "On-campus",
       "schedule": "Monthly"
     },
     {
-      "name": "Board games café meetup — Galați",
-      "type": "Event",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0080",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
-      "meeting_location": "Off-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Coding lab hours — Iași",
-      "type": "Sport",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0081",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Bucharest",
-      "type": "Volunteering",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0082",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
-      "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Cluj-Napoca",
-      "type": "Study Group",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0083",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
-      "meeting_location": "Off-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Public speaking club — Timișoara",
+      "name": "Grădina Botanică Anastasie Fătu (UAIC)",
       "type": "Cultural",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0084",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
-    },
-    {
-      "name": "International student mixer — Brașov",
-      "type": "Club",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0085",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
-      "meeting_location": "On-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Campus football league — Constanța",
-      "type": "Event",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0086",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Craiova",
-      "type": "Sport",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0087",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Sibiu",
-      "type": "Volunteering",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0088",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
-      "meeting_location": "On-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Thesis writing circle — Oradea",
-      "type": "Study Group",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0089",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
+      "target": [
+        "EU Students",
+        "Erasmus+",
+        "First Year"
+      ],
+      "link": "https://www.uaic.ro/en/gradina-botanica-anastasie-fatu/",
+      "description": "Grădina botanică UAIC — plimbări, evenimente educative și relaxare în natură pentru studenți.",
+      "keywords": "botanical garden, nature, uaic, outdoor, iasi",
       "meeting_location": "Off-campus",
       "schedule": "Weekly"
     },
     {
-      "name": "Erasmus info session — Galați",
+      "name": "Planetariu UAIC",
       "type": "Cultural",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0090",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Hiking club weekend — Iași",
-      "type": "Club",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0091",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
+      "target": [
+        "First Year",
+        "EU Students"
+      ],
+      "link": "https://www.uaic.ro/en/planetarium/",
+      "description": "Sesiuni și evenimente de astronomie la planetariul universității — potrivit pentru ieșiri de grup.",
+      "keywords": "planetarium, astronomy, science, uaic, iasi",
       "meeting_location": "On-campus",
       "schedule": "Monthly"
     },
     {
-      "name": "Board games café meetup — Bucharest",
-      "type": "Club",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0092",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
-      "meeting_location": "Off-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Coding lab hours — Cluj-Napoca",
-      "type": "Sport",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0093",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Timișoara",
-      "type": "Volunteering",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0094",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
-      "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Brașov",
-      "type": "Study Group",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0095",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
-      "meeting_location": "Off-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Public speaking club — Constanța",
+      "name": "Evenimente UNAGE — George Enescu",
       "type": "Cultural",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0096",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
-    },
-    {
-      "name": "International student mixer — Craiova",
-      "type": "Club",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0097",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
+      "target": [
+        "EU Students",
+        "Erasmus+"
+      ],
+      "link": "https://www.arteiasi.ro/en/category/events/",
+      "description": "Concerte, spectacole și expoziții la Universitatea Națională de Arte George Enescu din Iași.",
+      "keywords": "unage, arts, concerts, events, iasi",
       "meeting_location": "On-campus",
       "schedule": "Weekly"
-    },
-    {
-      "name": "Campus football league — Sibiu",
-      "type": "Event",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0098",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Oradea",
-      "type": "Cultural",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0099",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Galați",
-      "type": "Volunteering",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0100",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
-      "meeting_location": "On-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Thesis writing circle — Iași",
-      "type": "Study Group",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0101",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
-      "meeting_location": "Off-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Erasmus info session — Bucharest",
-      "type": "Cultural",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0102",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Hiking club weekend — Cluj-Napoca",
-      "type": "Club",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0103",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
-      "meeting_location": "On-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Board games café meetup — Timișoara",
-      "type": "Event",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0104",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
-      "meeting_location": "Off-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Coding lab hours — Brașov",
-      "type": "Sport",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0105",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Constanța",
-      "type": "Cultural",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0106",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
-      "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Craiova",
-      "type": "Study Group",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0107",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
-      "meeting_location": "Off-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Public speaking club — Sibiu",
-      "type": "Cultural",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0108",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
-    },
-    {
-      "name": "International student mixer — Oradea",
-      "type": "Club",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0109",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
-      "meeting_location": "On-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Campus football league — Galați",
-      "type": "Event",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0110",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Iași",
-      "type": "Sport",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0111",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Bucharest",
-      "type": "Volunteering",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0112",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
-      "meeting_location": "On-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Thesis writing circle — Cluj-Napoca",
-      "type": "Study Group",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0113",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
-      "meeting_location": "Off-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Erasmus info session — Timișoara",
-      "type": "Cultural",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0114",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Hiking club weekend — Brașov",
-      "type": "Club",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0115",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
-      "meeting_location": "On-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Board games café meetup — Constanța",
-      "type": "Event",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0116",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
-      "meeting_location": "Off-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Coding lab hours — Craiova",
-      "type": "Sport",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0117",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Sibiu",
-      "type": "Volunteering",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0118",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
-      "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Oradea",
-      "type": "Study Group",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0119",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
-      "meeting_location": "Off-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Public speaking club — Galați",
-      "type": "Club",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0120",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
-    },
-    {
-      "name": "International student mixer — Iași",
-      "type": "Club",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0121",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
-      "meeting_location": "On-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Campus football league — Bucharest",
-      "type": "Event",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0122",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Cluj-Napoca",
-      "type": "Sport",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0123",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Timișoara",
-      "type": "Volunteering",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0124",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
-      "meeting_location": "On-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Thesis writing circle — Brașov",
-      "type": "Study Group",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0125",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
-      "meeting_location": "Off-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Erasmus info session — Constanța",
-      "type": "Cultural",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0126",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Hiking club weekend — Craiova",
-      "type": "Sport",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0127",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
-      "meeting_location": "On-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Board games café meetup — Sibiu",
-      "type": "Event",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0128",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
-      "meeting_location": "Off-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Coding lab hours — Oradea",
-      "type": "Sport",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0129",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Galați",
-      "type": "Volunteering",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0130",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
-      "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Iași",
-      "type": "Study Group",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0131",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
-      "meeting_location": "Off-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Public speaking club — Bucharest",
-      "type": "Cultural",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0132",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
-    },
-    {
-      "name": "International student mixer — Cluj-Napoca",
-      "type": "Club",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0133",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
-      "meeting_location": "On-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Campus football league — Timișoara",
-      "type": "Sport",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0134",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Brașov",
-      "type": "Sport",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0135",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Constanța",
-      "type": "Volunteering",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0136",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
-      "meeting_location": "On-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Thesis writing circle — Craiova",
-      "type": "Study Group",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0137",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
-      "meeting_location": "Off-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Erasmus info session — Sibiu",
-      "type": "Cultural",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0138",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Hiking club weekend — Oradea",
-      "type": "Club",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0139",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
-      "meeting_location": "On-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Board games café meetup — Galați",
-      "type": "Event",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0140",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
-      "meeting_location": "Off-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Coding lab hours — Iași",
-      "type": "Study Group",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0141",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Bucharest",
-      "type": "Volunteering",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0142",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
-      "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Cluj-Napoca",
-      "type": "Study Group",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0143",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
-      "meeting_location": "Off-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Public speaking club — Timișoara",
-      "type": "Cultural",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0144",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
-    },
-    {
-      "name": "International student mixer — Brașov",
-      "type": "Club",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0145",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
-      "meeting_location": "On-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Campus football league — Constanța",
-      "type": "Event",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0146",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Craiova",
-      "type": "Sport",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0147",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Sibiu",
-      "type": "Volunteering",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0148",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
-      "meeting_location": "On-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Thesis writing circle — Oradea",
-      "type": "Study Group",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0149",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "academic, writing, library",
-      "meeting_location": "Off-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Erasmus info session — Galați",
-      "type": "Cultural",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0150",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "mobility, grants, paperwork",
-      "meeting_location": "Hybrid",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Hiking club weekend — Iași",
-      "type": "Club",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0151",
-      "description": "Student-led initiative in Iași. Open to newcomers; check details before attending.",
-      "keywords": "nature, trips, social",
-      "meeting_location": "On-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Board games café meetup — Bucharest",
-      "type": "Event",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0152",
-      "description": "Student-led initiative in Bucharest. Open to newcomers; check details before attending.",
-      "keywords": "games, casual, friends",
-      "meeting_location": "Off-campus",
-      "schedule": "One-time"
-    },
-    {
-      "name": "Coding lab hours — Cluj-Napoca",
-      "type": "Sport",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0153",
-      "description": "Student-led initiative in Cluj-Napoca. Open to newcomers; check details before attending.",
-      "keywords": "STEM, programming, projects",
-      "meeting_location": "Hybrid",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Intercultural dialogue workshop — Timișoara",
-      "type": "Volunteering",
-      "target": ["PhD", "New Arrivals"],
-      "link": "https://naviro.app/activities/catalog/0154",
-      "description": "Student-led initiative in Timișoara. Open to newcomers; check details before attending.",
-      "keywords": "diversity, dialogue, inclusion",
-      "meeting_location": "On-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "River clean-up day — Brașov",
-      "type": "Volunteering",
-      "target": ["EU Students", "First Year"],
-      "link": "https://naviro.app/activities/catalog/0155",
-      "description": "Student-led initiative in Brașov. Open to newcomers; check details before attending.",
-      "keywords": "environment, volunteering, team",
-      "meeting_location": "Off-campus",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Public speaking club — Constanța",
-      "type": "Cultural",
-      "target": ["Non-EU Students", "Graduate"],
-      "link": "https://naviro.app/activities/catalog/0156",
-      "description": "Student-led initiative in Constanța. Open to newcomers; check details before attending.",
-      "keywords": "skills, confidence, English",
-      "meeting_location": "Hybrid",
-      "schedule": "One-time"
-    },
-    {
-      "name": "International student mixer — Craiova",
-      "type": "Club",
-      "target": ["New Arrivals", "Erasmus+"],
-      "link": "https://naviro.app/activities/catalog/0157",
-      "description": "Student-led initiative in Craiova. Open to newcomers; check details before attending.",
-      "keywords": "socializing, networking, welcome",
-      "meeting_location": "On-campus",
-      "schedule": "Weekly"
-    },
-    {
-      "name": "Campus football league — Sibiu",
-      "type": "Event",
-      "target": ["First Year", "PhD"],
-      "link": "https://naviro.app/activities/catalog/0158",
-      "description": "Student-led initiative in Sibiu. Open to newcomers; check details before attending.",
-      "keywords": "fitness, team sports, outdoors",
-      "meeting_location": "Off-campus",
-      "schedule": "Biweekly"
-    },
-    {
-      "name": "Romanian film night — Oradea",
-      "type": "Sport",
-      "target": ["Graduate", "EU Students"],
-      "link": "https://naviro.app/activities/catalog/0159",
-      "description": "Student-led initiative in Oradea. Open to newcomers; check details before attending.",
-      "keywords": "culture, cinema, language",
-      "meeting_location": "Hybrid",
-      "schedule": "Monthly"
-    },
-    {
-      "name": "Volunteer at food bank — Galați",
-      "type": "Volunteering",
-      "target": ["Erasmus+", "Non-EU Students"],
-      "link": "https://naviro.app/activities/catalog/0160",
-      "description": "Student-led initiative in Galați. Open to newcomers; check details before attending.",
-      "keywords": "community, civic, solidarity",
-      "meeting_location": "On-campus",
-      "schedule": "One-time"
     }
   ]
 }
