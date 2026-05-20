@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const register = useCallback(async (username, email, password, fullName) => {
+  const register = useCallback(async (username, email, password, fullName, profile = {}) => {
     setLoading(true);
     setError(null);
 
@@ -60,6 +60,7 @@ export const AuthProvider = ({ children }) => {
           email,
           password,
           full_name: fullName,
+          ...profile,
         }),
       });
 

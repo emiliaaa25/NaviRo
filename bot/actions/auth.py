@@ -106,26 +106,49 @@ class AuthManager:
             return None
 
     @staticmethod
-    def register_user(username: str, email: str, password: str, full_name: str) -> Dict[str, Any]:
-        """Register new user"""
+    def register_user(username: str, email: str, password: str, full_name: str,
+                      profile: Dict[str, Any] = None) -> Dict[str, Any]:
+        """Register new user with optional academic profile."""
         try:
             password_hash = AuthManager.hash_password(password)
-            
+            p = profile or {}
+
+            def str_or_none(val):
+                """Return None for empty/missing values so DB uses column default."""
+                v = p.get(val, '')
+                return v if v else None
+
             with db.get_cursor() as cur:
                 # Insert user
                 cur.execute(
-                    """INSERT INTO users (username, email, password_hash) 
+                    """INSERT INTO users (username, email, password_hash)
                        VALUES (%s, %s, %s) RETURNING id, username, email""",
                     (username, email, password_hash)
                 )
                 user = cur.fetchone()
                 user_id = user[0]
 
-                # Create student profile
+                # Create student profile with all provided fields
                 cur.execute(
-                    """INSERT INTO student_profiles (user_id, full_name) 
-                       VALUES (%s, %s) RETURNING id""",
-                    (user_id, full_name)
+                    """INSERT INTO student_profiles
+                       (user_id, full_name, student_type, country_of_origin,
+                        target_university, target_faculty, target_faculty_id,
+                        study_program, home_university, home_faculty, academic_year)
+                       VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                       RETURNING id""",
+                    (
+                        user_id,
+                        full_name,
+                        str_or_none('student_type'),
+                        str_or_none('country_of_origin'),
+                        str_or_none('target_university'),
+                        str_or_none('target_faculty'),
+                        str_or_none('target_faculty_id'),
+                        str_or_none('study_program'),
+                        str_or_none('home_university'),
+                        str_or_none('home_faculty'),
+                        str_or_none('academic_year'),
+                    )
                 )
 
                 return {
@@ -243,12 +266,15 @@ class AuthManager:
         """Get user profile with projects"""
         try:
             with db.get_cursor() as cur:
-                # Get user info
+                # Get user info including new student type and faculty fields
                 cur.execute(
-                    """SELECT u.id, u.username, u.email, sp.full_name, sp.academic_year, 
-                              sp.faculty, sp.specialization, sp.bio, sp.profile_picture_url
-                       FROM users u 
-                       LEFT JOIN student_profiles sp ON u.id = sp.user_id 
+                    """SELECT u.id, u.username, u.email, sp.full_name, sp.country_of_origin,
+                              sp.study_program, sp.academic_year, sp.faculty,
+                              sp.specialization, sp.bio, sp.profile_picture_url,
+                              sp.student_type, sp.target_university, sp.target_faculty,
+                              sp.target_faculty_id, sp.home_university, sp.home_faculty
+                       FROM users u
+                       LEFT JOIN student_profiles sp ON u.id = sp.user_id
                        WHERE u.id = %s""",
                     (user_id,)
                 )
@@ -271,11 +297,19 @@ class AuthManager:
                     'username': user_data[1],
                     'email': user_data[2],
                     'full_name': user_data[3],
-                    'academic_year': user_data[4],
-                    'faculty': user_data[5],
-                    'specialization': user_data[6],
-                    'bio': user_data[7],
-                    'profile_picture_url': user_data[8],
+                    'country_of_origin': user_data[4],
+                    'study_program': user_data[5],
+                    'academic_year': user_data[6],
+                    'faculty': user_data[7],          # legacy field
+                    'specialization': user_data[8],
+                    'bio': user_data[9],
+                    'profile_picture_url': user_data[10],
+                    'student_type': user_data[11],
+                    'target_university': user_data[12],
+                    'target_faculty': user_data[13],
+                    'target_faculty_id': user_data[14],
+                    'home_university': user_data[15],
+                    'home_faculty': user_data[16],
                     'projects': [
                         {
                             'id': p[0],
@@ -296,7 +330,23 @@ class AuthManager:
     def update_user_profile(user_id: int, **kwargs) -> Dict[str, Any]:
         """Update user profile"""
         try:
-            allowed_fields = {'full_name', 'academic_year', 'faculty', 'specialization', 'bio', 'profile_picture_url'}
+            allowed_fields = {
+                'full_name',
+                'country_of_origin',
+                'study_program',
+                'academic_year',
+                'faculty',
+                'specialization',
+                'bio',
+                'profile_picture_url',
+                # new student-type fields
+                'student_type',
+                'target_university',
+                'target_faculty',
+                'target_faculty_id',
+                'home_university',
+                'home_faculty',
+            }
             fields_to_update = {k: v for k, v in kwargs.items() if k in allowed_fields}
 
             if not fields_to_update:
@@ -653,4 +703,3 @@ class AuthManager:
         except Exception as e:
             print(f"Error getting full quest profile: {e}")
             return None
-

@@ -212,14 +212,30 @@ def _detect_student_preferences(user_message):
         'program': None      # LIBERAL_ARTS, ENGINEERING, MEDICINE, or None
     }
     
-    # Detect university preference
-    if any(term in msg_lower for term in ("medicine", "medical", "pharmacy", "dental", "umf", "grigore popa")):
+    # Detect university preference — broader keyword matching
+    umf_terms = (
+        "medicine", "medical", "pharmacy", "pharmaceutical", "dental", "dentistry",
+        "umf", "grigore popa", "grigore t. popa", "study medicine", "med school",
+        "doctor", "becoming a doctor", "mbbs", "md program", "clinical"
+    )
+    tuiasi_terms = (
+        "engineering", "engineer", "technical university", "tuiasi", "gheorghe asachi",
+        "computer science", "software engineering", "it program", "electrical", "mechanical",
+        "civil engineering", "automation", "robotics", "electronics", "programming degree"
+    )
+    uaic_terms = (
+        "uaic", "alexandru ioan cuza", "literature", "history", "philosophy",
+        "languages", "liberal arts", "social sciences", "humanities", "law", "economics",
+        "political science", "psychology", "informatics", "mathematics at uaic"
+    )
+
+    if any(term in msg_lower for term in umf_terms):
         preferences['university'] = 'UMF'
         preferences['program'] = 'MEDICINE'
-    elif any(term in msg_lower for term in ("engineering", "engineer", "technical", "tuiasi", "computer science", "software", "it program")):
+    elif any(term in msg_lower for term in tuiasi_terms):
         preferences['university'] = 'TUIASI'
         preferences['program'] = 'ENGINEERING'
-    elif any(term in msg_lower for term in ("uaic", "literature", "history", "philosophy", "languages", "liberal arts", "social sciences", "humanities")):
+    elif any(term in msg_lower for term in uaic_terms):
         preferences['university'] = 'UAIC'
         preferences['program'] = 'LIBERAL_ARTS'
     
@@ -425,14 +441,16 @@ def _find_relevant_links(user_message, category=None, top_k=3, user_id=None):
         try:
             with db.get_cursor() as cur:
                 cur.execute("""
-                    SELECT target_university, study_program 
-                    FROM quest_relocation_profiles 
-                    WHERE user_id = %s
+                    SELECT COALESCE(sp.study_program, q.study_program), q.target_university
+                    FROM users u
+                    LEFT JOIN student_profiles sp ON sp.user_id = u.id
+                    LEFT JOIN quest_relocation_profiles q ON q.user_id = u.id
+                    WHERE u.id = %s
                 """, (user_id,))
                 row = cur.fetchone()
                 if row:
-                    stored_university = row[0]
-                    stored_program = row[1]
+                    stored_program = row[0]
+                    stored_university = row[1]
                     print(f"[RAG] Loaded stored preferences: university={stored_university}, program={stored_program}")
         except Exception as e:
             print(f"[RAG] Could not load stored preferences: {e}")
@@ -484,9 +502,10 @@ def _find_relevant_links(user_message, category=None, top_k=3, user_id=None):
             score += 0.25
             print(f"[RAG] Boosted '{link.get('title')}' for preferred program {student_program}")
         
-        # Penalize links from non-preferred universities (if preference is set and link is university-specific)
+        # Strongly penalize links from non-preferred universities so wrong-university
+        # links never surface (e.g. UAIC housing links should NOT appear for UMF students)
         if student_university and link_university != "GENERAL" and link_university != student_university:
-            score -= 0.15
+            score -= 0.5  # Strong penalty: non-preferred university-specific links sink to bottom
         
         # Additional subject-specific boosting
         link_blob = f"{link.get('title', '')} {search_text}".lower()
@@ -533,19 +552,20 @@ def _build_link_constraint_prompt(relevant_links):
         return ""
     
     links_text = "\n".join([
-        f"- {link['title']}: {link['url']}"
+        f"- [{link['title']}]({link['url']})"
+        + (f" — {link['description']}" if link.get('description') else "")
         for link in relevant_links
     ])
     
-    return f"""
-**IMPORTANT: Verified Resources Only**
-When answering about Erasmus/MAE, IGI insurance, visas, or international student procedures,
-you MUST reference ONLY these verified official links:
+    return f"""**VERIFIED SOURCES FOR THIS RESPONSE**
+The following verified official links are relevant to the student's question.
+You MUST include these as your sources when answering. Reference them naturally in your response.
 
 {links_text}
 
-Do NOT invent, hallucinate, or reference any other links. If the user's question doesn't match
-these verified sources, acknowledge the limitation and redirect to official channels."""
+STRICT URL RULE: Only use URLs from the list above. NEVER invent, guess, or construct any other URL.
+If the student needs a resource not listed, tell them to visit the international office of their university directly.
+Do NOT include any other hyperlinks or URLs in your answer."""
 
 
 def _build_activity_suggestions_prompt(user_id, user_message):
@@ -616,9 +636,20 @@ def _fetch_user_quest_context(user_id):
         print(f"[CONTEXT] Fetching quest context for user_id={user_id}")
         with db.get_cursor() as cur:
             cur.execute(
-                """SELECT country_of_origin, citizenship_type
-                   FROM quest_relocation_profiles
-                   WHERE user_id = %s""",
+                """SELECT
+                       COALESCE(sp.country_of_origin, q.country_of_origin),
+                       COALESCE(sp.study_program, q.study_program),
+                       q.citizenship_type,
+                       sp.student_type,
+                       COALESCE(sp.target_faculty, sp.faculty),
+                       sp.target_university,
+                       sp.home_university,
+                       sp.home_faculty,
+                       sp.academic_year
+                   FROM users u
+                   LEFT JOIN student_profiles sp ON sp.user_id = u.id
+                   LEFT JOIN quest_relocation_profiles q ON q.user_id = u.id
+                   WHERE u.id = %s""",
                 (user_id,),
             )
             relocation_profile = cur.fetchone()
@@ -645,16 +676,73 @@ def _fetch_user_quest_context(user_id):
 
         print(f"[CONTEXT] Progress rows: {progress_rows}")
         parts = []
+
         if relocation_profile:
-            country_of_origin, citizenship_type = relocation_profile
-            if citizenship_type and country_of_origin:
+            (country_of_origin, study_program, citizenship_type,
+             student_type, target_faculty, target_university,
+             home_university, home_faculty, academic_year) = relocation_profile
+
+            student_type = student_type or ""
+
+            if student_type == "erasmus":
+                # ── ERASMUS student ──────────────────────────────────────────
+                home_parts = []
+                if home_university:
+                    home_parts.append(home_university)
+                if home_faculty:
+                    home_parts.append(f"Faculty of {home_faculty}")
+                if academic_year:
+                    home_parts.append(f"year {academic_year}")
+                if country_of_origin:
+                    home_parts.append(f"from {country_of_origin}")
+                home_str = ", ".join(home_parts) if home_parts else "their home institution"
+
+                host_parts = []
+                if target_university:
+                    host_parts.append(target_university)
+                if target_faculty:
+                    host_parts.append(target_faculty)
+                host_str = f" at {', '.join(host_parts)}" if host_parts else " at UAIC Iași"
+
+                if study_program:
+                    host_str += f", studying {study_program}"
+
                 parts.append(
-                    f"The user is a {citizenship_type} student from {country_of_origin}."
+                    f"The user is an Erasmus / exchange student from {home_str},"
+                    f" coming to Iași for a mobility semester{host_str}."
+                    f" They are NOT applying for a full degree — they are here temporarily through Erasmus+."
+                    f" Tailor all guidance to Erasmus mobility: Learning Agreement, Erasmus grant,"
+                    f" OLS language assessment, temporary housing, and UAIC's International Relations office."
                 )
-            elif citizenship_type:
-                parts.append(f"The user is a {citizenship_type} student.")
-            elif country_of_origin:
-                parts.append(f"The user is a student from {country_of_origin}.")
+            else:
+                # ── INTERNATIONAL (full-degree) student ──────────────────────
+                desc_parts = []
+                if country_of_origin:
+                    desc_parts.append(f"from {country_of_origin}")
+                if target_university:
+                    desc_parts.append(f"applying to {target_university} in Iași")
+                if target_faculty:
+                    desc_parts.append(f"Faculty: {target_faculty}")
+                if study_program:
+                    desc_parts.append(f"programme: {study_program}")
+
+                if desc_parts:
+                    parts.append(
+                        f"The user is an international student {', '.join(desc_parts)}."
+                        f" They are applying for a full-degree programme."
+                        f" Guide them on admission requirements, visa (student visa / residence permit),"
+                        f" tuition fees, enrollment procedures, and settling in Iași long-term."
+                    )
+                elif citizenship_type:
+                    parts.append(
+                        f"The user is a {citizenship_type} international student"
+                        + (f" from {country_of_origin}." if country_of_origin else ".")
+                    )
+
+            # Legacy citizenship_type fallback if student_type not set
+            if not student_type and citizenship_type:
+                parts.append(f"The user is a {citizenship_type} student"
+                             + (f" from {country_of_origin}." if country_of_origin else "."))
 
         current_milestone_number = None
         current_milestone_name = None
@@ -740,7 +828,7 @@ def _build_system_messages(user_id, user_message=None):
         )
         print(f"[INJECT] Added quest step focus for '{quest_step_focus}'")
 
-    # RAG: Find relevant verified links and add constraint prompt
+    # RAG: Find relevant verified links and add constraint prompt — runs for EVERY message
     if user_message:
         print(f"[INJECT] Performing RAG search...")
         
@@ -750,25 +838,38 @@ def _build_system_messages(user_id, user_message=None):
             _save_student_preferences(user_id, student_prefs)
         
         rag_category = _detect_rag_category(user_message)
-        # For healthcare queries, search broadly (not only HEALTHCARE category)
-        if rag_category == "HEALTHCARE":
-            relevant_links = _find_relevant_links(user_message, category=None, top_k=6, user_id=user_id)
+        # Always search broadly so university-specific links surface correctly;
+        # category filter only for very specific domains to avoid missing relevant links
+        if rag_category in ("HEALTHCARE", "VISA", "MAE", "IGI"):
+            # For these specific domains, search broadly first then by category
+            broad_links = _find_relevant_links(user_message, category=None, top_k=4, user_id=user_id)
+            category_links = _find_relevant_links(user_message, category=rag_category, top_k=4, user_id=user_id)
+            # Merge, deduplicate, keep up to 6
+            seen_urls = set()
+            relevant_links = []
+            for link in broad_links + category_links:
+                url = link.get("url", "")
+                if url and url not in seen_urls:
+                    seen_urls.add(url)
+                    relevant_links.append(link)
+            relevant_links = relevant_links[:6]
         else:
-            relevant_links = _find_relevant_links(
-                user_message,
-                category=rag_category,
-                top_k=5 if rag_category == "HEALTHCARE" else 3,
-                user_id=user_id
-            )
+            # General / ACCOMMODATION / TRANSPORTATION / BANKING / CULTURE / OFFICIAL:
+            # Always fetch a broad set of relevant links (no category filter) so every
+            # response has verified sources to cite, regardless of topic.
+            relevant_links = _find_relevant_links(user_message, category=None, top_k=5, user_id=user_id)
+        
         if relevant_links:
             link_constraint = _build_link_constraint_prompt(relevant_links)
-            if rag_category == "HEALTHCARE":
-                link_constraint += (
-                    "\n\nFor healthcare questions, use only the healthcare links above. "
-                    "Do not cite general university pages unless the user explicitly asks about a specific university medical service."
-                )
             system_messages.append({"role": "system", "content": link_constraint})
             print(f"[INJECT] Added {len(relevant_links)} verified links constraint")
+        else:
+            # Fallback: always inject top university-specific links even if no keyword match
+            fallback_links = _find_relevant_links("university official information iasi", category=None, top_k=4, user_id=user_id)
+            if fallback_links:
+                link_constraint = _build_link_constraint_prompt(fallback_links)
+                system_messages.append({"role": "system", "content": link_constraint})
+                print(f"[INJECT] Added {len(fallback_links)} fallback verified links")
     else:
         print(f"[INJECT] No user message for RAG search")
 
@@ -1019,10 +1120,11 @@ def _agent_response_text(messages, user_id=None):
                 title = url
         enriched.append({"url": url, "title": title})
 
-    # Always include top verified links for the user query as sources (not just fallback)
+    # Always include top verified links for the user query as primary sources
+    # These appear in the frontend "More info" section for every response
     try:
-        rag_category = _detect_rag_category(user_message)
-        top_links = _find_relevant_links(user_message or "", category=rag_category, top_k=5)
+        # Fetch relevant links filtered by the student's university (via user_id)
+        top_links = _find_relevant_links(user_message or "", category=None, top_k=6, user_id=user_id)
         for link in top_links:
             url = link.get("url")
             if not url or url in seen:

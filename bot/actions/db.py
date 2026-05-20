@@ -62,6 +62,8 @@ class Database:
                     id SERIAL PRIMARY KEY,
                     user_id INTEGER UNIQUE NOT NULL REFERENCES users(id) ON DELETE CASCADE,
                     full_name VARCHAR(120) NOT NULL,
+                    country_of_origin VARCHAR(120),
+                    study_program VARCHAR(255),
                     academic_year INTEGER,
                     faculty VARCHAR(120),
                     specialization VARCHAR(120),
@@ -89,6 +91,38 @@ class Database:
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
+            """)
+
+            cur.execute("""
+                DO $$
+                BEGIN
+                    IF NOT EXISTS (
+                        SELECT 1 FROM information_schema.columns
+                        WHERE table_schema = 'public' AND table_name = 'student_profiles'
+                          AND column_name = 'country_of_origin'
+                    ) THEN
+                        ALTER TABLE student_profiles
+                        ADD COLUMN country_of_origin VARCHAR(120);
+                    END IF;
+
+                    IF NOT EXISTS (
+                        SELECT 1 FROM information_schema.columns
+                        WHERE table_schema = 'public' AND table_name = 'student_profiles'
+                          AND column_name = 'study_program'
+                    ) THEN
+                        ALTER TABLE student_profiles
+                        ADD COLUMN study_program VARCHAR(255);
+                    END IF;
+                END $$;
+            """)
+
+            cur.execute("""
+                UPDATE student_profiles sp
+                SET country_of_origin = COALESCE(sp.country_of_origin, q.country_of_origin),
+                    study_program = COALESCE(sp.study_program, q.study_program)
+                FROM quest_relocation_profiles q
+                WHERE q.user_id = sp.user_id
+                  AND (sp.country_of_origin IS NULL OR sp.study_program IS NULL)
             """)
 
             # Quest tokens table (Digital Shadow persistence)

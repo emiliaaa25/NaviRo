@@ -44,8 +44,14 @@ def _user_profile_bits(user_id: int) -> Tuple[Optional[str], Optional[str], Opti
     try:
         with db.get_cursor() as cur:
             cur.execute(
-                """SELECT country_of_origin, study_program, citizenship_type, languages_spoken
-                   FROM quest_relocation_profiles WHERE user_id = %s""",
+                """SELECT COALESCE(sp.country_of_origin, q.country_of_origin),
+                          COALESCE(sp.study_program, q.study_program),
+                          q.citizenship_type,
+                          q.languages_spoken
+                   FROM users u
+                   LEFT JOIN student_profiles sp ON sp.user_id = u.id
+                   LEFT JOIN quest_relocation_profiles q ON q.user_id = u.id
+                   WHERE u.id = %s""",
                 (user_id,),
             )
             row = cur.fetchone()
@@ -239,14 +245,14 @@ def find_peer_candidates(
     # Cu filtre: doar cei care au completat relocarea (altfel nu avem țară/program/limbi).
     clauses = ["u.id <> %s"]
     if has_filters:
-        clauses.append("q.user_id IS NOT NULL")
+        clauses.append("(sp.country_of_origin IS NOT NULL OR q.country_of_origin IS NOT NULL OR sp.study_program IS NOT NULL OR q.study_program IS NOT NULL OR q.languages_spoken IS NOT NULL)")
 
     if country and country.strip():
-        clauses.append("q.country_of_origin ILIKE %s")
+        clauses.append("COALESCE(sp.country_of_origin, q.country_of_origin) ILIKE %s")
         params.append(f"%{country.strip()}%")
     if program and program.strip():
         clauses.append(
-            "(q.study_program ILIKE %s OR sp.specialization ILIKE %s OR sp.faculty ILIKE %s)"
+            "(COALESCE(sp.study_program, q.study_program) ILIKE %s OR sp.specialization ILIKE %s OR sp.faculty ILIKE %s)"
         )
         needle = f"%{program.strip()}%"
         params.extend([needle, needle, needle])
@@ -259,8 +265,8 @@ def find_peer_candidates(
 
     sql = f"""
         SELECT u.id, u.username,
-               COALESCE(q.country_of_origin, '') AS country_of_origin,
-               COALESCE(q.study_program, '') AS study_program,
+             COALESCE(sp.country_of_origin, q.country_of_origin, '') AS country_of_origin,
+             COALESCE(sp.study_program, q.study_program, '') AS study_program,
                COALESCE(q.languages_spoken, '') AS languages_spoken,
                COALESCE(q.citizenship_type, '') AS citizenship_type
         FROM users u

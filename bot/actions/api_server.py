@@ -221,12 +221,21 @@ def register():
         required_fields = ['username', 'email', 'password', 'full_name']
         if not all(field in data for field in required_fields):
             return jsonify({'success': False, 'message': 'Missing required fields'}), 400
+
+        # Extract optional academic profile fields
+        profile_fields = {
+            'student_type', 'country_of_origin', 'target_university',
+            'target_faculty', 'target_faculty_id', 'study_program',
+            'home_university', 'home_faculty', 'academic_year',
+        }
+        profile = {k: data[k] for k in profile_fields if k in data}
         
         result = AuthManager.register_user(
             username=data['username'],
             email=data['email'],
             password=data['password'],
-            full_name=data['full_name']
+            full_name=data['full_name'],
+            profile=profile if profile else None,
         )
         
         if result['success']:
@@ -420,9 +429,15 @@ def get_conversations():
 
         session_map = {}
         ordered_sessions = []
+        last_turn_by_session = {}
 
         for row_id, session_id, user_message, bot_response, created_at in rows:
             normalized_session_id = session_id or 'legacy'
+            current_turn = (user_message or '', bot_response or '')
+
+            if last_turn_by_session.get(normalized_session_id) == current_turn:
+                continue
+            last_turn_by_session[normalized_session_id] = current_turn
 
             if normalized_session_id not in session_map:
                 session_map[normalized_session_id] = {

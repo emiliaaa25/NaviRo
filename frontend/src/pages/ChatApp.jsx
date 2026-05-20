@@ -422,7 +422,7 @@ function ChatApp() {
 
     return (
       <div className="nv-chat-citations">
-        <div className="nv-chat-citations-label">More info</div>
+        <div className="nv-chat-citations-label">📚 Official Sources</div>
         <div className="nv-chat-citations-list">
           {uniqueCitations.map((citation, idx) => {
             const title =
@@ -442,9 +442,10 @@ function ChatApp() {
                 target="_blank"
                 rel="noreferrer"
                 className="nv-chat-citation-link"
+                title={title}
               >
-                Source {idx + 1}
-                <span>{title}</span>
+                <span className="nv-citation-icon">🔗</span>
+                <span className="nv-citation-title">{title}</span>
               </a>
             );
           })}
