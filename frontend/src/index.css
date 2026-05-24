@@ -349,7 +349,6 @@ body {
 
 .nv-sidebar-logo {
   display: flex;
-  align-items: center;
   gap: 10px;
   padding: 0 20px 24px;
   border-bottom: 1px solid var(--cream-dark);
@@ -492,6 +491,102 @@ body {
   min-height: 0;
   height: 100%;
   overflow: hidden;
+}
+
+.nv-protected-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.nv-protected-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.nv-protected-shell .nv-app {
+  min-height: 0;
+  height: 100%;
+  flex: 1;
+}
+
+.nv-protected-body > .nv-page,
+.nv-protected-body > .nv-roadmap-page {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.nv-app-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 60px;
+  background: var(--white);
+  border-bottom: 1px solid var(--cream-dark);
+  flex-shrink: 0;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.nv-app-nav-brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding-right: 12px;
+}
+
+.nv-app-nav .nv-sidebar-logo {
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 0;
+  border-radius: 999px;
+  border-right: 1px solid var(--cream-dark);
+}
+
+.nv-app-nav .nv-sidebar-logo-icon {
+  font-size: 22px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(122, 163, 118, 0.16);
+}
+
+.nv-app-nav .nv-sidebar-logo-text {
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.nv-app-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.nv-chat-subnav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  padding: 0 28px;
+  height: 48px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--cream-dark);
+  flex-shrink: 0;
 }
 
 .nv-topnav {
@@ -2546,6 +2641,200 @@ a.nv-btn-primary {
   .nv-topics-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* —— Guide (home) page —— */
+.nv-guide-page {
+  max-width: 960px;
+}
+
+.nv-guide-intro {
+  margin-bottom: 8px;
+}
+
+.nv-guide-intro .nv-page-title {
+  margin: 0 0 8px;
+}
+
+.nv-guide-intro .nv-page-sub {
+  margin: 0;
+}
+
+.nv-guide-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--sage-bg);
+  color: var(--sage-dark);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nv-guide-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px;
+  margin-bottom: 8px;
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.nv-guide-hero-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nv-guide-logo-icon {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.nv-guide-logo-text {
+  margin: 0;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: 26px;
+  color: var(--dark);
+}
+
+.nv-guide-logo-text span {
+  color: var(--sage-dark);
+}
+
+.nv-guide-logo-sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.nv-guide-hero-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text);
+  max-width: 62ch;
+}
+
+.nv-guide-steps {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.nv-guide-step-link {
+  color: var(--sage-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.nv-guide-step-link:hover {
+  color: var(--dark);
+}
+
+.nv-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.nv-guide-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background: var(--white);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+
+.nv-guide-card:hover {
+  border-color: var(--sage-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.nv-guide-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.nv-guide-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--sage-bg);
+  color: var(--sage-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nv-guide-card-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--cream);
+}
+
+.nv-guide-card-title {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: 18px;
+  color: var(--dark);
+}
+
+.nv-guide-card-desc {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.nv-guide-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sage-dark);
+  margin-top: 4px;
+}
+
+.nv-guide-footer {
+  padding-top: 8px;
+  border-top: 1px solid var(--cream-dark);
+}
+
+.nv-guide-footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 @media (max-width: 680px) {

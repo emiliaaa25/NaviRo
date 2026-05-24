@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import ActivityCard from "../components/ActivityCard";
 import useAuth from "../hooks/useAuth";
 
@@ -133,15 +132,6 @@ export default function Activities() {
             and save preferences for better recommendations.
           </p>
         </div>
-        <nav className="nv-page-nav">
-          <Link to="/chat">Chat</Link>
-          <Link to="/activities" className="nv-active">
-            Activities
-          </Link>
-          <Link to="/buddies">Buddy Finder</Link>
-          <Link to="/forum">Peer Q&amp;A</Link>
-          <Link to="/profile">Profile</Link>
-        </nav>
       </header>
 
       {recommended.length > 0 && (

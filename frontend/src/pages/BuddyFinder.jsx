@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import PeerChat from "../components/PeerChat";
 import useAuth from "../hooks/useAuth";
 
@@ -114,15 +113,6 @@ export default function BuddyFinder() {
             relocation profile in Profile appear.
           </p>
         </div>
-        <nav className="nv-page-nav">
-          <Link to="/chat">Chat</Link>
-          <Link to="/activities">Activities</Link>
-          <Link to="/buddies" className="nv-active">
-            Buddy Finder
-          </Link>
-          <Link to="/forum">Peer Q&amp;A</Link>
-          <Link to="/profile">Profile</Link>
-        </nav>
       </header>
 
       {msg && <p className="nv-form-success nv-mb-md">{msg}</p>}

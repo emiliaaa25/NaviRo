@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import AppNav from "./AppNav";
 
 export default function ProtectedRoute({ children }) {
   const { isAuthenticated, loading } = useAuth();
@@ -18,5 +19,10 @@ export default function ProtectedRoute({ children }) {
     return <Navigate to="/login" replace />;
   }
 
-  return children;
+  return (
+    <div className="nv-protected-shell">
+      <AppNav />
+      <div className="nv-protected-body">{children}</div>
+    </div>
+  );
 }

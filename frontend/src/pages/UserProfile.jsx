@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import {
-  LogOut,
-  Edit2,
-  AlertCircle,
-  CheckCircle,
-  MessageCircle,
-} from "lucide-react";
+import { Edit2, AlertCircle, CheckCircle } from "lucide-react";
 import {
   IASI_FACULTIES,
   UNIVERSITIES,
@@ -34,7 +28,7 @@ const ACADEMIC_YEAR_LABELS = {
 };
 
 export default function UserProfile() {
-  const { user, logout, getProfile, updateProfile } = useAuth();
+  const { user, getProfile, updateProfile } = useAuth();
   const navigate = useNavigate();
 
   const [profile, setProfile] = useState(null);
@@ -131,11 +125,6 @@ export default function UserProfile() {
     }
   };
 
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
-
   const availableFaculties = editFormData.target_university
     ? getFacultiesByUniversity(editFormData.target_university)
     : IASI_FACULTIES;
@@ -183,46 +172,6 @@ export default function UserProfile() {
             >
               Student profile
             </p>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              flexWrap: "wrap",
-            }}
-          >
-            <Link
-              to="/chat"
-              className="nv-btn-secondary"
-              style={{
-                textDecoration: "none",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-              }}
-            >
-              <MessageCircle size={18} aria-hidden /> Back to chat
-            </Link>
-            <Link
-              to="/roadmap"
-              className="nv-btn-secondary"
-              style={{
-                textDecoration: "none",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-              }}
-            >
-              Quest roadmap
-            </Link>
-            <button
-              type="button"
-              onClick={handleLogout}
-              className="nv-btn-logout"
-            >
-              <LogOut size={18} /> Log out
-            </button>
           </div>
         </div>
 

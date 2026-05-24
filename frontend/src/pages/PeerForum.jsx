@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 export default function PeerForum() {
@@ -140,15 +139,6 @@ export default function PeerForum() {
             right. Vote with ▲ / ▼ (authentication required).
           </p>
         </div>
-        <nav className="nv-page-nav">
-          <Link to="/chat">Chat</Link>
-          <Link to="/activities">Activities</Link>
-          <Link to="/buddies">Buddy Finder</Link>
-          <Link to="/forum" className="nv-active">
-            Peer Q&amp;A
-          </Link>
-          <Link to="/profile">Profile</Link>
-        </nav>
       </header>
 
       {err && (

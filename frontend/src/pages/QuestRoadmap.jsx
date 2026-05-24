@@ -1,12 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { CalendarDays, CheckCircle2, Flag, MapPin, ShieldCheck } from "lucide-react";
 import useAuth from "../hooks/useAuth";
 import QuestTimeline from "../components/QuestTimeline";
 
 const QuestRoadmap = () => {
-  const navigate = useNavigate();
-  const { logout, getQuestProgress, getQuestSteps, getQuestChecklist } = useAuth();
+  const { getQuestProgress, getQuestSteps, getQuestChecklist } = useAuth();
 
   const [loading, setLoading] = useState(true);
   const [detailLoading, setDetailLoading] = useState(false);
@@ -84,11 +82,6 @@ const QuestRoadmap = () => {
     }
   };
 
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
-
   if (loading) {
     return (
       <div className="nv-roadmap-page">
@@ -115,17 +108,6 @@ const QuestRoadmap = () => {
             </p>
           </div>
 
-          <div className="nv-roadmap-hero-actions">
-            <Link to="/chat" className="nv-btn-secondary">
-              Back to chat
-            </Link>
-            <Link to="/profile" className="nv-btn-secondary">
-              Profile
-            </Link>
-            <button type="button" onClick={handleLogout} className="nv-btn-logout">
-              Log out
-            </button>
-          </div>
         </header>
 
         {error && <div className="nv-alert nv-alert-error">{error}</div>}

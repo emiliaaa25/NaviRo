@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useChat } from "../hooks/useChat";
 import useAuth from "../hooks/useAuth";
-import { LogOut, Volume2 } from "lucide-react";
+import { Volume2 } from "lucide-react";
 import VoiceInput from "../components/VoiceInput";
 
 const ChatBubbleIcon = () => (
@@ -148,7 +148,7 @@ function ChatApp() {
   const [input, setInput] = useState("");
   const [speakingMessageId, setSpeakingMessageId] = useState(null);
   const [activeTab, setActiveTab] = useState("chat");
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   const handleSend = () => {
@@ -170,11 +170,6 @@ function ChatApp() {
   const handleNewChat = () => {
     clearMessages();
     setActiveTab("chat");
-  };
-
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
   };
 
   const stopBotSpeech = () => {
@@ -457,14 +452,7 @@ function ChatApp() {
   return (
     <div className="nv-app">
       <aside className="nv-sidebar">
-        <div className="nv-sidebar-logo">
-          <div className="nv-sidebar-logo-icon" aria-hidden>
-            🤖
-          </div>
-          <div className="nv-sidebar-logo-text">
-            Navi<span>Ro</span>
-          </div>
-        </div>
+        
 
         <div className="nv-sidebar-section">
           <div className="nv-sidebar-section-label">Recent chats</div>
@@ -524,53 +512,29 @@ function ChatApp() {
       </aside>
 
       <div className="nv-main">
-        <header className="nv-topnav">
-          <div className="nv-topnav-tabs">
-            <button
-              type="button"
-              className={tabClass("chat")}
-              onClick={() => setActiveTab("chat")}
-            >
-              Chat
-            </button>
-            <Link to="/activities" className="nv-nav-tab nv-nav-link-tab">
-              Activities
-            </Link>
-            <Link to="/buddies" className="nv-nav-tab nv-nav-link-tab">
-              Buddies
-            </Link>
-            <Link to="/forum" className="nv-nav-tab nv-nav-link-tab">
-              Peer Q&amp;A
-            </Link>
-            <Link to="/roadmap" className="nv-nav-tab nv-nav-link-tab">
-              Roadmap
-            </Link>
-            <button
-              type="button"
-              className={tabClass("topics")}
-              onClick={() => setActiveTab("topics")}
-            >
-              Topics
-            </button>
-            <button
-              type="button"
-              className={tabClass("tips")}
-              onClick={() => setActiveTab("tips")}
-            >
-              Tips
-            </button>
-          </div>
-          <div className="nv-topnav-right">
-            <button
-              type="button"
-              className="nv-btn-logout"
-              onClick={handleLogout}
-            >
-              <LogOut size={16} />
-              Log out
-            </button>
-          </div>
-        </header>
+        <div className="nv-chat-subnav" aria-label="Chat sections">
+          <button
+            type="button"
+            className={tabClass("chat")}
+            onClick={() => setActiveTab("chat")}
+          >
+            Chat
+          </button>
+          <button
+            type="button"
+            className={tabClass("topics")}
+            onClick={() => setActiveTab("topics")}
+          >
+            Topics
+          </button>
+          <button
+            type="button"
+            className={tabClass("tips")}
+            onClick={() => setActiveTab("tips")}
+          >
+            Tips
+          </button>
+        </div>
 
         {/* Chat */}
         <div

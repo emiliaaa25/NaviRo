@@ -23,6 +23,16 @@ export default function AppNav() {
 
   return (
     <nav className="nv-app-nav" aria-label="App sections">
+      <div className="nv-app-nav-brand">
+        <div className="nv-sidebar-logo">
+          <div className="nv-sidebar-logo-icon" aria-hidden>
+            🤖
+          </div>
+          <div className="nv-sidebar-logo-text">
+            Navi<span>Ro</span>
+          </div>
+        </div>
+      </div>
       <div className="nv-app-nav-links">
         {NAV_LINKS.map((link) => (
           <Link
@@ -36,6 +46,7 @@ export default function AppNav() {
           </Link>
         ))}
       </div>
+
       <button type="button" className="nv-btn-logout" onClick={logout}>
         <LogOut size={16} aria-hidden />
         Log out

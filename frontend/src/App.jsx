@@ -6,6 +6,7 @@ import ChatApp from "./pages/ChatApp";
 import Login from "./pages/Login";
 import PeerForum from "./pages/PeerForum";
 import Register from "./pages/Register";
+import Guide from "./pages/Guide";
 import QuestRoadmap from "./pages/QuestRoadmap";
 import UserProfile from "./pages/UserProfile";
 
@@ -14,7 +15,14 @@ export default function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/" element={<Navigate to="/chat" replace />} />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Guide />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/profile"
         element={
@@ -63,7 +71,7 @@ export default function App() {
           </ProtectedRoute>
         }
       />
-      <Route path="*" element={<Navigate to="/chat" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }

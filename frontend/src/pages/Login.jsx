@@ -108,7 +108,7 @@ export default function Login() {
     const result = await login(username, password);
 
     if (result.success) {
-      navigate("/chat");
+      navigate("/");
     } else {
       setLocalError(result.message || "Login failed");
     }
@@ -167,7 +167,7 @@ export default function Login() {
 
       const result = await loginWithGoogle(credential);
       if (result.success) {
-        navigate("/chat");
+        navigate("/");
       } else {
         setLocalError(result.message || "Google login failed");
       }
