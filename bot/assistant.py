@@ -534,7 +534,7 @@ def _find_relevant_links(user_message, category=None, top_k=3, user_id=None):
     # Sort by score descending and return top_k
     scored_links.sort(key=lambda x: x[0], reverse=True)
     top_results = [link for score, link in scored_links[:top_k]]
-    print(f"[RAG] Found {len(top_results)} relevant links (prioritized for {student_university or 'GENERAL'}/{student_program or 'GENERAL'}): {[l['title'] for l in top_results]}")
+    print(f"[RAG] Found {len(top_results)} relevant links (prioritized for {student_university or 'GENERAL'}/{student_program or 'GENERAL'}): {[l.get('title') or l.get('description') or l.get('url') for l in top_results]}")
     return top_results
 
 
@@ -552,7 +552,7 @@ def _build_link_constraint_prompt(relevant_links):
         return ""
     
     links_text = "\n".join([
-        f"- [{link['title']}]({link['url']})"
+        f"- [{link.get('title') or link.get('description') or link.get('url')}]({link['url']})"
         + (f" — {link['description']}" if link.get('description') else "")
         for link in relevant_links
     ])
