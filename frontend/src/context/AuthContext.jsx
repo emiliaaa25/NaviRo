@@ -45,41 +45,44 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const register = useCallback(async (username, email, password, fullName, profile = {}) => {
-    setLoading(true);
-    setError(null);
+  const register = useCallback(
+    async (username, email, password, fullName, profile = {}) => {
+      setLoading(true);
+      setError(null);
 
-    try {
-      const response = await fetch(`${API_BASE_URL}/auth/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          email,
-          password,
-          full_name: fullName,
-          ...profile,
-        }),
-      });
+      try {
+        const response = await fetch(`${API_BASE_URL}/auth/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            email,
+            password,
+            full_name: fullName,
+            ...profile,
+          }),
+        });
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (!response.ok) {
-        setError(data.message || "Registration failed");
-        return { success: false, message: data.message };
+        if (!response.ok) {
+          setError(data.message || "Registration failed");
+          return { success: false, message: data.message };
+        }
+
+        return { success: true, message: data.message };
+      } catch (err) {
+        const errorMessage = err.message || "Network error during registration";
+        setError(errorMessage);
+        return { success: false, message: errorMessage };
+      } finally {
+        setLoading(false);
       }
-
-      return { success: true, message: data.message };
-    } catch (err) {
-      const errorMessage = err.message || "Network error during registration";
-      setError(errorMessage);
-      return { success: false, message: errorMessage };
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+    },
+    [],
+  );
 
   const login = useCallback(async (username, password) => {
     setLoading(true);
@@ -445,38 +448,49 @@ export const AuthProvider = ({ children }) => {
     [token],
   );
 
-  const getQuestProgress = useCallback(async () => {
-    if (!token) {
-      setError("No authentication token");
-      return null;
-    }
-
-    try {
-      const response = await fetch(`${API_BASE_URL}/quest/progress`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        // Quest module can be disabled on some backend deployments.
-        if (response.status === 404) {
-          return null;
-        }
-        setError(data.message || "Failed to fetch quest progress");
+  const getQuestProgress = useCallback(
+    async (questSlug = null) => {
+      if (!token) {
+        setError("No authentication token");
         return null;
       }
 
-      localStorage.setItem("questProgress", JSON.stringify(data.progress));
-      return data.progress;
-    } catch (err) {
-      setError(err.message || "Network error fetching quest progress");
-      return null;
-    }
-  }, [token]);
+      try {
+        const params = new URLSearchParams();
+        if (questSlug) {
+          params.set("quest_slug", questSlug);
+        }
+
+        const response = await fetch(
+          `${API_BASE_URL}/quest/progress${params.toString() ? `?${params.toString()}` : ""}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          // Quest module can be disabled on some backend deployments.
+          if (response.status === 404) {
+            return null;
+          }
+          setError(data.message || "Failed to fetch quest progress");
+          return null;
+        }
+
+        localStorage.setItem("questProgress", JSON.stringify(data.progress));
+        return data.progress;
+      } catch (err) {
+        setError(err.message || "Network error fetching quest progress");
+        return null;
+      }
+    },
+    [token],
+  );
 
   const getQuestSteps = useCallback(
     async (questSlug = null) => {

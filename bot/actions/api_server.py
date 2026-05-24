@@ -137,6 +137,65 @@ def _fetch_step_checklist(cur, step_id):
     return checklist
 
 
+def _build_faculty_roadmap_context(profile, quest):
+    if not profile:
+        return None
+
+    target_university = (profile.get('target_university') or '').strip()
+    target_faculty = (profile.get('target_faculty') or profile.get('faculty') or '').strip()
+    study_program = (profile.get('study_program') or '').strip()
+    student_type = (profile.get('student_type') or '').strip().lower()
+
+    profile_bits = [bit for bit in [target_university, target_faculty, study_program] if bit]
+    profile_label = ', '.join(profile_bits) if profile_bits else 'general studies'
+    profile_blob = ' '.join(profile_bits).lower()
+
+    if student_type == 'erasmus':
+        track_label = 'Erasmus mobility track'
+        guidance = (
+            'This roadmap should stay focused on mobility documents, Learning Agreement steps, '
+            'grant paperwork, and temporary housing rather than full-degree admission.'
+        )
+    elif target_university == 'UMF' or any(
+        term in profile_blob
+        for term in ('medicine', 'medical', 'pharmacy', 'dental', 'dentistry', 'bioengineering')
+    ):
+        track_label = 'Health sciences admissions track'
+        guidance = (
+            'Treat the roadmap as health-sciences specific: admission files, language or exam '
+            'requirements, faculty confirmation, and the deadlines that are unique to medical studies.'
+        )
+    elif target_university == 'TUIASI' or any(
+        term in profile_blob
+        for term in ('engineering', 'technical', 'computer', 'automation', 'robotics', 'mechanical', 'electrical')
+    ):
+        track_label = 'Technical admissions track'
+        guidance = (
+            'Treat the roadmap as engineering-focused: technical prerequisites, document uploads, '
+            'program confirmation, and faculty-specific enrollment checks.'
+        )
+    elif target_university == 'UAIC' or target_faculty or study_program:
+        track_label = 'Academic admissions track'
+        guidance = (
+            'Treat the roadmap as faculty-aware academic admissions guidance: use the saved faculty and '
+            'study programme to prioritise the relevant office, files, and enrolment steps.'
+        )
+    else:
+        track_label = 'General relocation track'
+        guidance = (
+            'Treat the roadmap as a general relocation journey and keep the guidance aligned with the '
+            'student profile when more faculty information becomes available.'
+        )
+
+    return {
+        'track_label': track_label,
+        'profile_label': profile_label,
+        'guidance': guidance,
+        'quest_title': quest.get('title') if quest else None,
+        'quest_slug': quest.get('slug') if quest else None,
+    }
+
+
 def _derive_quest_progress(legacy_progress, steps):
     milestones = legacy_progress.get('milestones', []) if legacy_progress else []
     completed_milestones = sum(1 for milestone in milestones if milestone.get('status') == 'Complete')
@@ -591,6 +650,8 @@ def get_quest_progress():
                         }
                     )
 
+                profile = AuthManager.get_user_profile(request.user_id)
+                roadmap_context = _build_faculty_roadmap_context(profile, quest)
                 _store_user_quest_progress(request.user_id, quest, steps, progress)
                 progress = {
                     **progress,
@@ -601,6 +662,7 @@ def get_quest_progress():
                     'current_step': derived['current_step'],
                     'next_step': derived['next_step'],
                     'completion_percentage': derived['completion_percentage'],
+                    'roadmap_context': roadmap_context,
                 }
         
         return jsonify({

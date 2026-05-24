@@ -1,4 +1,5 @@
 import json
+import unicodedata
 from pathlib import Path
 import sys
 import os
@@ -149,55 +150,167 @@ QUEST_MILESTONES = [
 
 DEFAULT_QUEST_SLUG = 'eu-student-admission-september-2026'
 
+
+def _normalize_intent_text(text):
+    raw_text = (text or "").lower().strip()
+    if not raw_text:
+        return ""
+    normalized = unicodedata.normalize("NFKD", raw_text)
+    return "".join(char for char in normalized if not unicodedata.combining(char))
+
+
+def _matches_any_phrase(text, phrases):
+    return any(phrase in text for phrase in phrases)
+
+
+def _matches_any_pattern(text, patterns):
+    return any(re.search(pattern, text) for pattern in patterns)
+
 def _detect_and_update_roadmap_milestones(user_id, user_message):
     """
-    Detects specific keywords in the user's message to advance the roadmap milestones.
-    If a keyword is matched, updates the milestone in the database and returns the milestone name.
+    Detects milestone intent from the user's message and advances the roadmap.
+    Uses normalized phrase and pattern matching so the detection works even when
+    the student paraphrases the milestone update.
     """
     if not user_id:
         return None
 
-    message = (user_message or "").lower()
-    
-    # Milestone to keyword trigger mapping
-    milestone_triggers = {
-        "Admission": [
-            "got accepted", "was accepted", "got admission", "got admitted", 
-            "received offer", "received my offer", "admission letter", 
-            "got in", "accepted by the university", "accepted to the university",
-            "accepted at the university", "i'm accepted", "i got accepted",
-            "i was accepted", "i got admitted", "i'm admitted"
-        ],
-        "Visa": [
-            "got my visa", "got visa", "visa approved", "visa accepted", 
-            "received my visa", "received visa", "visa stamped", "visa is ready", 
-            "residence permit ready", "permit approved", "visa came"
-        ],
-        "Housing": [
-            "got a room", "got room", "housing confirmed", "dorm accepted", 
-            "found an apartment", "found apartment", "rented a room", "rented room", 
-            "booked accommodation", "housing sorted", "signed the lease", 
-            "got a place to stay", "housing ready", "dorm allocated"
-        ],
-        "Health Registration": [
-            "registered with a doctor", "registered with doctor", 
-            "family doctor sorted", "health insurance sorted", 
-            "registered for health", "medic de familie", "gp registration",
-            "registered with gp", "got health insurance", "insurance sorted"
-        ],
-        "Integration": [
-            "arrived in iasi", "arrived at iasi", "reached iasi", 
-            "started classes", "fully settled", "i am in iasi", 
-            "landed in romania", "settled down", "arrived in romania"
-        ]
+    message = _normalize_intent_text(user_message)
+    if not message:
+        return None
+
+    milestone_intents = {
+        "Admission": {
+            "phrases": [
+                "got accepted",
+                "was accepted",
+                "got admission",
+                "got admitted",
+                "received offer",
+                "received my offer",
+                "admission letter",
+                "offer letter",
+                "got in",
+                "accepted by the university",
+                "accepted to the university",
+                "accepted at the university",
+                "i am accepted",
+                "i was accepted",
+                "i got accepted",
+                "i got admitted",
+                "i am admitted",
+                "enrollment confirmed",
+                "confirmed enrollment",
+                "admission result",
+            ],
+            "patterns": [
+                r"\b(received|got|was|am)\s+(an\s+)?offer\b",
+                r"\b(admitted|accepted)\b",
+                r"\b(enroll(?:ment)?|enrol(?:ment)?)\b.*\b(confirm(?:ed|ation)?|done|finished)\b",
+            ],
+        },
+        "Visa": {
+            "phrases": [
+                "got my visa",
+                "got visa",
+                "visa approved",
+                "visa accepted",
+                "received my visa",
+                "received visa",
+                "visa stamped",
+                "visa is ready",
+                "residence permit ready",
+                "permit approved",
+                "visa came",
+                "visa issued",
+                "permit issued",
+                "residence permit approved",
+                "residence card ready",
+            ],
+            "patterns": [
+                r"\b(visa|permit|residence\s+permit|residence\s+card)\b.*\b(approved|issued|ready|stamped|granted)\b",
+                r"\b(got|received|picked\s+up)\b.*\b(visa|permit|residence\s+permit)\b",
+            ],
+        },
+        "Housing": {
+            "phrases": [
+                "got a room",
+                "got room",
+                "housing confirmed",
+                "dorm accepted",
+                "found an apartment",
+                "found apartment",
+                "rented a room",
+                "rented room",
+                "booked accommodation",
+                "housing sorted",
+                "signed the lease",
+                "got a place to stay",
+                "housing ready",
+                "dorm allocated",
+                "apartment secured",
+                "accommodation secured",
+                "room secured",
+                "place to stay",
+            ],
+            "patterns": [
+                r"\b(housing|accommodation|dorm|room|apartment|lease|rent)\b.*\b(sorted|secured|confirmed|booked|found|signed|allocated)\b",
+                r"\b(found|got|secured|rented|booked|signed)\b.*\b(room|apartment|dorm|housing|accommodation|lease)\b",
+            ],
+        },
+        "Health Registration": {
+            "phrases": [
+                "registered with a doctor",
+                "registered with doctor",
+                "family doctor sorted",
+                "health insurance sorted",
+                "registered for health",
+                "medic de familie",
+                "gp registration",
+                "registered with gp",
+                "got health insurance",
+                "insurance sorted",
+                "cnas",
+                "family doctor",
+                "general practitioner",
+                "health card",
+                "medical registration",
+            ],
+            "patterns": [
+                r"\b(registered|signed\s+up|enrolled)\b.*\b(doctor|gp|family\s+doctor|health|insurance|cnas)\b",
+                r"\b(health\s+insurance|doctor|gp|family\s+doctor|cnas)\b.*\b(sorted|done|completed|confirmed|ready)\b",
+            ],
+        },
+        "Integration": {
+            "phrases": [
+                "arrived in iasi",
+                "arrived at iasi",
+                "reached iasi",
+                "started classes",
+                "fully settled",
+                "i am in iasi",
+                "landed in romania",
+                "settled down",
+                "arrived in romania",
+                "moved to iasi",
+                "moved in",
+                "orientation week",
+                "i got here",
+                "i am here",
+                "i have arrived",
+            ],
+            "patterns": [
+                r"\b(arrived|reached|landed|moved)\b.*\b(iasi|romania|campus|city)\b",
+                r"\b(settled|started\s+classes|joined\s+classes|attending\s+classes)\b",
+            ],
+        },
     }
     
     updated_milestone = None
-    for milestone, keywords in milestone_triggers.items():
-        for keyword in keywords:
-            if keyword in message:
-                updated_milestone = milestone
-                break
+    for milestone, intent_rules in milestone_intents.items():
+        if _matches_any_phrase(message, intent_rules["phrases"]) or _matches_any_pattern(message, intent_rules["patterns"]):
+            updated_milestone = milestone
+            break
         if updated_milestone:
             break
             
@@ -332,6 +445,50 @@ def _detect_student_preferences(user_message):
     return preferences
 
 
+def _load_student_roadmap_profile(user_id):
+    if not user_id:
+        return {
+            "student_type": None,
+            "target_university": None,
+            "target_faculty": None,
+            "study_program": None,
+        }
+
+    try:
+        with db.get_cursor() as cur:
+            cur.execute(
+                """SELECT
+                       sp.student_type,
+                       COALESCE(sp.target_university, q.target_university),
+                       COALESCE(sp.target_faculty, sp.faculty),
+                       COALESCE(sp.study_program, q.study_program)
+                   FROM users u
+                   LEFT JOIN student_profiles sp ON sp.user_id = u.id
+                   LEFT JOIN quest_relocation_profiles q ON q.user_id = u.id
+                   WHERE u.id = %s""",
+                (user_id,),
+            )
+            row = cur.fetchone()
+    except Exception as exc:
+        print(f"[RAG] Could not load student roadmap profile: {exc}")
+        row = None
+
+    if not row:
+        return {
+            "student_type": None,
+            "target_university": None,
+            "target_faculty": None,
+            "study_program": None,
+        }
+
+    return {
+        "student_type": (row[0] or "").strip() or None,
+        "target_university": (row[1] or "").strip() or None,
+        "target_faculty": (row[2] or "").strip() or None,
+        "study_program": (row[3] or "").strip() or None,
+    }
+
+
 def _save_student_preferences(user_id, preferences):
     """
     Save detected student preferences to quest_relocation_profiles.
@@ -379,6 +536,39 @@ def _save_student_preferences(user_id, preferences):
                 print(f"[PROFILE] Created new student profile with preferences: {preferences}")
     except Exception as e:
         print(f"[PROFILE] Error saving preferences: {e}")
+
+
+def _build_faculty_roadmap_hint(target_university, target_faculty, study_program, student_type):
+    profile_bits = [bit for bit in [target_university, target_faculty, study_program] if bit]
+    profile_blob = " ".join(profile_bits).lower()
+    university = (target_university or "").strip().upper()
+    student_type = (student_type or "").strip().lower()
+
+    if student_type == "erasmus":
+        return (
+            "Faculty focus: Erasmus mobility. Keep the roadmap centered on temporary mobility documents, "
+            "Learning Agreement steps, grant paperwork, and housing for the exchange period."
+        )
+
+    if university == "UMF" or any(term in profile_blob for term in ("medicine", "medical", "pharmacy", "dental", "dentistry", "bioengineering")):
+        return (
+            "Faculty focus: health sciences. Prioritise admission files, language or exam requirements, "
+            "faculty confirmations, and deadlines that are specific to medical studies."
+        )
+
+    if university == "TUIASI" or any(term in profile_blob for term in ("engineering", "technical", "computer", "automation", "robotics", "mechanical", "electrical")):
+        return (
+            "Faculty focus: technical studies. Prioritise technical prerequisites, document uploads, "
+            "programme confirmation, and engineering-specific enrolment checks."
+        )
+
+    if university == "UAIC" or target_faculty or study_program:
+        return (
+            "Faculty focus: academic admissions. Use the saved faculty and study programme to prioritize "
+            "the relevant office, file list, and enrolment steps."
+        )
+
+    return None
 
 # ── RAG: Verified Links Database ────────────────────────────────────────────
 
@@ -498,7 +688,16 @@ def _similarity_score(query, text):
     return len(intersection) / len(union)
 
 
-def _find_relevant_links(user_message, category=None, top_k=3, user_id=None):
+def _find_relevant_links(
+    user_message,
+    category=None,
+    top_k=3,
+    user_id=None,
+    target_university=None,
+    target_faculty=None,
+    study_program=None,
+    student_type=None,
+):
     """
     Find relevant verified links using similarity search against keywords/description.
     Boosts links from the detected query category and student's preferred university/program.
@@ -520,34 +719,17 @@ def _find_relevant_links(user_message, category=None, top_k=3, user_id=None):
         print(f"[RAG] No verified links available")
         return []
     
-    # Detect student's current preferences from message
-    student_prefs = _detect_student_preferences(user_message)
-    print(f"[RAG] Detected student preferences: university={student_prefs['university']}, program={student_prefs['program']}")
-    
-    # Try to load stored preferences from DB if user_id provided
-    stored_university = None
-    stored_program = None
-    if user_id:
-        try:
-            with db.get_cursor() as cur:
-                cur.execute("""
-                    SELECT COALESCE(sp.study_program, q.study_program), q.target_university
-                    FROM users u
-                    LEFT JOIN student_profiles sp ON sp.user_id = u.id
-                    LEFT JOIN quest_relocation_profiles q ON q.user_id = u.id
-                    WHERE u.id = %s
-                """, (user_id,))
-                row = cur.fetchone()
-                if row:
-                    stored_program = row[0]
-                    stored_university = row[1]
-                    print(f"[RAG] Loaded stored preferences: university={stored_university}, program={stored_program}")
-        except Exception as e:
-            print(f"[RAG] Could not load stored preferences: {e}")
-    
-    # Merge current detection with stored preferences (current takes precedence)
-    student_university = student_prefs['university'] or stored_university
-    student_program = student_prefs['program'] or stored_program
+    profile = _load_student_roadmap_profile(user_id)
+    detected_prefs = _detect_student_preferences(user_message)
+    student_university = target_university or profile["target_university"] or detected_prefs["university"]
+    student_faculty = target_faculty or profile["target_faculty"]
+    student_program = study_program or profile["study_program"] or detected_prefs["program"]
+    student_type = student_type or profile["student_type"]
+
+    print(
+        "[RAG] Loaded profile context: "
+        f"university={student_university}, faculty={student_faculty}, program={student_program}, student_type={student_type}"
+    )
     
     # Filter by category if specified
     if category:
@@ -569,6 +751,12 @@ def _find_relevant_links(user_message, category=None, top_k=3, user_id=None):
     elif re.search(visa_terms, msg_lower):
         detected_category = "VISA"
     
+    faculty_terms = set()
+    if student_faculty:
+        faculty_terms.update(re.findall(r"[a-z0-9ăâîșț]+", student_faculty.lower()))
+    if student_program:
+        faculty_terms.update(re.findall(r"[a-z0-9ăâîșț]+", student_program.lower()))
+
     # Score each link
     scored_links = []
     for link in links:
@@ -580,9 +768,10 @@ def _find_relevant_links(user_message, category=None, top_k=3, user_id=None):
         if detected_category and link.get("category") == detected_category:
             score += 0.4
         
-        # Boost links from student's preferred university/program
+        # Boost links from student's preferred university/program/faculty
         link_university = link.get("university", "GENERAL")
         link_program = link.get("program", "GENERAL")
+        link_blob = f"{link.get('title', '')} {search_text}".lower()
         
         if student_university and link_university == student_university:
             score += 0.3
@@ -591,14 +780,21 @@ def _find_relevant_links(user_message, category=None, top_k=3, user_id=None):
         if student_program and link_program == student_program:
             score += 0.25
             print(f"[RAG] Boosted '{link.get('title')}' for preferred program {student_program}")
+
+        if student_faculty and faculty_terms and any(term in link_blob for term in faculty_terms):
+            score += 0.35
+            print(f"[RAG] Boosted '{link.get('title')}' for faculty match {student_faculty}")
         
         # Strongly penalize links from non-preferred universities so wrong-university
         # links never surface (e.g. UAIC housing links should NOT appear for UMF students)
         if student_university and link_university != "GENERAL" and link_university != student_university:
             score -= 0.5  # Strong penalty: non-preferred university-specific links sink to bottom
-        
+
+        if student_faculty and faculty_terms and student_university == link_university:
+            if not any(term in link_blob for term in faculty_terms):
+                score -= 0.2
+
         # Additional subject-specific boosting
-        link_blob = f"{link.get('title', '')} {search_text}".lower()
         
         if detected_category == "HEALTHCARE":
             if any(term in link_blob for term in ("medical", "pharmacy", "healthcare", "hospital", "emergency", "health")):
@@ -622,9 +818,23 @@ def _find_relevant_links(user_message, category=None, top_k=3, user_id=None):
             scored_links.append((score, link))
     
     # Sort by score descending and return top_k
+    if student_faculty and faculty_terms:
+        faculty_specific = [item for item in scored_links if any(term in f"{item[1].get('title', '')} {item[1].get('keywords', '')} {item[1].get('description', '')}".lower() for term in faculty_terms)]
+        if faculty_specific:
+            scored_links = faculty_specific
+            print(f"[RAG] Restricted sources to faculty-specific matches for {student_faculty}")
+        elif student_university:
+            university_specific = [item for item in scored_links if item[1].get("university", "GENERAL") in {"GENERAL", student_university}]
+            if university_specific:
+                scored_links = university_specific
+                print(f"[RAG] Falling back to university-specific sources for {student_university}")
     scored_links.sort(key=lambda x: x[0], reverse=True)
     top_results = [link for score, link in scored_links[:top_k]]
-    print(f"[RAG] Found {len(top_results)} relevant links (prioritized for {student_university or 'GENERAL'}/{student_program or 'GENERAL'}): {[l.get('title') or l.get('description') or l.get('url') for l in top_results]}")
+    print(
+        f"[RAG] Found {len(top_results)} relevant links (prioritized for {student_university or 'GENERAL'}/"
+        f"{student_faculty or 'GENERAL'}/{student_program or 'GENERAL'}): "
+        f"{[l.get('title') or l.get('description') or l.get('url') for l in top_results]}"
+    )
     return top_results
 
 
@@ -828,6 +1038,10 @@ def _fetch_user_quest_context(user_id):
                         f"The user is a {citizenship_type} international student"
                         + (f" from {country_of_origin}." if country_of_origin else ".")
                     )
+
+            faculty_hint = _build_faculty_roadmap_hint(target_university, target_faculty, study_program, student_type)
+            if faculty_hint:
+                parts.append(faculty_hint)
 
             # Legacy citizenship_type fallback if student_type not set
             if not student_type and citizenship_type:
