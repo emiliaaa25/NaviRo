@@ -7,8 +7,12 @@ from functools import wraps
 from typing import Optional, Dict, Any
 import os
 import requests
-from db import db
-from config import Config
+try:
+    from actions.db import db
+    from actions.config import Config
+except ImportError:
+    from db import db
+    from config import Config
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'your-secret-key-change-in-production')
 TOKEN_EXPIRATION = int(os.getenv('TOKEN_EXPIRATION', 86400))  # 24 hours in seconds

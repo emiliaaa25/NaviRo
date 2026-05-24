@@ -13,6 +13,7 @@ from openai import AzureOpenAI
 
 from actions.config import Config
 from actions.db import db
+from actions.auth import AuthManager
 from actions.social_helpers import (
     fetch_recommended_activities,
     suggest_peers_summary_for_assistant,
@@ -139,11 +140,100 @@ except Exception as _init_err:
 _seed_verified_links_from_json()
 
 QUEST_MILESTONES = [
-    "Initial Profiling",
-    "Admission & Docs",
+    "Admission",
     "Visa",
-    "Iași Arrival",
+    "Housing",
+    "Health Registration",
+    "Integration",
 ]
+
+DEFAULT_QUEST_SLUG = 'eu-student-admission-september-2026'
+
+def _detect_and_update_roadmap_milestones(user_id, user_message):
+    """
+    Detects specific keywords in the user's message to advance the roadmap milestones.
+    If a keyword is matched, updates the milestone in the database and returns the milestone name.
+    """
+    if not user_id:
+        return None
+
+    message = (user_message or "").lower()
+    
+    # Milestone to keyword trigger mapping
+    milestone_triggers = {
+        "Admission": [
+            "got accepted", "was accepted", "got admission", "got admitted", 
+            "received offer", "received my offer", "admission letter", 
+            "got in", "accepted by the university", "accepted to the university",
+            "accepted at the university", "i'm accepted", "i got accepted",
+            "i was accepted", "i got admitted", "i'm admitted"
+        ],
+        "Visa": [
+            "got my visa", "got visa", "visa approved", "visa accepted", 
+            "received my visa", "received visa", "visa stamped", "visa is ready", 
+            "residence permit ready", "permit approved", "visa came"
+        ],
+        "Housing": [
+            "got a room", "got room", "housing confirmed", "dorm accepted", 
+            "found an apartment", "found apartment", "rented a room", "rented room", 
+            "booked accommodation", "housing sorted", "signed the lease", 
+            "got a place to stay", "housing ready", "dorm allocated"
+        ],
+        "Health Registration": [
+            "registered with a doctor", "registered with doctor", 
+            "family doctor sorted", "health insurance sorted", 
+            "registered for health", "medic de familie", "gp registration",
+            "registered with gp", "got health insurance", "insurance sorted"
+        ],
+        "Integration": [
+            "arrived in iasi", "arrived at iasi", "reached iasi", 
+            "started classes", "fully settled", "i am in iasi", 
+            "landed in romania", "settled down", "arrived in romania"
+        ]
+    }
+    
+    updated_milestone = None
+    for milestone, keywords in milestone_triggers.items():
+        for keyword in keywords:
+            if keyword in message:
+                updated_milestone = milestone
+                break
+        if updated_milestone:
+            break
+            
+    if updated_milestone:
+        try:
+            print(f"[ROADMAP] Triggering milestone update: '{updated_milestone}' -> Complete for user_id={user_id}")
+            
+            # Ensure relocation profile exists so quest progress is loadable
+            with db.get_cursor() as cur:
+                cur.execute("SELECT 1 FROM quest_relocation_profiles WHERE user_id = %s", (user_id,))
+                if not cur.fetchone():
+                    cur.execute("""
+                        INSERT INTO quest_relocation_profiles 
+                        (user_id, country_of_origin, citizenship_type, target_university, study_program)
+                        VALUES (%s, 'Unknown', 'Unknown', 'UAIC', 'GENERAL')
+                    """, (user_id,))
+            
+            # Update the matched milestone to Complete
+            AuthManager.update_quest_milestone(user_id, updated_milestone, "Complete")
+            
+            # Auto-progress the next milestone in sequence to 'In Progress'
+            default_milestones = ['Admission', 'Visa', 'Housing', 'Health Registration', 'Integration']
+            try:
+                current_idx = default_milestones.index(updated_milestone)
+                if current_idx + 1 < len(default_milestones):
+                    next_milestone = default_milestones[current_idx + 1]
+                    print(f"[ROADMAP] Auto-setting next milestone '{next_milestone}' to In Progress for user_id={user_id}")
+                    AuthManager.update_quest_milestone(user_id, next_milestone, "In Progress")
+            except ValueError:
+                pass
+                
+            return updated_milestone
+        except Exception as e:
+            print(f"[ROADMAP] Error updating milestone from chat: {e}")
+            
+    return None
 
 QUEST_STEP_SEQUENCE = [
     "Submit Application",
@@ -800,12 +890,24 @@ def _build_system_messages(user_id, user_message=None):
         system_messages.append({"role": "system", "content": Config.SYSTEM_PROMPT})
         print(f"[INJECT] Added base system prompt")
 
+    # Run roadmap milestone update detector if user_id and message are present
+    updated_milestone = None
+    if user_id and user_message:
+        updated_milestone = _detect_and_update_roadmap_milestones(user_id, user_message)
+
     quest_context = _fetch_user_quest_context(user_id)
     if quest_context:
         system_messages.append({"role": "system", "content": quest_context})
         print(f"[INJECT] Added quest context system message")
     else:
         print(f"[INJECT] No quest context available for user_id={user_id}")
+
+    if updated_milestone:
+        system_messages.append({
+            "role": "system", 
+            "content": f"SYSTEM INFO: You have programmatically updated the user's roadmap database. Milestone '{updated_milestone}' has been marked as Complete. Acknowledge this milestone achievement in a warm, encouraging student advisor tone, congratulate the student, and guide them on their current progress/next steps."
+        })
+        print(f"[INJECT] Injected system note for updated milestone '{updated_milestone}'")
 
     peer_prompt = _build_peer_social_prompt(user_id, user_message)
     if peer_prompt:
