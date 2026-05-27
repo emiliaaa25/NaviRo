@@ -22,7 +22,6 @@ from actions.social_helpers import (
 from actions.utils import store_conversation
 from actions.voice_processor import VoiceProcessor
 
-# Force unbuffered output so logs appear immediately
 sys.stdout = sys.stderr
 
 app = Flask(__name__)
@@ -131,13 +130,11 @@ def _seed_verified_links_from_json():
     except Exception as e:
         print(f"Error seeding verified links from JSON: {e}")
 
-# Ensure DB schema (activities, forum, peers) exists before seeding links
 try:
     db.init_db()
 except Exception as _init_err:
     print(f"[assistant] db.init_db(): {_init_err}")
 
-# One-time seed of verified links on app startup
 _seed_verified_links_from_json()
 
 QUEST_MILESTONES = [
@@ -318,7 +315,6 @@ def _detect_and_update_roadmap_milestones(user_id, user_message):
         try:
             print(f"[ROADMAP] Triggering milestone update: '{updated_milestone}' -> Complete for user_id={user_id}")
             
-            # Ensure relocation profile exists so quest progress is loadable
             with db.get_cursor() as cur:
                 cur.execute("SELECT 1 FROM quest_relocation_profiles WHERE user_id = %s", (user_id,))
                 if not cur.fetchone():
@@ -328,10 +324,8 @@ def _detect_and_update_roadmap_milestones(user_id, user_message):
                         VALUES (%s, 'Unknown', 'Unknown', 'UAIC', 'GENERAL')
                     """, (user_id,))
             
-            # Update the matched milestone to Complete
             AuthManager.update_quest_milestone(user_id, updated_milestone, "Complete")
             
-            # Auto-progress the next milestone in sequence to 'In Progress'
             default_milestones = ['Admission', 'Visa', 'Housing', 'Health Registration', 'Integration']
             try:
                 current_idx = default_milestones.index(updated_milestone)
@@ -411,11 +405,10 @@ def _detect_student_preferences(user_message):
     msg_lower = (user_message or "").lower()
     
     preferences = {
-        'university': None,  # UAIC, TUIASI, UMF, or None
-        'program': None      # LIBERAL_ARTS, ENGINEERING, MEDICINE, or None
+        'university': None,  
+        'program': None      
     }
     
-    # Detect university preference — broader keyword matching
     umf_terms = (
         "medicine", "medical", "pharmacy", "pharmaceutical", "dental", "dentistry",
         "umf", "grigore popa", "grigore t. popa", "study medicine", "med school",
@@ -499,12 +492,10 @@ def _save_student_preferences(user_id, preferences):
     
     try:
         with db.get_cursor() as cur:
-            # Check if profile exists
             cur.execute("SELECT id FROM quest_relocation_profiles WHERE user_id = %s", (user_id,))
             exists = cur.fetchone()
             
             if exists:
-                # Update existing profile
                 updates = []
                 params = []
                 if preferences.get('university'):
@@ -521,15 +512,14 @@ def _save_student_preferences(user_id, preferences):
                     cur.execute(query, params)
                     print(f"[PROFILE] Updated student preferences: {preferences}")
             else:
-                # Create new profile with defaults
                 cur.execute("""
                     INSERT INTO quest_relocation_profiles 
                     (user_id, country_of_origin, citizenship_type, target_university, study_program)
                     VALUES (%s, %s, %s, %s, %s)
                 """, (
                     user_id, 
-                    'Unknown',  # Will be detected later
-                    'Unknown',  # Will be detected later
+                    'Unknown',  
+                    'Unknown',  
                     preferences.get('university'),
                     preferences.get('program')
                 ))
@@ -570,10 +560,8 @@ def _build_faculty_roadmap_hint(target_university, target_faculty, study_program
 
     return None
 
-# ── RAG: Verified Links Database ────────────────────────────────────────────
 
 
-# Load verified links into memory (lazy load on first use)
 VERIFIED_LINKS_CACHE = None
 
 QUERY_SYNONYMS = {
@@ -731,12 +719,10 @@ def _find_relevant_links(
         f"university={student_university}, faculty={student_faculty}, program={student_program}, student_type={student_type}"
     )
     
-    # Filter by category if specified
     if category:
         links = [l for l in links if l["category"] == category]
         print(f"[RAG] Filtered to {len(links)} links in category '{category}'")
     
-    # Detect query category to boost relevant sources
     msg_lower = (user_message or "").lower()
     detected_category = None
     
@@ -757,18 +743,14 @@ def _find_relevant_links(
     if student_program:
         faculty_terms.update(re.findall(r"[a-z0-9ăâîșț]+", student_program.lower()))
 
-    # Score each link
     scored_links = []
     for link in links:
-        # Combine keywords and description for similarity search
         search_text = f"{link.get('keywords', '')} {link.get('description', '')}"
         score = _similarity_score(user_message, search_text)
 
-        # Boost if link is from the detected query category
         if detected_category and link.get("category") == detected_category:
             score += 0.4
         
-        # Boost links from student's preferred university/program/faculty
         link_university = link.get("university", "GENERAL")
         link_program = link.get("program", "GENERAL")
         link_blob = f"{link.get('title', '')} {search_text}".lower()
@@ -785,16 +767,12 @@ def _find_relevant_links(
             score += 0.35
             print(f"[RAG] Boosted '{link.get('title')}' for faculty match {student_faculty}")
         
-        # Strongly penalize links from non-preferred universities so wrong-university
-        # links never surface (e.g. UAIC housing links should NOT appear for UMF students)
         if student_university and link_university != "GENERAL" and link_university != student_university:
-            score -= 0.5  # Strong penalty: non-preferred university-specific links sink to bottom
-
+            score -= 0.5  
         if student_faculty and faculty_terms and student_university == link_university:
             if not any(term in link_blob for term in faculty_terms):
                 score -= 0.2
 
-        # Additional subject-specific boosting
         
         if detected_category == "HEALTHCARE":
             if any(term in link_blob for term in ("medical", "pharmacy", "healthcare", "hospital", "emergency", "health")):
@@ -814,10 +792,9 @@ def _find_relevant_links(
             if any(term in link_blob for term in ("housing", "accommodation", "dormitory")):
                 score -= 0.15
         
-        if score > 0:  # Only include if there's some relevance
+        if score > 0:  
             scored_links.append((score, link))
     
-    # Sort by score descending and return top_k
     if student_faculty and faculty_terms:
         faculty_specific = [item for item in scored_links if any(term in f"{item[1].get('title', '')} {item[1].get('keywords', '')} {item[1].get('description', '')}".lower() for term in faculty_terms)]
         if faculty_specific:
@@ -985,7 +962,6 @@ def _fetch_user_quest_context(user_id):
             student_type = student_type or ""
 
             if student_type == "erasmus":
-                # ── ERASMUS student ──────────────────────────────────────────
                 home_parts = []
                 if home_university:
                     home_parts.append(home_university)
@@ -1015,7 +991,6 @@ def _fetch_user_quest_context(user_id):
                     f" OLS language assessment, temporary housing, and UAIC's International Relations office."
                 )
             else:
-                # ── INTERNATIONAL (full-degree) student ──────────────────────
                 desc_parts = []
                 if country_of_origin:
                     desc_parts.append(f"from {country_of_origin}")
@@ -1043,7 +1018,6 @@ def _fetch_user_quest_context(user_id):
             if faculty_hint:
                 parts.append(faculty_hint)
 
-            # Legacy citizenship_type fallback if student_type not set
             if not student_type and citizenship_type:
                 parts.append(f"The user is a {citizenship_type} student"
                              + (f" from {country_of_origin}." if country_of_origin else "."))
@@ -1104,7 +1078,6 @@ def _build_system_messages(user_id, user_message=None):
         system_messages.append({"role": "system", "content": Config.SYSTEM_PROMPT})
         print(f"[INJECT] Added base system prompt")
 
-    # Run roadmap milestone update detector if user_id and message are present
     updated_milestone = None
     if user_id and user_message:
         updated_milestone = _detect_and_update_roadmap_milestones(user_id, user_message)
@@ -1144,23 +1117,17 @@ def _build_system_messages(user_id, user_message=None):
         )
         print(f"[INJECT] Added quest step focus for '{quest_step_focus}'")
 
-    # RAG: Find relevant verified links and add constraint prompt — runs for EVERY message
     if user_message:
         print(f"[INJECT] Performing RAG search...")
         
-        # Detect and save student preferences
         student_prefs = _detect_student_preferences(user_message)
         if student_prefs['university'] or student_prefs['program']:
             _save_student_preferences(user_id, student_prefs)
         
         rag_category = _detect_rag_category(user_message)
-        # Always search broadly so university-specific links surface correctly;
-        # category filter only for very specific domains to avoid missing relevant links
         if rag_category in ("HEALTHCARE", "VISA", "MAE", "IGI"):
-            # For these specific domains, search broadly first then by category
             broad_links = _find_relevant_links(user_message, category=None, top_k=4, user_id=user_id)
             category_links = _find_relevant_links(user_message, category=rag_category, top_k=4, user_id=user_id)
-            # Merge, deduplicate, keep up to 6
             seen_urls = set()
             relevant_links = []
             for link in broad_links + category_links:
@@ -1170,9 +1137,7 @@ def _build_system_messages(user_id, user_message=None):
                     relevant_links.append(link)
             relevant_links = relevant_links[:6]
         else:
-            # General / ACCOMMODATION / TRANSPORTATION / BANKING / CULTURE / OFFICIAL:
-            # Always fetch a broad set of relevant links (no category filter) so every
-            # response has verified sources to cite, regardless of topic.
+  
             relevant_links = _find_relevant_links(user_message, category=None, top_k=5, user_id=user_id)
         
         if relevant_links:
@@ -1180,7 +1145,6 @@ def _build_system_messages(user_id, user_message=None):
             system_messages.append({"role": "system", "content": link_constraint})
             print(f"[INJECT] Added {len(relevant_links)} verified links constraint")
         else:
-            # Fallback: always inject top university-specific links even if no keyword match
             fallback_links = _find_relevant_links("university official information iasi", category=None, top_k=4, user_id=user_id)
             if fallback_links:
                 link_constraint = _build_link_constraint_prompt(fallback_links)
@@ -1210,7 +1174,6 @@ def _normalize_input_messages(messages):
         if content is None:
             content = ""
 
-        # Keep content as plain text for this API path.
         if isinstance(content, (dict, list)):
             try:
                 content = json.dumps(content, ensure_ascii=False)
@@ -1232,7 +1195,6 @@ def _normalize_input_messages(messages):
 def _build_input_messages(messages, user_id=None):
     merged = list(messages or [])
     
-    # Extract the latest user message for RAG search
     user_message = None
     for msg in reversed(merged):
         if isinstance(msg, dict) and msg.get("role") == "user":
@@ -1248,8 +1210,6 @@ def _extract_citation_filenames(response):
     filenames = []
     seen = set()
 
-    # Prefer explicit file_citation annotations from the final output content.
-    # Response-level citation collections can include loosely related retrieved docs.
     for output_item in getattr(response, "output", []) or []:
         for content_item in getattr(output_item, "content", []) or []:
             for annotation in getattr(content_item, "annotations", []) or []:
@@ -1274,7 +1234,6 @@ def _map_citation_urls(filenames, user_message=None):
     for filename in filenames:
         url = _resolve_verified_link_for_citation(filename)
         if not url:
-            # fallback to raw mapping if present
             url = CITATION_MAPPING.get(filename)
         if url and url not in seen:
             seen.add(url)
@@ -1328,7 +1287,6 @@ def _filter_citations_for_query(citations, user_message):
         if key in seen:
             continue
 
-        # Keep citation if it's exactly a verified URL or its host is a verified host
         if key in verified_urls or (c_host and c_host in verified_hosts):
             seen.add(key)
             filtered.append(c_url)
@@ -1336,7 +1294,6 @@ def _filter_citations_for_query(citations, user_message):
     if filtered:
         return filtered
 
-    # No verified matches — fall back to top verified links for the user query
     try:
         top_links = _find_relevant_links(user_message or "", category=None, top_k=3)
         fallback = []
@@ -1363,7 +1320,7 @@ def _agent_response_text(messages, user_id=None):
     print(f"[AZURE] Total input messages: {len(input_messages)}")
     for i, msg in enumerate(input_messages):
         role = msg.get('role', 'unknown')
-        content = msg.get('content', '')[:100]  # First 100 chars
+        content = msg.get('content', '')[:100]  
         print(f"[AZURE]   Message {i}: role={role}, content_preview={content}...")
     
     response = client.responses.create(
@@ -1377,20 +1334,16 @@ def _agent_response_text(messages, user_id=None):
         },
     )
 
-    # DEBUG: Log complete response structure for v12 compatibility
     print(f"[AZURE] Response type: {type(response)}")
     print(f"[AZURE] Response dir: {[attr for attr in dir(response) if not attr.startswith('_')]}")
     print(f"[AZURE] Response object: {response}")
     
-    # Try multiple ways to extract text for v12 compatibility
     text = ""
     if hasattr(response, "output_text"):
         text = response.output_text or ""
     elif hasattr(response, "output"):
-        # v12 might return output as list or dict
         output = response.output
         if isinstance(output, list) and len(output) > 0:
-            # Try to extract text from first output item
             first_item = output[0]
             if hasattr(first_item, "content"):
                 content = first_item.content
@@ -1410,13 +1363,11 @@ def _agent_response_text(messages, user_id=None):
     
     print(f"[AZURE] Received response for user_id={user_id}, text_length={len(text)}")
 
-    # Return only mapped source URLs; skip citations with no mapping.
     citation_filenames = _extract_citation_filenames(response)
     citations = _map_citation_urls(citation_filenames, user_message=user_message)
     citations = _filter_citations_for_query(citations, user_message)
     print(f"[AZURE] Extracted filenames: {citation_filenames}. Mapped URLs: {citations}")
 
-    # Enrich citations with titles from verified links for frontend display
     enriched = []
     seen = set()
     links_index = { (l.get('url') or '').lower(): l for l in _get_verified_links() }
@@ -1436,10 +1387,7 @@ def _agent_response_text(messages, user_id=None):
                 title = url
         enriched.append({"url": url, "title": title})
 
-    # Always include top verified links for the user query as primary sources
-    # These appear in the frontend "More info" section for every response
     try:
-        # Fetch relevant links filtered by the student's university (via user_id)
         top_links = _find_relevant_links(user_message or "", category=None, top_k=6, user_id=user_id)
         for link in top_links:
             url = link.get("url")
@@ -1453,7 +1401,6 @@ def _agent_response_text(messages, user_id=None):
     return {"text": text, "citations": enriched}
 
 
-# ── HTTP route (kept for non-socket clients) ────────────────────────────────
 
 
 @app.route("/send_message", methods=["POST"])
@@ -1466,8 +1413,8 @@ def send_message():
         language = body.get("language", "en")
         enable_tts = body.get("enable_tts", False)
         is_voice_message = body.get("is_voice_message", False)
-        transcription = body.get("transcription")  # For voice messages
-        voice_url = body.get("voice_url")  # URL to original voice recording
+        transcription = body.get("transcription")  
+        voice_url = body.get("voice_url")  
         
         user_id = _normalize_sender_id(sender_id)
         history = body.get("history", [])
@@ -1480,7 +1427,6 @@ def send_message():
             result = _agent_response_text(messages, user_id=user_id)
             stream_text = result.get("text", "")
             
-            # Generate TTS if enabled
             if enable_tts and stream_text:
                 tts_result = VoiceProcessor.text_to_speech(stream_text, language=language)
                 if tts_result['success'] and tts_result['file_path']:
@@ -1489,7 +1435,6 @@ def send_message():
             if stream_text:
                 yield stream_text
 
-            # Store conversation with voice fields
             store_conversation(
                 sender_id, 
                 content, 
@@ -1512,9 +1457,7 @@ def send_message():
         return jsonify({"error": str(e)}), 500
 
 
-# ── Socket.IO route (used by React) ─────────────────────────────────────────
 
-# Catch-all handler to debug all socket events
 @socketio.on("*")
 def debug_event_handler(event, data):
     print(f"[DEBUG] Socket event received: {event}", flush=True)
@@ -1531,8 +1474,8 @@ def handle_user_uttered(data):
     language = data.get("language", "en")
     enable_tts = data.get("enable_tts", False)
     is_voice_message = data.get("is_voice_message", False)
-    transcription = data.get("transcription")  # For voice messages
-    voice_url = data.get("voice_url")  # URL to original voice recording
+    transcription = data.get("transcription")  
+    voice_url = data.get("voice_url")  
     
     print(f"[SOCKET] Raw sender_id from client: {sender_id}")
     user_id = _normalize_sender_id(sender_id)
@@ -1548,14 +1491,12 @@ def handle_user_uttered(data):
     voice_response_url = None
 
     try:
-        # Get the full result dictionary
         print(f"[SOCKET] Starting context injection and Azure call...")
         result = _agent_response_text(messages, user_id=user_id)
         stream_text = result.get("text", "")
         citations = result.get("citations", [])
         print(f"[SOCKET] Received response: text_length={len(stream_text)}, citations_count={len(citations)}")
 
-        # Generate TTS if enabled
         if enable_tts and stream_text:
             print(f"[SOCKET] Generating TTS for bot response...")
             tts_result = VoiceProcessor.text_to_speech(stream_text, language=language)
@@ -1566,7 +1507,6 @@ def handle_user_uttered(data):
                 print(f"[SOCKET] TTS generation failed: {tts_result.get('error')}")
 
         if stream_text:
-            # Emit text and optional voice URL to React
             metadata = {
                 "citations": citations,
                 "language": language,
@@ -1595,7 +1535,6 @@ def handle_user_uttered(data):
     print(f"[SOCKET] Emitting bot_done event")
     emit("bot_done")
     
-    # Store conversation with voice fields
     print(f"[SOCKET] Storing conversation for sender_id={sender_id}")
     store_conversation(
         sender_id, 
@@ -1612,7 +1551,6 @@ def handle_user_uttered(data):
     print(f"{'='*80}\n")
 
 
-# ── Health check ─────────────────────────────────────────────────────────────
 
 
 @app.route("/health", methods=["GET"])
