@@ -8,11 +8,8 @@ from contextlib import contextmanager
 
 class Database:
     def __init__(self, host=None, database=None, user=None, password=None):
-        # For local development: try localhost, then docker "db"
-        # For Docker: use "db" service name
         default_host = os.getenv('DB_HOST', 'localhost')
         
-        # If running in Docker Compose, DB_HOST should be set or default to 'db'
         if os.getenv('RUNNING_IN_DOCKER') == 'true':
             default_host = 'db'
         
@@ -66,7 +63,6 @@ def migrate_add_voice_fields():
     db = Database()
     
     migrations = [
-        # Add transcription field
         """
         DO $$
         BEGIN
@@ -84,7 +80,6 @@ def migrate_add_voice_fields():
         $$;
         """,
         
-        # Add voice_url field
         """
         DO $$
         BEGIN
@@ -102,7 +97,6 @@ def migrate_add_voice_fields():
         $$;
         """,
         
-        # Add voice_response_url field
         """
         DO $$
         BEGIN
@@ -120,7 +114,6 @@ def migrate_add_voice_fields():
         $$;
         """,
         
-        # Add language field
         """
         DO $$
         BEGIN
@@ -138,7 +131,6 @@ def migrate_add_voice_fields():
         $$;
         """,
         
-        # Add is_voice_message flag
         """
         DO $$
         BEGIN
@@ -156,7 +148,6 @@ def migrate_add_voice_fields():
         $$;
         """,
         
-        # Add tts_enabled flag
         """
         DO $$
         BEGIN
