@@ -30,7 +30,6 @@ CORS(app)
 
 DEFAULT_QUEST_SLUG = 'eu-student-admission-september-2026'
 
-# Middleware to verify token
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -356,7 +355,6 @@ def verify_token():
         'username': request.username
     }), 200
 
-# ============ USER PROFILE ROUTES ============
 
 @app.route('/profile', methods=['GET'])
 @token_required
@@ -389,7 +387,6 @@ def update_profile():
     except Exception as e:
         return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
 
-# ============ PROJECTS ROUTES ============
 
 @app.route('/projects', methods=['POST'])
 @token_required
@@ -531,14 +528,12 @@ def get_conversations():
     except Exception as e:
         return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
 
-# ============ HEALTH CHECK ============
 
 @app.route('/health', methods=['GET'])
 def health_check():
     """Health check endpoint"""
     return jsonify({'status': 'ok'}), 200
 
-# ============ IASI-QUEST ROUTES (Digital Shadow / Relocation Management) ============
 
 @app.route('/quest/token', methods=['POST'])
 @token_required
@@ -570,7 +565,6 @@ def resume_quest():
         if not quest_data:
             return jsonify({'success': False, 'message': 'Invalid or expired quest token'}), 401
         
-        # Get full profile data
         full_profile = AuthManager.get_full_quest_profile(quest_data['user_id'])
         
         return jsonify({
@@ -812,7 +806,6 @@ def get_digital_shadow():
         return jsonify({'success': False, 'message': f'Server error: {str(e)}'}), 500
 
 
-# ============ ACTIVITIES & PEERS & FORUM ============
 
 
 @app.route('/activities/filter', methods=['GET'])
@@ -1040,7 +1033,6 @@ def forum_answer_vote(answer_id):
         return jsonify({'success': False, 'message': str(e)}), 500
 
 
-# ============ VOICE CHAT ROUTES ============
 
 @app.route('/chat/transcribe', methods=['POST'])
 @token_required
@@ -1053,7 +1045,6 @@ def transcribe_audio():
     - language: language code (en-US, ro-RO, etc.) - optional, will be detected
     """
     try:
-        # Check if audio file is present
         if 'audio' not in request.files:
             return jsonify({
                 'success': False,
@@ -1067,18 +1058,15 @@ def transcribe_audio():
                 'message': 'Empty audio file'
             }), 400
         
-        # Get language preference (optional)
         language = request.form.get('language', 'en-US')
         if language not in ['en-US', 'ro-RO', 'en', 'ro']:
             language = 'en-US'
         
-        # Save temporary file for processing
         temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.webm')
         temp_path = temp_file.name
         audio_file.save(temp_path)
         
         try:
-            # Transcribe audio
             result = VoiceProcessor.transcribe_audio(temp_path, language)
             
             if result['success']:
@@ -1097,7 +1085,6 @@ def transcribe_audio():
                 }), 400
                 
         finally:
-            # Clean up temporary file
             import os
             if os.path.exists(temp_path):
                 os.remove(temp_path)
@@ -1140,11 +1127,9 @@ def generate_speech():
         if language not in ['en', 'ro']:
             language = 'en'
         
-        # Generate speech
         result = VoiceProcessor.text_to_speech(text, language)
         
         if result['success'] and result['file_path']:
-            # Return the audio file
             from flask import send_file
             return send_file(
                 result['file_path'],
@@ -1170,10 +1155,8 @@ def not_found(error):
     return jsonify({'success': False, 'message': 'Endpoint not found'}), 404
 
 if __name__ == '__main__':
-    # Initialize database
     db.init_db()
     
-    # Run Flask app
     host = os.getenv('FLASK_HOST', '0.0.0.0')
     port = int(os.getenv('FLASK_PORT', 5056))
     app.run(host=host, port=port, debug=True)
