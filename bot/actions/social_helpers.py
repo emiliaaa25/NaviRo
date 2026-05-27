@@ -7,7 +7,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 try:
     from actions.db import db
-except ImportError:  # pragma: no cover - supports api_server container layout
+except ImportError:  
     from db import db
 
 COHORT_SEPT_2026 = "Sept 2026 arrivals"
@@ -241,8 +241,7 @@ def find_peer_candidates(
         or (language and language.strip())
     )
 
-    # Fără filtre: orice alt utilizator cu cont de student (înregistrare).
-    # Cu filtre: doar cei care au completat relocarea (altfel nu avem țară/program/limbi).
+    
     clauses = ["u.id <> %s"]
     if has_filters:
         clauses.append("(sp.country_of_origin IS NOT NULL OR q.country_of_origin IS NOT NULL OR sp.study_program IS NOT NULL OR q.study_program IS NOT NULL OR q.languages_spoken IS NOT NULL)")
