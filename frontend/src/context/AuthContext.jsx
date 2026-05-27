@@ -9,7 +9,6 @@ export const AuthProvider = ({ children }) => {
 
   const API_BASE_URL = import.meta.env.VITE_API_URL || "/api";
 
-  // Load token from localStorage on mount
   useEffect(() => {
     const savedToken = localStorage.getItem("authToken");
     const savedUser = localStorage.getItem("user");
@@ -23,7 +22,6 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  // Verify token with backend
   const verifyToken = useCallback(async (tokenToVerify) => {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/verify`, {
@@ -104,7 +102,6 @@ export const AuthProvider = ({ children }) => {
         return { success: false, message: data.message };
       }
 
-      // Save token and user to localStorage
       localStorage.setItem("authToken", data.token);
       localStorage.setItem(
         "user",
@@ -334,7 +331,6 @@ export const AuthProvider = ({ children }) => {
     [token],
   );
 
-  // ============ IASI-QUEST METHODS ============
 
   const generateQuestToken = useCallback(async () => {
     if (!token) {
@@ -474,7 +470,6 @@ export const AuthProvider = ({ children }) => {
         const data = await response.json();
 
         if (!response.ok) {
-          // Quest module can be disabled on some backend deployments.
           if (response.status === 404) {
             return null;
           }
@@ -673,7 +668,6 @@ export const AuthProvider = ({ children }) => {
     addProject,
     updateProject,
     setError,
-    // Quest methods
     generateQuestToken,
     resumeQuest,
     createRelocationProfile,
