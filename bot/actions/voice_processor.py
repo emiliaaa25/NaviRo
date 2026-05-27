@@ -11,7 +11,7 @@ from pathlib import Path
 class VoiceProcessor:
     """Handles voice transcription and text-to-speech operations."""
     
-    # Initialize TTS engine
+    
     _tts_engine = None
 
     @staticmethod
@@ -44,11 +44,11 @@ class VoiceProcessor:
         try:
             recognizer = sr.Recognizer()
             
-            # Load audio file
+            
             with sr.AudioFile(audio_file_path) as source:
                 audio = recognizer.record(source)
             
-            # Attempt transcription using Google Speech Recognition
+            
             try:
                 transcript = recognizer.recognize_google(
                     audio,
@@ -57,7 +57,7 @@ class VoiceProcessor:
                 return {
                     'success': True,
                     'transcript': transcript,
-                    'confidence': 0.95,  # Google doesn't return confidence
+                    'confidence': 0.95,  
                     'detected_language': language,
                     'error': None
                 }
@@ -107,12 +107,12 @@ class VoiceProcessor:
         try:
             engine = VoiceProcessor.get_tts_engine()
             
-            # Use first available voice (usually English)
+            
             voices = engine.getProperty('voices')
             if voices:
                 engine.setProperty('voice', voices[0].id)
             
-            # Generate or save audio
+            
             if output_path is None:
                 output_path = tempfile.NamedTemporaryFile(
                     suffix='.mp3',
@@ -122,7 +122,7 @@ class VoiceProcessor:
             engine.save_to_file(text, output_path)
             engine.runAndWait()
             
-            # Check if file was created
+           
             if os.path.exists(output_path) and os.path.getsize(output_path) > 0:
                 return {
                     'success': True,
