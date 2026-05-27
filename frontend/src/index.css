@@ -39,7 +39,6 @@ body {
   color: var(--text);
 }
 
-/* —— Auth split layout (login / register) —— */
 .nv-auth-screen {
   display: flex;
   flex-direction: row;
@@ -328,7 +327,6 @@ body {
   border-color: var(--sage-light);
 }
 
-/* —— App shell —— */
 .nv-app {
   display: flex;
   flex-direction: row;
@@ -1200,7 +1198,6 @@ a.nv-nav-link-tab {
   line-height: 1.55;
 }
 
-/* Account summary (in-app tab) */
 .nv-account-inner {
   padding: 36px 28px;
   max-width: 700px;
@@ -1391,7 +1388,6 @@ a.nv-btn-primary {
   background: #fff5f5;
 }
 
-/* Profile page (full) */
 .nv-page {
   min-height: 100vh;
   background: var(--cream);
@@ -1688,7 +1684,6 @@ a.nv-btn-primary {
   border: 2px solid var(--cream);
 }
 
-/* Quest roadmap page */
 .nv-roadmap-page {
   min-height: 100vh;
   padding: 32px 20px 48px;
@@ -2163,7 +2158,6 @@ a.nv-btn-primary {
   animation: nv-fadeUp 0.35s ease forwards;
 }
 
-/* —— Social: Activities, Buddies, Forum —— */
 .nv-page {
   min-height: 100vh;
   padding: 24px 32px 48px;
