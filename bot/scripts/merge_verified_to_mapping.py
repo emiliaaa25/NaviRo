@@ -35,7 +35,6 @@ def main():
     verified = json.loads(VERIFIED_PATH.read_text(encoding="utf-8"))
     links = verified.get("links", [])
 
-    # Build reverse lookup of existing urls for quick skip
     existing_urls = set(v.lower() for v in mapping.values())
 
     added = 0
@@ -49,7 +48,6 @@ def main():
 
         base = slugify(title)
         key = f"{base}.txt"
-        # Ensure unique key
         suffix = 1
         while key in mapping:
             suffix += 1
