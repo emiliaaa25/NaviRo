@@ -1,6 +1,4 @@
-/* Voice Input Component Styles */
 
-/* Compact mic button for input bar */
 .nv-voice-mic-button {
   display: flex;
   align-items: center;
@@ -45,7 +43,6 @@
   }
 }
 
-/* Mini waveform in input bar */
 .nv-waveform-mini {
   display: flex;
   align-items: flex-end;
@@ -66,7 +63,6 @@
   animation: waveform-pulse 0.3s ease-in-out;
 }
 
-/* Full voice input container */
 .nv-voice-input-container {
   display: flex;
   flex-direction: column;
@@ -88,7 +84,6 @@
   font-weight: 500;
 }
 
-/* Voice Header */
 .nv-voice-header {
   display: flex;
   justify-content: space-between;
@@ -125,7 +120,6 @@
   box-shadow: 0 0 0 2px rgba(122, 158, 142, 0.1);
 }
 
-/* Waveform Visualization */
 .nv-waveform-container {
   display: flex;
   align-items: flex-end;
@@ -162,7 +156,6 @@
   }
 }
 
-/* Transcript Display */
 .nv-transcript-display {
   padding: 12px;
   background: var(--white, #ffffff);
@@ -174,7 +167,6 @@
   word-wrap: break-word;
 }
 
-/* Voice Controls */
 .nv-voice-controls {
   display: flex;
   gap: 8px;
@@ -241,7 +233,6 @@
   cursor: not-allowed;
 }
 
-/* Responsive */
 @media (max-width: 480px) {
   .nv-voice-input-container {
     padding: 12px;
@@ -269,7 +260,6 @@
   cursor: not-allowed;
 }
 
-/* Waveform Visualization */
 .voice-waveform {
   display: flex;
   align-items: flex-end;
@@ -290,7 +280,6 @@
   box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
 }
 
-/* Transcript Display */
 .voice-transcript {
   padding: 10px 12px;
   background: white;
@@ -305,7 +294,6 @@
   word-wrap: break-word;
 }
 
-/* Controls */
 .voice-controls {
   display: flex;
   gap: 8px;
@@ -334,7 +322,6 @@
   cursor: not-allowed;
 }
 
-/* Record Button */
 .record-btn {
   background: linear-gradient(135deg, #ef4444, #f87171);
   color: white;
@@ -350,7 +337,6 @@
   transform: translateY(0);
 }
 
-/* Stop Button */
 .stop-btn {
   background: linear-gradient(135deg, #3b82f6, #60a5fa);
   color: white;
@@ -362,7 +348,6 @@
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-/* Playback Button */
 .playback-btn {
   background: linear-gradient(135deg, #10b981, #34d399);
   color: white;
@@ -374,7 +359,6 @@
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
-/* Send Button */
 .send-btn {
   background: linear-gradient(135deg, #8b5cf6, #a78bfa);
   color: white;
@@ -386,7 +370,6 @@
   box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
-/* Status Badges */
 .voice-status {
   display: flex;
   gap: 8px;
@@ -427,7 +410,6 @@
   color: #92400e;
 }
 
-/* Animations */
 @keyframes pulse {
   0% {
     background: #fee2e2;
@@ -452,7 +434,6 @@
   }
 }
 
-/* Responsive Design */
 @media (max-width: 480px) {
   .voice-input-container {
     padding: 10px;
