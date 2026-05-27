@@ -1,7 +1,3 @@
-/**
- * Example Voice Chat Integration
- * Shows how to integrate VoiceInput component and useVoice hook into ChatApp
- */
 
 import React, { useEffect, useState } from "react";
 import VoiceInput from "../components/VoiceInput";
@@ -10,7 +6,6 @@ import useAuth from "../hooks/useAuth";
 import { useChat } from "../hooks/useChat";
 
 const VoiceChatExample = () => {
-  // State management
   const { user, token } = useAuth();
   const { socket, messages, sendMessage: sendChatMessage } = useChat();
   const {
@@ -26,22 +21,18 @@ const VoiceChatExample = () => {
   const [currentLanguage, setCurrentLanguage] = useState("en-US");
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // Handle voice input transcript
   const handleTranscript = (transcript) => {
     console.log("📝 Transcript received:", transcript);
   };
 
-  // Handle sending voice message
   const handleSendVoiceMessage = async (transcript) => {
     if (!transcript.trim()) return;
 
     setIsProcessing(true);
     try {
-      // Detect language from transcript
       const detectedLang = detectLanguage(transcript);
       console.log(`🔤 Detected language: ${detectedLang}`);
 
-      // Send message via chat socket with voice metadata
       socket.emit("user_uttered", {
         message: transcript,
         sender: user?.id,
@@ -58,7 +49,6 @@ const VoiceChatExample = () => {
           })),
       });
 
-      // Listen for bot response and play if TTS enabled
       if (enableTTS) {
         socket.once("bot_uttered", ({ text, metadata }) => {
           console.log("🤖 Bot response:", text);
@@ -75,7 +65,6 @@ const VoiceChatExample = () => {
     }
   };
 
-  // Handle playing voice for messages
   const handlePlayVoiceMessage = async (messageText) => {
     try {
       playBotVoice(messageText, null, currentLanguage);
@@ -167,7 +156,7 @@ const VoiceChatExample = () => {
         }
       `}</style>
 
-      {/* Header */}
+      
       <div>
         <h2>🎤 Voice Chat Example Integration</h2>
         <p>
@@ -175,7 +164,7 @@ const VoiceChatExample = () => {
         </p>
       </div>
 
-      {/* Voice Controls */}
+      
       <div className="voice-controls">
         <button
           className={`voice-control-btn ${voiceEnabled ? "active" : ""}`}
@@ -201,10 +190,10 @@ const VoiceChatExample = () => {
         </select>
       </div>
 
-      {/* Error Display */}
+      
       {voiceError && <div className="voice-status error">❌ {voiceError}</div>}
 
-      {/* Status Display */}
+      
       {isProcessing && (
         <div className="voice-status info">⏳ Processing voice message...</div>
       )}
@@ -213,7 +202,7 @@ const VoiceChatExample = () => {
         <div className="voice-status info">🔊 Playing bot response...</div>
       )}
 
-      {/* Voice Input Component */}
+      
       {voiceEnabled && (
         <VoiceInput
           onTranscript={handleTranscript}
@@ -222,7 +211,6 @@ const VoiceChatExample = () => {
         />
       )}
 
-      {/* Example Message Display with Voice Controls */}
       <div>
         <h3>💬 Messages Example</h3>
         <div className="message-with-voice">
@@ -243,7 +231,6 @@ const VoiceChatExample = () => {
         </div>
       </div>
 
-      {/* Implementation Notes */}
       <div style={{ paddingTop: "16px", borderTop: "1px solid #e1e8ed" }}>
         <h3>📋 Implementation Checklist</h3>
         <ul>
@@ -258,7 +245,6 @@ const VoiceChatExample = () => {
         </ul>
       </div>
 
-      {/* Usage Notes */}
       <div style={{ paddingTop: "16px", borderTop: "1px solid #e1e8ed" }}>
         <h3>📝 Next Steps</h3>
         <ol>
