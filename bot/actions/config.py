@@ -6,7 +6,7 @@ class Config:
     UAIC_REFERENCE_URL_PATTERN = "https://www.uaic.ro/studii/facultati-2/[FILE_NAME]"
     UAIC_ADMITERE_REFERENCE_URL_PATTERN = "https://admitere.uaic.ro/[FILE_NAME]"
 
-    # Database configuration from environment or defaults
+
     DB_HOST = os.getenv('DB_HOST', 'localhost')
     DB_PORT = int(os.getenv('DB_PORT', '5432'))
     DB_NAME = os.getenv('DB_NAME', 'iasi_quest_db')
@@ -16,9 +16,7 @@ class Config:
         f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
     )
 
-    #########################################
-    ####### AZURE OPEN AI Configs ###########
-    #########################################
+    
     AZURE_PROJECT_ENDPOINT = "https://virtual-assistant-team--resource.services.ai.azure.com/api/projects/virtual-assistant-team-project"
     AZURE_AGENT_NAME = "Test-agent"
     AZURE_AGENT_VERSION = "12"
@@ -53,5 +51,5 @@ Key competencies:
 CRITICAL URL RULE: You must ONLY use URLs from the verified sources list provided in each conversation. Never construct, guess, or improvise any URL. If a specific page is not in your verified sources, say so and direct the student to the main international office of their university."""
     TOOLS = []
 
-    # Google OAuth configuration
+    
     GOOGLE_CLIENT_ID = "637432744098-edegr6i8gr13ko8vvfk18f2a3rf05shc.apps.googleusercontent.com"
