@@ -29,7 +29,6 @@ services:
       GOOGLE_CLIENT_ID: 637432744098-edegr6i8gr13ko8vvfk18f2a3rf05shc.apps.googleusercontent.com
     volumes:
       - ./bot/actions:/app/actions
-      # Seed path in db.py: parent of actions/ + verified_links.json (see _seed_activities_from_json)
       - ./bot/verified_links.json:/app/verified_links.json:ro
     ports:
       - "5056:5056"
