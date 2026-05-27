@@ -1,14 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import useAuth from "./useAuth";
 
-/**
- * useVoice hook - Handles speech-to-text and text-to-speech functionality
- * Features:
- * - Auto-detect language (Romanian/English) from user's selection
- * - Record audio and send for server-side transcription
- * - Play bot responses using TTS
- * - Store voice URLs for conversation history
- */
+
 export const useVoice = () => {
   const { token } = useAuth();
   const [isTranscribing, setIsTranscribing] = useState(false);
@@ -19,10 +12,7 @@ export const useVoice = () => {
   const audioChunksRef = useRef([]);
   const audioContextRef = useRef(null);
 
-  /**
-   * Request browser permissions and start recording audio
-   * Returns a promise that resolves when recording starts
-   */
+ 
   const startVoiceRecording = useCallback(async () => {
     try {
       setVoiceError("");
@@ -50,9 +40,6 @@ export const useVoice = () => {
     }
   }, []);
 
-  /**
-   * Stop recording and return audio blob
-   */
   const stopVoiceRecording = useCallback(async () => {
     return new Promise((resolve) => {
       if (!mediaRecorderRef.current) {
@@ -65,7 +52,6 @@ export const useVoice = () => {
           type: "audio/webm",
         });
 
-        // Stop all tracks
         mediaRecorderRef.current.stream
           .getTracks()
           .forEach((track) => track.stop());
@@ -78,10 +64,7 @@ export const useVoice = () => {
     });
   }, []);
 
-  /**
-   * Send audio blob to server for transcription
-   * Returns: { success, transcript, language, error }
-   */
+
   const transcribeAudio = useCallback(
     async (audioBlob, detectedLanguage = "en") => {
       setIsTranscribing(true);
@@ -131,17 +114,13 @@ export const useVoice = () => {
     [token],
   );
 
-  /**
-   * Play bot response using Text-to-Speech
-   * Works with server-provided voice URL or falls back to browser TTS
-   */
+ 
   const playBotVoice = useCallback(
     async (text, voiceUrl, language = "en-US") => {
       setIsPlayingTTS(true);
       setVoiceError("");
 
       try {
-        // Try to play server-generated audio first (if voiceUrl provided)
         if (voiceUrl) {
           try {
             const audio = new Audio(voiceUrl);
@@ -159,7 +138,6 @@ export const useVoice = () => {
           }
         }
 
-        // Fallback: Use browser's built-in Text-to-Speech
         playBrowserTTS(text, language);
       } catch (error) {
         setVoiceError("Failed to play audio");
@@ -169,13 +147,11 @@ export const useVoice = () => {
     [],
   );
 
-  /**
-   * Browser's native Text-to-Speech (fallback)
-   */
+
   const playBrowserTTS = useCallback((text, language) => {
     try {
       if ("speechSynthesis" in window) {
-        window.speechSynthesis.cancel(); // Cancel any ongoing speech
+        window.speechSynthesis.cancel(); 
 
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = language;
@@ -199,9 +175,7 @@ export const useVoice = () => {
     }
   }, []);
 
-  /**
-   * Stop currently playing TTS
-   */
+ 
   const stopPlayback = useCallback(() => {
     if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
@@ -209,15 +183,11 @@ export const useVoice = () => {
     setIsPlayingTTS(false);
   }, []);
 
-  /**
-   * Detect language from user input or default
-   * Returns: "en-US" or "ro-RO"
-   */
+  
   const detectLanguage = useCallback((text, userPreference = "en") => {
-    // Simple Romanian detection - look for common Romanian words/patterns
     const romanianPatterns = [
-      /\bă\b|\bî\b|\bș\b|\bț\b/, // Romanian diacritics
-      /\bcare\b|\bpentru\b|\bcum\b|\bun\b/i, // Common Romanian words
+      /\bă\b|\bî\b|\bș\b|\bț\b/, 
+      /\bcare\b|\bpentru\b|\bcum\b|\bun\b/i, 
     ];
 
     const isRomanian = romanianPatterns.some((pattern) => pattern.test(text));
@@ -225,9 +195,7 @@ export const useVoice = () => {
     return isRomanian ? "ro-RO" : "en-US";
   }, []);
 
-  /**
-   * Cleanup on unmount
-   */
+ 
   const cleanup = useCallback(() => {
     if (mediaRecorderRef.current?.state === "recording") {
       mediaRecorderRef.current.stop();
@@ -238,18 +206,15 @@ export const useVoice = () => {
   }, []);
 
   return {
-    // Recording
     startVoiceRecording,
     stopVoiceRecording,
     transcribeAudio,
     isTranscribing,
 
-    // Playback
     playBotVoice,
     stopPlayback,
     isPlayingTTS,
 
-    // Utilities
     detectLanguage,
     cleanup,
     voiceError,
