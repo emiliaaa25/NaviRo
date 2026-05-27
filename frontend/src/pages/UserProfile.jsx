@@ -42,11 +42,9 @@ export default function UserProfile() {
     full_name: "",
     student_type: "",
     country_of_origin: "",
-    // target (Iași)
     target_university: "",
     target_faculty_id: "",
     study_program: "",
-    // erasmus-only
     home_university: "",
     home_faculty: "",
     academic_year: "",
@@ -133,7 +131,6 @@ export default function UserProfile() {
     ? getProgramOptionsByFaculty(editFormData.target_faculty_id)
     : [];
 
-  // Resolve display names for read view
   const displayFaculty =
     profile?.target_faculty ||
     IASI_FACULTIES.find((f) => f.id === profile?.target_faculty_id)?.name ||
@@ -207,7 +204,6 @@ export default function UserProfile() {
           <div className="nv-card-body">
             {!isEditingProfile ? (
               <>
-                {/* ── READ VIEW ── */}
                 <div className="nv-form-grid" style={{ marginBottom: 24 }}>
                   <div>
                     <span className="nv-label">Username</span>
@@ -236,7 +232,6 @@ export default function UserProfile() {
                     </p>
                   </div>
 
-                  {/* International-specific */}
                   {(!profile?.student_type ||
                     profile.student_type === "international") && (
                     <>
@@ -282,7 +277,6 @@ export default function UserProfile() {
                     </>
                   )}
 
-                  {/* Erasmus-specific */}
                   {profile?.student_type === "erasmus" && (
                     <>
                       <div>
@@ -402,7 +396,6 @@ export default function UserProfile() {
                 </button>
               </>
             ) : (
-              /* ── EDIT FORM ── */
               <form onSubmit={handleUpdateProfile}>
                 <div style={{ marginBottom: 16 }}>
                   <label className="nv-label" htmlFor="username">
@@ -433,7 +426,6 @@ export default function UserProfile() {
                   />
                 </div>
 
-                {/* Student type */}
                 <div style={{ marginBottom: 16 }}>
                   <label className="nv-label">Student type</label>
                   <div style={{ display: "flex", gap: 10, marginTop: 6 }}>
@@ -495,7 +487,6 @@ export default function UserProfile() {
                   </div>
                 </div>
 
-                {/* Erasmus-only fields */}
                 {editFormData.student_type === "erasmus" && (
                   <div className="nv-form-grid" style={{ marginBottom: 16 }}>
                     <div>
@@ -549,7 +540,7 @@ export default function UserProfile() {
                   </div>
                 )}
 
-                {/* University in Iași */}
+                
                 <div style={{ marginBottom: 16 }}>
                   <label className="nv-label" htmlFor="target_university">
                     {editFormData.student_type === "erasmus"
@@ -573,7 +564,6 @@ export default function UserProfile() {
                   </select>
                 </div>
 
-                {/* Faculty – scrollable */}
                 <div style={{ marginBottom: 16 }}>
                   <label className="nv-label" htmlFor="target_faculty_id">
                     {editFormData.student_type === "erasmus"
@@ -603,7 +593,6 @@ export default function UserProfile() {
                   </select>
                 </div>
 
-                {/* Programme */}
                 {editFormData.target_faculty_id && (
                   <div style={{ marginBottom: 16 }}>
                     <label className="nv-label" htmlFor="study_program">
@@ -671,7 +660,6 @@ export default function UserProfile() {
           </div>
         </div>
 
-        {/* Toolkit */}
         <div className="nv-card" style={{ marginBottom: 24 }}>
           <div className="nv-card-header-sage">
             <h3>Student Toolkit for Iași</h3>
