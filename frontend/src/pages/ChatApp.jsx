@@ -295,7 +295,7 @@ function ChatApp() {
           .split("|")
           .map((cell) => cell.trim());
 
-        i += 2; // skip header + separator row
+        i += 2; 
         const rows = [];
         while (i < lines.length && lines[i].includes("|")) {
           const rowLine = lines[i].trim();
@@ -536,7 +536,7 @@ function ChatApp() {
           </button>
         </div>
 
-        {/* Chat */}
+        {}
         <div
           className={`nv-panel nv-chat-panel${activeTab === "chat" ? " nv-active" : ""}`}
         >
@@ -646,7 +646,7 @@ function ChatApp() {
           </div>
         </div>
 
-        {/* Topics */}
+        {}
         <div
           className={`nv-panel nv-scroll-panel${activeTab === "topics" ? " nv-active" : ""}`}
         >
@@ -675,7 +675,7 @@ function ChatApp() {
           </div>
         </div>
 
-        {/* Tips */}
+        {}
         <div
           className={`nv-panel nv-scroll-panel${activeTab === "tips" ? " nv-active" : ""}`}
         >
@@ -700,7 +700,7 @@ function ChatApp() {
           </div>
         </div>
 
-        {/* Account summary → full profile */}
+        {}
         <div
           className={`nv-panel nv-scroll-panel${activeTab === "account" ? " nv-active" : ""}`}
         >
