@@ -1,5 +1,3 @@
-// Facultățile și programele de studiu din Iași
-// Acoperă UAIC, UMF, TUIASI, UAGE
 
 export const IASI_FACULTIES = [
   {
