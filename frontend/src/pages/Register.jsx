@@ -69,21 +69,18 @@ const STUDENT_TYPES = [
 ];
 
 export default function Register() {
-  const [step, setStep] = useState(1); // 1 = credentials, 2 = student type + academic profile
+  const [step, setStep] = useState(1); 
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
     fullName: "",
-    // profile
     student_type: "",
     country_of_origin: "",
-    // shared
     target_university: "",
     target_faculty_id: "",
     target_program: "",
-    // erasmus-only
     home_university: "",
     academic_year: "",
     home_faculty: "",
@@ -98,7 +95,6 @@ export default function Register() {
     const { name, value } = e.target;
     setFormData((prev) => {
       const next = { ...prev, [name]: value };
-      // Reset dependent fields when university changes
       if (name === "target_university") {
         next.target_faculty_id = "";
         next.target_program = "";
@@ -239,7 +235,7 @@ export default function Register() {
           Create an account to save your profile, track your relocation quest,
           and chat with your AI guide anytime.
         </p>
-        {/* Step indicator */}
+        {}
         <div style={{ marginTop: 32, display: "flex", gap: 8 }}>
           {[1, 2].map((s) => (
             <div
@@ -379,7 +375,6 @@ export default function Register() {
             )}
 
             <form onSubmit={handleSubmit} style={{ width: "100%" }}>
-              {/* Student type selector */}
               <div className="nv-form-group">
                 <label>I am coming to Iași as…</label>
                 <div
@@ -457,7 +452,7 @@ export default function Register() {
                 </div>
               </div>
 
-              {/* Country */}
+              {}
               <div className="nv-form-group">
                 <label htmlFor="country_of_origin">Country of origin</label>
                 <div className="nv-input-wrap">
@@ -473,7 +468,6 @@ export default function Register() {
                 </div>
               </div>
 
-              {/* Erasmus: home university + year + home faculty */}
               {formData.student_type === "erasmus" && (
                 <>
                   <div className="nv-form-group">
@@ -533,7 +527,6 @@ export default function Register() {
                 </>
               )}
 
-              {/* University in Iași */}
               <div className="nv-form-group">
                 <label htmlFor="target_university">
                   University in Iași{" "}
@@ -558,7 +551,6 @@ export default function Register() {
                 </select>
               </div>
 
-              {/* Faculty — scrollable select */}
               <div className="nv-form-group">
                 <label htmlFor="target_faculty_id">
                   Faculty in Iași{" "}
@@ -589,7 +581,6 @@ export default function Register() {
                 </select>
               </div>
 
-              {/* Programme */}
               {formData.target_faculty_id && (
                 <div className="nv-form-group">
                   <label htmlFor="target_program">Study programme</label>
