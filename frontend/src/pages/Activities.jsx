@@ -57,7 +57,6 @@ export default function Activities() {
       const data = await res.json();
       if (data.success) setRecommended(data.activities || []);
     } catch {
-      /* ignore */
     }
   };
 
