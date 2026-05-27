@@ -39,7 +39,7 @@ def _ensure_schema(cursor):
         """
     )
 
-    # Add voice fields if they don't exist
+    
     voice_migrations = [
         ("transcription", "TEXT"),
         ("voice_url", "VARCHAR(500)"),
@@ -69,7 +69,6 @@ def _ensure_schema(cursor):
             """
         )
 
-    # Repair older schemas where id exists but has no default sequence.
     cursor.execute(
         """
         DO $$
