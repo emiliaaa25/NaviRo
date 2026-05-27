@@ -2,7 +2,7 @@ from db import db
 
 def migrate():
     with db.get_cursor() as cur:
-        # If academic_year already exists as integer, change it to text
+        
         cur.execute("""
             DO $$
             BEGIN
